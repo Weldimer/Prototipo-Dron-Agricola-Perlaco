@@ -78,3 +78,4 @@
 ## 📚 Documentación Técnica y Manuales de Campo
 * 📖 [**Manual de Operación de Campo y Lista de Verificación (Checklist)**](docs/manual_operacion_campo.md): Protocolo paso a paso para el operador en parcela, purgado de línea VRA, checklist pre-vuelo y mantenimiento inmediato.
 * 📋 [**Protocolo de Prueba Estática de Banco (Bench Test)**](docs/protocolo_prueba_banco.md): Inspección estática sin hélices, verificación de sentidos de giro X8 y respuesta de electroválvulas.
+* 🛠️ [**Plan de Mantenimiento Preventivo y Cartilla de Servicio**](docs/plan_mantenimiento_preventivo.md): Tabla de torques en abrazaderas H3 (3.2 Nm), lavado de línea VRA, conservación de conectores QS8-S y bitácora por horas de vuelo.
