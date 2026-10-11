@@ -8,108 +8,7 @@
 
 ---
 
-## 📸 Portada y Evidencia Fotográfica (BOM y Diseños CAD)
 
-<div align="center">
-  <img src="assets/dron_bom_diseno_1.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_2.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_3.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_4.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_5.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_6.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_7.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_8.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_9.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_10.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_11.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_12.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_13.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_14.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_15.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_16.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_17.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_18.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_19.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_20.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_21.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_22.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_23.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_24.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_25.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_26.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_27.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_28.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_29.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_30.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_31.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_32.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_33.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_34.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_35.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_36.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_37.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_38.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_39.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_40.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_41.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_42.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_43.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_44.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_45.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_46.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_47.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_48.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_49.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_50.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_51.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_52.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_53.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_54.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_55.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_56.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_57.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_58.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_59.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_60.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_61.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_62.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_63.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_64.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_65.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_66.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_67.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_68.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_69.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_70.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_71.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_72.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_73.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_74.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_75.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_76.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_77.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_78.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_79.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_80.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_81.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_82.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_83.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_84.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_85.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_86.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_87.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_88.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_89.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_90.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_91.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_92.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_93.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_94.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_95.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_bom_diseno_96.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-</div>
-
----
 
 ## 📋 Descripción General del Proyecto
 El **STR-002 H3 v3.0** es un vehículo aéreo no tripulado agrícola de categoría pesada (MTOW ≈ 28.5 - 29.5 kg) diseñado para la aplicación de tasa variable (VRA) de agroquímicos en cultivos de alta densidad en Úrsulo Galván, Veracruz.
@@ -135,7 +34,7 @@ El **STR-002 H3 v3.0** es un vehículo aéreo no tripulado agrícola de categor�
 * `/mission`: Archivo de misión agrícola QGC WPL 110 (`mision_agricola_str002_h3.waypoints`).
 * `/simulation`: Script de simulación hidráulica y respuesta de caudal en Python.
 * `/docs`: Memoria técnica de ingeniería y reivindicaciones de patente.
-* `/assets`: Galería de componentes BOM y planos de diseño.
+* `/assets`: Galería de fotografías reales y componentes mecatrónicos.
 
 ---
 
