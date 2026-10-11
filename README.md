@@ -7,6 +7,12 @@
 ![Status](https://img.shields.io/badge/Status-Manufacturable_&_Validated-brightgreen.svg)
 
 ---
+### 4. Variación Dinámica del Centro de Gravedad ($Z_{CG}$)
+<div align="center">
+  <img src="assets/analisis_cg_dinamico.png" width="90%" alt="Analisis CG Dinamico" />
+</div>
+
+---
 
 ## 📈 Simulación de Firmware y Respuesta Dinámica
 
