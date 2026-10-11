@@ -7,6 +7,12 @@
 ![Status](https://img.shields.io/badge/Status-Manufacturable_&_Validated-brightgreen.svg)
 
 ---
+### 5. Reporte de Auditoría y Verificación de Errores de Sistema
+<div align="center">
+  <img src="assets/diagnostico_errores_sistema.png" width="95%" alt="Diagnóstico de Errores y Estrés" />
+</div>
+
+---
 
 ## 📈 Resultados de Simulación Dinámica y Telemetría
 
