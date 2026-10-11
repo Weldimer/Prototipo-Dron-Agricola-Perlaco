@@ -1,0 +1,8 @@
+# CONFIGURACIÓN T-MOTOR ALPHA 80A HV (STR-002 H3 v3.0)
+# Parámetros optimizados para hélices de 30" y motores P80 III KV120
+
+TIMING_ANGLE = 15.0         # 15 deg para alta eficiencia inercial
+PWM_FREQUENCY = 24000       # 24 kHz silencioso y sin armónicos
+THROTTLE_RESPONSE = FAST    # Respuesta rápida para estabilización PID heavy-lift
+DRAKE_BRAKE = OFF           # Desactivado para conservar vida mecánica de hélices plegables
+PROTECTION_VOLTAGE = 3.2V   # Límite por celda (38.4V total en bus 12S LiPo)
