@@ -12,15 +12,11 @@
 
 <div align="center">
   <img src="assets/dron_foto_1.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_2.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_3.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_4.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_5.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_6.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_7.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_8.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_9.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_10.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_100.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_101.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_102.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_103.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_11.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_12.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_13.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -30,6 +26,7 @@
   <img src="assets/dron_foto_17.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_18.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_19.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_2.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_20.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_21.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_22.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -40,6 +37,7 @@
   <img src="assets/dron_foto_27.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_28.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_29.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_3.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_30.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_31.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_32.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -50,6 +48,7 @@
   <img src="assets/dron_foto_37.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_38.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_39.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_4.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_40.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_41.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_42.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -60,6 +59,7 @@
   <img src="assets/dron_foto_47.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_48.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_49.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_5.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_50.png" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_51.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_52.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -70,6 +70,7 @@
   <img src="assets/dron_foto_57.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_58.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_59.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_6.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_60.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_61.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_62.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -80,6 +81,7 @@
   <img src="assets/dron_foto_67.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_68.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_69.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_7.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_70.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_71.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_72.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -90,6 +92,7 @@
   <img src="assets/dron_foto_77.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_78.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_79.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_8.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_80.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_81.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_82.jpeg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -100,6 +103,7 @@
   <img src="assets/dron_foto_87.webp" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_88.webp" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_89.webp" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
+  <img src="assets/dron_foto_9.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_90.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_91.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_92.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
@@ -110,10 +114,6 @@
   <img src="assets/dron_foto_97.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_98.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
   <img src="assets/dron_foto_99.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_100.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_101.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_102.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
-  <img src="assets/dron_foto_103.jpg" width="45%" style="margin: 5px; border-radius: 8px;" alt="STR-002 H3 Perlaco" />
 </div>
 
 ---
@@ -136,12 +136,12 @@ El **STR-002 H3 v3.0** es un vehículo aéreo no tripulado agrícola de categor�
 
 ---
 
-## 📁 Archivos de Ingeniería Incluidos
+## 📁 Estructura del Repositorio
 * `/cad`: Plano DXF de chasis central CFRP 3.0 mm.
 * `/firmware`: Script Lua v2.2 (`vra_tank_failsafe.lua`) para dosificación VRA y Failsafe.
-* `/mission`: Archivo de misión agrícola QGC WPL 110 (`mision_agricola_str002_h3.waypoints`).
-* `/simulation`: Script de simulación hidráulica y respuesta de caudal en Python.
-* `/docs`: Memoria técnica de ingeniería y reivindicaciones de patente.
+* `/misión`: Archivo de misión agrícola QGC WPL 110 (`mision_agricola_str002_h3.waypoints`).
+* `/simulación`: Script de simulación hidráulica y respuesta de caudal en Python.
+* `/documentos`: Memoria técnica de ingeniería y reivindicaciones de patente.
 * `/assets`: Galería de fotografías reales y componentes mecatrónicos.
 
 ---
