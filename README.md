@@ -48,3 +48,21 @@
 ## 👤 Autor e Inventor Principal
 **Angel Imer Lara Colorado**  
 *ELECTRÓNICA PERLACO* — Úrsulo Galván, Veracruz, México.
+
+---
+
+## 📁 Suite Completa de Firmware y Archivos de Control (`/firmware`)
+* `str002_h3_v30_complete.param`: Parámetros maestros de vuelo y navegación RTK.
+* `str002_h3_pid_tuning.param`: Ganancias PID normalizadas para $MTOW = 29	ext{ kg}$.
+* `vra_tank_failsafe.lua`: Inyección VRA proporcional y Failsafe de estanque HDPE.
+* `radar_terrain_failsafe.lua`: Validación de altimetría por radar FMCW $77	ext{ GHz}$.
+* `status_leds_display.lua`: Telemetría LED direccionable (RTK Fix / Reserva de estanque).
+* `flowmeter_calibration.lua`: Autocalibración del caudalímetro YF-S201 ($450	ext{ p/L}$).
+* `smart_battery_bms_12s.lua`: Monitoreo BMS CAN de celdas $12	ext{S}$ y gestión térmica.
+* `nozzle_pressure_control.lua`: Control en lazo cerrado de presión hidráulica ($0-10	ext{ Bar}$).
+* `obstacle_avoidance_3d.param`: Perímetro de evasión anti-colisión por radar frontal.
+* `geofence_perimeter_safety.param`: Geofensa rígida operacional ($10	ext{ m AGL} / 500	ext{ m}$).
+* `zed_f9p_moving_baseline.txt`: Configuración de rumbo centimétrico RTK Dual u-Blox.
+* `edgetx_str002_perlaco.yml`: Mapeo de canales y switches de la emisora de radiocontrol.
+* `esc_alpha80a_config.txt`: Parámetros de baja latencia de ESC T-Motor Alpha 80A.
+* `companion_4g_bridge.py`: Servicio MAVLink para telemetría 4G LTE.
