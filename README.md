@@ -8,28 +8,23 @@
 
 ---
 
-## 📸 Galería Técnica y Módulos Mecatrónicos
+## 📸 Galería Técnica y Evidencia Fotográfica
 
 ### 1. Ensamblaje Final y Estructura Chasis
-| Dron STR-002 H3 v3.0 Ensamblado | Plantilla CAD de Corte CFRP 3 mm |
+| Dron STR-002 H3 v3.0 Ensamblado | Plantilla CAD / Plano de Corte CFRP |
 | :---: | :---: |
 | ![Dron Final](assets/dron_final.jpg) | ![Plantilla CAD](assets/plantilla_cad.jpg) |
 
-### 2. Subsistema de Aviónica e Inmunidad Electromagnética
-| Cube Orange+ y Sensor Radar 77 GHz | RTK Dual u-Blox ZED-F9P |
+### 2. Subsistema de Aviónica e Hidráulica VRA
+| Cube Orange+ y Sensores | Electroválvula Distribuida en Punta |
 | :---: | :---: |
-| ![Avionica](assets/avionica_cube.jpg) | ![RTK Dual](assets/rtk_dual.jpg) |
-
-### 3. Subsistema Hidráulico Anti-Goteo y Dosificación VRA
-| Electroválvula NC 24V en Punta | Caudalímetro YF-S201 y Atomizador CDA |
-| :---: | :---: |
-| ![Valvula Distribuida](assets/valvula_punta.jpg) | ![Hidraulica CDA](assets/sensor_cda.jpg) |
+| ![Avionica](assets/avionica_cube.jpg) | ![Valvula Punta](assets/valvula_punta.jpg) |
 
 ---
 
 ## 🛠️ Especificaciones Técnicas Principales
 * **MTOW:** 28.5 kg - 29.5 kg
-* **Carga Útil (Payload):** 10.0 L (Tanque HDPE con rompeolas)
+* **Carga Útil (Payload):** 10.0 L (Tanque HDPE)
 * **Chasis:** Fibra de Carbono 3K (3.0 mm) + Abrazaderas H3 7075-T6 ($Y = \pm 26.0\text{ mm}$)
 * **Alimentación:** Bus 12S LiPo (50.4V pico) + QS8-S Anti-Spark
 * **Motopropulsión:** 8x T-Motor P80 III KV120 + Hélices plegables 30x10.5"
@@ -40,6 +35,16 @@
 
 ---
 
+## 📁 Archivos de Ingeniería Incluidos
+* `/cad`: Plano DXF de chasis central CFRP 3.0 mm.
+* `/firmware`: Script Lua v2.2 (`vra_tank_failsafe.lua`) para dosificación VRA y Failsafe.
+* `/mission`: Archivo de misión agrícola QGC WPL 110 (`mision_agricola_str002_h3.waypoints`).
+* `/simulation`: Script de simulación hidráulica y respuesta de caudal en Python.
+* `/docs`: Memoria técnica de ingeniería y reivindicaciones de patente.
+* `/assets`: Galería fotográfica multimedia y elementos mecatrónicos.
+
+---
+
 ## 👤 Autor e Inventor Principal
 **Angel Imer Lara Colorado**  
 *ELECTRÓNICA PERLACO* — Úrsulo Galván, Veracruz, México.
@@ -47,4 +52,4 @@
 ---
 
 ## 📜 Licencia
-Distribuido bajo la licencia **CERN Open Hardware Licence Version 2 - Weakly Reciprocal (CERN-OHL-W v2)**.
+Distribuido bajo la licencia **CERN Open Hardware Licence Version 2 - Weakly Reciprocal (CERN-OHL-W v2)** y **GNU General Public License v3.0 (GPLv3)**.
