@@ -8,23 +8,14 @@
 
 ---
 
-## 📸 Galería Técnica y Evidencia Fotográfica
-
-### 1. Ensamblaje Final y Estructura Chasis
-| Dron STR-002 H3 v3.0 Ensamblado | Plantilla CAD / Plano de Corte CFRP |
-| :---: | :---: |
-| ![Dron Final](assets/dron_final.jpg) | ![Plantilla CAD](assets/plantilla_cad.jpg) |
-
-### 2. Subsistema de Aviónica e Hidráulica VRA
-| Cube Orange+ y Sensores | Electroválvula Distribuida en Punta |
-| :---: | :---: |
-| ![Avionica](assets/avionica_cube.jpg) | ![Valvula Punta](assets/valvula_punta.jpg) |
+## 📋 Descripción General del Proyecto
+El **STR-002 H3 v3.0** es un vehículo aéreo no tripulado agrícola de categoría pesada (MTOW ≈ 28.5 - 29.5 kg) diseñado para la aplicación de tasa variable (VRA) de agroquímicos en cultivos de alta densidad en Úrsulo Galván, Veracruz.
 
 ---
 
 ## 🛠️ Especificaciones Técnicas Principales
 * **MTOW:** 28.5 kg - 29.5 kg
-* **Carga Útil (Payload):** 10.0 L (Tanque HDPE)
+* **Carga Útil (Payload):** 10.0 L (Tanque HDPE con rompeolas)
 * **Chasis:** Fibra de Carbono 3K (3.0 mm) + Abrazaderas H3 7075-T6 ($Y = \pm 26.0\text{ mm}$)
 * **Alimentación:** Bus 12S LiPo (50.4V pico) + QS8-S Anti-Spark
 * **Motopropulsión:** 8x T-Motor P80 III KV120 + Hélices plegables 30x10.5"
@@ -41,7 +32,6 @@
 * `/mission`: Archivo de misión agrícola QGC WPL 110 (`mision_agricola_str002_h3.waypoints`).
 * `/simulation`: Script de simulación hidráulica y respuesta de caudal en Python.
 * `/docs`: Memoria técnica de ingeniería y reivindicaciones de patente.
-* `/assets`: Galería fotográfica multimedia y elementos mecatrónicos.
 
 ---
 
