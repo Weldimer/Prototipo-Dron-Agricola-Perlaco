@@ -7,6 +7,12 @@
 ![Status](https://img.shields.io/badge/Status-Manufacturable_&_Validated-brightgreen.svg)
 
 ---
+### 6. Análisis Dinámico de Carga, Descarga y Salud Térmica de Baterías 12S LiPo
+<div align="center">
+  <img src="assets/simulacion_baterias_12s.png" width="95%" alt="Simulación Baterías 12S LiPo" />
+</div>
+
+---
 ### 5. Reporte de Auditoría y Verificación de Errores de Sistema
 <div align="center">
   <img src="assets/diagnostico_errores_sistema.png" width="95%" alt="Diagnóstico de Errores y Estrés" />
