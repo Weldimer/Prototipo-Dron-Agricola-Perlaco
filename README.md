@@ -72,3 +72,9 @@
 * `edgetx_str002_perlaco.yml`: Mapeo de canales y switches de la emisora de radiocontrol.
 * `esc_alpha80a_config.txt`: Parámetros de baja latencia de ESC T-Motor Alpha 80A.
 * `companion_4g_bridge.py`: Servicio MAVLink para telemetría 4G LTE.
+
+---
+
+## 📚 Documentación Técnica y Manuales de Campo
+* 📖 [**Manual de Operación de Campo y Lista de Verificación (Checklist)**](docs/manual_operacion_campo.md): Protocolo paso a paso para el operador en parcela, purgado de línea VRA, checklist pre-vuelo y mantenimiento inmediato.
+* 📋 [**Protocolo de Prueba Estática de Banco (Bench Test)**](docs/protocolo_prueba_banco.md): Inspección estática sin hélices, verificación de sentidos de giro X8 y respuesta de electroválvulas.
