@@ -81,3 +81,4 @@
 * 🛠️ [**Plan de Mantenimiento Preventivo y Cartilla de Servicio**](docs/plan_mantenimiento_preventivo.md): Tabla de torques en abrazaderas H3 (3.2 Nm), lavado de línea VRA, conservación de conectores QS8-S y bitácora por horas de vuelo.
 * 📱 [**Memoria Técnica de Investigación y Desarrollo Móvil (PERLACOLABS)**](docs/bitacora_investigacion_perlacolabs.md): Historia del desarrollo cloud-native ejecutado en smartphone Samsung SM-A04, bitácora de errores resueltos y desglose físico-matemático.
 * 📊 [**Estudio Técnico y de Ingeniería Integral**](docs/estudio_dron_agricola.md): Análisis completo de arquitectura, propulsión 12S, VRA hidráulico y desarrollo cloud-native PERLACOLABS.
+* 🧠 [**Matriz de Aprendizaje y Maestría Técnica de Repositorios**](docs/aprendizaje_repositorios_estudiados.md): Mapeo del conocimiento extraído de ArduPilot, QGroundControl, CAD ezdxf y simulaciones electroquímicas LiPo 12S.
