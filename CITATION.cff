@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this engineering framework or drone specifications, please cite it as below."
+authors:
+  - family-names: "Lara Colorado"
+    given-names: "Angel Imer"
+    alias: "PERLACOLABS"
+    affiliation: "ELECTRÓNICA PERLACO"
+title: "ELECTRÓNICA PERLACO — STR-002 H3 v3.0 Agricultural Drone Platform"
+version: "3.0.0"
+date-released: "2026-08-14"
+url: "https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco"

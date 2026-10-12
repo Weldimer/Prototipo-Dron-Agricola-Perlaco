@@ -1,6 +1,27 @@
 # ELECTRÓNICA PERLACO — STR-002 H3 v3.0 / v2.5
-**Expediente Técnico, Normativo y de Simulación de la Plataforma Agrícola X8 (MTOW 29.0 kg)**  
-**Desarrollado por:** Angel Imer Lara Colorado — *PERLACOLABS / ELECTRÓNICA PERLACO* (Úrsulo Galván, Veracruz, México)
+
+![CI/CD Pipeline](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions/workflows/ci_validation.yml/badge.svg)
+![ArduPilot](https://img.shields.io/badge/Autopilot-ArduPilot%204.2%2B-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![MTOW](https://img.shields.io/badge/MTOW-29.0%20kg-orange.svg)
+![Category](https://img.shields.io/badge/AFAC-RPAS%20Grande-red.svg)
+
+**Expediente Técnico, Normativo y de Simulación de la Plataforma Agrícola X8**  
+**Autor e Inventor Principal:** Angel Imer Lara Colorado — *PERLACOLABS / ELECTRÓNICA PERLACO* (Úrsulo Galván, Veracruz, México)
+
+---
+
+## 🔌 Arquitectura de Interconexión Hardware & Aviónica
+
+```mermaid
+graph TD
+    A[Cube Orange+ / ArduPilot 4.2+] -->|UART / MAVLink| B[Radar FMCW 77 GHz]
+    A -->|CAN Bus / BDShot| C[8x ESCs T-Motor Alpha 80A HV]
+    C --> D[8x Motores P80 III + Hélices 30x10.5]
+    A -->|Lua Script PWM| E[Caudalímetro YF-S201 450 p/L]
+    A -->|GPIO Relés 24V| F[4x Electroválvulas Solenoides NC]
+    A -->|I2C / Serial| G[Smart BMS 12S LiPo 30,000 mAh]
+```
 
 ---
 
