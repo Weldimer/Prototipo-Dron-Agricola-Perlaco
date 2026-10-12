@@ -1,12 +1,12 @@
 # ELECTRÓNICA PERLACO - STR-002 H3 v3.0
 
-**Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) - Octocóptero Coaxial X8**  
-**Expediente Digital de Ingeniería, Aviónica de Redundancia Crítica y Simulación Geomática**  
+**Plataforma Aérea Agrícola Multi-UAV (MTOW 29.0 kg por unidad) - Octocóptero Coaxial X8 & MAVLink Swarm**  
+**Expediente Digital de Ingeniería, Coordinación de Enjambres y Partición Espacial Boustrophedon**  
 **Desarrollado por:** Angel Imer Lara Colorado / **PERLACOLABS** - *Úrsulo Galván & Paso de Ovejas, Veracruz, México*
 
 [![CI Validation](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions/workflows/daily_learning_simulation.yml/badge.svg)](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions)
 ![ArduPilot](https://img.shields.io/badge/ArduPilot-4.5%2B-blue.svg)
-![Hardware](https://img.shields.io/badge/Hardware-Cube%20Orange%2B-orange.svg)
+![Swarm](https://img.shields.io/badge/Swarm-MAVLink%20SYSID-brightgreen.svg)
 ![MTOW](https://img.shields.io/badge/MTOW-29.0%20kg-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)
 
@@ -15,21 +15,21 @@
 
 ---
 
-## 🌐 Centro de Control y Analítica Web
+## 🐝 Arquitectura de Drones en Enjambre (Multi-UAV Coordination)
 
-Toda la analítica gráfica, métricas interactiva y mapas de cobertura se visualizan dinámicamente desde el portal del proyecto:
+Toda la analítica de operación en enjambre, división geométrica de parcelas y reducción del tiempo operativo se visualizan dinámicamente desde el portal web:
 
-* 📊 **[Acceder al Dashboard Interactivo en GitHub Pages](https://Weldimer.github.io/Prototipo-Dron-Agricola-Perlaco/)**: Gráficos Plotly en tiempo real de cobertura efectiva, penetración en follaje (LAI), deriva eólica e historial de parcelas.
-* 📑 **[Reporte Ejecutivo de Aprendizaje e Incidencias](docs/reportes/resumen_aprendizaje_diario.md)**: Tabla de control de misiones con dosis VRA y matriz de mitigación de errores.
+* 📊 **[Acceder al Dashboard de Enjambres en GitHub Pages](https://Weldimer.github.io/Prototipo-Dron-Agricola-Perlaco/)**: Gráficos Plotly comparativos de tiempos de vuelo (Monodron vs Swarm), porcentajes de ahorro temporal y matrices de penetración foliar.
+* 📑 **[Reporte Ejecutivo de Misiones y Cobertura Multi-UAV](docs/reportes/resumen_aprendizaje_diario.md)**: Tabla de control de enjambres con asignación de pasadas por unidad y redundancia MAVLink.
 
 ---
 
-## 🛠️ Especificaciones Técnicas Principales
+## 🛠️ Especificaciones Técnicas del Enjambre
 
-* **Plataforma Física:** Octocóptero Coaxial X8 (8x T-Motor P80 III KV120, ESCs Alpha 80A HV, empuje máximo de 73.6 kg).
-* **Aviónica y Navegación:** Doble GNSS ZED-F9P RTK Moving Baseline (rumbo preciso e inmunidad EMI >300A sin brújulas magnéticas).
-* **Control Atmosférico:** Filtro Notch dinámico BDShot y algoritmo VRA adaptativo para compensación de vientos severos ("Nortes" >127 km/h).
-* **Automatización:** Pipeline en GitHub Actions cronometrado (2 veces al día) con ingesta de APIs agrometeorológicas (Open-Meteo, NASA POWER) y generación automática de planes de vuelo `.plan` para QGroundControl.
+* **Nodos de Vuelo (UAVs):** Formación estándar de 3 Octocópteros Coaxiales X8 (Dron Alpha `SYSID 1`, Dron Beta `SYSID 2`, Dron Gamma `SYSID 3`).
+* **Partición Espacial:** Algoritmo de sectorización paralelo Boustrophedon con margen de tolerancia lateral (15.0 m) para evitar colisiones.
+* **Aviónica y Navegación:** Doble GNSS ZED-F9P RTK Moving Baseline por aeronave (rumbo relativo de alta precisión e inmunidad a interferencia magnética).
+* **Ganancia Operativa:** Reducción de tiempo de misión superior al **60%** en parcelas de gran extensión (>10 ha).
 
 ---
 
