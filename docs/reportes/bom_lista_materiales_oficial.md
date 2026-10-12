@@ -1,7 +1,7 @@
 # 📦 Lista Oficial de Materiales (BOM) - ELECTRÓNICA PERLACO STR-002 H3 v3.0
 **Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) — Octocóptero Coaxial X8 & Enjambre**  
 **Proyecto:** Prototipo Dron Agrícola Perlaco  
-**Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván & Paso de Ovejas, Veracruz, México*
+**Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
 
 ---
 
@@ -48,7 +48,7 @@
 | :--- | :--- | :---: | :--- |
 | **Tanque de Mezcla** | Polietileno HD reestructurado anti-chapoteo (Capacidad 16 L / 20 L) | 1 | Centro de gravedad del dron (Bajo el chasis) |
 | **Bomba de Pulverización** | Bomba de diafragma 12V 5.0 L/min con control PWM VRA | 1 | Parte inferior junto al sistema de acople rápido |
-| **Boquillas de Aspersión** | Boquillas de cono hueco / Centrifugas de gota variable (VMD 200–280 µm) | 4 | Bajo los motores en extensión de brazos |
+| **Boquillas de Aspersión** | Boquillas de cono hueco / Centrífugas de gota variable (VMD 200–280 µm) | 4 | Bajo los motores en extensión de brazos |
 
 ---
 **ELECTRÓNICA PERLACO / PERLACOLABS** — *Ingeniería Agrícola de Alta Precisión y Soberanía Tecnológica.*

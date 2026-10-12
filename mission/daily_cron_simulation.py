@@ -1,5 +1,6 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR DE APRENDIZAJE GEOMÁTICA, ENJAMBRE Y TELEMETRÍA RF
+# PERLACOLABS - MOTOR DE APRENDIZAJE GEOMÁTICO Y SIMULACIÓN TRIPLE
+# 2 Simulaciones con 1 Dron + 1 Simulación con Enjambre de 3 Drones
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -15,12 +16,12 @@ CONFIG_ENJAMBRE = {
     'eficiencia_red_mesh': 0.88,
     'margen_anticolision_m': 15.0,
     'frecuencia_mhz': 915.0,
-    'potencia_tx_dbm': 30.0  # RFD900x 1 Watt
+    'potencia_tx_dbm': 30.0
 }
 
 CATALOGO_PARCELAS_VERACRUZ = [
     {'id': 'PARC-001', 'nombre': 'Parcela_A_UrsuloGalvan', 'lat': 19.4008, 'lon': -96.3533, 'cultivo': 'Caña de Azúcar', 'area_base_ha': 12.5, 'ancho_m': 350.0, 'largo_m': 357.1, 'lai_base': 3.8},
-    {'id': 'PARC-002', 'nombre': 'Parcela_B_PasoDeOvejas', 'lat': 19.2867, 'lon': -96.4402, 'cultivo': 'Cítricos', 'area_base_ha': 8.2, 'ancho_m': 270.0, 'largo_m': 303.7, 'lai_base': 2.4},
+    {'id': 'PARC-002', 'nombre': 'Parcela_B_UrsuloGalvan_Cítricos', 'lat': 19.4120, 'lon': -96.3610, 'cultivo': 'Limón Persa', 'area_base_ha': 8.2, 'ancho_m': 270.0, 'largo_m': 303.7, 'lai_base': 2.4},
     {'id': 'PARC-003', 'nombre': 'Parcela_C_Actopan', 'lat': 19.5011, 'lon': -96.6152, 'cultivo': 'Papaya', 'area_base_ha': 6.5, 'ancho_m': 200.0, 'largo_m': 325.0, 'lai_base': 3.1},
     {'id': 'PARC-004', 'nombre': 'Parcela_D_LaAntigua', 'lat': 19.3705, 'lon': -96.3762, 'cultivo': 'Maíz', 'area_base_ha': 15.0, 'ancho_m': 300.0, 'largo_m': 500.0, 'lai_base': 3.5}
 ]
@@ -176,7 +177,7 @@ def simular_mision(p, num_drones):
 def generar_reporte_markdown(df):
     df_rec = df.tail(10).iloc[::-1]
     md = [
-        '# 📊 Reporte Industrial: Telemetría RF 915 MHz, Monodron vs Enjambre',
+        '# 📊 Reporte Industrial: Telemetría RF 915 MHz (2 Monodron + 1 Enjambre)',
         '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm & Off-Grid Sync*',
         '',
         '### 📑 Matriz de Operaciones y Calidad de Enlace de Radiofrecuencia',
@@ -192,17 +193,23 @@ def generar_reporte_markdown(df):
     md.extend([
         '',
         '---',
-        '**ELECTRÓNICA PERLACO / PERLACOLABS** — *Innovación en Robótica Agrícola y Enjambres Autónomos*'
+        '**ELECTRÓNICA PERLACO / PERLACOLABS** — *Úrsulo Galván, Veracruz, México*'
     ])
     with open('docs/reportes/resumen_aprendizaje_diario.md', 'w', encoding='utf-8') as f:
         f.write('\n'.join(md))
 
 def ejecutar_simulacion():
-    parcelas = random.sample(CATALOGO_PARCELAS_VERACRUZ, 2)
-    res_monodron = simular_mision(parcelas[0], num_drones=1)
-    res_enjambre = simular_mision(parcelas[1], num_drones=3)
+    # Seleccionar 3 parcelas del catálogo regional
+    parcelas = random.sample(CATALOGO_PARCELAS_VERACRUZ, 3)
     
-    df_new = pd.DataFrame([res_monodron, res_enjambre])
+    # 2 Simulaciones con 1 Dron (Monodron)
+    res_m1 = simular_mision(parcelas[0], num_drones=1)
+    res_m2 = simular_mision(parcelas[1], num_drones=1)
+    
+    # 1 Simulación con 3 Drones (Enjambre Multi-UAV)
+    res_swarm = simular_mision(parcelas[2], num_drones=3)
+    
+    df_new = pd.DataFrame([res_m1, res_m2, res_swarm])
     log_file = 'simulation/historical_learning_log.csv'
     
     if os.path.exists(log_file) and os.path.getsize(log_file) > 100:
@@ -224,7 +231,7 @@ def ejecutar_simulacion():
 
     df_tot.to_csv(log_file, index=False)
     generar_reporte_markdown(df_tot)
-    print('✅ Simulación de telemetría RF Off-Grid e historial CSV actualizados.')
+    print('✅ Simulación de 3 misiones (2 Monodron + 1 Enjambre) completada.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()

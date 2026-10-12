@@ -72,7 +72,7 @@ html_content = f'''<!DOCTYPE html>
     </div>
     
     <div class="card">
-        <h3>📑 Histórico de Misiones y Enlace de Radiofrecuencia (915 MHz Off-Grid)</h3>
+        <h3>📑 Histórico de Misiones (2 Monodron + 1 Enjambre)</h3>
         <table>
             <thead>
                 <tr><th>Fecha UTC</th><th>Parcela</th><th>Cultivo</th><th>Configuración</th><th>Dosis VRA</th><th>Tiempo Real</th><th>RSSI (dBm)</th><th>SNR (dB)</th><th>Estado</th></tr>
