@@ -1,132 +1,221 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR DE SIMULACIÓN CON IA PREDICTIVA Y GENERADOR QGC (.PLAN)
-# Autor: Angel Imer Lara Colorado — ELECTRÓNICA PERLACO
+# PERLACOLABS - MOTOR GEOMATICO MULTI-API CON FISICA DE FOLLAJE Y ERRORES
+# Autor: Angel Imer Lara Colorado - ELECTRONICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
 import urllib.request
 import json
-import datetime
+from datetime import datetime, timezone
 import os
 import numpy as np
 import pandas as pd
 
-PARCELA_A = {'nombre': 'Parcela_A_UrsuloGalvan', 'lat': 19.4008, 'lon': -96.3533, 'cultivo': 'Caña de Azúcar', 'variante': 'CP 72-2086 (Caña Maura)', 'area_ha': 12.5, 'sopa': 'Herbicida Nicosulfurón + Coadyuvante Siliconado', 'salinidad_ec': 1.8}
-PARCELA_B = {'nombre': 'Parcela_B_PasoDeOvejas', 'lat': 19.2867, 'lon': -96.4402, 'cultivo': 'Cítricos', 'variante': 'Limón Persa Injertado', 'area_ha': 8.2, 'sopa': 'Fungicida Foliar + Bioestimulante Zn-B + Buffer pH', 'salinidad_ec': 2.4}
+OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY', 'free_tier_demo_key')
+AGROMONITORING_API_KEY = os.getenv('AGROMONITORING_API_KEY', 'free_tier_demo_key')
 
-def consultar_weather_api(lat, lon):
-    url = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true&hourly=relativehumidity_2m,direct_normal_irradiance'
-    try:
-        req = urllib.request.urlopen(url, timeout=10)
-        data = json.loads(req.read().decode('utf-8'))
-        curr = data.get('current_weather', {})
-        temp_c = curr.get('temperature', 28.5)
-        viento_kmh = curr.get('windspeed', 16.0)
-        dir_deg = curr.get('winddirection', 90.0)
-        return temp_c, viento_kmh, dir_deg, 68.0, 18.5
-    except Exception:
-        return 30.0, 20.0, 85.0, 65.0, 19.0
-
-def generar_qgc_plan(p_info, dir_viento_deg):
-    heading_optimo = (dir_viento_deg + 90.0) % 360.0
-    plan_data = {
-        'fileType': 'Plan',
-        'version': 1,
-        'groundStation': 'QGroundControl / PERLACOLABS',
-        'mission': {
-            'cruiseSpeed': 5.0,
-            'firmwareType': 12,
-            'hoverSpeed': 3.0,
-            'items': [
-                {'autoContinue': True, 'command': 16, 'frame': 3, 'params': [0, 0, 0, None, p_info['lat'], p_info['lon'], 3.5]},
-                {'autoContinue': True, 'command': 178, 'frame': 2, 'params': [1, 5.0, -1, 0, 0, 0, 0]}
-            ],
-            'plannedHomePosition': [p_info['lat'], p_info['lon'], 15.0],
-            'vehicleType': 2
-        },
-        'meta_info': {
-            'parcela': p_info['nombre'],
-            'heading_optimo_deg': heading_optimo,
-            'cultivo': p_info['cultivo']
-        }
+PARCELAS = [
+    {
+        'id': 'PARC-001',
+        'nombre': 'Parcela_A_UrsuloGalvan',
+        'lat': 19.4008,
+        'lon': -96.3533,
+        'cultivo': 'Cana de Azucar',
+        'variante': 'CP 72-2086 (Cana Maura)',
+        'area_ha': 12.5,
+        'ancho_m': 350.0,
+        'largo_m': 357.1,
+        'lai_follaje': 3.8,
+        'altura_dosel_m': 2.8,
+        'sopa': 'Herbicida Nicosulfuron + Coadyuvante Siliconado',
+        'salinidad_ec': 1.8
+    },
+    {
+        'id': 'PARC-002',
+        'nombre': 'Parcela_B_PasoDeOvejas',
+        'lat': 19.2867,
+        'lon': -96.4402,
+        'cultivo': 'Citricos',
+        'variante': 'Limon Persa Injertado',
+        'area_ha': 8.2,
+        'ancho_m': 270.0,
+        'largo_m': 303.7,
+        'lai_follaje': 2.4,
+        'altura_dosel_m': 3.2,
+        'sopa': 'Fungicida Foliar + Bioestimulante Zn-B + Buffer pH',
+        'salinidad_ec': 2.4
     }
-    p_nom = p_info['nombre']
-    out_path = f'mission/generated_plans/{p_nom}_mision.plan'
-    with open(out_path, 'w', encoding='utf-8') as f:
-        json.dump(plan_data, f, indent=2)
-    return out_path, heading_optimo
+]
 
-def simular_parcela(p_info):
-    now_utc = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
-    temp_c, viento_kmh, dir_deg, hr_pct, rad_solar = consultar_weather_api(p_info['lat'], p_info['lon'])
+def consultar_open_meteo(lat, lon):
+    url = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true&hourly=relativehumidity_2m'
+    req = urllib.request.Request(url, headers={'User-Agent': 'PerlacoLabs-Drone/3.0'})
+    with urllib.request.urlopen(req, timeout=6) as response:
+        data = json.loads(response.read().decode('utf-8'))
+        curr = data.get('current_weather', {})
+        temp = float(curr.get('temperature', 28.5))
+        viento_kmh = float(curr.get('windspeed', 16.0))
+        dir_deg = float(curr.get('winddirection', 90.0))
+        hr = 68.0
+        if 'hourly' in data and 'relativehumidity_2m' in data['hourly']:
+            if len(data['hourly']['relativehumidity_2m']) > 0:
+                hr = float(data['hourly']['relativehumidity_2m'][0])
+        return temp, viento_kmh, dir_deg, hr, 'Open-Meteo (OK)'
+
+def consultar_nasa_power(lat, lon):
+    fecha_hoy = datetime.now(timezone.utc).strftime('%Y%m%d')
+    url = f'https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,WS2M,RH2M,ALLSKY_SFC_SW_DWN&community=AG&longitude={lon}&latitude={lat}&start={fecha_hoy}&end={fecha_hoy}&format=JSON'
+    req = urllib.request.Request(url, headers={'User-Agent': 'PerlacoLabs-Drone/3.0'})
+    with urllib.request.urlopen(req, timeout=6) as response:
+        data = json.loads(response.read().decode('utf-8'))
+        param = data['properties']['parameter']
+        temp = list(param['T2M'].values())[0]
+        viento_ms = list(param['WS2M'].values())[0]
+        hr = list(param['RH2M'].values())[0]
+        return float(temp), float(viento_ms * 3.6), 90.0, float(hr), 'NASA-POWER (OK)'
+
+def consultar_multi_api_meteo(lat, lon):
+    try:
+        return consultar_open_meteo(lat, lon)
+    except Exception:
+        try:
+            return consultar_nasa_power(lat, lon)
+        except Exception as e:
+            return 29.0, 17.5, 85.0, 66.0, f'FALLBACK_REGIONAL: {str(e)[:30]}'
+
+def calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct):
+    viento_ms = viento_kmh / 3.6
+    ancho_m = p['ancho_m']
+    largo_m = p['largo_m']
+    lai = p['lai_follaje']
+    altura_vuelo_efectiva = 3.5
+    ancho_franja_m = 6.0
+    overlap_pct = 25.0
+
+    ancho_efectivo_m = ancho_m - 10.0
+    num_pasadas = int(np.ceil(ancho_efectivo_m / (ancho_franja_m * (1.0 - overlap_pct / 100.0))))
+    distancia_total_vuelo_m = (num_pasadas * largo_m) + (num_pasadas * ancho_franja_m)
+
+    v_terminal_gota = 0.72
+    tiempo_caida_s = altura_vuelo_efectiva / v_terminal_gota
+    distancia_deriva_m = viento_ms * tiempo_caida_s
+    vmd_optimo_um = 280.0 if (viento_ms > 4.0 or (temp_c / hr_pct) > 0.45) else 200.0
+
+    k_extincion = 0.5
+    efecto_downwash_x8 = 1.35
+    penetracion_follaje_pct = min(100.0, np.exp(-k_extincion * lai) * 100.0 * efecto_downwash_x8)
+
+    error_posicionamiento_rtk_m = 0.025
+    error_deriva_pct = (distancia_deriva_m / ancho_franja_m) * 100.0
+    error_caudal_bomba_pct = 2.5
+    
+    incertidumbre_total_pct = np.sqrt(error_deriva_pct**2 + error_caudal_bomba_pct**2 + (error_posicionamiento_rtk_m * 10.0)**2)
+    cobertura_efectiva_pct = max(0.0, min(100.0, 100.0 - incertidumbre_total_pct * 0.4))
+
+    return {
+        'num_pasadas': num_pasadas,
+        'distancia_vuelo_m': round(distancia_total_vuelo_m, 1),
+        'distancia_deriva_m': round(distancia_deriva_m, 2),
+        'vmd_optimo_um': vmd_optimo_um,
+        'penetracion_follaje_pct': round(penetracion_follaje_pct, 1),
+        'incertidumbre_total_pct': round(incertidumbre_total_pct, 2),
+        'cobertura_efectiva_pct': round(cobertura_efectiva_pct, 1)
+    }
+
+def evaluar_y_simular_parcela(p):
+    now_utc = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
+    temp_c, viento_kmh, dir_deg, hr_pct, fuente_api = consultar_multi_api_meteo(p['lat'], p['lon'])
+    fisica = calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct)
 
     viento_ms = viento_kmh / 3.6
-    viento_transversal = viento_ms * 0.6
-    crab_angle_deg = np.degrees(np.arcsin(np.clip(viento_transversal / 15.0, -0.8, 0.8)))
+    dosis_nominal = 10.0
+    factor_vra = 1.0 + (max(0, viento_ms - 3.0) * 0.04) + ((temp_c / hr_pct) * 0.18)
+    dosis_ajustada = dosis_nominal * factor_vra
+    volumen_total_l = dosis_ajustada * p['area_ha']
+    heading_optimo = (dir_deg + 90.0) % 360.0
+    score_ventana = max(0.0, 100.0 - (viento_kmh * 2.2) - (fisica['distancia_deriva_m'] * 12.0))
 
-    delta_t = temp_c - (temp_c * (1 - hr_pct / 100.0) / 2.0)
-    vmd_gota_um = 280.0 if (viento_ms > 4.0 or delta_t > 8.0) else 180.0
+    vmd_val = fisica['vmd_optimo_um']
+    deriva_val = fisica['distancia_deriva_m']
+    pasadas_val = fisica['num_pasadas']
+    cob_val = fisica['cobertura_efectiva_pct']
 
-    dosis_nominal_l_ha = 10.0
-    factor_vra = 1.0 + (max(0, viento_ms - 3.0) * 0.045) + ((temp_c / hr_pct) * 0.2)
-    dosis_ajustada_l_ha = dosis_nominal_l_ha * factor_vra
-    volumen_total_sopa_l = dosis_ajustada_l_ha * p_info['area_ha']
-
-    vuelos_requeridos = int(np.ceil(volumen_total_sopa_l / 10.0))
-    tiempo_vuelo_min = (p_info['area_ha'] * 2.5) + (vuelos_requeridos * 2.0)
-    corriente_12s_prom_a = 160.0 + (viento_ms * 4.5)
-    emi_level_ut = corriente_12s_prom_a * 0.42
-
-    score_ventana = max(0.0, 100.0 - (viento_kmh * 2.5) - (delta_t * 3.0))
-    plan_file, heading_opt = generar_qgc_plan(p_info, dir_deg)
+    if 'FALLBACK' in fuente_api:
+        estado = '🔴 INCIDENTE_API_FALLBACK'
+        mitigacion = 'Modelo de redundancia regional activado sin detener mision.'
+    elif viento_kmh > 26.0:
+        estado = '🟡 ADVERTENCIA_VIENTO'
+        mitigacion = f'Gota VMD ampliada a {vmd_val} um. Deriva compensada: {deriva_val}m.'
+    else:
+        estado = '🟢 OPTIMO'
+        mitigacion = f'Trazado en {heading_optimo:.1f} deg con {pasadas_val} pasadas. Cobertura: {cob_val}%.'
 
     return {
         'Fecha_Hora_UTC': now_utc,
-        'Parcela': p_info['nombre'],
-        'Cultivo': p_info['cultivo'],
-        'Variante': p_info['variante'],
-        'Area_ha': p_info['area_ha'],
-        'Sopa_Formulacion': p_info['sopa'],
-        'Dosis_L_ha': dosis_ajustada_l_ha,
-        'Volumen_Sopa_Total_L': volumen_total_sopa_l,
-        'VMD_Gota_um': vmd_gota_um,
-        'Tiempo_Vuelo_min': tiempo_vuelo_min,
-        'Cambios_Bateria_12S': vuelos_requeridos,
-        'Viento_kmh': viento_kmh,
-        'Crab_Angle_deg': crab_angle_deg,
-        'Heading_Optimo_deg': heading_opt,
-        'Score_Ventana_IA_pct': score_ventana,
-        'Temperatura_C': temp_c,
-        'Humedad_Relativa_pct': hr_pct,
-        'Radiacion_Solar_MJ': rad_solar,
-        'Salinidad_Suelo_dS_m': p_info['salinidad_ec'],
-        'Corriente_12S_A': corriente_12s_prom_a,
-        'Interferencia_EMI_uT': emi_level_ut
+        'ID_Parcela': p['id'],
+        'Parcela': p['nombre'],
+        'Cultivo': p['cultivo'],
+        'Area_ha': p['area_ha'],
+        'LAI_Follaje': p['lai_follaje'],
+        'Dosis_VRA_L_ha': round(dosis_ajustada, 2),
+        'Volumen_Total_L': round(volumen_total_l, 1),
+        'Pasadas_Vuelo': fisica['num_pasadas'],
+        'Distancia_Vuelo_m': fisica['distancia_vuelo_m'],
+        'Deriva_Eolica_m': fisica['distancia_deriva_m'],
+        'Penetracion_Follaje_pct': fisica['penetracion_follaje_pct'],
+        'Incertidumbre_Error_pct': fisica['incertidumbre_total_pct'],
+        'Cobertura_Efectiva_pct': fisica['cobertura_efectiva_pct'],
+        'Heading_Optimo_deg': round(heading_optimo, 1),
+        'Viento_kmh': round(viento_kmh, 1),
+        'Temp_C': round(temp_c, 1),
+        'Score_Ventana_IA': round(score_ventana, 1),
+        'Fuente_API': fuente_api,
+        'Estado_Operativo': estado,
+        'Mitigacion_Aplicada': mitigacion
     }
 
-def ejecutar_simulacion_diaria_dupla():
-    res_a = simular_parcela(PARCELA_A)
-    res_b = simular_parcela(PARCELA_B)
+def generar_tabla_markdown(df):
+    df_rec = df.tail(10).iloc[::-1]
+    md = [
+        '# 📊 Reporte Industrial Geomatico y Mitigacion de Incidencias en Tiempo Real',
+        '**ELECTRONICA PERLACO - STR-002 H3 v3.0** | *Centro de Misiones Autonomas*',
+        '',
+        '### 📑 Registro Geometrico, Cobertura y Follaje por Parcela',
+        '',
+        '| Fecha UTC | Parcela | Cultivo | LAI Follaje | Dosis VRA | Pasadas | Deriva (m) | Penetracion | Cobertura % | Estado | API Source |',
+        '| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |'
+    ]
+    for _, r in df_rec.iterrows():
+        f_utc = r['Fecha_Hora_UTC']
+        parc = r['Parcela']
+        cult = r['Cultivo']
+        lai_val = r['LAI_Follaje']
+        dosis_val = r['Dosis_VRA_L_ha']
+        pas_val = r['Pasadas_Vuelo']
+        der_val = r['Deriva_Eolica_m']
+        pen_val = r['Penetracion_Follaje_pct']
+        cob_val = r['Cobertura_Efectiva_pct']
+        est_val = r['Estado_Operativo']
+        api_val = r['Fuente_API']
+        linea = f'| {f_utc} | {parc} | {cult} | {lai_val} | {dosis_val} L/ha | {pas_val} | {der_val} m | {pen_val}% | {cob_val}% | {est_val} | {api_val} |'
+        md.append(linea)
+    
+    md.extend([
+        '',
+        '---',
+        '**ELECTRONICA PERLACO / PERLACOLABS** - *Ingenieria Agricola de Alta Precision*'
+    ])
+    salida_md = '\n'.join(md)
+    with open('docs/reportes/resumen_aprendizaje_diario.md', 'w', encoding='utf-8') as f:
+        f.write(salida_md)
 
-    df_dupla = pd.DataFrame([res_a, res_b])
+def ejecutar_simulacion():
+    res = [evaluar_y_simular_parcela(p) for p in PARCELAS]
+    df_new = pd.DataFrame(res)
     log_file = 'simulation/historical_learning_log.csv'
-    file_exists = os.path.isfile(log_file)
-
-    if file_exists:
-        df_dupla.to_csv(log_file, mode='a', header=False, index=False)
-    else:
-        df_dupla.to_csv(log_file, mode='w', header=True, index=False)
-
-    print("="*85)
-    print("   🤖 PERLACOLABS: SIMULACIÓN IA Y MISIONES QGC GENERADAS")
-    print("="*85)
-    for r in [res_a, res_b]:
-        p_nom, p_cul, p_var = r['Parcela'], r['Cultivo'], r['Variante']
-        p_area, p_dos, p_sop = r['Area_ha'], r['Dosis_L_ha'], r['Volumen_Sopa_Total_L']
-        p_head, p_score = r['Heading_Optimo_deg'], r['Score_Ventana_IA_pct']
-        print(f"   📍 {p_nom} | {p_cul} ({p_var})")
-        print(f"      ├─ Área: {p_area} ha | Dosis VRA: {p_dos:.2f} L/ha | Sopa: {p_sop:.1f} L")
-        print(f"      └─ Heading Óptimo: {p_head:.1f}° | Score Ventana IA: {p_score:.1f}%")
-    print("="*85)
+    df_tot = pd.concat([pd.read_csv(log_file), df_new], ignore_index=True) if os.path.exists(log_file) else df_new
+    df_tot.to_csv(log_file, index=False)
+    generar_tabla_markdown(df_tot)
+    print('✅ Simulacion geomatica ejecutada correctamente.')
 
 if __name__ == '__main__':
-    ejecutar_simulacion_diaria_dupla()
+    ejecutar_simulacion()
