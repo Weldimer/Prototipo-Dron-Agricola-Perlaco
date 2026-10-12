@@ -61,7 +61,7 @@ graph TD
 
 ## 🤖 Automatización y Simulaciones
 
-* 🔄 [**Workflow GitHub Actions Cron (2x/día)**](.github/workflows/daily_learning_simulation.yml): Ingesta Multi-API automatizada en tiempo real con actualización de `simulation/historical_learning_log.csv`.
+* 🔄 [**Panel de Control GitHub Actions (2x/día)**](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions/workflows/daily_learning_simulation.yml): Ingesta Multi-API automatizada en tiempo real ([Ver código YAML](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/main/.github/workflows/daily_learning_simulation.yml)).
 
 ---
 
