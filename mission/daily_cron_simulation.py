@@ -1,6 +1,6 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR DE APRENDIZAJE BOTÁNICO Y DOSIFICACIÓN VRA DE SOPA LÍQUIDA
-# Clasificación de Especies, Estructura de Canopia, Fenología y VRA Milimétrico
+# PERLACOLABS - MOTOR DE APRENDIZAJE DE CAÑA DE AZÚCAR Y DOSIFICACIÓN VRA
+# Modelado Botánico: Variedades de Caña, Etapas de Crecimiento y Sopa Líquida
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -19,114 +19,115 @@ CONFIG_ENJAMBRE = {
     'potencia_tx_dbm': 30.0
 }
 
+# Catálogo Prioritario: Caña de Azúcar en Úrsulo Galván + Cultivos Secundarios
 CATALOGO_PARCELAS_URSULO_GALVAN = [
     {
         'id': 'PARC-001',
-        'nombre': 'Parcela_A_UrsuloGalvan_Caña',
+        'nombre': 'Cañaveral_A_UrsuloGalvan_CP72',
         'lat': 19.4008,
         'lon': -96.3533,
         'tipo_planta': 'Gramínea C4 Perenne',
-        'variedad': 'Saccharum officinarum (CP 72-2086)',
-        'altura_m': 2.85,
-        'ancho_copa_m': 1.10,
-        'tipo_hoja': 'Lanceolada / Cera Cuticular Alta',
+        'variedad': 'Caña CP 72-2086 (Predominante)',
+        'altura_m': 3.10,
+        'ancho_copa_m': 1.25,
+        'tipo_hoja': 'Lanceolada / Cutícula Cera Gruesa',
         'tipo_raiz': 'Fasciculada Profunda (0.8–1.2 m)',
         'etapa_crecimiento': 'Gran Crecimiento / Cierre de Dosel',
-        'factor_reten_hoja': 1.25,
-        'area_base_ha': 12.5,
-        'ancho_m': 350.0,
-        'largo_m': 357.1,
-        'lai_base': 3.8
+        'factor_reten_hoja': 1.30,
+        'area_base_ha': 14.5,
+        'ancho_m': 380.0,
+        'largo_m': 381.5,
+        'lai_base': 4.2
     },
     {
         'id': 'PARC-002',
-        'nombre': 'Parcela_B_UrsuloGalvan_Citricos',
+        'nombre': 'Cañaveral_B_UrsuloGalvan_MEX69',
         'lat': 19.4120,
         'lon': -96.3610,
+        'tipo_planta': 'Gramínea C4 Perenne',
+        'variedad': 'Caña Mex 69-290 (Alta Biomasa)',
+        'altura_m': 2.10,
+        'ancho_copa_m': 0.95,
+        'tipo_hoja': 'Lanceolada Erguida / Pubescente',
+        'tipo_raiz': 'Fasciculada Media (0.6–0.9 m)',
+        'etapa_crecimiento': 'Macollo y Elongación Temprana',
+        'factor_reten_hoja': 1.15,
+        'area_base_ha': 11.2,
+        'ancho_m': 310.0,
+        'largo_m': 361.2,
+        'lai_base': 3.1
+    },
+    {
+        'id': 'PARC-003',
+        'nombre': 'Cañaveral_C_UrsuloGalvan_ITV92',
+        'lat': 19.3950,
+        'lon': -96.3480,
+        'tipo_planta': 'Gramínea C4 Perenne',
+        'variedad': 'Caña ITV 92-1424 (Precoz)',
+        'altura_m': 3.45,
+        'ancho_copa_m': 1.35,
+        'tipo_hoja': 'Lanceolada Ancha Péndula',
+        'tipo_raiz': 'Fasciculada Profunda (>1.2 m)',
+        'etapa_crecimiento': 'Maduración / Acumulación de Sacarosa',
+        'factor_reten_hoja': 1.40,
+        'area_base_ha': 16.0,
+        'ancho_m': 400.0,
+        'largo_m': 400.0,
+        'lai_base': 4.6
+    },
+    {
+        'id': 'PARC-004',
+        'nombre': 'Cañaveral_D_UrsuloGalvan_L95',
+        'lat': 19.4050,
+        'lon': -96.3400,
+        'tipo_planta': 'Gramínea C4 Perenne',
+        'variedad': 'Caña L 95-096 (Plantilla)',
+        'altura_m': 1.15,
+        'ancho_copa_m': 0.65,
+        'tipo_hoja': 'Lanceolada Fina Tierna',
+        'tipo_raiz': 'Brote Fasicular Somero (0.3–0.5 m)',
+        'etapa_crecimiento': 'Brote Vegetativo / Plantilla Joven',
+        'factor_reten_hoja': 1.05,
+        'area_base_ha': 8.5,
+        'ancho_m': 250.0,
+        'largo_m': 340.0,
+        'lai_base': 2.1
+    },
+    {
+        'id': 'PARC-005',
+        'nombre': 'Parcela_E_UrsuloGalvan_Limón',
+        'lat': 19.4080,
+        'lon': -96.3700,
         'tipo_planta': 'Arbórea Rutácea Perennifolia',
         'variedad': 'Citrus latifolia (Limón Persa)',
         'altura_m': 3.20,
         'ancho_copa_m': 3.10,
-        'tipo_hoja': 'Coriácea / Latifoliada Brillante',
-        'tipo_raiz': 'Pivotante con Raíces Febriles (0.6–1.5 m)',
+        'tipo_hoja': 'Coriácea Brillante',
+        'tipo_raiz': 'Pivotante con Febriles (0.6–1.5 m)',
         'etapa_crecimiento': 'Floración y Amarre de Fruto',
         'factor_reten_hoja': 1.10,
-        'area_base_ha': 8.2,
-        'ancho_m': 270.0,
-        'largo_m': 303.7,
+        'area_base_ha': 7.8,
+        'ancho_m': 260.0,
+        'largo_m': 300.0,
         'lai_base': 2.4
     },
     {
-        'id': 'PARC-003',
-        'nombre': 'Parcela_C_UrsuloGalvan_Papaya',
-        'lat': 19.3950,
-        'lon': -96.3480,
-        'tipo_planta': 'Arbustiva Herbácea Gigante',
-        'variedad': 'Carica papaya (Maradol Roja)',
-        'altura_m': 2.40,
-        'ancho_copa_m': 1.80,
-        'tipo_hoja': 'Palmatilobulada Ancha',
-        'tipo_raiz': 'Somera Pivotante Cerdosa (0.4–0.8 m)',
-        'etapa_crecimiento': 'Desarrollo de Fruto / Carga Pesada',
-        'factor_reten_hoja': 1.35,
-        'area_base_ha': 6.5,
-        'ancho_m': 200.0,
-        'largo_m': 325.0,
-        'lai_base': 3.1
-    },
-    {
-        'id': 'PARC-004',
-        'nombre': 'Parcela_D_UrsuloGalvan_Maiz',
-        'lat': 19.4050,
-        'lon': -96.3400,
-        'tipo_planta': 'Gramínea C4 Anual',
-        'variedad': 'Zea mays (Híbrido H-516)',
-        'altura_m': 2.20,
-        'ancho_copa_m': 0.75,
-        'tipo_hoja': 'Erectófila Pubescente',
-        'tipo_raiz': 'Fasciculada Cuneiforme (0.5–0.9 m)',
-        'etapa_crecimiento': 'Jiloteo / Llenado de Grano',
-        'factor_reten_hoja': 1.15,
-        'area_base_ha': 15.0,
-        'ancho_m': 300.0,
-        'largo_m': 500.0,
-        'lai_base': 3.5
-    },
-    {
-        'id': 'PARC-005',
-        'nombre': 'Parcela_E_UrsuloGalvan_Mango',
-        'lat': 19.4080,
-        'lon': -96.3700,
-        'tipo_planta': 'Arbórea Anacardiácea Frondosa',
-        'variedad': 'Mangifera indica (Manila)',
-        'altura_m': 4.50,
-        'ancho_copa_m': 4.20,
-        'tipo_hoja': 'Lanceolada Coriácea Densa',
-        'tipo_raiz': 'Pivotante Profunda (>2.0 m)',
-        'etapa_crecimiento': 'Brotación Vegetativa Post-Cosecha',
-        'factor_reten_hoja': 1.40,
-        'area_base_ha': 10.0,
-        'ancho_m': 250.0,
-        'largo_m': 400.0,
-        'lai_base': 2.9
-    },
-    {
         'id': 'PARC-006',
-        'nombre': 'Parcela_F_UrsuloGalvan_Piña',
+        'nombre': 'Parcela_F_UrsuloGalvan_Papaya',
         'lat': 19.3900,
         'lon': -96.3600,
-        'tipo_planta': 'Bromeliácea CAM Perenne',
-        'variedad': 'Ananas comosus (MD2 Gold)',
-        'altura_m': 0.85,
-        'ancho_copa_m': 0.90,
-        'tipo_hoja': 'Roseta Acanalada Cera Gruesa',
-        'tipo_raiz': 'Fasciculada Somera (0.3–0.5 m)',
-        'etapa_crecimiento': 'Inducción Floral / Formación Roseta',
-        'factor_reten_hoja': 1.50,
-        'area_base_ha': 9.5,
-        'ancho_m': 220.0,
-        'largo_m': 431.8,
-        'lai_base': 4.1
+        'tipo_planta': 'Arbustiva Herbácea Gigante',
+        'variedad': 'Carica papaya (Maradol Roja)',
+        'altura_m': 2.50,
+        'ancho_copa_m': 1.85,
+        'tipo_hoja': 'Palmatilobulada Ancha',
+        'tipo_raiz': 'Somera Pivotante Cerdosa (0.4–0.8 m)',
+        'etapa_crecimiento': 'Desarrollo de Fruto',
+        'factor_reten_hoja': 1.35,
+        'area_base_ha': 6.2,
+        'ancho_m': 200.0,
+        'largo_m': 310.0,
+        'lai_base': 3.1
     }
 ]
 
@@ -209,7 +210,6 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
         ahorro_tiempo_pct = ((tiempo_base_monodron_min - tiempo_operativo_min) / tiempo_base_monodron_min) * 100.0
     
     precision_rtk_mm = round(random.uniform(8.0, 12.0), 1)
-    
     dosis_sopa, vol_sopa, vmd, deriva_m, penetracion_pct = calcular_sopa_liquida_vra(p, temp_c, viento_kmh, hr_pct, lai_actual)
 
     return {
@@ -280,12 +280,12 @@ def simular_mision(p, num_drones):
 def generar_reporte_markdown(df):
     df_rec = df.tail(12).iloc[::-1]
     md = [
-        '# 📊 Reporte Botánico de Precisión VRA en Úrsulo Galván: Sopa Líquida y RTK Milimétrico',
-        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control Botánico MAVLink Swarm*',
+        '# 📊 Reporte Botánico de Caña de Azúcar y Sopa Líquida VRA en Úrsulo Galván',
+        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control Cañero & MAVLink Swarm*',
         '',
-        '### 📑 Matriz Agronómica: Clasificación de Variedad, Canopia, Sopa Líquida (L/ha) y RTK',
+        '### 📑 Matriz Agronómica: Variedades de Caña, Fenología, Sopa Líquida (L/ha) y RTK',
         '',
-        '| Fecha UTC | Parcela | Variedad / Cultivo | Altura / Copa | Etapa Fenológica | Drones | Sopa Líquida VRA | RTK Error | Estado |',
+        '| Fecha UTC | Parcela | Variedad de Caña / Cultivo | Altura / Copa | Etapa Fenológica | Drones | Sopa Líquida VRA | RTK Error | Estado |',
         '| :--- | :--- | :--- | :---: | :--- | :---: | :---: | :---: | :--- |'
     ]
     for _, r in df_rec.iterrows():
@@ -330,7 +330,7 @@ def ejecutar_simulacion():
 
     df_tot.to_csv(log_file, index=False)
     generar_reporte_markdown(df_tot)
-    print('✅ Simulación agronómica completada: 4x Monodrón + 2x Enjambre en Úrsulo Galván.')
+    print('✅ Simulación cañera completada: 4x Monodrón + 2x Enjambre en Úrsulo Galván.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()

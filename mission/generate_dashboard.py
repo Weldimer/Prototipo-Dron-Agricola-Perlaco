@@ -45,7 +45,7 @@ html_content = f'''<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PERLACOLABS - Dashboard Botánico STR-002 H3 v3.0</title>
+    <title>PERLACOLABS - Dashboard Cañero STR-002 H3 v3.0</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 0; padding: 20px; }}
@@ -61,7 +61,7 @@ html_content = f'''<!DOCTYPE html>
 <body>
     <div class="header">
         <h1>🚁 ELECTRÓNICA PERLACO - STR-002 H3 v3.0</h1>
-        <p><b>Centro de Misiones Botánicas: Dosificación VRA de Sopa Líquida y RTK Milimétrico</b></p>
+        <p><b>Centro de Misiones Cañeras: Dosificación VRA de Sopa Líquida y RTK Milimétrico</b></p>
     </div>
     
     <div class="grid">
@@ -70,10 +70,10 @@ html_content = f'''<!DOCTYPE html>
     </div>
     
     <div class="card">
-        <h3>📑 Registros Botánicos de Misión: Variedad, Estructura de Canopia, Sopa Líquida y RTK</h3>
+        <h3>📑 Registros Cañeros de Misión: Variedad, Estructura de Canopia, Sopa Líquida y RTK</h3>
         <table>
             <thead>
-                <tr><th>Fecha UTC</th><th>Parcela</th><th>Variedad Certificada</th><th>Altura / Copa</th><th>Configuración</th><th>Sopa Líquida VRA</th><th>Precisión RTK</th><th>Tiempo Real</th><th>Estado</th></tr>
+                <tr><th>Fecha UTC</th><th>Parcela</th><th>Variedad de Caña / Cultivo</th><th>Altura / Copa</th><th>Configuración</th><th>Sopa Líquida VRA</th><th>Precisión RTK</th><th>Tiempo Real</th><th>Estado</th></tr>
             </thead>
             <tbody>{filas_html}</tbody>
         </table>
@@ -81,7 +81,7 @@ html_content = f'''<!DOCTYPE html>
 
     <script>
         var trace1 = {{ x: {fechas_json}, y: {sopa_json}, name: 'Dosificación Sopa Líquida (L/ha)', type: 'bar', marker: {{color: '#2ea043'}} }};
-        Plotly.newPlot('chart_sopa', [trace1], {{ title: 'Dosificación VRA de Sopa Líquida según Estructura Botánica (L/ha)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {{color: '#c9d1d9'}}, yaxis: {{title: 'Dosis (L/ha)'}} }});
+        Plotly.newPlot('chart_sopa', [trace1], {{ title: 'Dosificación VRA de Sopa Líquida según Estructura Cañera (L/ha)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {{color: '#c9d1d9'}}, yaxis: {{title: 'Dosis (L/ha)'}} }});
 
         var trace2 = {{ x: {fechas_json}, y: {rtk_mm_json}, name: 'Error RTK (mm RMS)', type: 'scatter', mode: 'lines+markers', line: {{color: '#a371f7'}} }};
         Plotly.newPlot('chart_rtk', [trace2], {{ title: 'Navegación RTK Moving Baseline Milimétrica (mm RMS)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {{color: '#c9d1d9'}}, yaxis: {{title: 'Error (mm)'}} }});
@@ -93,4 +93,4 @@ with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 with open('docs/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
-print('✅ Páginas HTML de Dashboard actualizadas.')
+print('✅ Páginas HTML de Dashboard actualizadas con enfoque cañero.')

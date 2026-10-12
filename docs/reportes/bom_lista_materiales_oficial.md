@@ -1,6 +1,6 @@
 # 📦 Lista Oficial de Materiales (BOM) - ELECTRÓNICA PERLACO STR-002 H3 v3.0
-**Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) — Octocóptero Coaxial X8**  
-**Proyecto:** Prototipo Dron Agrícola Perlaco (Calculador VRA de Sopa Líquida Botánica)  
+**Plataforma Aérea Agrícola (MTOW 29.0 kg) — Octocóptero Coaxial X8**  
+**Proyecto:** Prototipo Dron Agrícola Perlaco (Dosificador VRA de Sopa Líquida en Caña de Azúcar)  
 **Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
 
 ---
@@ -43,7 +43,7 @@
 
 ---
 
-## 💦 5. Sistema Agrícola VRA y Dosificación de Sopa Líquida Botánica
+## 💦 5. Sistema Agrícola VRA y Spraying de Sopa Líquida
 | Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
 | :--- | :--- | :---: | :--- |
 | **Tanque de Mezcla** | Polietileno HD reestructurado anti-chapoteo (Capacidad 16 L / 20 L) | 1 | Centro de gravedad del dron (Bajo el chasis) |
