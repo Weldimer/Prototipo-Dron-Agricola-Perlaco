@@ -45,16 +45,23 @@ graph TD
 
 ---
 
-## 📚 Índice Documental Completo
+## 📚 Índice Documental Organizado (`/docs/reportes/`)
 
-* 🛠️ [**Historial de Errores y Soluciones de Software**](docs/historial_errores_y_soluciones.md): Diagnóstico de sintaxis en Python 3.13, resolución de f-strings y librerías.
-* 📦 [**Lista Oficial de Materiales (BOM) y Datasheets**](docs/bom_lista_materiales_oficial.md): Desglose cuantitativo de componentes, fabricantes, links y justificación técnica.
-* 🌪️ [**Justificación Técnica Octocóptero X8 para Vientos 'Nortes' (>127 km/h)**](docs/justificacion_octocoptero_x8_nortes.md): Análisis aerodinámico de la configuración de 8 motores y reserva T/W de 2.53:1.
-* 🛡️ [**Reporte Técnico de Inmunidad EMI, Moving Baseline y Pre-Arm**](docs/reporte_prearm_y_moving_baseline.md): Rumbo por fase GNSS sin magnetómetros e inmunidad a 300A.
-* 🌪️ [**Control VRA Adaptativo al Clima y Filtro Notch BDShot**](docs/sistema_vra_adaptativo_clima_y_notch.md): Compensación eólica anti-deriva (*crab angle*) y atenuación de vibraciones a -40 dB.
-* 🔊 [**Sistema de Emisión Sonora y Baliza de Piloto**](docs/sistema_audio_y_alertas.md): Baliza RTTTL (*Turkish March*) y megáfono disuasivo de fauna de 110 dB SPL.
-* 🛰️ [**Ingesta de Multi-APIs Gratuitas y Aprendizaje Climático**](docs/apis_parcelas_agricolas.md): Fusión de Open-Meteo y NASA POWER para dosis adaptativa.
-* 🧠 [**Matriz de Aprendizaje de Repositorios Open-Source**](docs/aprendizaje_repositorios_estudiados.md): Transferencia tecnológica de ArduPilot, pymavlink, PX4 BMS y DroneCAN.
+* 🌾 [**Aprendizaje y Justificación de Simulaciones Diarias en Diferentes Parcelas**](docs/reportes/aprendizaje_simulaciones_diarias_parcelas.md): Justificación técnica del aprendizaje continuo en Caña Maura y Limón Persa con física de gota, salinidad, 'sopa' y EMI.
+* 📦 [**Lista Oficial de Materiales (BOM) y Datasheets**](docs/reportes/bom_lista_materiales_oficial.md): Desglose cuantitativo de componentes, fabricantes, datasheets y justificación técnica.
+* 🛡️ [**Reporte Técnico de Inmunidad EMI, Moving Baseline y Pre-Arm**](docs/reportes/reporte_prearm_y_moving_baseline.md): Rumbo por fase GNSS sin magnetómetros e inmunidad a 300A.
+* 🌪️ [**Control VRA Adaptativo al Clima y Filtro Notch BDShot**](docs/reportes/sistema_vra_adaptativo_clima_y_notch.md): Compensación eólica anti-deriva (*crab angle*) y atenuación de vibraciones a -40 dB.
+* 🔊 [**Sistema de Emisión Sonora y Baliza de Piloto**](docs/reportes/sistema_audio_y_alertas.md): Baliza RTTTL (*Turkish March*) y megáfono disuasivo de fauna de 110 dB SPL.
+* 🛰️ [**Ingesta de Multi-APIs Gratuitas y Aprendizaje Climático**](docs/reportes/apis_parcelas_agricolas.md): Fusión de Open-Meteo y NASA POWER para dosis adaptativa.
+* 🧠 [**Matriz de Aprendizaje de Repositorios Open-Source**](docs/reportes/aprendizaje_repositorios_estudiados.md): Transferencia tecnológica de ArduPilot, pymavlink, PX4 BMS y DroneCAN.
+* 🛠️ [**Historial de Errores y Soluciones de Software**](docs/reportes/historial_errores_y_soluciones.md): Diagnóstico de sintaxis en Python 3.13 y librerías.
+* 🌪️ [**Justificación Técnica Octocóptero X8 para Vientos 'Nortes'**](docs/reportes/justificacion_octocoptero_x8_nortes.md): Análisis aerodinámico del octocóptero X8 con reserva T/W 2.53:1.
+
+---
+
+## 🤖 Automatización y Simulaciones
+
+* 🔄 [**Workflow GitHub Actions Cron (2x/día)**](.github/workflows/daily_learning_simulation.yml): Ingesta Multi-API automatizada en tiempo real con actualización de `simulation/historical_learning_log.csv`.
 
 ---
 
