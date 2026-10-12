@@ -41,6 +41,8 @@ Prototipo-Dron-Agricola-Perlaco/
 
 ## 📚 Documentación de Ingeniería y Operación (`/docs`)
 
+* 🛡️ [**Reporte Técnico de Inmunidad EMI, Moving Baseline y Pre-Arm**](docs/reporte_prearm_y_moving_baseline.md): Inmunidad magnética a 300A mediante doble ZED-F9P, calibración de rumbo sin brújula y auditoría de 8 ESCs BDShot.
+
 * 🌪️ [**Justificación Técnica Octocóptero X8 para Vientos 'Nortes' (>127 km/h)**](docs/justificacion_octocoptero_x8_nortes.md): Análisis aerodinámico de la configuración de 8 motores, reserva T/W de 2.53:1 y respuesta en Úrsulo Galván, Ver.
 
 * 🔊 [**Sistema de Emisión Sonora y Baliza de Piloto**](docs/sistema_audio_y_alertas.md): Control de audio RTTTL (Turkish March), baliza de localización y disuasión de fauna vía EdgeTX/MAVLink.
