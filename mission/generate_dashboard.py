@@ -1,6 +1,6 @@
 # ==============================================================================
-# PERLACOLABS - DASHBOARD WEB Y GENERADOR DE GRAFICOS DE PARCELAS PLOTLY
-# Autor: Angel Imer Lara Colorado - ELECTRONICA PERLACO
+# PERLACOLABS - GENERADOR DE DASHBOARD WEB SIN ERRORES Y MULTI-PÁGINA
+# Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO
 # ==============================================================================
 import pandas as pd
 import json
@@ -9,18 +9,22 @@ import os
 log_file = 'simulation/historical_learning_log.csv'
 if os.path.exists(log_file):
     df = pd.read_csv(log_file)
+    # Filtrar cualquier rastro corrupto
+    df = df[~df.astype(str).apply(lambda r: r.str.contains('yaya|nan', case=False)).any(axis=1)].copy()
+    df.dropna(inplace=True)
+    
     ultimos = df.tail(10).iloc[::-1]
     
     filas_html = ''
     for _, r in ultimos.iterrows():
         st = str(r['Estado_Operativo'])
-        c_badge = '#238636' if 'OPTIMO' in st else ('#d29922' if 'ADVERTENCIA' in st else '#da3633')
+        c_badge = '#238636' if 'ÓPTIMO' in st or 'OPTIMO' in st else ('#d29922' if 'ADVERTENCIA' in st else '#da3633')
         lai_val = r.get('LAI_Follaje', 3.0)
         f_utc = r['Fecha_Hora_UTC']
         parc = r['Parcela']
         cult = r['Cultivo']
         dosis = r['Dosis_VRA_L_ha']
-        pasadas = r['Pasadas_Vuelo']
+        pasadas = int(r['Pasadas_Vuelo'])
         deriva = r['Deriva_Eolica_m']
         penetracion = r['Penetracion_Follaje_pct']
         filas_html += f'<tr><td>{f_utc}</td><td><b>{parc}</b></td><td>{cult} (LAI {lai_val})</td><td>{dosis} L/ha</td><td>{pasadas} pasadas</td><td>{deriva} m</td><td><b>{penetracion}%</b></td><td><span style="background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;">{st}</span></td></tr>'
@@ -80,6 +84,9 @@ if os.path.exists(log_file):
 </body>
 </html>'''
 
+    # Guardar tanto index.html como dashboard.html para prevenir Error 404
     with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
-    print('✅ Dashboard HTML generado correctamente en docs/dashboard.html')
+    with open('docs/index.html', 'w', encoding='utf-8') as f:
+        f.write(html_content)
+    print('✅ Dashboard HTML generado en docs/dashboard.html y docs/index.html')

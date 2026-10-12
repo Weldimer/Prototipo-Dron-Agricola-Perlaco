@@ -1,6 +1,6 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR GEOMATICO MULTI-API CON FISICA DE FOLLAJE Y ERRORES
-# Autor: Angel Imer Lara Colorado - ELECTRONICA PERLACO / STR-002 H3 v3.0
+# PERLACOLABS - MOTOR GEOMÁTICO DE SIMULACIÓN Y REGISTRO LIMPIO
+# Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
 import urllib.request
@@ -10,23 +10,20 @@ import os
 import numpy as np
 import pandas as pd
 
-OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY', 'free_tier_demo_key')
-AGROMONITORING_API_KEY = os.getenv('AGROMONITORING_API_KEY', 'free_tier_demo_key')
-
 PARCELAS = [
     {
         'id': 'PARC-001',
         'nombre': 'Parcela_A_UrsuloGalvan',
         'lat': 19.4008,
         'lon': -96.3533,
-        'cultivo': 'Cana de Azucar',
-        'variante': 'CP 72-2086 (Cana Maura)',
+        'cultivo': 'Caña de Azúcar',
+        'variante': 'CP 72-2086 (Caña Maura)',
         'area_ha': 12.5,
         'ancho_m': 350.0,
         'largo_m': 357.1,
         'lai_follaje': 3.8,
         'altura_dosel_m': 2.8,
-        'sopa': 'Herbicida Nicosulfuron + Coadyuvante Siliconado',
+        'sopa': 'Herbicida Nicosulfurón + Coadyuvante Siliconado',
         'salinidad_ec': 1.8
     },
     {
@@ -34,8 +31,8 @@ PARCELAS = [
         'nombre': 'Parcela_B_PasoDeOvejas',
         'lat': 19.2867,
         'lon': -96.4402,
-        'cultivo': 'Citricos',
-        'variante': 'Limon Persa Injertado',
+        'cultivo': 'Cítricos',
+        'variante': 'Limón Persa Injertado',
         'area_ha': 8.2,
         'ancho_m': 270.0,
         'largo_m': 303.7,
@@ -63,7 +60,7 @@ def consultar_open_meteo(lat, lon):
 
 def consultar_nasa_power(lat, lon):
     fecha_hoy = datetime.now(timezone.utc).strftime('%Y%m%d')
-    url = f'https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,WS2M,RH2M,ALLSKY_SFC_SW_DWN&community=AG&longitude={lon}&latitude={lat}&start={fecha_hoy}&end={fecha_hoy}&format=JSON'
+    url = f'https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,WS2M,RH2M&community=AG&longitude={lon}&latitude={lat}&start={fecha_hoy}&end={fecha_hoy}&format=JSON'
     req = urllib.request.Request(url, headers={'User-Agent': 'PerlacoLabs-Drone/3.0'})
     with urllib.request.urlopen(req, timeout=6) as response:
         data = json.loads(response.read().decode('utf-8'))
@@ -140,14 +137,14 @@ def evaluar_y_simular_parcela(p):
     cob_val = fisica['cobertura_efectiva_pct']
 
     if 'FALLBACK' in fuente_api:
-        estado = '🔴 INCIDENTE_API_FALLBACK'
-        mitigacion = 'Modelo de redundancia regional activado sin detener mision.'
+        estado = '🔴 INCIDENTE API FALLBACK'
+        mitigacion = 'Modelo atmosférico de respaldo activado sin interrupción.'
     elif viento_kmh > 26.0:
-        estado = '🟡 ADVERTENCIA_VIENTO'
-        mitigacion = f'Gota VMD ampliada a {vmd_val} um. Deriva compensada: {deriva_val}m.'
+        estado = '🟡 ADVERTENCIA VIENTO'
+        mitigacion = f'Gota VMD a {vmd_val} µm. Deriva compensada: {deriva_val} m.'
     else:
-        estado = '🟢 OPTIMO'
-        mitigacion = f'Trazado en {heading_optimo:.1f} deg con {pasadas_val} pasadas. Cobertura: {cob_val}%.'
+        estado = '🟢 ÓPTIMO'
+        mitigacion = f'Trazado en {heading_optimo:.1f}° con {pasadas_val} pasadas. Cobertura: {cob_val}%.'
 
     return {
         'Fecha_Hora_UTC': now_utc,
@@ -174,14 +171,18 @@ def evaluar_y_simular_parcela(p):
     }
 
 def generar_tabla_markdown(df):
-    df_rec = df.tail(10).iloc[::-1]
+    # Filtrar cualquier registro corrupto antes de volcar a Markdown
+    df_clean = df.dropna().copy()
+    df_clean = df_clean[~df_clean.astype(str).apply(lambda r: r.str.contains('yaya|nan', case=False)).any(axis=1)]
+    df_rec = df_clean.tail(10).iloc[::-1]
+
     md = [
-        '# 📊 Reporte Industrial Geomatico y Mitigacion de Incidencias en Tiempo Real',
-        '**ELECTRONICA PERLACO - STR-002 H3 v3.0** | *Centro de Misiones Autonomas*',
+        '# 📊 Reporte Industrial Geomático y Mitigación de Incidencias en Tiempo Real',
+        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Misiones Autónomas*',
         '',
-        '### 📑 Registro Geometrico, Cobertura y Follaje por Parcela',
+        '### 📑 Registro Geométrico, Cobertura y Follaje por Parcela',
         '',
-        '| Fecha UTC | Parcela | Cultivo | LAI Follaje | Dosis VRA | Pasadas | Deriva (m) | Penetracion | Cobertura % | Estado | API Source |',
+        '| Fecha UTC | Parcela | Cultivo | LAI Follaje | Dosis VRA | Pasadas | Deriva (m) | Penetración | Cobertura % | Estado | Fuente API |',
         '| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |'
     ]
     for _, r in df_rec.iterrows():
@@ -190,7 +191,7 @@ def generar_tabla_markdown(df):
         cult = r['Cultivo']
         lai_val = r['LAI_Follaje']
         dosis_val = r['Dosis_VRA_L_ha']
-        pas_val = r['Pasadas_Vuelo']
+        pas_val = int(r['Pasadas_Vuelo']) if pd.notnull(r['Pasadas_Vuelo']) else 0
         der_val = r['Deriva_Eolica_m']
         pen_val = r['Penetracion_Follaje_pct']
         cob_val = r['Cobertura_Efectiva_pct']
@@ -202,7 +203,7 @@ def generar_tabla_markdown(df):
     md.extend([
         '',
         '---',
-        '**ELECTRONICA PERLACO / PERLACOLABS** - *Ingenieria Agricola de Alta Precision*'
+        '**ELECTRÓNICA PERLACO / PERLACOLABS** — *Ingeniería Agrícola de Alta Precisión*'
     ])
     salida_md = '\n'.join(md)
     with open('docs/reportes/resumen_aprendizaje_diario.md', 'w', encoding='utf-8') as f:
@@ -212,10 +213,20 @@ def ejecutar_simulacion():
     res = [evaluar_y_simular_parcela(p) for p in PARCELAS]
     df_new = pd.DataFrame(res)
     log_file = 'simulation/historical_learning_log.csv'
-    df_tot = pd.concat([pd.read_csv(log_file), df_new], ignore_index=True) if os.path.exists(log_file) else df_new
+    
+    if os.path.exists(log_file):
+        df_old = pd.read_csv(log_file)
+        df_tot = pd.concat([df_old, df_new], ignore_index=True)
+    else:
+        df_tot = df_new
+
+    # Limpieza estricta de NaN o 'yaya'
+    df_tot = df_tot[~df_tot.astype(str).apply(lambda r: r.str.contains('yaya|nan', case=False)).any(axis=1)].copy()
+    df_tot.dropna(inplace=True)
     df_tot.to_csv(log_file, index=False)
+    
     generar_tabla_markdown(df_tot)
-    print('✅ Simulacion geomatica ejecutada correctamente.')
+    print('✅ Simulación geomática ejecutada y log depurado.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()
