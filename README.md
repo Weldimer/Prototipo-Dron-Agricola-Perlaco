@@ -82,3 +82,4 @@
 * 📱 [**Memoria Técnica de Investigación y Desarrollo Móvil (PERLACOLABS)**](docs/bitacora_investigacion_perlacolabs.md): Historia del desarrollo cloud-native ejecutado en smartphone Samsung SM-A04, bitácora de errores resueltos y desglose físico-matemático.
 * 📊 [**Estudio Técnico y de Ingeniería Integral**](docs/estudio_dron_agricola.md): Análisis completo de arquitectura, propulsión 12S, VRA hidráulico y desarrollo cloud-native PERLACOLABS.
 * 🧠 [**Matriz de Aprendizaje y Maestría Técnica de Repositorios**](docs/aprendizaje_repositorios_estudiados.md): Mapeo del conocimiento extraído de ArduPilot, QGroundControl, CAD ezdxf y simulaciones electroquímicas LiPo 12S.
+* 🛰️ [**Integración de APIs Satelitales y Google Earth Engine**](docs/integracion_apis_earth_satelital.md): Zonificación NDVI Sentinel-2, mapas de prescripción VRA y dosificación dinámica de asperjado.
