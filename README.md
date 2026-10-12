@@ -83,3 +83,4 @@
 * 📊 [**Estudio Técnico y de Ingeniería Integral**](docs/estudio_dron_agricola.md): Análisis completo de arquitectura, propulsión 12S, VRA hidráulico y desarrollo cloud-native PERLACOLABS.
 * 🧠 [**Matriz de Aprendizaje y Maestría Técnica de Repositorios**](docs/aprendizaje_repositorios_estudiados.md): Mapeo del conocimiento extraído de ArduPilot, QGroundControl, CAD ezdxf y simulaciones electroquímicas LiPo 12S.
 * 🛰️ [**Integración de APIs Satelitales y Google Earth Engine**](docs/integracion_apis_earth_satelital.md): Zonificación NDVI Sentinel-2, mapas de prescripción VRA y dosificación dinámica de asperjado.
+* 🎯 [**Simulador Maestro Integral y Auditoría de Sistema**](simulation/simulacion_maestra_integral.py): Evaluación E2E de la dinámica 12S, ganancias PID, hidráulica VRA anti-goteo, NDVI y los 18 firmwares.
