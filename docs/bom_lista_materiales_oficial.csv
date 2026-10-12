@@ -1,0 +1,11 @@
+Subsistema,Componente,Fabricante_Modelo,Cantidad,Datasheet_URL,Justificacion_Tecnica
+Avionica,Autopiloto Triple Redundancia,CubePilot Cube Orange+,1,https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual,Procesador STM32H753 e IMUs aisladas termicamente
+Navegacion,Receptor GNSS RTK Multibanda,u-blox ZED-F9P,2,https://www.u-blox.com/en/product/zed-f9p-module,Moving Baseline RTK Heading inmunizado a 300A EMI
+Propulsion,Motor Brushless Agricola,T-Motor P80 III KV120,8,https://store.tmotor.com/goods.php?id=832,73.6 kg empuje total (T/W 2.53:1) contra Nortes >127 km/h
+Propulsion,ESC Inteligente HV FOC,T-Motor Alpha 80A HV,8,https://store.tmotor.com/goods.php?id=832,Telemetria BDShot para filtro Notch dinamico a -40dB
+Propulsion,Helices Plegables Carbono,T-Motor 30x10.5,8,https://store.tmotor.com/goods.php?id=832,Configuracion Coaxial X8 de alta densidad aerodinamica
+Audio_Alerta,Megafono Industrial IP67,PERLACO Audio 24V,1,docs/sistema_audio_y_alertas.md,Disuasion activa de avifauna a 110 dB SPL (2.8 kHz)
+Audio_Alerta,Sintetizador RTTTL Nativo,Zumbador Cube Orange+,1,docs/sistema_audio_y_alertas.md,Baliza acustica melodica Turkish March a 78.5 dB SPL
+Hidraulica_VRA,Caudalimetro Efecto Hall,YF-S201 450 imp/L,1,https://www.alldatasheet.com/view.jsp?Searchword=YF-S201,Medicion de dosis L/ha adaptada por Multi-APIs
+Hidraulica_VRA,Estanque Principal HDPE,PERLACOLABS 10.0L,1,cad/estanque_hdpe_10l.step,Rompeolas interno anti-sloshing
+Energia,Bateria LiPo Agricola,Tattu 12S 22000mAh,2,https://www.genstattu.com,Suministro de alta corriente con monitoreo BMS Lua

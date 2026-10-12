@@ -41,6 +41,8 @@ Prototipo-Dron-Agricola-Perlaco/
 
 ## 📚 Documentación de Ingeniería y Operación (`/docs`)
 
+* 📦 [**Lista Oficial de Materiales (BOM) y Datasheets**](docs/bom_lista_materiales_oficial.md): Desglose cuantitativo de componentes, fabricantes, enlaces a datasheets y justificación de ingeniería.
+
 * 🌪️ [**Control VRA Adaptativo al Clima y Filtro Notch BDShot**](docs/sistema_vra_adaptativo_clima_y_notch.md): Compensación de deriva de gota en tiempo real, ángulo de cangrejo anti-deriva y atenuación de vibraciones en las 8 hélices de 30''.
 
 * 🛡️ [**Reporte Técnico de Inmunidad EMI, Moving Baseline y Pre-Arm**](docs/reporte_prearm_y_moving_baseline.md): Inmunidad magnética a 300A mediante doble ZED-F9P, calibración de rumbo sin brújula y auditoría de 8 ESCs BDShot.
