@@ -41,6 +41,8 @@ Prototipo-Dron-Agricola-Perlaco/
 
 ## 📚 Documentación de Ingeniería y Operación (`/docs`)
 
+* 🔊 [**Sistema de Emisión Sonora y Baliza de Piloto**](docs/sistema_audio_y_alertas.md): Control de audio RTTTL (Turkish March), baliza de localización y disuasión de fauna vía EdgeTX/MAVLink.
+
 * 📑 [**Estudio Técnico y de Ingeniería Integral**](docs/estudio_dron_agricola.md): Análisis dimensional, tren motriz 12S, cálculo de Z_CG e hidráulica VRA.
 * 🛡️ [**Certificación de Redundancia X8, FEA y Sloshing**](docs/certificacion_falla_motor_y_fea.md): Evaluación de falla de motor en vuelo (Ratio T/W 2.22:1), Von Mises en abrazaderas H3 (FS = 4.18) y atenuación de oleaje.
 * ⚖️ [**Marco Normativo y Regulación Agroaeronáutica**](docs/normativa_regulacion_aeronautica.md): Cumplimiento AFAC (CO AV-07.02/12 R3 para RPAS >25kg), SENASICA/SADER (NOM-052-FITO) e IFT.
