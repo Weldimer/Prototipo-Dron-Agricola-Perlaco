@@ -18,8 +18,7 @@ def ejecutar_simulacion():
                     np.where(tiempo_s < 80, 180.0 + 140.0 * np.sin(tiempo_s * 0.2), 15.0))
 
     # Error en brújula magnética debido al campo magnético inducido por la corriente 12S
-    # Campo inductivo B = mu0 * I / (2*pi*r) -> induce desviaciones de hasta 45 grados de rumbo
-    error_compass_deg = corriente_12s * 0.14  # Hasta 44.8 grados de error con 320A
+    error_compass_deg = corriente_12s * 0.14
 
     # Rumbo de referencia verdadero (0 a 360 grados)
     heading_real_deg = (45.0 + tiempo_s * 1.5) % 360.0
@@ -28,13 +27,12 @@ def ejecutar_simulacion():
     heading_compass = (heading_real_deg + error_compass_deg + np.random.normal(0, 1.2, 1200)) % 360.0
 
     # Rumbo medido por Doble ZED-F9P Moving Baseline RTK (inmune a corriente 12S)
-    # Precisión angular = arctan(0.005m error fase / 0.60m separación antenas) ~ 0.47 grados
     heading_moving_baseline = (heading_real_deg + np.random.normal(0, 0.25, 1200)) % 360.0
 
     # Estado de la auditoría Pre-Arm Lua
-    voltaje_bateria = 50.4 - (corriente_12s * 0.024) # Caída por resistencia interna 24 mOhm
-    rtk_status = np.where(tiempo_s < 10, 3, 6) # 3 = Single GPS, 6 = RTK Fixed
-    escs_activos = np.where(tiempo_s < 5, 7, 8) # Un ESC tardío en inicializar
+    voltaje_bateria = 50.4 - (corriente_12s * 0.024)
+    rtk_status = np.where(tiempo_s < 10, 3, 6)
+    escs_activos = np.where(tiempo_s < 5, 7, 8)
 
     prearm_ready = (voltaje_bateria >= 45.0) & (rtk_status == 6) & (escs_activos == 8)
 
@@ -57,10 +55,11 @@ def ejecutar_simulacion():
     df_sim.to_csv(csv_path, index=False)
     print(f"\n✅ Dataset de telemetría de simulación exportado en: {csv_path}")
 
+    err_mb_max = np.max(df_sim["Error_MovingBaseline_deg"])
     print("\n[1/3] EVALUACIÓN DE INMUNIDAD ELECTROMAGNÉTICA (EMI):")
     print(f"   ├─ Corriente Máxima 12S Simulada      : {np.max(corriente_12s):.1f} A")
     print(f"   ├─ Error Máximo en Brújula Magnética  : {np.max(error_compass_deg):.2f}° (Descalibración Crítica de EKF3)")
-    print(f"   └─ Error Máximo en Moving Baseline RTK: {np.max(df_sim['Error_MovingBaseline_deg']):.2f}° (Navegación Estable)")
+    print(f"   └─ Error Máximo en Moving Baseline RTK: {err_mb_max:.2f}° (Navegación Estable)")
 
     print("\n[2/3] EVALUACIÓN AUDITORÍA PRE-ARM LUA:")
     print(f"   ├─ Tiempo de Obtención RTK Fixed (GPS 6): 10.0 s")
