@@ -1,6 +1,6 @@
 # ELECTRÓNICA PERLACO — STR-002 H3 v3.0
 **Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) — Octocóptero Coaxial X8**  
-**Diseño de Ingeniería, Aviónica de Redundancia Crítica y Simulación HIL en Lazo Cerrado**  
+**Expediente Digital de Ingeniería, Aviónica de Redundancia Crítica y Auditoría HIL**  
 **Desarrollado por:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
 
 [![CI Validation](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions/workflows/ci_validation.yml/badge.svg)](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions)
@@ -45,56 +45,20 @@ graph TD
 
 ---
 
-## 📂 Mapa Estructurado del Repositorio
+## 📚 Índice Documental Completo
 
-```text
-Prototipo-Dron-Agricola-Perlaco/
-├── .github/workflows/         # Pipeline CI/CD de GitHub Actions
-├── assets/                    # Logotipos e imágenes institucionales
-├── cad/                       # Planos CAD/CAM y modelos de estanque HDPE
-├── docs/                      # Memorias técnicas, BOM, atenuación y reportes
-│   ├── apis_parcelas_agricolas.md
-│   ├── aprendizaje_repositorios_estudiados.md
-│   ├── bom_lista_materiales_oficial.md
-│   ├── bom_lista_materiales_oficial.csv
-│   ├── justificacion_octocoptero_x8_nortes.md
-│   ├── reporte_prearm_y_moving_baseline.md
-│   ├── reporte_simulacion_audio.md
-│   └── sistema_audio_y_alertas.md
-├── firmware/                  # Parámetros ArduPilot y Scripts Lua
-│   ├── dynamic_harmonic_notch.param
-│   ├── moving_baseline_dual_gnss.param
-│   ├── pilot_audio_beacon.lua
-│   ├── prearm_health_audit.lua
-│   ├── str002_h3_v30_complete.param
-│   └── vra_wind_compensation.lua
-├── mission/                   # Ingesta Multi-API (Open-Meteo, NASA POWER)
-│   └── agri_api_integration.py
-├── simulation/                # Motores de simulación HIL y logs CSV
-│   ├── aprendiz_repositorios.py
-│   ├── log_mision_integral_h3.csv
-│   ├── simulacion_mision_integral.py
-│   └── simulacion_prearm_y_moving_baseline.py
-├── CITATION.cff               # Cita académica oficial
-├── LICENSE                    # Licencia de Software Abierto MIT
-└── README.md                  # Portada institucional
-```
-
----
-
-## ⚡ Especificaciones Clave de Ingeniería
-
-* **Configuración Propulsiva:** Octocóptero Coaxial X8 ($8\times$ T-Motor P80 III KV120 + $8\times$ Alpha 80A HV).
-* **Empuje Total Disponible:** $73.6\text{ kg}$ ($T/W = 2.53:1$, reserva del $60.5\%$ contra 'Nortes' $>127\text{ km/h}$).
-* **Inmunidad Electromagnética:** Doble GNSS u-blox ZED-F9P (Moving Baseline RTK) con rumbo por fase de portadora sin magnetómetros.
-* **Atenuación de Vibraciones:** Filtro Notch dinámico BDShot RPM (`-40 dB` de supresión armónica).
-* **Payload & Audio:** Estanque de $10.0\text{ L}$ HDPE con baffle anti-sloshing, megáfono disuasivo de $110\text{ dB SPL}$ y baliza RTTTL (*Turkish March*).
+* 🛠️ [**Historial de Errores y Soluciones de Software**](docs/historial_errores_y_soluciones.md): Diagnóstico de sintaxis en Python 3.13, resolución de f-strings y librerías.
+* 📦 [**Lista Oficial de Materiales (BOM) y Datasheets**](docs/bom_lista_materiales_oficial.md): Desglose cuantitativo de componentes, fabricantes, links y justificación técnica.
+* 🌪️ [**Justificación Técnica Octocóptero X8 para Vientos 'Nortes' (>127 km/h)**](docs/justificacion_octocoptero_x8_nortes.md): Análisis aerodinámico de la configuración de 8 motores y reserva T/W de 2.53:1.
+* 🛡️ [**Reporte Técnico de Inmunidad EMI, Moving Baseline y Pre-Arm**](docs/reporte_prearm_y_moving_baseline.md): Rumbo por fase GNSS sin magnetómetros e inmunidad a 300A.
+* 🌪️ [**Control VRA Adaptativo al Clima y Filtro Notch BDShot**](docs/sistema_vra_adaptativo_clima_y_notch.md): Compensación eólica anti-deriva (*crab angle*) y atenuación de vibraciones a -40 dB.
+* 🔊 [**Sistema de Emisión Sonora y Baliza de Piloto**](docs/sistema_audio_y_alertas.md): Baliza RTTTL (*Turkish March*) y megáfono disuasivo de fauna de 110 dB SPL.
+* 🛰️ [**Ingesta de Multi-APIs Gratuitas y Aprendizaje Climático**](docs/apis_parcelas_agricolas.md): Fusión de Open-Meteo y NASA POWER para dosis adaptativa.
+* 🧠 [**Matriz de Aprendizaje de Repositorios Open-Source**](docs/aprendizaje_repositorios_estudiados.md): Transferencia tecnológica de ArduPilot, pymavlink, PX4 BMS y DroneCAN.
 
 ---
 
 ## 📜 Cita Académica e Institucional
-
-Para citar esta investigación o el desarrollo de este prototipo:
 
 ```bibtex
 @software{LaraColorado_STR002_H3_2026,
