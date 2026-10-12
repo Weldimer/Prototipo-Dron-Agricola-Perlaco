@@ -34,3 +34,11 @@ Prototipo-Dron-Agricola-Perlaco/
 ## 📈 Paneles de Telemetría e Inspección Visual (`/assets`)
 
 ![Panel de Telemetría HD](assets/simulacion_mision_agricola_hd.png)
+
+---
+
+## 🦉 Lema y Filosofía de Proyecto
+
+> *«Hasta la criatura más humilde sirve a la tierra. Lástima que la civilización solo sepa servirse de ella para pisarla.»*
+> 
+> — **ELECTRÓNICA PERLACO / PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
