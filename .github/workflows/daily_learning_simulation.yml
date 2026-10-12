@@ -1,0 +1,35 @@
+name: Daily Multi-Parcel Learning Simulation
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *' # Ejecución autómata 2 veces al día (06:00 y 18:00 UTC)
+  workflow_dispatch: # Disparo manual habilitado en la interfaz web/móvil
+
+jobs:
+  run-multi-parcel-simulation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy pandas
+
+      - name: Execute Dual Parcel Simulation
+        run: |
+          python mission/daily_cron_simulation.py
+
+      - name: Commit and Push Updated Historical Log
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add simulation/historical_learning_log.csv
+          git diff-index --quiet HEAD || git commit -m '🤖 GitHub Actions: Simulacion diaria multiparcela y aprendizaje de cultivos registrado [skip ci]'
+          git push
