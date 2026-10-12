@@ -42,20 +42,20 @@
 ### 🔄 A. Corrección Aerodinámica Coaxial (Downwash)
 | Parámetro | Configuración Anterior (Con Error) | Configuración Nueva (Corregida v3.5) | Justificación Técnica |
 | :--- | :--- | :--- | :--- |
-| **Hélices Inferiores** | 30x10.5" (Igual a la superior) | **30x11.5" (Paso +1.0" incrementado)** | El rotor inferior trabaja en aire acelerado. El paso mayor restablece el $C_T$ (coeficiente de empuje) y recupera un **12% de eficiencia**. |
-| **Posición de Boquillas** | Directamente bajo el centro del motor | **Extendidas 20 cm fuera del radio rotórico** | Evita que el torbellino central rompa la gota. Mantiene el $VMD$ en $200	ext{--}280\ \mu	ext{m}$ sin atomización errática. |
+| **Hélices Inferiores** | 30x10.5" (Igual a la superior) | **30x11.5" (Paso +1.0" incrementado)** | El rotor inferior trabaja en aire acelerado. El paso mayor restablece el Coeficiente de Empuje ($C_T$) y recupera un **12% de eficiencia**. |
+| **Posición de Boquillas** | Directamente bajo el centro del motor | **Extendidas 20 cm fuera del radio rotórico** | Evita que el torbellino central rompa la gota. Mantiene el Diámetro Volumétrico Medio ($VMD$) en $200\text{--}280\ \mu\text{m}$ sin atomización errática. |
 
 ### 🌡️ B. Reducción de Estrés Térmico y Eléctrico en PDB (>300A)
 | Parámetro | Configuración Anterior (Con Error) | Configuración Nueva (Corregida v3.5) | Justificación Técnica |
 | :--- | :--- | :--- | :--- |
-| **Grosor de Pistas Cobre** | 2 oz / 3 oz ($70	ext{--}105\ \mu	ext{m}$) | **6 oz Cobre ($210\ \mu	ext{m}$) + Bars de Cobre Sólido** | Reduce la resistencia interna $R_{PDB}$. Disminuye la disipación por efecto Joule ($P = I^2 R$) en un **65%**. |
+| **Grosor de Pistas Cobre** | 2 oz / 3 oz ($70\text{--}105\ \mu\text{m}$) | **6 oz Cobre ($210\ \mu\text{m}$) + Bars de Cobre Sólido** | Reduce la resistencia interna $R_{PDB}$. Disminuye la disipación por efecto Joule ($P = I^2 R$) en un **65%**. |
 | **Medición de Corriente** | Shunt resistivo tradicional | **Sensor de Efecto Hall Allegro ACS770 (300A)** | Eliminación de la resistencia de caída ($V=IR$). Aislamiento galvánico total contra picos de retro-EMF. |
 | **Protección Ambiental** | Exposición directa de PCB | **Doble capa de MG Chemicals 422B** | Previene cortocircuitos por humedad tropical y corrosión por nitrógeno/plaguicidas. |
 
 ### 🔊 C. Supresión de Ruido Vibracional en Caudalímetro y Aviónica
 | Parámetro | Configuración Anterior (Con Error) | Configuración Nueva (Corregida v3.5) | Justificación Técnica |
 | :--- | :--- | :--- | :--- |
-| **Conexión Hidráulica** | Tubo rígido acoplado al chasis | **Mangueras EPDM + Bujes Sorbothane 50D** | Filtras las micro-vibraciones mecánicas de $100	ext{--}350\ 	ext{Hz}$ transmitidas por la estructura. |
+| **Conexión Hidráulica** | Tubo rígido acoplado al chasis | **Mangueras EPDM + Bujes Sorbothane 50D** | Filtra las micro-vibraciones mecánicas de $100\text{--}350\ \text{Hz}$ transmitidas por la estructura. |
 | **Filtrado de Datos** | Lectura cruda de pulsos | **Filtro de Kalman 1D + Notch Dynamic Filter** | Elimina picos de flujo falsos en la telemetría MAVLink. Mantiene el bucle cerrado PWM con error $< 1.5\%$. |
 
 ---

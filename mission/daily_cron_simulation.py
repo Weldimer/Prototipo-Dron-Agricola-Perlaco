@@ -16,19 +16,15 @@ import pandas as pd
 DB_LOCAL_PATH = "simulation/offline_agronomic_db.sqlite"
 
 class FiltroKalmanFlujo:
-    """Filtro de Kalman Unidimensional para suprimir ruido vibracional de 100-350 Hz."""
     def __init__(self, q_ruido_proceso=0.01, r_ruido_medicion=0.25):
         self.q = q_ruido_proceso
         self.r = r_ruido_medicion
-        self.x = 0.0  # Estado estimado
-        self.p = 1.0  # Covarianza de error
+        self.x = 0.0
+        self.p = 1.0
 
     def filtrar(self, medicion_cruda):
-        # Predicción
         p_pred = self.p + self.q
-        # Ganancia de Kalman
         k = p_pred / (p_pred + self.r)
-        # Actualización
         self.x = self.x + k * (medicion_cruda - self.x)
         self.p = (1.0 - k) * p_pred
         return round(self.x, 2)
@@ -54,9 +50,7 @@ class MotorResiliente:
         return None
 
     def calcular_eficiencia_coaxial(self, num_drones, pitch_diferencial_activo=True):
-        """Calcula el factor de eficiencia aerodinámica coaxial compensada."""
         if num_drones == 1:
-            # Con hélices Top 30x10.5" y Bottom 30x11.5", se recupera eficiencia
             return 0.94 if pitch_diferencial_activo else 0.82
         else:
             return 0.88 * (0.94 if pitch_diferencial_activo else 0.82)
@@ -66,10 +60,7 @@ class MotorResiliente:
         if not p:
             return None
 
-        # 1. Supresión de ruido vibracional mediante Kalman
         caudal_filtrado_lmin = self.kalman.filtrar(caudal_crudo_lmin)
-
-        # 2. Eficiencia Coaxial y VRA
         eta_coaxial = self.calcular_eficiencia_coaxial(num_drones, pitch_diferencial_activo=True)
         lai_dinamico = round(p['lai_base'] + random.uniform(-0.10, 0.15), 2)
         
@@ -85,8 +76,7 @@ class MotorResiliente:
         factor_pwm = round(dosis_teorica / dosis_real, 3) if dosis_real > 0 else 1.0
         cmd_pwm = f"AJUSTAR_PWM ({factor_pwm})" if abs(desviacion_pct) > 5.0 else "PWM_OPTIMO"
 
-        # 3. Datos Térmicos de PDB Heavy Copper (6 oz) y RTK
-        temp_pdb_c = round(temp_env + (300.0 * 0.035), 1)  # Disipación mejorada por 6 oz Cu + Disipador
+        temp_pdb_c = round(temp_env + (300.0 * 0.035), 1)
         precision_rtk_mm = round(random.uniform(8.0, 11.5), 1)
         tiempo_operativo_min = round(((p['area_ha'] * 2.8) + 4.0) / eta_coaxial, 1)
 
@@ -117,7 +107,7 @@ def ejecutar_simulacion():
     random.shuffle(ids)
     resultados = []
 
-    # 4 Simulaciones Monodrón + 2 Enjambre
+    # 4 Simulaciones Monodrón (1 UAV) + 2 Simulaciones Enjambre (3 UAVs)
     for i in range(4):
         res = engine.procesar_telemetria(ids[i], num_drones=1, temp_env=31.0, viento_kmh=15.0, vel_uav_ms=5.5, caudal_crudo_lmin=3.85 + random.uniform(-0.4, 0.4))
         if res: resultados.append(res)

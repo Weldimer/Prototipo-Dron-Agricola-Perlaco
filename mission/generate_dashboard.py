@@ -1,7 +1,9 @@
 # ==============================================================================
-# PERLACOLABS - DASHBOARD WEB Y GENERADOR PLOTLY
-# Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO
+# PERLACOLABS - DASHBOARD WEB Y PORTAL PRINCIPAL (INDEX.HTML)
+# Integración de la Sección de Reconocimientos e Historial de Misiones
+# Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / PERLACOLABS
 # ==============================================================================
+
 import pandas as pd
 import json
 import os
@@ -21,7 +23,7 @@ df['Eficiencia_Coaxial_pct'] = pd.to_numeric(df['Eficiencia_Coaxial_pct'], error
 
 ultimos = df.tail(12).iloc[::-1]
 
-filas_html = ''
+filas_html = ""
 for _, r in ultimos.iterrows():
     st = str(r.get('Estado_Operativo', '🟢 ÓPTIMO'))
     c_badge = '#238636'
@@ -33,33 +35,43 @@ for _, r in ultimos.iterrows():
     c_kalman = f"<b style='color:#3fb950;'>{r.get('Caudal_Filtrado_Kalman_Lmin', 3.85)} L/m</b>"
     rtk_str = f"<b style='color:#a371f7;'>±{r['Precision_RTK_mm']} mm</b>"
     
-    filas_html += f'<tr><td>{f_utc}</td><td><b>{parc}</b></td><td>{var_str}</td><td>{eta_str}</td><td>{c_crudo}</td><td>{c_kalman}</td><td>{rtk_str}</td><td><span style="background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;">{st}</span></td></tr>'
+    filas_html += f"<tr><td>{f_utc}</td><td><b>{parc}</b></td><td>{var_str}</td><td>{eta_str}</td><td>{c_crudo}</td><td>{c_kalman}</td><td>{rtk_str}</td><td><span style='background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>{st}</span></td></tr>"
 
 fechas_json = json.dumps(list(df['Fecha_Hora_UTC'].tail(18)))
 eta_json = json.dumps([round(float(x), 1) for x in list(df['Eficiencia_Coaxial_pct'].tail(18))])
 rtk_mm_json = json.dumps([round(float(x), 1) for x in list(df['Precision_RTK_mm'].tail(18))])
 
-html_content = f'''<!DOCTYPE html>
+html_template = """<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PERLACOLABS - Dashboard Solución Integral STR-002 H3 v3.5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERLACOLABS - Prototipo STR-002 H3 v3.5</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 0; padding: 20px; }}
-        .header {{ text-align: center; border-bottom: 1px solid #30363d; padding-bottom: 15px; margin-bottom: 20px; }}
-        .header h1 {{ color: #58a6ff; margin: 0; }}
-        .grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }}
-        .card {{ background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; }}
-        table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
-        th {{ background-color: #21262d; color: #8b949e; padding: 8px; text-align: left; }}
-        td {{ padding: 8px; border-bottom: 1px solid #21262d; }}
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 0; padding: 25px; line-height: 1.6; }
+        .header { text-align: center; border-bottom: 1px solid #30363d; padding-bottom: 20px; margin-bottom: 25px; }
+        .header h1 { color: #58a6ff; margin: 0 0 10px 0; font-size: 28px; }
+        .header p { color: #8b949e; font-size: 15px; margin: 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; }
+        .card { background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+        .card h3 { color: #58a6ff; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-top: 0; font-size: 18px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+        th { background-color: #21262d; color: #8b949e; padding: 10px; text-align: left; border-bottom: 2px solid #30363d; }
+        td { padding: 10px; border-bottom: 1px solid #21262d; }
+        .ack-section { background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 25px; margin-top: 30px; }
+        .ack-title { color: #f0883e; font-size: 20px; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
+        .ack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+        .ack-item { background-color: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 15px; }
+        .ack-item h4 { color: #79c0ff; margin: 0 0 8px 0; font-size: 15px; }
+        .ack-item p { font-size: 13px; color: #8b949e; margin: 0; text-align: justify; }
+        .quote-box { font-style: italic; color: #a5d6ff; border-left: 3px solid #f0883e; padding-left: 12px; margin-top: 15px; font-size: 13px; }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>🚁 ELECTRÓNICA PERLACO - STR-002 H3 v3.5</h1>
-        <p><b>Centro de Misiones Corregido: Hélices Diferenciales, PDB 6 oz y Filtro Kalman</b></p>
+        <p><b>Plataforma Aérea Agrícola Autónoma — Úrsulo Galván, Veracruz, México</b></p>
     </div>
     
     <div class="grid">
@@ -68,27 +80,74 @@ html_content = f'''<!DOCTYPE html>
     </div>
     
     <div class="card">
-        <h3>📑 Registros de Telemetría Corregidos (Filtrado Kalman & Eficiencia Aerodinámica)</h3>
+        <h3>📑 Registros de Telemetría Botánica y VRA Off-Grid</h3>
         <table>
             <thead>
                 <tr><th>Fecha UTC</th><th>Parcela</th><th>Variedad</th><th>Eficiencia Coaxial</th><th>Caudal Crudo</th><th>Flujo Kalman</th><th>Precisión RTK</th><th>Estado</th></tr>
             </thead>
-            <tbody>{filas_html}</tbody>
+            <tbody>__FILAS_HTML__</tbody>
         </table>
     </div>
 
-    <script>
-        var trace1 = {{ x: {fechas_json}, y: {eta_json}, name: 'Eficiencia Coaxial (%)', type: 'bar', marker: {{color: '#2ea043'}} }};
-        Plotly.newPlot('chart_eta', [trace1], {{ title: 'Eficiencia Aerodinámica Coaxial Recuperada con Paso Diferencial (%)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {{color: '#c9d1d9'}} }});
+    <!-- SECCIÓN DE RECONOCIMIENTOS -->
+    <div class="ack-section">
+        <h2 class="ack-title">📜 Gratitud, Reconocimiento y Homenaje al Saber</h2>
+        <p style="font-size: 14px; color: #c9d1d9;">La materialización técnica de esta obra no es la victoria de un esfuerzo solitario, sino el resultado de un camino guiado por la fe, la perseverancia y la generosidad de almas e inteligencias que coincidieron en mi destino.</p>
 
-        var trace2 = {{ x: {fechas_json}, y: {rtk_mm_json}, name: 'Error RTK (mm RMS)', type: 'scatter', mode: 'lines+markers', line: {{color: '#a371f7'}} }};
-        Plotly.newPlot('chart_rtk', [trace2], {{ title: 'Navegación RTK Moving Baseline Milimétrica (mm RMS)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {{color: '#c9d1d9'}}, yaxis: {{title: 'Error (mm)'}} }});
+        <div class="ack-grid">
+            <div class="ack-item">
+                <h4>🏛️ A mis Cimientos e Inflexiones Morales</h4>
+                <p><b>Natanael Lara Perdomo:</b> Por transmitirme el valor del trabajo honesto, la entereza inquebrantable ante la adversidad y la rectitud que gobierna mi carácter.<br><br>
+                <b>Irene Colorado Hernández:</b> Por su ternura infinita, su fe serena e incondicional en los instantes de penumbra y por constituir el refugio donde siempre hallé paz.<br><br>
+                <b>A mi Hermana y Leales Amigos:</b> Por su comprensión absoluta ante el aislamiento que exige el estudio riguroso y por ofrecer su presencia constante sin exigir explicaciones.</p>
+            </div>
+
+            <div class="ack-item">
+                <h4>🎓 A la Mentoría Generosa y la Humildad de la Ciencia</h4>
+                <p>A aquel estudiante y profesional de la ingeniería mecatrónica que, despojado de la vanidad académica y armado de una genuina nobleza, estrechó su mano para señalarme el camino. A quien supo contemplar mis primeras invenciones —incipientes, rústicas e imperfectas en su forma— y reconocer en ellas el principio del ingenio. Aquellas palabras suyas no solo encauzaron mi rumbo, sino que cimentaron la determinación, la capacidad investigativa, la adaptabilidad y la madurez técnica que hoy sostienen este desarrollo.</p>
+            </div>
+
+            <div class="ack-item">
+                <h4>🛠️ A la Indulgencia de la Praxis Empírica</h4>
+                <p>A aquellos espíritus nobles que confiaron sus dispositivos a mis manos en los albores de este viaje. A quienes vieron sus circuitos sucumbir ante el diagnóstico inicial, mi eterna gratitud por su comprensión indulgente; y a quienes los vieron retornar a la vida, gracias por su confianza. Cada componente sacrificado en el taller fue el aula real donde aprendí a descifrar las leyes del electromagnetismo.</p>
+            </div>
+
+            <div class="ack-item">
+                <h4>🏛️ A los Observadores de Juicio Reservado y la Adversidad</h4>
+                <p>A quienes consideraron este empeño una quimera y cuestionaron la posibilidad de alcanzar rigor técnico fuera de los moldes institucionales: su escepticismo no representó un obstáculo, sino el acero que templó mi disciplina. Asimismo, a las voluntades opuestas y a los vientos en contra, gracias por enseñarme la ecuanimidad, la resiliencia y la elegancia de responder únicamente con evidencia y trabajo constante.</p>
+            </div>
+        </div>
+
+        <div class="ack-item" style="margin-top: 20px;">
+            <h4>🌐 A la Comunidad Científica e Intelectual Global</h4>
+            <p>A los autores anónimos y académicos de cada publicación técnica, tratado y archivo PDF esparcido en las redes del conocimiento universal. A los desarrolladores e ingenieros de la comunidad de código abierto, cuyos repositorios han sido faros de luz en el aprendizaje. A todos ustedes, mi más sincero respeto: mantengo la firme y humilde aspiración de que, con el trabajo continuo de cada día, este proyecto logre estar a la altura del legado que han compartido con la humanidad.</p>
+        </div>
+
+        <div class="quote-box">
+            "El conocimiento no pertenece a quien lo encierra en las aulas, sino a quien lo busca con devoción, lo trabaja con las manos y lo pone al servicio de la tierra."
+        </div>
+        
+        <p style="text-align: right; font-size: 12px; color: #8b949e; margin-top: 15px; font-weight: bold;">
+            Angel Imer Lara Colorado — PERLACOLABS<br>
+            <span style="font-weight: normal; font-style: italic;">Úrsulo Galván, Veracruz, México</span>
+        </p>
+    </div>
+
+    <script>
+        var trace1 = { x: __FECHAS_JSON__, y: __ETA_JSON__, name: 'Eficiencia Coaxial (%)', type: 'bar', marker: {color: '#2ea043'} };
+        Plotly.newPlot('chart_eta', [trace1], { title: 'Eficiencia Aerodinámica Coaxial Recuperada con Paso Diferencial (%)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {color: '#c9d1d9'} });
+
+        var trace2 = { x: __FECHAS_JSON__, y: __RTK_JSON__, name: 'Error RTK (mm RMS)', type: 'scatter', mode: 'lines+markers', line: {color: '#a371f7'} };
+        Plotly.newPlot('chart_rtk', [trace2], { title: 'Navegación RTK Moving Baseline Milimétrica (mm RMS)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {color: '#c9d1d9'}, yaxis: {title: 'Error (mm)'} });
     </script>
 </body>
-</html>'''
+</html>"""
+
+html_content = html_template.replace("__FILAS_HTML__", filas_html)                            .replace("__FECHAS_JSON__", fechas_json)                            .replace("__ETA_JSON__", eta_json)                            .replace("__RTK_JSON__", rtk_mm_json)
 
 with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 with open('docs/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
-print('✅ Páginas HTML de Dashboard actualizadas con solución técnica integral.')
+
+print("✅ Portal web principal (`docs/index.html`) generado con éxito.")
