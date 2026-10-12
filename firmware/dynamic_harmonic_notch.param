@@ -1,0 +1,9 @@
+# PERLACOLABS - FILTRO NOTCH DINÁMICO POR TELEMETRÍA BDSHOT RPM (STR-002 H3 v3.0)
+# Atenuación en tiempo real de picos armónicos de vibración en hélices de 30 pulgadas
+INS_HNOTCH_ENABLE,1     # Habilita el filtro muesca armónico dinámico
+INS_HNOTCH_MODE,3       # Modo 3: Tracking dinámico por RPM de ESCs via BDShot
+INS_HNOTCH_REF,1.0      # Factor de escala de frecuencia de referencia
+INS_HNOTCH_FREQ,35.0    # Frecuencia mínima de corte en Hz (aprox 2100 RPM)
+INS_HNOTCH_BW,17.5     # Ancho de banda del filtro en Hz
+INS_HNOTCH_ATT,40.0     # Atenuación máxima de la muesca (-40 dB de ruido armónico)
+INS_HNOTCH_HMNCS,3      # Rastrear la 1ra, 2da y 3ra armónica de rotación del motor
