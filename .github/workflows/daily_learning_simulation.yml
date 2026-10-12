@@ -3,14 +3,19 @@ name: Daily Multi-Parcel Learning Simulation
 on:
   schedule:
     - cron: '0 6,18 * * *' # Ejecución autómata 2 veces al día (06:00 y 18:00 UTC)
-  workflow_dispatch: # Disparo manual habilitado en la interfaz web/móvil
+  workflow_dispatch: # Disparo manual habilitado
+
+permissions:
+  contents: write # Permisos de lectura y escritura para git push
 
 jobs:
   run-multi-parcel-simulation:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
