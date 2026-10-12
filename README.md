@@ -41,6 +41,8 @@ Prototipo-Dron-Agricola-Perlaco/
 
 ## 📚 Documentación de Ingeniería y Operación (`/docs`)
 
+* 🌪️ [**Justificación Técnica Octocóptero X8 para Vientos 'Nortes' (>127 km/h)**](docs/justificacion_octocoptero_x8_nortes.md): Análisis aerodinámico de la configuración de 8 motores, reserva T/W de 2.53:1 y respuesta en Úrsulo Galván, Ver.
+
 * 🔊 [**Sistema de Emisión Sonora y Baliza de Piloto**](docs/sistema_audio_y_alertas.md): Control de audio RTTTL (Turkish March), baliza de localización y disuasión de fauna vía EdgeTX/MAVLink.
 
 * 📑 [**Estudio Técnico y de Ingeniería Integral**](docs/estudio_dron_agricola.md): Análisis dimensional, tren motriz 12S, cálculo de Z_CG e hidráulica VRA.
