@@ -14,10 +14,7 @@ if not os.path.exists(log_file) or os.path.getsize(log_file) < 50:
 
 df = pd.read_csv(log_file)
 
-# Limpiar cualquier texto corrupto residual
-df = df[~df.astype(str).apply(lambda r: r.str.contains('yaya', case=False)).any(axis=1)].copy()
-
-# Convertir tipos explícitamente para asegurar arreglos válidos para Plotly
+# Tipado explícito de columnas
 df['LAI_Follaje'] = pd.to_numeric(df['LAI_Follaje'], errors='coerce').fillna(3.0)
 df['Dosis_VRA_L_ha'] = pd.to_numeric(df['Dosis_VRA_L_ha'], errors='coerce').fillna(10.5)
 df['Pasadas_Vuelo'] = pd.to_numeric(df['Pasadas_Vuelo'], errors='coerce').fillna(60).astype(int)
@@ -101,4 +98,4 @@ with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 with open('docs/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
-print('✅ Páginas HTML de Dashboard (index.html y dashboard.html) generadas correctamente con datos.')
+print('✅ Páginas HTML de Dashboard (index.html y dashboard.html) generadas correctamente.')

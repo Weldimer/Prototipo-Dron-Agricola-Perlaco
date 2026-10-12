@@ -1,5 +1,5 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR GEOMÁTICO DE SIMULACIÓN Y GENERADOR DE REGISTROS
+# PERLACOLABS - MOTOR DINÁMICO DE SIMULACIÓN Y ROTACIÓN DE PARCELAS VERACRUZ
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -7,10 +7,12 @@ import urllib.request
 import json
 from datetime import datetime, timezone
 import os
+import random
 import numpy as np
 import pandas as pd
 
-PARCELAS = [
+# Catálogo Ampliado de Zonas Agrícolas Reales de Veracruz
+CATALOGO_PARCELAS_VERACRUZ = [
     {
         'id': 'PARC-001',
         'nombre': 'Parcela_A_UrsuloGalvan',
@@ -18,13 +20,11 @@ PARCELAS = [
         'lon': -96.3533,
         'cultivo': 'Caña de Azúcar',
         'variante': 'CP 72-2086 (Caña Maura)',
-        'area_ha': 12.5,
+        'area_base_ha': 12.5,
         'ancho_m': 350.0,
         'largo_m': 357.1,
-        'lai_follaje': 3.8,
-        'altura_dosel_m': 2.8,
-        'sopa': 'Herbicida Nicosulfurón + Coadyuvante Siliconado',
-        'salinidad_ec': 1.8
+        'lai_base': 3.8,
+        'sopa': 'Herbicida Nicosulfurón + Coadyuvante'
     },
     {
         'id': 'PARC-002',
@@ -33,13 +33,63 @@ PARCELAS = [
         'lon': -96.4402,
         'cultivo': 'Cítricos',
         'variante': 'Limón Persa Injertado',
-        'area_ha': 8.2,
+        'area_base_ha': 8.2,
         'ancho_m': 270.0,
         'largo_m': 303.7,
-        'lai_follaje': 2.4,
-        'altura_dosel_m': 3.2,
-        'sopa': 'Fungicida Foliar + Bioestimulante Zn-B + Buffer pH',
-        'salinidad_ec': 2.4
+        'lai_base': 2.4,
+        'sopa': 'Fungicida Foliar + Bioestimulante Zn-B'
+    },
+    {
+        'id': 'PARC-003',
+        'nombre': 'Parcela_C_Actopan',
+        'lat': 19.5011,
+        'lon': -96.6152,
+        'cultivo': 'Papaya',
+        'variante': 'Maradol Roja',
+        'area_base_ha': 6.5,
+        'ancho_m': 200.0,
+        'largo_m': 325.0,
+        'lai_base': 3.1,
+        'sopa': 'Insecticida Sistemático + Adherente'
+    },
+    {
+        'id': 'PARC-004',
+        'nombre': 'Parcela_D_LaAntigua',
+        'lat': 19.3705,
+        'lon': -96.3762,
+        'cultivo': 'Maíz',
+        'variante': 'Híbrido Blanco H-516',
+        'area_base_ha': 15.0,
+        'ancho_m': 300.0,
+        'largo_m': 500.0,
+        'lai_base': 3.5,
+        'sopa': 'Fertilizante Foliar N-P-K + Zinc'
+    },
+    {
+        'id': 'PARC-005',
+        'nombre': 'Parcela_E_PuenteNacional',
+        'lat': 19.3312,
+        'lon': -96.4815,
+        'cultivo': 'Mango',
+        'variante': 'Manila de Exportación',
+        'area_base_ha': 10.0,
+        'ancho_m': 250.0,
+        'largo_m': 400.0,
+        'lai_base': 2.9,
+        'sopa': 'Cúprico + Aminoácidos Foliares'
+    },
+    {
+        'id': 'PARC-006',
+        'nombre': 'Parcela_F_SoledadDeDoblado',
+        'lat': 19.0438,
+        'lon': -96.4211,
+        'cultivo': 'Piña',
+        'variante': 'MD2 Cayenne',
+        'area_base_ha': 9.5,
+        'ancho_m': 220.0,
+        'largo_m': 431.8,
+        'lai_base': 4.1,
+        'sopa': 'Inductor de Floración + Boro'
     }
 ]
 
@@ -79,11 +129,10 @@ def consultar_multi_api_meteo(lat, lon):
         except Exception as e:
             return 29.0, 17.5, 85.0, 66.0, f'FALLBACK_REGIONAL: {str(e)[:30]}'
 
-def calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct):
+def calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct, lai_actual):
     viento_ms = viento_kmh / 3.6
     ancho_m = p['ancho_m']
     largo_m = p['largo_m']
-    lai = p['lai_follaje']
     altura_vuelo_efectiva = 3.5
     ancho_franja_m = 6.0
     overlap_pct = 25.0
@@ -99,7 +148,7 @@ def calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct):
 
     k_extincion = 0.5
     efecto_downwash_x8 = 1.35
-    penetracion_follaje_pct = min(100.0, np.exp(-k_extincion * lai) * 100.0 * efecto_downwash_x8)
+    penetracion_follaje_pct = min(100.0, np.exp(-k_extincion * lai_actual) * 100.0 * efecto_downwash_x8)
 
     error_posicionamiento_rtk_m = 0.025
     error_deriva_pct = (distancia_deriva_m / ancho_franja_m) * 100.0
@@ -120,14 +169,22 @@ def calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct):
 
 def evaluar_y_simular_parcela(p):
     now_utc = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
+    
+    # Micro-variación fenológica dinámica (simula crecimiento foliar y superficie)
+    variacion_lai = round(random.uniform(-0.3, 0.4), 2)
+    lai_dinamico = round(max(1.2, p['lai_base'] + variacion_lai), 2)
+    
+    variacion_area = round(random.uniform(-0.2, 0.3), 2)
+    area_dinamica = round(max(3.0, p['area_base_ha'] + variacion_area), 2)
+
     temp_c, viento_kmh, dir_deg, hr_pct, fuente_api = consultar_multi_api_meteo(p['lat'], p['lon'])
-    fisica = calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct)
+    fisica = calcular_fisica_cobertura_y_errores(p, temp_c, viento_kmh, hr_pct, lai_dinamico)
 
     viento_ms = viento_kmh / 3.6
     dosis_nominal = 10.0
     factor_vra = 1.0 + (max(0, viento_ms - 3.0) * 0.04) + ((temp_c / hr_pct) * 0.18)
     dosis_ajustada = dosis_nominal * factor_vra
-    volumen_total_l = dosis_ajustada * p['area_ha']
+    volumen_total_l = dosis_ajustada * area_dinamica
     heading_optimo = (dir_deg + 90.0) % 360.0
     score_ventana = max(0.0, 100.0 - (viento_kmh * 2.2) - (fisica['distancia_deriva_m'] * 12.0))
 
@@ -151,8 +208,8 @@ def evaluar_y_simular_parcela(p):
         'ID_Parcela': p['id'],
         'Parcela': p['nombre'],
         'Cultivo': p['cultivo'],
-        'Area_ha': p['area_ha'],
-        'LAI_Follaje': p['lai_follaje'],
+        'Area_ha': area_dinamica,
+        'LAI_Follaje': lai_dinamico,
         'Dosis_VRA_L_ha': round(dosis_ajustada, 2),
         'Volumen_Total_L': round(volumen_total_l, 1),
         'Pasadas_Vuelo': fisica['num_pasadas'],
@@ -206,7 +263,10 @@ def generar_tabla_markdown(df):
         f.write(salida_md)
 
 def ejecutar_simulacion():
-    res = [evaluar_y_simular_parcela(p) for p in PARCELAS]
+    # Seleccionar dinámicamente 2 parcelas distintas del catálogo en cada corrida
+    parcelas_seleccionadas = random.sample(CATALOGO_PARCELAS_VERACRUZ, 2)
+    
+    res = [evaluar_y_simular_parcela(p) for p in parcelas_seleccionadas]
     df_new = pd.DataFrame(res)
     log_file = 'simulation/historical_learning_log.csv'
     
@@ -221,9 +281,7 @@ def ejecutar_simulacion():
     else:
         df_tot = df_new
 
-    # Reemplazar cualquier rastro 'yaya' o 'nan' por valores nominales limpios
-    df_tot = df_tot[~df_tot.astype(str).apply(lambda r: r.str.contains('yaya', case=False)).any(axis=1)].copy()
-    
+    # Reemplazo de datos faltantes para evitar arreglos vacíos en Plotly
     df_tot['LAI_Follaje'] = pd.to_numeric(df_tot['LAI_Follaje'], errors='coerce').fillna(3.0)
     df_tot['Pasadas_Vuelo'] = pd.to_numeric(df_tot['Pasadas_Vuelo'], errors='coerce').fillna(60).astype(int)
     df_tot['Deriva_Eolica_m'] = pd.to_numeric(df_tot['Deriva_Eolica_m'], errors='coerce').fillna(5.0)
@@ -234,7 +292,7 @@ def ejecutar_simulacion():
 
     df_tot.to_csv(log_file, index=False)
     generar_tabla_markdown(df_tot)
-    print('✅ Simulación completada e historial CSV actualizado.')
+    print('✅ Simulación de parcelas dinámicas completada.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()
