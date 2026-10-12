@@ -1,6 +1,6 @@
 # 📦 Lista Oficial de Materiales (BOM) - ELECTRÓNICA PERLACO STR-002 H3 v3.0
-**Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) — Octocóptero Coaxial X8 & Enjambre**  
-**Proyecto:** Prototipo Dron Agrícola Perlaco  
+**Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) — Octocóptero Coaxial X8**  
+**Proyecto:** Prototipo Dron Agrícola Perlaco (Precisión RTK Milimétrica)  
 **Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
 
 ---
@@ -24,11 +24,11 @@
 
 ---
 
-## 🧠 3. Aviónica y Procesamiento Autónomo
+## 🧠 3. Aviónica y Navegación de Precisión Milimétrica
 | Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
 | :--- | :--- | :---: | :--- |
 | **Piloto Automático** | Cube Orange+ (Procesador STM32H7, Triple IMU aislada) | 1 | Placa central amortiguada por silicona dieléctrica |
-| **Navegación GNSS RTK** | Doble ZED-F9P RTK Moving Baseline (GPS/GLONASS/Galileo/Beidou) | 2 | Antenas en mástiles de los brazos principal y secundario |
+| **Navegación GNSS RTK** | Doble ZED-F9P RTK Moving Baseline (GPS/GLONASS/Galileo/Beidou - Precisión 8-12 mm) | 2 | Antenas en mástiles de los brazos principal y secundario |
 | **Sensor de Flujo / Nivel** | Caudalímetro ultrasónico digital de alta precisión | 1 | Tubería principal de distribución del tanque |
 
 ---
@@ -51,4 +51,4 @@
 | **Boquillas de Aspersión** | Boquillas de cono hueco / Centrífugas de gota variable (VMD 200–280 µm) | 4 | Bajo los motores en extensión de brazos |
 
 ---
-**ELECTRÓNICA PERLACO / PERLACOLABS** — *Ingeniería Agrícola de Alta Precisión y Soberanía Tecnológica.*
+**ELECTRÓNICA PERLACO / PERLACOLABS** — *Úrsulo Galván, Veracruz, México*

@@ -1,6 +1,6 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR DE APRENDIZAJE GEOMÁTICO Y SIMULACIÓN TRIPLE
-# 2 Simulaciones con 1 Dron + 1 Simulación con Enjambre de 3 Drones
+# PERLACOLABS - MOTOR DE APRENDIZAJE GEOMÁTICO DE PARCELAS Y RTK MILIMÉTRICO
+# Rotación de Parcelas con Lat/Lon, Área m², 4 Simulaciones Monodrón + 2 Enjambre
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -19,11 +19,79 @@ CONFIG_ENJAMBRE = {
     'potencia_tx_dbm': 30.0
 }
 
-CATALOGO_PARCELAS_VERACRUZ = [
-    {'id': 'PARC-001', 'nombre': 'Parcela_A_UrsuloGalvan', 'lat': 19.4008, 'lon': -96.3533, 'cultivo': 'Caña de Azúcar', 'area_base_ha': 12.5, 'ancho_m': 350.0, 'largo_m': 357.1, 'lai_base': 3.8},
-    {'id': 'PARC-002', 'nombre': 'Parcela_B_UrsuloGalvan_Cítricos', 'lat': 19.4120, 'lon': -96.3610, 'cultivo': 'Limón Persa', 'area_base_ha': 8.2, 'ancho_m': 270.0, 'largo_m': 303.7, 'lai_base': 2.4},
-    {'id': 'PARC-003', 'nombre': 'Parcela_C_Actopan', 'lat': 19.5011, 'lon': -96.6152, 'cultivo': 'Papaya', 'area_base_ha': 6.5, 'ancho_m': 200.0, 'largo_m': 325.0, 'lai_base': 3.1},
-    {'id': 'PARC-004', 'nombre': 'Parcela_D_LaAntigua', 'lat': 19.3705, 'lon': -96.3762, 'cultivo': 'Maíz', 'area_base_ha': 15.0, 'ancho_m': 300.0, 'largo_m': 500.0, 'lai_base': 3.5}
+CATALOGO_PARCELAS_URSULO_GALVAN = [
+    {
+        'id': 'PARC-001',
+        'nombre': 'Parcela_A_UrsuloGalvan_Caña',
+        'lat': 19.4008,
+        'lon': -96.3533,
+        'cultivo': 'Caña de Azúcar (CP 72-2086)',
+        'area_base_ha': 12.5,
+        'area_m2': 125000.0,
+        'ancho_m': 350.0,
+        'largo_m': 357.1,
+        'lai_base': 3.8
+    },
+    {
+        'id': 'PARC-002',
+        'nombre': 'Parcela_B_UrsuloGalvan_Citricos',
+        'lat': 19.4120,
+        'lon': -96.3610,
+        'cultivo': 'Limón Persa Injertado',
+        'area_base_ha': 8.2,
+        'area_m2': 82000.0,
+        'ancho_m': 270.0,
+        'largo_m': 303.7,
+        'lai_base': 2.4
+    },
+    {
+        'id': 'PARC-003',
+        'nombre': 'Parcela_C_UrsuloGalvan_Papaya',
+        'lat': 19.3950,
+        'lon': -96.3480,
+        'cultivo': 'Papaya Maradol Roja',
+        'area_base_ha': 6.5,
+        'area_m2': 65000.0,
+        'ancho_m': 200.0,
+        'largo_m': 325.0,
+        'lai_base': 3.1
+    },
+    {
+        'id': 'PARC-004',
+        'nombre': 'Parcela_D_UrsuloGalvan_Maiz',
+        'lat': 19.4050,
+        'lon': -96.3400,
+        'cultivo': 'Maíz Híbrido H-516',
+        'area_base_ha': 15.0,
+        'area_m2': 150000.0,
+        'ancho_m': 300.0,
+        'largo_m': 500.0,
+        'lai_base': 3.5
+    },
+    {
+        'id': 'PARC-005',
+        'nombre': 'Parcela_E_UrsuloGalvan_Mango',
+        'lat': 19.4080,
+        'lon': -96.3700,
+        'cultivo': 'Mango Manila Exportación',
+        'area_base_ha': 10.0,
+        'area_m2': 100000.0,
+        'ancho_m': 250.0,
+        'largo_m': 400.0,
+        'lai_base': 2.9
+    },
+    {
+        'id': 'PARC-006',
+        'nombre': 'Parcela_F_UrsuloGalvan_Piña',
+        'lat': 19.3900,
+        'lon': -96.3600,
+        'cultivo': 'Piña MD2 Cayenne',
+        'area_base_ha': 9.5,
+        'area_m2': 95000.0,
+        'ancho_m': 220.0,
+        'largo_m': 431.8,
+        'lai_base': 4.1
+    }
 ]
 
 def consultar_open_meteo(lat, lon):
@@ -101,13 +169,15 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
     distancia_max_rf_m = np.sqrt((ancho_m / 2.0)**2 + (largo_m)**2)
     rssi_dbm, snr_db, perdida_paquetes_pct = calcular_enlace_rf_915mhz(distancia_max_rf_m, lai_actual)
     
+    precision_rtk_mm = round(random.uniform(8.0, 12.0), 1)
+    
     v_terminal_gota = 0.72
     distancia_deriva_m = viento_ms * (3.5 / v_terminal_gota)
     vmd_optimo_um = 280.0 if (viento_ms > 4.0 or (temp_c / hr_pct) > 0.45) else 200.0
 
     k_extincion = 0.5
     penetracion_follaje_pct = min(100.0, np.exp(-k_extincion * lai_actual) * 100.0 * 1.35)
-    incertidumbre_rtk_pct = (0.025 / ancho_franja_m) * 100.0
+    incertidumbre_rtk_pct = (precision_rtk_mm / 1000.0 / ancho_franja_m) * 100.0
     cobertura_efectiva_pct = max(0.0, min(100.0, 100.0 - (distancia_deriva_m * 1.8) - incertidumbre_rtk_pct))
 
     return {
@@ -124,12 +194,17 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
         'cobertura_efectiva_pct': round(cobertura_efectiva_pct, 1),
         'rssi_dbm': rssi_dbm,
         'snr_db': snr_db,
-        'perdida_paquetes_pct': perdida_paquetes_pct
+        'perdida_paquetes_pct': perdida_paquetes_pct,
+        'precision_rtk_mm': precision_rtk_mm
     }
 
 def simular_mision(p, num_drones):
     now_utc = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
+    
     lai_dinamico = round(p['lai_base'] + random.uniform(-0.2, 0.3), 2)
+    area_dinamica_ha = round(p['area_base_ha'] + random.uniform(-0.1, 0.2), 2)
+    area_dinamica_m2 = round(area_dinamica_ha * 10000.0, 1)
+
     temp_c, viento_kmh, dir_deg, hr_pct, fuente_api = consultar_multi_api_meteo(p['lat'], p['lon'])
     
     m = calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_dinamico, num_drones)
@@ -137,24 +212,28 @@ def simular_mision(p, num_drones):
     viento_ms = viento_kmh / 3.6
     dosis_nominal = 10.0
     dosis_vra = round(dosis_nominal * (1.0 + (max(0, viento_ms - 3.0) * 0.04) + ((temp_c / hr_pct) * 0.18)), 2)
-    volumen_total_l = round(dosis_vra * p['area_base_ha'], 1)
+    volumen_total_l = round(dosis_vra * area_dinamica_ha, 1)
     heading_optimo = round((dir_deg + 90.0) % 360.0, 1)
 
     if num_drones == 1:
         estado = '🟢 MONODRON ÓPTIMO (1 UAV)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO MONODRON'
-        mitigacion = f'Enlace RFD900x ({m["rssi_dbm"]} dBm / SNR {m["snr_db"]} dB). Pérdida MAVLink: {m["perdida_paquetes_pct"]}%.'
+        mitigacion = f'RTK Milimétrico: {m["precision_rtk_mm"]} mm RMS. Enlace RF ({m["rssi_dbm"]} dBm). Misión individual completada.'
     else:
         estado = '🟢 ENJAMBRE ÓPTIMO (3 UAVs)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO ENJAMBRE'
-        mitigacion = f'Red Mesh 915 MHz activa ({m["rssi_dbm"]} dBm). Ahorro tiempo: {m["ahorro_tiempo_pct"]}%. Pérdida paquetes: {m["perdida_paquetes_pct"]}%.'
+        mitigacion = f'RTK Milimétrico: {m["precision_rtk_mm"]} mm RMS. Mesh 915 MHz activa. Ahorro tiempo: {m["ahorro_tiempo_pct"]}%.'
 
     return {
         'Fecha_Hora_UTC': now_utc,
         'ID_Parcela': p['id'],
         'Parcela': p['nombre'],
+        'Latitud': p['lat'],
+        'Longitud': p['lon'],
         'Cultivo': p['cultivo'],
-        'Area_ha': p['area_base_ha'],
+        'Area_ha': area_dinamica_ha,
+        'Area_m2': area_dinamica_m2,
         'LAI_Follaje': lai_dinamico,
         'Drones_Enjambre': num_drones,
+        'Precision_RTK_mm': m['precision_rtk_mm'],
         'Dosis_VRA_L_ha': dosis_vra,
         'Volumen_Total_L': volumen_total_l,
         'Pasadas_Por_Dron': m['pasadas_por_dron'],
@@ -175,19 +254,22 @@ def simular_mision(p, num_drones):
     }
 
 def generar_reporte_markdown(df):
-    df_rec = df.tail(10).iloc[::-1]
+    df_rec = df.tail(12).iloc[::-1]
     md = [
-        '# 📊 Reporte Industrial: Telemetría RF 915 MHz (2 Monodron + 1 Enjambre)',
-        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm & Off-Grid Sync*',
+        '# 📊 Reporte Industrial Geomático de Úrsulo Galván: 4x Monodrón + 2x Enjambre',
+        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm & RTK Milimétrico*',
         '',
-        '### 📑 Matriz de Operaciones y Calidad de Enlace de Radiofrecuencia',
+        '### 📑 Matriz de Misiones: Latitud, Longitud, Área m² y Precisión RTK',
         '',
-        '| Fecha UTC | Parcela | Drones | Dosis VRA | Tiempo Real | Ahorro % | RSSI (dBm) | SNR (dB) | Pérdida % | Estado |',
-        '| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |'
+        '| Fecha UTC | Parcela | Lat, Lon | Área (ha / m²) | Drones | Precisión RTK | Dosis VRA | Tiempo Real | Estado |',
+        '| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |'
     ]
     for _, r in df_rec.iterrows():
         n_uav = f"{int(r['Drones_Enjambre'])} UAV" if int(r['Drones_Enjambre']) == 1 else f"{int(r['Drones_Enjambre'])} UAVs"
-        linea = f"| {r['Fecha_Hora_UTC']} | {r['Parcela']} | {n_uav} | {r['Dosis_VRA_L_ha']} L/ha | {r['Tiempo_Enjambre_min']} min | {r['Ahorro_Tiempo_pct']}% | {r['RSSI_dBm']} dBm | {r['SNR_dB']} dB | {r['Perdida_Paquetes_pct']}% | {r['Estado_Operativo']} |"
+        coords = f"{r['Latitud']}, {r['Longitud']}"
+        area_str = f"{r['Area_ha']} ha ({r['Area_m2']:,.0f} m²)"
+        rtk_str = f"±{r['Precision_RTK_mm']} mm"
+        linea = f"| {r['Fecha_Hora_UTC']} | {r['Parcela']} | {coords} | {area_str} | {n_uav} | {rtk_str} | {r['Dosis_VRA_L_ha']} L/ha | {r['Tiempo_Enjambre_min']} min | {r['Estado_Operativo']} |"
         md.append(linea)
     
     md.extend([
@@ -199,17 +281,12 @@ def generar_reporte_markdown(df):
         f.write('\n'.join(md))
 
 def ejecutar_simulacion():
-    # Seleccionar 3 parcelas del catálogo regional
-    parcelas = random.sample(CATALOGO_PARCELAS_VERACRUZ, 3)
+    parcelas = random.sample(CATALOGO_PARCELAS_URSULO_GALVAN, len(CATALOGO_PARCELAS_URSULO_GALVAN))
     
-    # 2 Simulaciones con 1 Dron (Monodron)
-    res_m1 = simular_mision(parcelas[0], num_drones=1)
-    res_m2 = simular_mision(parcelas[1], num_drones=1)
+    sims_monodron = [simular_mision(parcelas[i], num_drones=1) for i in range(4)]
+    sims_enjambre = [simular_mision(parcelas[i], num_drones=3) for i in range(4, 6)]
     
-    # 1 Simulación con 3 Drones (Enjambre Multi-UAV)
-    res_swarm = simular_mision(parcelas[2], num_drones=3)
-    
-    df_new = pd.DataFrame([res_m1, res_m2, res_swarm])
+    df_new = pd.DataFrame(sims_monodron + sims_enjambre)
     log_file = 'simulation/historical_learning_log.csv'
     
     if os.path.exists(log_file) and os.path.getsize(log_file) > 100:
@@ -222,16 +299,18 @@ def ejecutar_simulacion():
         df_tot = df_new
 
     df_tot['Drones_Enjambre'] = pd.to_numeric(df_tot['Drones_Enjambre'], errors='coerce').fillna(1).astype(int)
+    df_tot['Area_ha'] = pd.to_numeric(df_tot['Area_ha'], errors='coerce').fillna(10.0)
+    df_tot['Area_m2'] = pd.to_numeric(df_tot['Area_m2'], errors='coerce').fillna(100000.0)
+    df_tot['Precision_RTK_mm'] = pd.to_numeric(df_tot['Precision_RTK_mm'], errors='coerce').fillna(10.0)
     df_tot['Tiempo_Monodron_min'] = pd.to_numeric(df_tot['Tiempo_Monodron_min'], errors='coerce').fillna(35.0)
     df_tot['Tiempo_Enjambre_min'] = pd.to_numeric(df_tot['Tiempo_Enjambre_min'], errors='coerce').fillna(13.2)
     df_tot['Ahorro_Tiempo_pct'] = pd.to_numeric(df_tot['Ahorro_Tiempo_pct'], errors='coerce').fillna(0.0)
     df_tot['RSSI_dBm'] = pd.to_numeric(df_tot['RSSI_dBm'], errors='coerce').fillna(-75.0)
     df_tot['SNR_dB'] = pd.to_numeric(df_tot['SNR_dB'], errors='coerce').fillna(30.0)
-    df_tot['Perdida_Paquetes_pct'] = pd.to_numeric(df_tot['Perdida_Paquetes_pct'], errors='coerce').fillna(0.1)
 
     df_tot.to_csv(log_file, index=False)
     generar_reporte_markdown(df_tot)
-    print('✅ Simulación de 3 misiones (2 Monodron + 1 Enjambre) completada.')
+    print('✅ Simulación de 6 misiones (4 Monodrón + 2 Enjambre) completada.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()
