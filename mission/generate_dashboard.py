@@ -149,5 +149,7 @@ with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 with open('docs/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
 
-print("✅ Portal web principal (`docs/index.html`) generado con éxito.")
+print("✅ Portal web principal (`docs/index.html` e `index.html` en la raíz) generado con éxito.")
