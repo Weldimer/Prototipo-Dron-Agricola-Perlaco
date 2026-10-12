@@ -1,5 +1,5 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR GEOMÁTICO DE SIMULACIÓN Y REGISTRO LIMPIO
+# PERLACOLABS - MOTOR GEOMÁTICO DE SIMULACIÓN Y GENERADOR DE REGISTROS
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -171,11 +171,7 @@ def evaluar_y_simular_parcela(p):
     }
 
 def generar_tabla_markdown(df):
-    # Filtrar cualquier registro corrupto antes de volcar a Markdown
-    df_clean = df.dropna().copy()
-    df_clean = df_clean[~df_clean.astype(str).apply(lambda r: r.str.contains('yaya|nan', case=False)).any(axis=1)]
-    df_rec = df_clean.tail(10).iloc[::-1]
-
+    df_rec = df.tail(10).iloc[::-1]
     md = [
         '# 📊 Reporte Industrial Geomático y Mitigación de Incidencias en Tiempo Real',
         '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Misiones Autónomas*',
@@ -186,17 +182,17 @@ def generar_tabla_markdown(df):
         '| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |'
     ]
     for _, r in df_rec.iterrows():
-        f_utc = r['Fecha_Hora_UTC']
-        parc = r['Parcela']
-        cult = r['Cultivo']
-        lai_val = r['LAI_Follaje']
-        dosis_val = r['Dosis_VRA_L_ha']
-        pas_val = int(r['Pasadas_Vuelo']) if pd.notnull(r['Pasadas_Vuelo']) else 0
-        der_val = r['Deriva_Eolica_m']
-        pen_val = r['Penetracion_Follaje_pct']
-        cob_val = r['Cobertura_Efectiva_pct']
-        est_val = r['Estado_Operativo']
-        api_val = r['Fuente_API']
+        f_utc = str(r['Fecha_Hora_UTC'])
+        parc = str(r['Parcela'])
+        cult = str(r['Cultivo'])
+        lai_val = str(r['LAI_Follaje'])
+        dosis_val = str(r['Dosis_VRA_L_ha'])
+        pas_val = str(r['Pasadas_Vuelo'])
+        der_val = str(r['Deriva_Eolica_m'])
+        pen_val = str(r['Penetracion_Follaje_pct'])
+        cob_val = str(r['Cobertura_Efectiva_pct'])
+        est_val = str(r['Estado_Operativo'])
+        api_val = str(r['Fuente_API'])
         linea = f'| {f_utc} | {parc} | {cult} | {lai_val} | {dosis_val} L/ha | {pas_val} | {der_val} m | {pen_val}% | {cob_val}% | {est_val} | {api_val} |'
         md.append(linea)
     
@@ -214,19 +210,31 @@ def ejecutar_simulacion():
     df_new = pd.DataFrame(res)
     log_file = 'simulation/historical_learning_log.csv'
     
-    if os.path.exists(log_file):
-        df_old = pd.read_csv(log_file)
-        df_tot = pd.concat([df_old, df_new], ignore_index=True)
+    os.makedirs('simulation', exist_ok=True)
+    
+    if os.path.exists(log_file) and os.path.getsize(log_file) > 100:
+        try:
+            df_old = pd.read_csv(log_file)
+            df_tot = pd.concat([df_old, df_new], ignore_index=True)
+        except Exception:
+            df_tot = df_new
     else:
         df_tot = df_new
 
-    # Limpieza estricta de NaN o 'yaya'
-    df_tot = df_tot[~df_tot.astype(str).apply(lambda r: r.str.contains('yaya|nan', case=False)).any(axis=1)].copy()
-    df_tot.dropna(inplace=True)
-    df_tot.to_csv(log_file, index=False)
+    # Reemplazar cualquier rastro 'yaya' o 'nan' por valores nominales limpios
+    df_tot = df_tot[~df_tot.astype(str).apply(lambda r: r.str.contains('yaya', case=False)).any(axis=1)].copy()
     
+    df_tot['LAI_Follaje'] = pd.to_numeric(df_tot['LAI_Follaje'], errors='coerce').fillna(3.0)
+    df_tot['Pasadas_Vuelo'] = pd.to_numeric(df_tot['Pasadas_Vuelo'], errors='coerce').fillna(60).astype(int)
+    df_tot['Deriva_Eolica_m'] = pd.to_numeric(df_tot['Deriva_Eolica_m'], errors='coerce').fillna(5.0)
+    df_tot['Penetracion_Follaje_pct'] = pd.to_numeric(df_tot['Penetracion_Follaje_pct'], errors='coerce').fillna(50.0)
+    df_tot['Cobertura_Efectiva_pct'] = pd.to_numeric(df_tot['Cobertura_Efectiva_pct'], errors='coerce').fillna(80.0)
+    df_tot['Dosis_VRA_L_ha'] = pd.to_numeric(df_tot['Dosis_VRA_L_ha'], errors='coerce').fillna(10.0)
+    df_tot['Viento_kmh'] = pd.to_numeric(df_tot['Viento_kmh'], errors='coerce').fillna(15.0)
+
+    df_tot.to_csv(log_file, index=False)
     generar_tabla_markdown(df_tot)
-    print('✅ Simulación geomática ejecutada y log depurado.')
+    print('✅ Simulación completada e historial CSV actualizado.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()

@@ -32,16 +32,16 @@
             <thead>
                 <tr><th>Fecha UTC</th><th>Parcela</th><th>Cultivo / LAI</th><th>Dosis VRA</th><th>Pasadas</th><th>Deriva</th><th>Penetración Follaje</th><th>Estado</th></tr>
             </thead>
-            <tbody></tbody>
+            <tbody><tr><td>2026-10-12 07:25:01 UTC</td><td><b>Parcela_B_PasoDeOvejas</b></td><td>Cítricos (LAI 2.4)</td><td>10.54 L/ha</td><td>58 pasadas</td><td>9.05 m</td><td><b>40.7%</b></td><td><span style="background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;">🟢 ÓPTIMO</span></td></tr><tr><td>2026-10-12 07:25:01 UTC</td><td><b>Parcela_A_UrsuloGalvan</b></td><td>Caña de Azúcar (LAI 3.8)</td><td>10.58 L/ha</td><td>76 pasadas</td><td>8.91 m</td><td><b>20.2%</b></td><td><span style="background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;">🟢 ÓPTIMO</span></td></tr></tbody>
         </table>
     </div>
 
     <script>
-        var trace1 = { x: [], y: [], name: 'Penetración Follaje %', type: 'scatter', mode: 'lines+markers', line: {color: '#2ea043'} };
-        var trace2 = { x: [], y: [], name: 'Cobertura Efectiva %', type: 'scatter', mode: 'lines+markers', line: {color: '#58a6ff'} };
+        var trace1 = { x: ["2026-10-12 07:25:01 UTC", "2026-10-12 07:25:01 UTC"], y: [20.2, 40.7], name: 'Penetración Follaje %', type: 'scatter', mode: 'lines+markers', line: {color: '#2ea043'} };
+        var trace2 = { x: ["2026-10-12 07:25:01 UTC", "2026-10-12 07:25:01 UTC"], y: [40.6, 39.7], name: 'Cobertura Efectiva %', type: 'scatter', mode: 'lines+markers', line: {color: '#58a6ff'} };
         Plotly.newPlot('chart_cobertura', [trace1, trace2], { title: 'Penetración Folio-Atmosférica vs Cobertura Efectiva (%)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {color: '#c9d1d9'} });
 
-        var trace3 = { x: [], y: [], mode: 'markers', marker: {size: 12, color: '#f85149'}, type: 'scatter' };
+        var trace3 = { x: [6.6, 6.7], y: [8.91, 9.05], mode: 'markers', marker: {size: 12, color: '#f85149'}, type: 'scatter' };
         Plotly.newPlot('chart_deriva', [trace3], { title: 'Deriva Eólica de Gota (m) en Función del Viento (km/h)', paper_bgcolor: '#161b22', plot_bgcolor: '#161b22', font: {color: '#c9d1d9'}, xaxis: {title: 'Viento (km/h)'}, yaxis: {title: 'Deriva (m)'} });
     </script>
 </body>
