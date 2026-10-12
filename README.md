@@ -89,3 +89,4 @@
 
 ## 📈 Dashboard de Telemetría y Validación de Subsistemas
 ![Panel de Telemetría Completa](assets/panel_telemetria_completa.png)
+* ⚖️ [**Marco Normativo y Regulación Agroaeronáutica**](docs/normativa_regulacion_aeronautica.md): Cumplimiento AFAC (CO AV-07.02/12 R3 para RPAS >25kg), SENASICA/SADER (NOM-052-FITO), IFT y protocolos de seguridad en parcela.
