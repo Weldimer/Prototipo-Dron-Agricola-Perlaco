@@ -19,8 +19,6 @@ CONFIG_ENJAMBRE = {
     'potencia_tx_dbm': 30.0
 }
 
-# Catálogo Agronómico Certificado de Úrsulo Galván, Veracruz
-# No invención de plantas: Datos reales botánicos y georreferenciación oficial
 CATALOGO_PARCELAS_URSULO_GALVAN = [
     {
         'id': 'PARC-001',
@@ -170,9 +168,6 @@ def consultar_multi_api_meteo(lat, lon):
 
 def calcular_sopa_liquida_vra(p, temp_c, viento_kmh, hr_pct, lai_dinamico):
     viento_ms = viento_kmh / 3.6
-    
-    # Ecuación de Dosificación de Precisión de Sopa Líquida
-    # V_sopa = V_base * (LAI / 3.0) * FactorHoja * (1 + Delta_Viento + Delta_Termico)
     dosis_base_l_ha = 10.0
     factor_lai = lai_dinamico / 3.0
     factor_hoja = p['factor_reten_hoja']
@@ -312,7 +307,6 @@ def generar_reporte_markdown(df):
 def ejecutar_simulacion():
     parcelas = random.sample(CATALOGO_PARCELAS_URSULO_GALVAN, len(CATALOGO_PARCELAS_URSULO_GALVAN))
     
-    # Prioridad: 4 Simulaciones Monodrón (1 UAV) + 2 Simulaciones Enjambre (3 UAVs)
     sims_monodron = [simular_mision(parcelas[i], num_drones=1) for i in range(4)]
     sims_enjambre = [simular_mision(parcelas[i], num_drones=3) for i in range(4, 6)]
     

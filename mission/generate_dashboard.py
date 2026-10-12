@@ -93,4 +93,4 @@ with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 with open('docs/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
-print('✅ Páginas HTML de Dashboard actualizadas con dosificación VRA de Sopa Líquida.')
+print('✅ Páginas HTML de Dashboard actualizadas.')
