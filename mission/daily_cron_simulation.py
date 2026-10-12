@@ -1,6 +1,5 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR EDGE CON FILTRO DE KALMAN Y PITCH DIFERENCIAL
-# Resolución Físico-Matemática de Eficiencia Coaxial, Térmica y Vibracional
+# PERLACOLABS - MOTOR EDGE CON FILTRO DE KALMAN Y RESILIENCIA MULTIVARIABLE
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.5
 # ==============================================================================
 
@@ -49,24 +48,17 @@ class MotorResiliente:
             }
         return None
 
-    def calcular_eficiencia_coaxial(self, num_drones, pitch_diferencial_activo=True):
-        if num_drones == 1:
-            return 0.94 if pitch_diferencial_activo else 0.82
-        else:
-            return 0.88 * (0.94 if pitch_diferencial_activo else 0.82)
-
     def procesar_telemetria(self, id_parcela, num_drones, temp_env, viento_kmh, vel_uav_ms, caudal_crudo_lmin):
         p = self.consultar_parcela(id_parcela)
         if not p:
             return None
 
         caudal_filtrado_lmin = self.kalman.filtrar(caudal_crudo_lmin)
-        eta_coaxial = self.calcular_eficiencia_coaxial(num_drones, pitch_diferencial_activo=True)
+        eta_coaxial = 0.94 if num_drones == 1 else 0.82
         lai_dinamico = round(p['lai_base'] + random.uniform(-0.10, 0.15), 2)
         
         dosis_base = 10.0
-        corr_viento = max(0.0, ((viento_kmh / 3.6) - 2.5) * 0.05)
-        dosis_teorica = round(dosis_base * (lai_dinamico / 3.0) * p['factor_reten'] * (1.0 + corr_viento), 2)
+        dosis_teorica = round(dosis_base * (lai_dinamico / 3.0) * p['factor_reten'], 2)
 
         ancho_franja_m = 6.0
         area_ha_min = (vel_uav_ms * 60.0 * ancho_franja_m) / 10000.0
@@ -98,7 +90,7 @@ class MotorResiliente:
             'Desviacion_Pct': desviacion_pct,
             'Accion_Control_PWM': cmd_pwm,
             'Tiempo_Operativo_min': tiempo_operativo_min,
-            'Estado_Operativo': '🟢 ÓPTIMO (SISTEMA CORREGIDO)'
+            'Estado_Operativo': '🟢 ÓPTIMO (SISTEMA RESILIENTE)'
         }
 
 def ejecutar_simulacion():
@@ -107,7 +99,6 @@ def ejecutar_simulacion():
     random.shuffle(ids)
     resultados = []
 
-    # 4 Simulaciones Monodrón (1 UAV) + 2 Simulaciones Enjambre (3 UAVs)
     for i in range(4):
         res = engine.procesar_telemetria(ids[i], num_drones=1, temp_env=31.0, viento_kmh=15.0, vel_uav_ms=5.5, caudal_crudo_lmin=3.85 + random.uniform(-0.4, 0.4))
         if res: resultados.append(res)
@@ -128,7 +119,7 @@ def ejecutar_simulacion():
         df_tot = df_new
 
     df_tot.to_csv(log_file, index=False)
-    print("✅ Simulación completada con supresión de ruido Kalman y balance aerodinámico coaxial.")
+    print("✅ Simulación diaria ejecutada con métricas de resiliencia.")
 
 if __name__ == '__main__':
     ejecutar_simulacion()

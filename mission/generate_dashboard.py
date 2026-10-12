@@ -1,6 +1,5 @@
 # ==============================================================================
 # PERLACOLABS - DASHBOARD WEB Y PORTAL PRINCIPAL (INDEX.HTML)
-# Integración de la Sección de Reconocimientos e Historial de Misiones
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / PERLACOLABS
 # ==============================================================================
 
