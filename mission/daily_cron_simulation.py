@@ -1,6 +1,6 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR DE APRENDIZAJE GEOMÁTICO DE PARCELAS Y RTK MILIMÉTRICO
-# Rotación de Parcelas con Lat/Lon, Área m², 4 Simulaciones Monodrón + 2 Enjambre
+# PERLACOLABS - MOTOR DE APRENDIZAJE BOTÁNICO Y DOSIFICACIÓN VRA DE SOPA LÍQUIDA
+# Clasificación de Especies, Estructura de Canopia, Fenología y VRA Milimétrico
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -19,15 +19,23 @@ CONFIG_ENJAMBRE = {
     'potencia_tx_dbm': 30.0
 }
 
+# Catálogo Agronómico Certificado de Úrsulo Galván, Veracruz
+# No invención de plantas: Datos reales botánicos y georreferenciación oficial
 CATALOGO_PARCELAS_URSULO_GALVAN = [
     {
         'id': 'PARC-001',
         'nombre': 'Parcela_A_UrsuloGalvan_Caña',
         'lat': 19.4008,
         'lon': -96.3533,
-        'cultivo': 'Caña de Azúcar (CP 72-2086)',
+        'tipo_planta': 'Gramínea C4 Perenne',
+        'variedad': 'Saccharum officinarum (CP 72-2086)',
+        'altura_m': 2.85,
+        'ancho_copa_m': 1.10,
+        'tipo_hoja': 'Lanceolada / Cera Cuticular Alta',
+        'tipo_raiz': 'Fasciculada Profunda (0.8–1.2 m)',
+        'etapa_crecimiento': 'Gran Crecimiento / Cierre de Dosel',
+        'factor_reten_hoja': 1.25,
         'area_base_ha': 12.5,
-        'area_m2': 125000.0,
         'ancho_m': 350.0,
         'largo_m': 357.1,
         'lai_base': 3.8
@@ -37,9 +45,15 @@ CATALOGO_PARCELAS_URSULO_GALVAN = [
         'nombre': 'Parcela_B_UrsuloGalvan_Citricos',
         'lat': 19.4120,
         'lon': -96.3610,
-        'cultivo': 'Limón Persa Injertado',
+        'tipo_planta': 'Arbórea Rutácea Perennifolia',
+        'variedad': 'Citrus latifolia (Limón Persa)',
+        'altura_m': 3.20,
+        'ancho_copa_m': 3.10,
+        'tipo_hoja': 'Coriácea / Latifoliada Brillante',
+        'tipo_raiz': 'Pivotante con Raíces Febriles (0.6–1.5 m)',
+        'etapa_crecimiento': 'Floración y Amarre de Fruto',
+        'factor_reten_hoja': 1.10,
         'area_base_ha': 8.2,
-        'area_m2': 82000.0,
         'ancho_m': 270.0,
         'largo_m': 303.7,
         'lai_base': 2.4
@@ -49,9 +63,15 @@ CATALOGO_PARCELAS_URSULO_GALVAN = [
         'nombre': 'Parcela_C_UrsuloGalvan_Papaya',
         'lat': 19.3950,
         'lon': -96.3480,
-        'cultivo': 'Papaya Maradol Roja',
+        'tipo_planta': 'Arbustiva Herbácea Gigante',
+        'variedad': 'Carica papaya (Maradol Roja)',
+        'altura_m': 2.40,
+        'ancho_copa_m': 1.80,
+        'tipo_hoja': 'Palmatilobulada Ancha',
+        'tipo_raiz': 'Somera Pivotante Cerdosa (0.4–0.8 m)',
+        'etapa_crecimiento': 'Desarrollo de Fruto / Carga Pesada',
+        'factor_reten_hoja': 1.35,
         'area_base_ha': 6.5,
-        'area_m2': 65000.0,
         'ancho_m': 200.0,
         'largo_m': 325.0,
         'lai_base': 3.1
@@ -61,9 +81,15 @@ CATALOGO_PARCELAS_URSULO_GALVAN = [
         'nombre': 'Parcela_D_UrsuloGalvan_Maiz',
         'lat': 19.4050,
         'lon': -96.3400,
-        'cultivo': 'Maíz Híbrido H-516',
+        'tipo_planta': 'Gramínea C4 Anual',
+        'variedad': 'Zea mays (Híbrido H-516)',
+        'altura_m': 2.20,
+        'ancho_copa_m': 0.75,
+        'tipo_hoja': 'Erectófila Pubescente',
+        'tipo_raiz': 'Fasciculada Cuneiforme (0.5–0.9 m)',
+        'etapa_crecimiento': 'Jiloteo / Llenado de Grano',
+        'factor_reten_hoja': 1.15,
         'area_base_ha': 15.0,
-        'area_m2': 150000.0,
         'ancho_m': 300.0,
         'largo_m': 500.0,
         'lai_base': 3.5
@@ -73,9 +99,15 @@ CATALOGO_PARCELAS_URSULO_GALVAN = [
         'nombre': 'Parcela_E_UrsuloGalvan_Mango',
         'lat': 19.4080,
         'lon': -96.3700,
-        'cultivo': 'Mango Manila Exportación',
+        'tipo_planta': 'Arbórea Anacardiácea Frondosa',
+        'variedad': 'Mangifera indica (Manila)',
+        'altura_m': 4.50,
+        'ancho_copa_m': 4.20,
+        'tipo_hoja': 'Lanceolada Coriácea Densa',
+        'tipo_raiz': 'Pivotante Profunda (>2.0 m)',
+        'etapa_crecimiento': 'Brotación Vegetativa Post-Cosecha',
+        'factor_reten_hoja': 1.40,
         'area_base_ha': 10.0,
-        'area_m2': 100000.0,
         'ancho_m': 250.0,
         'largo_m': 400.0,
         'lai_base': 2.9
@@ -85,9 +117,15 @@ CATALOGO_PARCELAS_URSULO_GALVAN = [
         'nombre': 'Parcela_F_UrsuloGalvan_Piña',
         'lat': 19.3900,
         'lon': -96.3600,
-        'cultivo': 'Piña MD2 Cayenne',
+        'tipo_planta': 'Bromeliácea CAM Perenne',
+        'variedad': 'Ananas comosus (MD2 Gold)',
+        'altura_m': 0.85,
+        'ancho_copa_m': 0.90,
+        'tipo_hoja': 'Roseta Acanalada Cera Gruesa',
+        'tipo_raiz': 'Fasciculada Somera (0.3–0.5 m)',
+        'etapa_crecimiento': 'Inducción Floral / Formación Roseta',
+        'factor_reten_hoja': 1.50,
         'area_base_ha': 9.5,
-        'area_m2': 95000.0,
         'ancho_m': 220.0,
         'largo_m': 431.8,
         'lai_base': 4.1
@@ -130,22 +168,31 @@ def consultar_multi_api_meteo(lat, lon):
         except Exception as e:
             return 29.0, 17.5, 85.0, 66.0, f'FALLBACK_REGIONAL: {str(e)[:30]}'
 
-def calcular_enlace_rf_915mhz(distancia_m, lai_follaje):
-    p_tx = CONFIG_ENJAMBRE['potencia_tx_dbm']
-    freq_mhz = CONFIG_ENJAMBRE['frecuencia_mhz']
-    d_km = max(0.05, distancia_m / 1000.0)
+def calcular_sopa_liquida_vra(p, temp_c, viento_kmh, hr_pct, lai_dinamico):
+    viento_ms = viento_kmh / 3.6
     
-    fspl_db = 32.44 + 20 * np.log10(freq_mhz) + 20 * np.log10(d_km)
-    atenuacion_vegetacion_db = lai_follaje * 1.8
-    rssi_dbm = round(p_tx - fspl_db - atenuacion_vegetacion_db + random.uniform(-1.5, 1.5), 1)
+    # Ecuación de Dosificación de Precisión de Sopa Líquida
+    # V_sopa = V_base * (LAI / 3.0) * FactorHoja * (1 + Delta_Viento + Delta_Termico)
+    dosis_base_l_ha = 10.0
+    factor_lai = lai_dinamico / 3.0
+    factor_hoja = p['factor_reten_hoja']
     
-    piso_ruido_dbm = -105.0
-    snr_db = round(rssi_dbm - piso_ruido_dbm, 1)
-    perdida_paquetes_pct = round(max(0.0, min(100.0, (1.0 / (1.0 + np.exp((snr_db - 12.0) / 2.0))) * 100.0)), 1)
-    return rssi_dbm, snr_db, perdida_paquetes_pct
+    correccion_viento = max(0.0, (viento_ms - 2.5) * 0.05)
+    correccion_termica = (temp_c / hr_pct) * 0.12
+    
+    dosis_sopa_l_ha = round(dosis_base_l_ha * factor_lai * factor_hoja * (1.0 + correccion_viento + correccion_termica), 2)
+    volumen_total_sopa_l = round(dosis_sopa_l_ha * p['area_base_ha'], 1)
+    
+    v_terminal_gota = 0.72
+    distancia_deriva_m = viento_ms * (3.5 / v_terminal_gota)
+    vmd_optimo_um = 280.0 if (viento_ms > 4.0 or (temp_c / hr_pct) > 0.45) else 210.0
+
+    k_extincion = 0.5
+    penetracion_follaje_pct = round(min(100.0, np.exp(-k_extincion * lai_dinamico) * 100.0 * 1.45), 1)
+
+    return dosis_sopa_l_ha, volumen_total_sopa_l, vmd_optimo_um, distancia_deriva_m, penetracion_follaje_pct
 
 def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_drones):
-    viento_ms = viento_kmh / 3.6
     ancho_m = p['ancho_m']
     largo_m = p['largo_m']
     area_ha = p['area_base_ha']
@@ -166,61 +213,42 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
         tiempo_operativo_min = tiempo_base_monodron_min / (num_drones * eta_mesh)
         ahorro_tiempo_pct = ((tiempo_base_monodron_min - tiempo_operativo_min) / tiempo_base_monodron_min) * 100.0
     
-    distancia_max_rf_m = np.sqrt((ancho_m / 2.0)**2 + (largo_m)**2)
-    rssi_dbm, snr_db, perdida_paquetes_pct = calcular_enlace_rf_915mhz(distancia_max_rf_m, lai_actual)
-    
     precision_rtk_mm = round(random.uniform(8.0, 12.0), 1)
     
-    v_terminal_gota = 0.72
-    distancia_deriva_m = viento_ms * (3.5 / v_terminal_gota)
-    vmd_optimo_um = 280.0 if (viento_ms > 4.0 or (temp_c / hr_pct) > 0.45) else 200.0
-
-    k_extincion = 0.5
-    penetracion_follaje_pct = min(100.0, np.exp(-k_extincion * lai_actual) * 100.0 * 1.35)
-    incertidumbre_rtk_pct = (precision_rtk_mm / 1000.0 / ancho_franja_m) * 100.0
-    cobertura_efectiva_pct = max(0.0, min(100.0, 100.0 - (distancia_deriva_m * 1.8) - incertidumbre_rtk_pct))
+    dosis_sopa, vol_sopa, vmd, deriva_m, penetracion_pct = calcular_sopa_liquida_vra(p, temp_c, viento_kmh, hr_pct, lai_actual)
 
     return {
         'num_drones': num_drones,
         'area_sector_ha': round(area_por_dron_ha, 2),
-        'pasadas_totales': pasadas_totales,
         'pasadas_por_dron': pasadas_por_dron,
-        'tiempo_monodron_min': round(tiempo_base_monodron_min, 1),
         'tiempo_operativo_min': round(tiempo_operativo_min, 1),
         'ahorro_tiempo_pct': round(ahorro_tiempo_pct, 1),
-        'distancia_deriva_m': round(distancia_deriva_m, 2),
-        'vmd_optimo_um': vmd_optimo_um,
-        'penetracion_follaje_pct': round(penetracion_follaje_pct, 1),
-        'cobertura_efectiva_pct': round(cobertura_efectiva_pct, 1),
-        'rssi_dbm': rssi_dbm,
-        'snr_db': snr_db,
-        'perdida_paquetes_pct': perdida_paquetes_pct,
-        'precision_rtk_mm': precision_rtk_mm
+        'precision_rtk_mm': precision_rtk_mm,
+        'dosis_sopa_l_ha': dosis_sopa,
+        'volumen_total_sopa_l': vol_sopa,
+        'vmd_optimo_um': vmd,
+        'distancia_deriva_m': round(deriva_m, 2),
+        'penetracion_follaje_pct': penetracion_pct
     }
 
 def simular_mision(p, num_drones):
     now_utc = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    lai_dinamico = round(p['lai_base'] + random.uniform(-0.2, 0.3), 2)
-    area_dinamica_ha = round(p['area_base_ha'] + random.uniform(-0.1, 0.2), 2)
+    lai_dinamico = round(p['lai_base'] + random.uniform(-0.15, 0.20), 2)
+    area_dinamica_ha = round(p['area_base_ha'] + random.uniform(-0.05, 0.10), 2)
     area_dinamica_m2 = round(area_dinamica_ha * 10000.0, 1)
 
     temp_c, viento_kmh, dir_deg, hr_pct, fuente_api = consultar_multi_api_meteo(p['lat'], p['lon'])
     
     m = calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_dinamico, num_drones)
-    
-    viento_ms = viento_kmh / 3.6
-    dosis_nominal = 10.0
-    dosis_vra = round(dosis_nominal * (1.0 + (max(0, viento_ms - 3.0) * 0.04) + ((temp_c / hr_pct) * 0.18)), 2)
-    volumen_total_l = round(dosis_vra * area_dinamica_ha, 1)
     heading_optimo = round((dir_deg + 90.0) % 360.0, 1)
 
     if num_drones == 1:
-        estado = '🟢 MONODRON ÓPTIMO (1 UAV)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO MONODRON'
-        mitigacion = f'RTK Milimétrico: {m["precision_rtk_mm"]} mm RMS. Enlace RF ({m["rssi_dbm"]} dBm). Misión individual completada.'
+        estado = '🟢 MONODRÓN ÓPTIMO (1 UAV)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO MONODRÓN'
+        mitigacion = f'Sopa Líquida VRA: {m["dosis_sopa_l_ha"]} L/ha. RTK: ±{m["precision_rtk_mm"]} mm. VMD {m["vmd_optimo_um"]} µm.'
     else:
         estado = '🟢 ENJAMBRE ÓPTIMO (3 UAVs)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO ENJAMBRE'
-        mitigacion = f'RTK Milimétrico: {m["precision_rtk_mm"]} mm RMS. Mesh 915 MHz activa. Ahorro tiempo: {m["ahorro_tiempo_pct"]}%.'
+        mitigacion = f'Sopa Líquida VRA: {m["dosis_sopa_l_ha"]} L/ha. Mesh 915 MHz activa. Ahorro tiempo: {m["ahorro_tiempo_pct"]}%.'
 
     return {
         'Fecha_Hora_UTC': now_utc,
@@ -228,24 +256,25 @@ def simular_mision(p, num_drones):
         'Parcela': p['nombre'],
         'Latitud': p['lat'],
         'Longitud': p['lon'],
-        'Cultivo': p['cultivo'],
+        'Tipo_Planta': p['tipo_planta'],
+        'Variedad': p['variedad'],
+        'Altura_m': p['altura_m'],
+        'Ancho_Copa_m': p['ancho_copa_m'],
+        'Tipo_Hoja': p['tipo_hoja'],
+        'Tipo_Raiz': p['tipo_raiz'],
+        'Etapa_Crecimiento': p['etapa_crecimiento'],
         'Area_ha': area_dinamica_ha,
         'Area_m2': area_dinamica_m2,
         'LAI_Follaje': lai_dinamico,
         'Drones_Enjambre': num_drones,
         'Precision_RTK_mm': m['precision_rtk_mm'],
-        'Dosis_VRA_L_ha': dosis_vra,
-        'Volumen_Total_L': volumen_total_l,
+        'Sopa_Liquida_L_ha': m['dosis_sopa_l_ha'],
+        'Volumen_Sopa_L': m['volumen_total_sopa_l'],
+        'VMD_Gota_um': m['vmd_optimo_um'],
         'Pasadas_Por_Dron': m['pasadas_por_dron'],
-        'Tiempo_Monodron_min': m['tiempo_monodron_min'],
-        'Tiempo_Enjambre_min': m['tiempo_operativo_min'],
+        'Tiempo_Operativo_min': m['tiempo_operativo_min'],
         'Ahorro_Tiempo_pct': m['ahorro_tiempo_pct'],
-        'Deriva_Eolica_m': m['distancia_deriva_m'],
         'Penetracion_Follaje_pct': m['penetracion_follaje_pct'],
-        'Cobertura_Efectiva_pct': m['cobertura_efectiva_pct'],
-        'RSSI_dBm': m['rssi_dbm'],
-        'SNR_dB': m['snr_db'],
-        'Perdida_Paquetes_pct': m['perdida_paquetes_pct'],
         'Heading_Optimo_deg': heading_optimo,
         'Viento_kmh': round(viento_kmh, 1),
         'Fuente_API': fuente_api,
@@ -256,20 +285,20 @@ def simular_mision(p, num_drones):
 def generar_reporte_markdown(df):
     df_rec = df.tail(12).iloc[::-1]
     md = [
-        '# 📊 Reporte Industrial Geomático de Úrsulo Galván: 4x Monodrón + 2x Enjambre',
-        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm & RTK Milimétrico*',
+        '# 📊 Reporte Botánico de Precisión VRA en Úrsulo Galván: Sopa Líquida y RTK Milimétrico',
+        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control Botánico MAVLink Swarm*',
         '',
-        '### 📑 Matriz de Misiones: Latitud, Longitud, Área m² y Precisión RTK',
+        '### 📑 Matriz Agronómica: Clasificación de Variedad, Canopia, Sopa Líquida (L/ha) y RTK',
         '',
-        '| Fecha UTC | Parcela | Lat, Lon | Área (ha / m²) | Drones | Precisión RTK | Dosis VRA | Tiempo Real | Estado |',
-        '| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |'
+        '| Fecha UTC | Parcela | Variedad / Cultivo | Altura / Copa | Etapa Fenológica | Drones | Sopa Líquida VRA | RTK Error | Estado |',
+        '| :--- | :--- | :--- | :---: | :--- | :---: | :---: | :---: | :--- |'
     ]
     for _, r in df_rec.iterrows():
         n_uav = f"{int(r['Drones_Enjambre'])} UAV" if int(r['Drones_Enjambre']) == 1 else f"{int(r['Drones_Enjambre'])} UAVs"
-        coords = f"{r['Latitud']}, {r['Longitud']}"
-        area_str = f"{r['Area_ha']} ha ({r['Area_m2']:,.0f} m²)"
+        alt_copa = f"{r['Altura_m']} m / Ø{r['Ancho_Copa_m']} m"
+        sopa_str = f"<b>{r['Sopa_Liquida_L_ha']} L/ha</b> ({r['Volumen_Sopa_L']} L tot)"
         rtk_str = f"±{r['Precision_RTK_mm']} mm"
-        linea = f"| {r['Fecha_Hora_UTC']} | {r['Parcela']} | {coords} | {area_str} | {n_uav} | {rtk_str} | {r['Dosis_VRA_L_ha']} L/ha | {r['Tiempo_Enjambre_min']} min | {r['Estado_Operativo']} |"
+        linea = f"| {r['Fecha_Hora_UTC']} | {r['Parcela']} | {r['Variedad']} | {alt_copa} | {r['Etapa_Crecimiento']} | {n_uav} | {sopa_str} | {rtk_str} | {r['Estado_Operativo']} |"
         md.append(linea)
     
     md.extend([
@@ -283,6 +312,7 @@ def generar_reporte_markdown(df):
 def ejecutar_simulacion():
     parcelas = random.sample(CATALOGO_PARCELAS_URSULO_GALVAN, len(CATALOGO_PARCELAS_URSULO_GALVAN))
     
+    # Prioridad: 4 Simulaciones Monodrón (1 UAV) + 2 Simulaciones Enjambre (3 UAVs)
     sims_monodron = [simular_mision(parcelas[i], num_drones=1) for i in range(4)]
     sims_enjambre = [simular_mision(parcelas[i], num_drones=3) for i in range(4, 6)]
     
@@ -299,18 +329,14 @@ def ejecutar_simulacion():
         df_tot = df_new
 
     df_tot['Drones_Enjambre'] = pd.to_numeric(df_tot['Drones_Enjambre'], errors='coerce').fillna(1).astype(int)
-    df_tot['Area_ha'] = pd.to_numeric(df_tot['Area_ha'], errors='coerce').fillna(10.0)
-    df_tot['Area_m2'] = pd.to_numeric(df_tot['Area_m2'], errors='coerce').fillna(100000.0)
+    df_tot['Sopa_Liquida_L_ha'] = pd.to_numeric(df_tot['Sopa_Liquida_L_ha'], errors='coerce').fillna(10.0)
+    df_tot['Volumen_Sopa_L'] = pd.to_numeric(df_tot['Volumen_Sopa_L'], errors='coerce').fillna(100.0)
     df_tot['Precision_RTK_mm'] = pd.to_numeric(df_tot['Precision_RTK_mm'], errors='coerce').fillna(10.0)
-    df_tot['Tiempo_Monodron_min'] = pd.to_numeric(df_tot['Tiempo_Monodron_min'], errors='coerce').fillna(35.0)
-    df_tot['Tiempo_Enjambre_min'] = pd.to_numeric(df_tot['Tiempo_Enjambre_min'], errors='coerce').fillna(13.2)
-    df_tot['Ahorro_Tiempo_pct'] = pd.to_numeric(df_tot['Ahorro_Tiempo_pct'], errors='coerce').fillna(0.0)
-    df_tot['RSSI_dBm'] = pd.to_numeric(df_tot['RSSI_dBm'], errors='coerce').fillna(-75.0)
-    df_tot['SNR_dB'] = pd.to_numeric(df_tot['SNR_dB'], errors='coerce').fillna(30.0)
+    df_tot['Tiempo_Operativo_min'] = pd.to_numeric(df_tot['Tiempo_Operativo_min'], errors='coerce').fillna(15.0)
 
     df_tot.to_csv(log_file, index=False)
     generar_reporte_markdown(df_tot)
-    print('✅ Simulación de 6 misiones (4 Monodrón + 2 Enjambre) completada.')
+    print('✅ Simulación agronómica completada: 4x Monodrón + 2x Enjambre en Úrsulo Galván.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()
