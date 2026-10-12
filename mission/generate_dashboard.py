@@ -1,0 +1,34 @@
+# ==============================================================================
+# PERLACOLABS - GENERADOR DE DASHBOARD INTERACTIVO HTML (GITHUB PAGES)
+# Autor: Angel Imer Lara Colorado — ELECTRÓNICA PERLACO
+# ==============================================================================
+import pandas as pd
+import os
+
+log_file = 'simulation/historical_learning_log.csv'
+if os.path.exists(log_file):
+    df = pd.read_csv(log_file)
+    num_rows = len(df)
+    html_content = f'''<!DOCTYPE html>
+<html>
+<head>
+    <title>PERLACOLABS — Dashboard de Aprendizaje STR-002 H3 v3.0</title>
+    <script src=\"https://cdn.plot.ly/plotly-latest.min.js\"></script>
+    <style>
+        body {{ font-family: Arial, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 20px; }}
+        h1 {{ color: #58a6ff; text-align: center; }}
+        .card {{ background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; margin-bottom: 20px; }}
+    </style>
+</head>
+<body>
+    <h1>🚁 STR-002 H3 v3.0 — Panel de Aprendizaje Agroclimático</h1>
+    <p style=\"text-align:center;\"><b>PERLACOLABS</b> — Úrsulo Galván / Paso de Ovejas, Veracruz</p>
+    <div class=\"card\">
+        <h2>📊 Histórico de Registros Acumulados ({num_rows} Muestras)</h2>
+        <p>Monitoreo dinámico de Dosis VRA, Velocidad de Viento, Inducción EMI 12S y Calidad de Ventana IA.</p>
+    </div>
+</body>
+</html>'''
+    with open('docs/dashboard.html', 'w', encoding='utf-8') as f:
+        f.write(html_content)
+    print('✅ Dashboard HTML generado en docs/dashboard.html')
