@@ -92,3 +92,9 @@
 * ⚖️ [**Marco Normativo y Regulación Agroaeronáutica**](docs/normativa_regulacion_aeronautica.md): Cumplimiento AFAC (CO AV-07.02/12 R3 para RPAS >25kg), SENASICA/SADER (NOM-052-FITO), IFT y protocolos de seguridad en parcela.
 * 🛡️ [**Certificación de Redundancia X8, FEA Estructural y Sloshing**](docs/certificacion_falla_motor_y_fea.md): Análisis de falla de motor en vuelo (Ratio T/W 2.22:1), Von Mises en abrazaderas H3 (FS = 4.18) y atenuación de oleaje en tanque HDPE.
 * 🛰️ [**Conexión de APIs Públicas y Gestión de Parcelas**](docs/apis_parcelas_agricolas.md): Ingesta de datos agroclimáticos en tiempo real (Open-Meteo / NASA POWER) para Úrsulo Galván, Ver., y ajuste dinámico VRA.
+* 📊 [**Reporte de Simulación Técnica de Misión Agrícola**](docs/reporte_simulacion_mision_real.md): Telemetría completa de vuelo de 12 min, perfil hídrico VRA y dinámica de batería 12S.
+
+---
+
+## 🛸 Dashboard de Simulación de Misión Agrícola en Tiempo Real
+![Simulación Misión Agrícola HD](assets/simulacion_mision_agricola_hd.png)
