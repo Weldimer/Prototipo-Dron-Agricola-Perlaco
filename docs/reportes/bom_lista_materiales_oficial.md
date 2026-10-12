@@ -1,30 +1,54 @@
-# LISTA DE MATERIALES OFICIAL (BOM) — STR-002 H3 v3.0
-**PERLACOLABS — ELECTRÓNICA PERLACO**  
-**Autor e Inventor Principal:** Angel Imer Lara Colorado — *Úrsulo Galván, Veracruz, México*
+# 📦 Lista Oficial de Materiales (BOM) - ELECTRÓNICA PERLACO STR-002 H3 v3.0
+**Plataforma Aérea Agrícola de Gran Capacidad (MTOW 29.0 kg) — Octocóptero Coaxial X8 & Enjambre**  
+**Proyecto:** Prototipo Dron Agrícola Perlaco  
+**Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván & Paso de Ovejas, Veracruz, México*
 
 ---
 
-## 📋 1. Especificación Detallada de Componentes, Datasheets y Justificación
-
-| Subsistema | Componente | Fabricante / Modelo | Cant. | Datasheet / Enlace | Justificación Técnica de Ingeniería |
-| :--- | :--- | :--- | :---: | :--- | :--- |
-| **Aviónica** | Autopiloto Triple Redundancia | CubePilot Cube Orange+ | 1 | [Datasheet](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) | Procesador STM32H753, IMUs aisladas térmicamente y ChibiOS RTOS para scripts Lua en lazo cerrado. |
-| **Navegación** | Receptor GNSS RTK Multibanda | u-blox ZED-F9P | 2 | [Datasheet](https://www.u-blox.com/en/product/zed-f9p-module) | Rumbo por fase de portadora Moving Baseline (L1/L2) con resolución $0.47^\circ$. Inmunidad total a EMI (>300A). |
-| **Propulsión** | Motor Brushless Agrícola | T-Motor P80 III KV120 | 8 | [Datasheet](https://store.tmotor.com/goods.php?id=832) | $73.6\text{ kg}$ de empuje total ($T/W = 2.53:1$). Resistencia aerodinámica a rachas de 'Nortes' (>127 km/h). |
-| **Propulsión** | ESC Inteligente HV FOC | T-Motor Alpha 80A HV | 8 | [Datasheet](https://store.tmotor.com/goods.php?id=832) | Comunicación BDShot para telemetría de RPM e inyección en el filtro Notch dinámico (`-40 dB`). |
-| **Propulsión** | Hélices Plegables Carbono | T-Motor $30\times 10.5''$ | 8 | [Datasheet](https://store.tmotor.com/goods.php?id=832) | Alta eficiencia aerodinámica en configuración Coaxial X8. |
-| **Audio / Alerta**| Megáfono Industrial IP67 | PERLACO Audio 24V | 1 | [Especificación](docs/sistema_audio_y_alertas.md) | Disuasión activa de avifauna a $110\text{ dB SPL}$ (2.8 kHz) impulsado por canal aux PWM/Relé. |
-| **Audio / Alerta**| Sintetizador RTTTL Nativo | Zumbador Piezo Cube Orange+ | 1 | [Especificación](docs/sistema_audio_y_alertas.md) | Baliza acústica de localización en cañavérales ejecutando la Marcha Turca (*Turkish March*) a 78.5 dB. |
-| **Hidráulica VRA**| Caudalímetro Efecto Hall | YF-S201 ($450\text{ imp/L}$) | 1 | [Datasheet](https://www.alldatasheet.com/view.jsp?Searchword=YF-S201) | Medición continua de tasa de dosis L/ha correlacionada con las APIs de Open-Meteo y NASA POWER. |
-| **Hidráulica VRA**| Estanque Principal HDPE | PERLACOLABS $10.0\text{ L}$ | 1 | [Plano CAD](cad/estanque_hdpe_10l.step) | Diseño rompeolas interno para amortiguar el oleaje (*sloshing*) durante maniobras contraviento. |
-| **Hidráulica VRA**| Sensor Presión de Fluido | CAN/I2C $0-10\text{ bar}$ | 1 | Especificación Técnica | Detección de boquillas obstruidas o cavitación en la bomba en tiempo real. |
-| **Energía** | Batería LiPo Agrícola | Tattu $12\text{S}$ 22000mAh | 2 | [Especificación](https://www.genstattu.com) | Suministro de alta corriente ($300\text{ A}$ picos) con monitoreo de $R_i = 24\text{ m}\Omega$ via Lua BMS. |
+## 🛠️ 1. Estructura y Chasis
+| Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
+| :--- | :--- | :---: | :--- |
+| **Chasis Principal** | Fibra de carbono de grado aeronáutico 3K + Aluminio CNC 6061 | 1 | Estructura central Octocóptero Coaxial X8 |
+| **Brazos Plegables** | Tubo de fibra de carbono Ø40 mm ultra-resistente | 4 | Distribución simétrica X8 |
+| **Mástiles de Antena RF** | Mástiles flexibles amortiguados con soporte TPU 95A | 2 | Elevados 15 cm sobre la placa superior (Top Deck) |
 
 ---
 
-## 📐 2. Resumen Estructural y Balance de Peso
+## ⚡ 2. Propulsión y Sistemas de Potencia
+| Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
+| :--- | :--- | :---: | :--- |
+| **Motores Brushless** | T-Motor P80 III KV120 (Empuje máx. 18.4 kg/motor) | 8 | Configuración Coaxial Co-Rotativa / Contrarrotativa |
+| **Controladores ESC** | T-Motor Alpha 80A HV FOC (IP67) | 8 | Integrados en la parte inferior de los brazos |
+| **Hélices** | Carbono Polímero 30x10.5" Plegables | 8 pares | Acopladas a rotores P80 III |
+| **Distribución de Potencia** | PDB Industrial de alta corriente (>300A continuos) | 1 | Núcleo del chasis bajo la placa de aviónica |
 
-* **Peso Vacío (Sin Carga Liquida):** $18.5 - 19.5\text{ kg}$
-* **Carga Útil Nomilal (Agroquímico):** $10.0\text{ kg}$ ($10.0\text{ L}$)
-* **Peso Máximo al Despegue ($MTOW$):** $28.5 - 29.5\text{ kg}$
-* **Relación Empuje / Peso ($T/W$):** $2.53:1$ ($73.6\text{ kg}$ de empuje máximo disponible)
+---
+
+## 🧠 3. Aviónica y Procesamiento Autónomo
+| Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
+| :--- | :--- | :---: | :--- |
+| **Piloto Automático** | Cube Orange+ (Procesador STM32H7, Triple IMU aislada) | 1 | Placa central amortiguada por silicona dieléctrica |
+| **Navegación GNSS RTK** | Doble ZED-F9P RTK Moving Baseline (GPS/GLONASS/Galileo/Beidou) | 2 | Antenas en mástiles de los brazos principal y secundario |
+| **Sensor de Flujo / Nivel** | Caudalímetro ultrasónico digital de alta precisión | 1 | Tubería principal de distribución del tanque |
+
+---
+
+## 📡 4. Enlace de Radiofrecuencia (RF), Control y Telemetría Off-Grid
+| Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
+| :--- | :--- | :---: | :--- |
+| **Radio de Telemetría RF** | RFD900x 915 MHz (1W / +30 dBm, Modo Mesh, MAVLink, Rango >40 km) | 1 por UAV | Placa superior (Top Deck) aislada de la PDB para evitar EMI |
+| **Radiocontrol Smart** | SIYI MK15 / Skydroid H16 (Pantalla 1000 nits, Enlace Dual 2.4 GHz RC+Video+MAVLink) | 1 | Estación de Control de Tierra (GCS Handheld) en mano del operador |
+| **Base GNSS RTK Local** | CUAV C-RTK 9P Base (Procesamiento Multi-Banda, RTCM3 por USB/RF) | 1 | Trípode elevable de aluminio (2.5 m) en perímetro de parcela |
+| **Antenas Dipolo 915 MHz** | Dipolo omnidireccional de alta ganancia (+3 dBi) | 2 por UAV | Orientación vertical en mástiles superiores para cobertura 360° |
+
+---
+
+## 💦 5. Sistema Agrícola VRA y Spraying
+| Componente | Especificación Técnica | Cantidad | Ubicación / Montaje Mecánico |
+| :--- | :--- | :---: | :--- |
+| **Tanque de Mezcla** | Polietileno HD reestructurado anti-chapoteo (Capacidad 16 L / 20 L) | 1 | Centro de gravedad del dron (Bajo el chasis) |
+| **Bomba de Pulverización** | Bomba de diafragma 12V 5.0 L/min con control PWM VRA | 1 | Parte inferior junto al sistema de acople rápido |
+| **Boquillas de Aspersión** | Boquillas de cono hueco / Centrifugas de gota variable (VMD 200–280 µm) | 4 | Bajo los motores en extensión de brazos |
+
+---
+**ELECTRÓNICA PERLACO / PERLACOLABS** — *Ingeniería Agrícola de Alta Precisión y Soberanía Tecnológica.*

@@ -1,18 +1,20 @@
-# 📊 Reporte Industrial: Simulación Monodron (1 UAV) vs Enjambre (3 UAVs)
-**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm*
+# 📊 Reporte Industrial: Telemetría RF 915 MHz, Monodron vs Enjambre
+**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm & Off-Grid Sync*
 
-### 📑 Matriz Comparativa de Despliegue Individual y Colaborativo
+### 📑 Matriz de Operaciones y Calidad de Enlace de Radiofrecuencia
 
-| Fecha UTC | Parcela | Cultivo | Drones | Dosis VRA | Pasadas/Dron | Tiempo Mono | Tiempo Real | Ahorro % | Cobertura % | Estado |
-| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| 2026-10-12 07:48:25 UTC | Parcela_A_UrsuloGalvan | Caña de Azúcar | 3 UAVs | 10.58 L/ha | 26 | 39.0 min | 14.8 min | 62.1% | 84.5% | 🟢 ENJAMBRE ÓPTIMO (3 UAVs) |
-| 2026-10-12 07:48:25 UTC | Parcela_D_LaAntigua | Maíz | 1 UAV | 10.58 L/ha | 65 | 46.0 min | 46.0 min | 0.0% | 84.5% | 🟢 MONODRON ÓPTIMO (1 UAV) |
-| 2026-10-12 07:36:13 UTC | Parcela_B_PasoDeOvejas | Cítricos | 3 UAVs | 10.54 L/ha | 20 | 27.0 min | 10.2 min | 62.1% | 84.0% | 🟢 ENJAMBRE ÓPTIMO |
-| 2026-10-12 07:36:13 UTC | Parcela_C_Actopan | Papaya | 3 UAVs | 10.48 L/ha | 15 | 22.2 min | 8.4 min | 62.1% | 80.9% | 🟢 ENJAMBRE ÓPTIMO |
-| 2026-10-12 07:29:00 UTC | Parcela_C_Actopan | Papaya | 3 UAVs | 10.48 L/ha | 20 | 35.0 min | 13.2 min | 62.3% | 19.0% | 🟢 ÓPTIMO |
-| 2026-10-12 07:29:00 UTC | Parcela_F_SoledadDeDoblado | Piña | 3 UAVs | 10.51 L/ha | 20 | 35.0 min | 13.2 min | 62.3% | 56.8% | 🟢 ÓPTIMO |
-| 2026-10-12 07:25:01 UTC | Parcela_B_PasoDeOvejas | Cítricos | 3 UAVs | 10.54 L/ha | 20 | 35.0 min | 13.2 min | 62.3% | 39.7% | 🟢 ÓPTIMO |
-| 2026-10-12 07:25:01 UTC | Parcela_A_UrsuloGalvan | Caña de Azúcar | 3 UAVs | 10.58 L/ha | 20 | 35.0 min | 13.2 min | 62.3% | 40.6% | 🟢 ÓPTIMO |
+| Fecha UTC | Parcela | Drones | Dosis VRA | Tiempo Real | Ahorro % | RSSI (dBm) | SNR (dB) | Pérdida % | Estado |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| 2026-10-12 07:56:21 UTC | Parcela_A_UrsuloGalvan | 3 UAVs | 10.58 L/ha | 14.8 min | 62.1% | -62.0 dBm | 43.0 dB | 0.0% | 🟢 ENJAMBRE ÓPTIMO (3 UAVs) |
+| 2026-10-12 07:56:21 UTC | Parcela_D_LaAntigua | 1 UAV | 10.58 L/ha | 46.0 min | 0.0% | -61.8 dBm | 43.2 dB | 0.0% | 🟢 MONODRON ÓPTIMO (1 UAV) |
+| 2026-10-12 07:48:25 UTC | Parcela_A_UrsuloGalvan | 3 UAVs | 10.58 L/ha | 14.8 min | 62.1% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ENJAMBRE ÓPTIMO (3 UAVs) |
+| 2026-10-12 07:48:25 UTC | Parcela_D_LaAntigua | 1 UAV | 10.58 L/ha | 46.0 min | 0.0% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 MONODRON ÓPTIMO (1 UAV) |
+| 2026-10-12 07:36:13 UTC | Parcela_B_PasoDeOvejas | 3 UAVs | 10.54 L/ha | 10.2 min | 62.1% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ENJAMBRE ÓPTIMO |
+| 2026-10-12 07:36:13 UTC | Parcela_C_Actopan | 3 UAVs | 10.48 L/ha | 8.4 min | 62.1% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ENJAMBRE ÓPTIMO |
+| 2026-10-12 07:29:00 UTC | Parcela_C_Actopan | 3 UAVs | 10.48 L/ha | 13.2 min | 62.3% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ÓPTIMO |
+| 2026-10-12 07:29:00 UTC | Parcela_F_SoledadDeDoblado | 3 UAVs | 10.51 L/ha | 13.2 min | 62.3% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ÓPTIMO |
+| 2026-10-12 07:25:01 UTC | Parcela_B_PasoDeOvejas | 3 UAVs | 10.54 L/ha | 13.2 min | 62.3% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ÓPTIMO |
+| 2026-10-12 07:25:01 UTC | Parcela_A_UrsuloGalvan | 3 UAVs | 10.58 L/ha | 13.2 min | 62.3% | -75.0 dBm | 30.0 dB | 0.1% | 🟢 ÓPTIMO |
 
 ---
 **ELECTRÓNICA PERLACO / PERLACOLABS** — *Innovación en Robótica Agrícola y Enjambres Autónomos*

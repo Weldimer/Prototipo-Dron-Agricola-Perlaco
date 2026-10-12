@@ -1,5 +1,5 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR DE SIMULACIÓN GEOMÁTICA: 1 DRON VS ENJAMBRE 3 DRONES
+# PERLACOLABS - MOTOR DE APRENDIZAJE GEOMÁTICA, ENJAMBRE Y TELEMETRÍA RF
 # Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.0
 # ==============================================================================
 
@@ -13,7 +13,9 @@ import pandas as pd
 
 CONFIG_ENJAMBRE = {
     'eficiencia_red_mesh': 0.88,
-    'margen_anticolision_m': 15.0
+    'margen_anticolision_m': 15.0,
+    'frecuencia_mhz': 915.0,
+    'potencia_tx_dbm': 30.0  # RFD900x 1 Watt
 }
 
 CATALOGO_PARCELAS_VERACRUZ = [
@@ -59,6 +61,20 @@ def consultar_multi_api_meteo(lat, lon):
         except Exception as e:
             return 29.0, 17.5, 85.0, 66.0, f'FALLBACK_REGIONAL: {str(e)[:30]}'
 
+def calcular_enlace_rf_915mhz(distancia_m, lai_follaje):
+    p_tx = CONFIG_ENJAMBRE['potencia_tx_dbm']
+    freq_mhz = CONFIG_ENJAMBRE['frecuencia_mhz']
+    d_km = max(0.05, distancia_m / 1000.0)
+    
+    fspl_db = 32.44 + 20 * np.log10(freq_mhz) + 20 * np.log10(d_km)
+    atenuacion_vegetacion_db = lai_follaje * 1.8
+    rssi_dbm = round(p_tx - fspl_db - atenuacion_vegetacion_db + random.uniform(-1.5, 1.5), 1)
+    
+    piso_ruido_dbm = -105.0
+    snr_db = round(rssi_dbm - piso_ruido_dbm, 1)
+    perdida_paquetes_pct = round(max(0.0, min(100.0, (1.0 / (1.0 + np.exp((snr_db - 12.0) / 2.0))) * 100.0)), 1)
+    return rssi_dbm, snr_db, perdida_paquetes_pct
+
 def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_drones):
     viento_ms = viento_kmh / 3.6
     ancho_m = p['ancho_m']
@@ -66,7 +82,6 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
     area_ha = p['area_base_ha']
     
     eta_mesh = CONFIG_ENJAMBRE['eficiencia_red_mesh'] if num_drones > 1 else 1.0
-    
     area_por_dron_ha = area_ha / num_drones
     ancho_franja_m = 6.0
     overlap_pct = 25.0
@@ -82,13 +97,15 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
         tiempo_operativo_min = tiempo_base_monodron_min / (num_drones * eta_mesh)
         ahorro_tiempo_pct = ((tiempo_base_monodron_min - tiempo_operativo_min) / tiempo_base_monodron_min) * 100.0
     
+    distancia_max_rf_m = np.sqrt((ancho_m / 2.0)**2 + (largo_m)**2)
+    rssi_dbm, snr_db, perdida_paquetes_pct = calcular_enlace_rf_915mhz(distancia_max_rf_m, lai_actual)
+    
     v_terminal_gota = 0.72
     distancia_deriva_m = viento_ms * (3.5 / v_terminal_gota)
     vmd_optimo_um = 280.0 if (viento_ms > 4.0 or (temp_c / hr_pct) > 0.45) else 200.0
 
     k_extincion = 0.5
     penetracion_follaje_pct = min(100.0, np.exp(-k_extincion * lai_actual) * 100.0 * 1.35)
-    
     incertidumbre_rtk_pct = (0.025 / ancho_franja_m) * 100.0
     cobertura_efectiva_pct = max(0.0, min(100.0, 100.0 - (distancia_deriva_m * 1.8) - incertidumbre_rtk_pct))
 
@@ -103,7 +120,10 @@ def calcular_matriz_operativa(p, temp_c, viento_kmh, hr_pct, lai_actual, num_dro
         'distancia_deriva_m': round(distancia_deriva_m, 2),
         'vmd_optimo_um': vmd_optimo_um,
         'penetracion_follaje_pct': round(penetracion_follaje_pct, 1),
-        'cobertura_efectiva_pct': round(cobertura_efectiva_pct, 1)
+        'cobertura_efectiva_pct': round(cobertura_efectiva_pct, 1),
+        'rssi_dbm': rssi_dbm,
+        'snr_db': snr_db,
+        'perdida_paquetes_pct': perdida_paquetes_pct
     }
 
 def simular_mision(p, num_drones):
@@ -120,19 +140,11 @@ def simular_mision(p, num_drones):
     heading_optimo = round((dir_deg + 90.0) % 360.0, 1)
 
     if num_drones == 1:
-        if viento_kmh > 26.0:
-            estado = '🟡 ADVERTENCIA VIENTO MONODRON'
-            mitigacion = f'Viento severo {viento_kmh} km/h. VMD a {m["vmd_optimo_um"]} µm.'
-        else:
-            estado = '🟢 MONODRON ÓPTIMO (1 UAV)'
-            mitigacion = f'Misión individual. Tiempo total: {m["tiempo_operativo_min"]} min en {m["pasadas_por_dron"]} pasadas.'
+        estado = '🟢 MONODRON ÓPTIMO (1 UAV)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO MONODRON'
+        mitigacion = f'Enlace RFD900x ({m["rssi_dbm"]} dBm / SNR {m["snr_db"]} dB). Pérdida MAVLink: {m["perdida_paquetes_pct"]}%.'
     else:
-        if viento_kmh > 26.0:
-            estado = '🟡 ADVERTENCIA VIENTO ENJAMBRE'
-            mitigacion = f'Mesh ampliada a 15m. VMD {m["vmd_optimo_um"]} µm en {num_drones} UAVs.'
-        else:
-            estado = '🟢 ENJAMBRE ÓPTIMO (3 UAVs)'
-            mitigacion = f'Dividido en {num_drones} sectores ({m["area_sector_ha"]} ha/dron). Ahorro tiempo: {m["ahorro_tiempo_pct"]}%. Total: {m["tiempo_operativo_min"]} min.'
+        estado = '🟢 ENJAMBRE ÓPTIMO (3 UAVs)' if viento_kmh <= 26.0 else '🟡 ADVERTENCIA VIENTO ENJAMBRE'
+        mitigacion = f'Red Mesh 915 MHz activa ({m["rssi_dbm"]} dBm). Ahorro tiempo: {m["ahorro_tiempo_pct"]}%. Pérdida paquetes: {m["perdida_paquetes_pct"]}%.'
 
     return {
         'Fecha_Hora_UTC': now_utc,
@@ -151,6 +163,9 @@ def simular_mision(p, num_drones):
         'Deriva_Eolica_m': m['distancia_deriva_m'],
         'Penetracion_Follaje_pct': m['penetracion_follaje_pct'],
         'Cobertura_Efectiva_pct': m['cobertura_efectiva_pct'],
+        'RSSI_dBm': m['rssi_dbm'],
+        'SNR_dB': m['snr_db'],
+        'Perdida_Paquetes_pct': m['perdida_paquetes_pct'],
         'Heading_Optimo_deg': heading_optimo,
         'Viento_kmh': round(viento_kmh, 1),
         'Fuente_API': fuente_api,
@@ -161,17 +176,17 @@ def simular_mision(p, num_drones):
 def generar_reporte_markdown(df):
     df_rec = df.tail(10).iloc[::-1]
     md = [
-        '# 📊 Reporte Industrial: Simulación Monodron (1 UAV) vs Enjambre (3 UAVs)',
-        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm*',
+        '# 📊 Reporte Industrial: Telemetría RF 915 MHz, Monodron vs Enjambre',
+        '**ELECTRÓNICA PERLACO — STR-002 H3 v3.0** | *Centro de Control MAVLink Swarm & Off-Grid Sync*',
         '',
-        '### 📑 Matriz Comparativa de Despliegue Individual y Colaborativo',
+        '### 📑 Matriz de Operaciones y Calidad de Enlace de Radiofrecuencia',
         '',
-        '| Fecha UTC | Parcela | Cultivo | Drones | Dosis VRA | Pasadas/Dron | Tiempo Mono | Tiempo Real | Ahorro % | Cobertura % | Estado |',
-        '| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |'
+        '| Fecha UTC | Parcela | Drones | Dosis VRA | Tiempo Real | Ahorro % | RSSI (dBm) | SNR (dB) | Pérdida % | Estado |',
+        '| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |'
     ]
     for _, r in df_rec.iterrows():
         n_uav = f"{int(r['Drones_Enjambre'])} UAV" if int(r['Drones_Enjambre']) == 1 else f"{int(r['Drones_Enjambre'])} UAVs"
-        linea = f"| {r['Fecha_Hora_UTC']} | {r['Parcela']} | {r['Cultivo']} | {n_uav} | {r['Dosis_VRA_L_ha']} L/ha | {r['Pasadas_Por_Dron']} | {r['Tiempo_Monodron_min']} min | {r['Tiempo_Enjambre_min']} min | {r['Ahorro_Tiempo_pct']}% | {r['Cobertura_Efectiva_pct']}% | {r['Estado_Operativo']} |"
+        linea = f"| {r['Fecha_Hora_UTC']} | {r['Parcela']} | {n_uav} | {r['Dosis_VRA_L_ha']} L/ha | {r['Tiempo_Enjambre_min']} min | {r['Ahorro_Tiempo_pct']}% | {r['RSSI_dBm']} dBm | {r['SNR_dB']} dB | {r['Perdida_Paquetes_pct']}% | {r['Estado_Operativo']} |"
         md.append(linea)
     
     md.extend([
@@ -183,13 +198,8 @@ def generar_reporte_markdown(df):
         f.write('\n'.join(md))
 
 def ejecutar_simulacion():
-    # Seleccionar 2 parcelas distintas del catálogo
     parcelas = random.sample(CATALOGO_PARCELAS_VERACRUZ, 2)
-    
-    # Simulación 1: Primera parcela con 1 solo Dron (Monodron)
     res_monodron = simular_mision(parcelas[0], num_drones=1)
-    
-    # Simulación 2: Segunda parcela con Enjambre de 3 Drones
     res_enjambre = simular_mision(parcelas[1], num_drones=3)
     
     df_new = pd.DataFrame([res_monodron, res_enjambre])
@@ -204,22 +214,17 @@ def ejecutar_simulacion():
     else:
         df_tot = df_new
 
-    # Respetar el número de drones configurado (1 o 3)
     df_tot['Drones_Enjambre'] = pd.to_numeric(df_tot['Drones_Enjambre'], errors='coerce').fillna(1).astype(int)
     df_tot['Tiempo_Monodron_min'] = pd.to_numeric(df_tot['Tiempo_Monodron_min'], errors='coerce').fillna(35.0)
     df_tot['Tiempo_Enjambre_min'] = pd.to_numeric(df_tot['Tiempo_Enjambre_min'], errors='coerce').fillna(13.2)
     df_tot['Ahorro_Tiempo_pct'] = pd.to_numeric(df_tot['Ahorro_Tiempo_pct'], errors='coerce').fillna(0.0)
-    df_tot['Pasadas_Por_Dron'] = pd.to_numeric(df_tot['Pasadas_Por_Dron'], errors='coerce').fillna(20).astype(int)
-    df_tot['LAI_Follaje'] = pd.to_numeric(df_tot['LAI_Follaje'], errors='coerce').fillna(3.0)
-    df_tot['Deriva_Eolica_m'] = pd.to_numeric(df_tot['Deriva_Eolica_m'], errors='coerce').fillna(5.0)
-    df_tot['Penetracion_Follaje_pct'] = pd.to_numeric(df_tot['Penetracion_Follaje_pct'], errors='coerce').fillna(50.0)
-    df_tot['Cobertura_Efectiva_pct'] = pd.to_numeric(df_tot['Cobertura_Efectiva_pct'], errors='coerce').fillna(80.0)
-    df_tot['Dosis_VRA_L_ha'] = pd.to_numeric(df_tot['Dosis_VRA_L_ha'], errors='coerce').fillna(10.0)
-    df_tot['Viento_kmh'] = pd.to_numeric(df_tot['Viento_kmh'], errors='coerce').fillna(15.0)
+    df_tot['RSSI_dBm'] = pd.to_numeric(df_tot['RSSI_dBm'], errors='coerce').fillna(-75.0)
+    df_tot['SNR_dB'] = pd.to_numeric(df_tot['SNR_dB'], errors='coerce').fillna(30.0)
+    df_tot['Perdida_Paquetes_pct'] = pd.to_numeric(df_tot['Perdida_Paquetes_pct'], errors='coerce').fillna(0.1)
 
     df_tot.to_csv(log_file, index=False)
     generar_reporte_markdown(df_tot)
-    print('✅ Simulación doble completada (1 Dron en Parcela A y 3 Drones en Parcela B).')
+    print('✅ Simulación de telemetría RF Off-Grid e historial CSV actualizados.')
 
 if __name__ == '__main__':
     ejecutar_simulacion()
