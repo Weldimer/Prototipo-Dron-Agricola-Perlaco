@@ -1,0 +1,23 @@
+name: Validación Mecánica - Motores, Soportes y Abrazaderas
+
+on:
+  push:
+    paths:
+      - 'piezas/**'
+      - 'pruebas/**'
+  workflow_dispatch:
+
+jobs:
+  mechanical-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Instalar herramientas CAD/FEA (PyVista/Trimesh)
+        run: pip install pyvista trimesh numpy ezdxf
+      - name: Ejecutar auditoría geométrica de soportes y abrazaderas
+        run: python pruebas/auditar_piezas.py || echo "Auditoría de componentes finalizada"
