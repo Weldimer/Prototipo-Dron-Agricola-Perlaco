@@ -1,6 +1,6 @@
 # 🌪️ Reporte Técnico: Resiliencia ante Peores Escenarios Operativos y Vientos Severos (>120 km/h)
 
-**ELECTRÓNICA PERLACO — STR-002 H3 v3.5** | *Análisis de Tolerancia Límite y Puntos Críticos*  
+**ELECTRÓNICA PERLACO — STR-002 H3 v3.5** | *Análisis de Tolerancia Límite y Puntos Críticos*
 **Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
 
 ---

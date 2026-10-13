@@ -1,6 +1,6 @@
 # 📦 Lista Oficial de Materiales (BOM v3.5) - ELECTRÓNICA PERLACO STR-002 H3
-**Plataforma Aérea Agrícola (MTOW 29.0 kg) — Octocóptero Coaxial X8 Rediseñado**  
-**Auditoría de Ingeniería:** Pérdidas Coaxiales, Térmicas en PDB, Viento Severo y Visión Edge AI  
+**Plataforma Aérea Agrícola (MTOW 29.0 kg) — Octocóptero Coaxial X8 Rediseñado**
+**Auditoría de Ingeniería:** Pérdidas Coaxiales, Térmicas en PDB, Viento Severo y Visión Edge AI
 **Autor:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
 
 ---
