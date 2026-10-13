@@ -2,148 +2,78 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PERLACOLABS - Prototipo STR-002 H3 v3.5</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STR-002 H3 v3.5 — Dashboard de Ingeniería y Viabilidad</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0d1117; color: #c9d1d9; margin: 0; padding: 15px; line-height: 1.5; }
-        .header { text-align: center; border-bottom: 1px solid #30363d; padding-bottom: 15px; margin-bottom: 20px; }
-        .header h1 { color: #58a6ff; margin: 0 0 8px 0; font-size: 22px; }
-        .header p { color: #8b949e; font-size: 13px; margin: 0; }
-        
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr !important; }
-            body { padding: 10px; }
-            .header h1 { font-size: 18px; }
-        }
-        
-        .card { background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px; margin-bottom: 15px; min-height: 290px; overflow: hidden; }
-        .card h3 { color: #58a6ff; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-top: 0; font-size: 15px; }
-        
-        .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 880px; }
-        th { background-color: #21262d; color: #8b949e; padding: 8px; text-align: left; border-bottom: 2px solid #30363d; }
-        td { padding: 8px; border-bottom: 1px solid #21262d; white-space: nowrap; }
-        
-        .ack-section { background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-top: 25px; }
-        .ack-title { color: #f0883e; font-size: 18px; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
-        .ack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        @media (max-width: 768px) {
-            .ack-grid { grid-template-columns: 1fr !important; }
-        }
-        .ack-item { background-color: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; }
-        .ack-item h4 { color: #79c0ff; margin: 0 0 6px 0; font-size: 14px; }
-        .ack-item p { font-size: 12px; color: #8b949e; margin: 0; text-align: justify; }
-        .quote-box { font-style: italic; color: #a5d6ff; border-left: 3px solid #f0883e; padding-left: 10px; margin-top: 15px; font-size: 12px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #0f1115; color: #e2e8f0; margin: 0; padding: 20px; line-height: 1.6; }
+        header { text-align: center; padding: 30px 20px; border-bottom: 2px solid #ff5722; background: #1a1d24; border-radius: 8px 8px 0 0; }
+        h1 { color: #ff5722; margin: 0 0 10px 0; font-size: 2rem; }
+        .subtitle { color: #94a3b8; font-size: 1.1rem; }
+        .container { max-width: 1100px; margin: 20px auto; }
+        .card { background: #1a1d24; padding: 25px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); border: 1px solid #2d3748; }
+        h2 { color: #f1f5f9; border-bottom: 1px solid #2d3748; padding-bottom: 10px; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #2d3748; padding: 12px; text-align: left; }
+        th { background-color: #252830; color: #ff5722; }
+        tr:nth-child(even) { background-color: #161920; }
+        .badge { background: #ff5722; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-top: 10px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        footer { text-align: center; padding: 20px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🚁 ELECTRÓNICA PERLACO - STR-002 H3 v3.5</h1>
-        <p><b>Plataforma Aérea Agrícola Autónoma — Úrsulo Galván, Veracruz, México</b></p>
-    </div>
-    
-    <div class="grid">
-        <div class="card"><div id="chart_eta" style="width:100%; height:270px;"></div></div>
-        <div class="card"><div id="chart_rtk" style="width:100%; height:270px;"></div></div>
-    </div>
-    
-    <div class="card">
-        <h3>🔗 Matriz Enjambre FANET: Validaciones Blockchain PoA & Telemetría Off-Grid</h3>
-        <div class="table-container">
+    <div class="container">
+        <header>
+            <h1>ELECTRÓNICA PERLACO — STR-002 H3 v3.5</h1>
+            <p class="subtitle">Octocóptero Coaxial X8 de Alta Capacidad (MTOW 29.0 kg) | Úrsulo Galván, Veracruz</p>
+            <span class="badge">Fase 4: Panel Interactivo Activo (GitHub Pages)</span>
+        </header>
+
+        <div class="card">
+            <h2>🚁 Especificaciones Técnicas Validadas</h2>
+            <ul>
+                <li><strong>Arquitectura:</strong> Octocóptero Coaxial X8 con 8 motores T-Motor P80 III KV120.</li>
+                <li><strong>Relación Empuje/Peso (T/W):</strong> 1.92:1 nominal (seguro ante la pérdida de un motor o par coaxial).</li>
+                <li><strong>Navegación & Posicionamiento:</strong> Doble ZED-F9P RTK Moving Baseline (Inmunidad total a interferencias magnéticas / *Compass-less*).</li>
+                <li><strong>Sistema VRA & Aspersión:</strong> Dosificación inteligente de 30 L/ha con control por script Lua blindado y compensación de viento adaptativa.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📊 Resultados de Simulación por Parcela (Úrsulo Galván)</h2>
+            <p>Simulación operacional basada en los polígonos reales de la región cañera y frutícola:</p>
             <table>
                 <thead>
-                    <tr><th>Fecha UTC</th><th>Nodo</th><th>Parcela</th><th>Coordenadas (Lat, Lon)</th><th>PoA Hash</th><th>Variedad</th><th>Eficiencia</th><th>Caudal Crudo</th><th>Flujo Kalman</th><th>Precisión RTK</th><th>Estado Consenso</th></tr>
+                    <tr>
+                        <th>Parcela / Variedad</th>
+                        <th>Área (ha)</th>
+                        <th>Dosis Teórica (L/ha)</th>
+                        <th>Volumen Caldo (L)</th>
+                        <th>Cargas de Tanque (10L)</th>
+                    </tr>
                 </thead>
-                <tbody><tr><td>2026-10-13 01:29:34 UTC</td><td><code style='color:#d29922;'>UAV-01</code></td><td><b>Cañaveral_C_ITV92</b></td><td><code style='color:#79c0ff;'>19.3950, -96.3480</code></td><td><code style='color:#a5d6ff;'>#6bfd8982</code></td><td>Caña ITV 92-1424 (Precoz)</td><td><b>94.0%</b></td><td>3.99 L/m</td><td><b style='color:#3fb950;'>3.71 L/m</b></td><td><b style='color:#a371f7;'>±8.5 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (PoA VALIDADO)</span></td></tr><tr><td>2026-10-13 01:29:34 UTC</td><td><code style='color:#d29922;'>UAV-03</code></td><td><b>Parcela_F_Papaya</b></td><td><code style='color:#79c0ff;'>19.3900, -96.3600</code></td><td><code style='color:#a5d6ff;'>#x5102ce5</code></td><td>Carica papaya (Maradol Roja)</td><td><b>82.0%</b></td><td>3.57 L/m</td><td><b style='color:#3fb950;'>3.64 L/m</b></td><td><b style='color:#a371f7;'>±10.9 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (PoA VALIDADO)</span></td></tr><tr><td>2026-10-13 01:29:34 UTC</td><td><code style='color:#d29922;'>UAV-02</code></td><td><b>Cañaveral_B_MEX69</b></td><td><code style='color:#79c0ff;'>19.4120, -96.3610</code></td><td><code style='color:#a5d6ff;'>#x97e5f53</code></td><td>Caña Mex 69-290 (Alta Biomasa)</td><td><b>82.0%</b></td><td>3.69 L/m</td><td><b style='color:#3fb950;'>3.66 L/m</b></td><td><b style='color:#a371f7;'>±10.9 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (PoA VALIDADO)</span></td></tr><tr><td>2026-10-13 01:29:34 UTC</td><td><code style='color:#d29922;'>UAV-01</code></td><td><b>Cañaveral_A_CP72</b></td><td><code style='color:#79c0ff;'>19.4008, -96.3533</code></td><td><code style='color:#a5d6ff;'>#x6296639</code></td><td>Caña CP 72-2086 (Predominante)</td><td><b>94.0%</b></td><td>3.72 L/m</td><td><b style='color:#3fb950;'>3.65 L/m</b></td><td><b style='color:#a371f7;'>±10.6 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (PoA VALIDADO)</span></td></tr><tr><td>2026-10-13 01:29:34 UTC</td><td><code style='color:#d29922;'>UAV-01</code></td><td><b>Parcela_E_Limón</b></td><td><code style='color:#79c0ff;'>19.4080, -96.3700</code></td><td><code style='color:#a5d6ff;'>#x775a479</code></td><td>Citrus latifolia (Limón Persa)</td><td><b>94.0%</b></td><td>4.01 L/m</td><td><b style='color:#3fb950;'>3.61 L/m</b></td><td><b style='color:#a371f7;'>±10.5 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (PoA VALIDADO)</span></td></tr><tr><td>2026-10-13 01:29:34 UTC</td><td><code style='color:#d29922;'>UAV-02</code></td><td><b>Cañaveral_D_L95</b></td><td><code style='color:#79c0ff;'>19.4050, -96.3400</code></td><td><code style='color:#a5d6ff;'>#682aa6e9</code></td><td>Caña L 95-096 (Plantilla)</td><td><b>82.0%</b></td><td>4.08 L/m</td><td><b style='color:#3fb950;'>3.27 L/m</b></td><td><b style='color:#a371f7;'>±9.0 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (PoA VALIDADO)</span></td></tr><tr><td>2026-10-13 01:17:11 UTC</td><td><code style='color:#d29922;'>nan</code></td><td><b>Parcela_E_Limón</b></td><td><code style='color:#79c0ff;'>19.4080, -96.3700</code></td><td><code style='color:#a5d6ff;'>#nan</code></td><td>Citrus latifolia (Limón Persa)</td><td><b>94.0%</b></td><td>4.03 L/m</td><td><b style='color:#3fb950;'>3.71 L/m</b></td><td><b style='color:#a371f7;'>±10.9 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (EDGE AI YOLOv8-FDA)</span></td></tr><tr><td>2026-10-13 01:17:11 UTC</td><td><code style='color:#d29922;'>nan</code></td><td><b>Parcela_F_Papaya</b></td><td><code style='color:#79c0ff;'>19.3900, -96.3600</code></td><td><code style='color:#a5d6ff;'>#nan</code></td><td>Carica papaya (Maradol Roja)</td><td><b>94.0%</b></td><td>3.53 L/m</td><td><b style='color:#3fb950;'>3.63 L/m</b></td><td><b style='color:#a371f7;'>±11.1 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (EDGE AI YOLOv8-FDA)</span></td></tr><tr><td>2026-10-13 01:17:11 UTC</td><td><code style='color:#d29922;'>nan</code></td><td><b>Cañaveral_B_MEX69</b></td><td><code style='color:#79c0ff;'>19.4120, -96.3610</code></td><td><code style='color:#a5d6ff;'>#nan</code></td><td>Caña Mex 69-290 (Alta Biomasa)</td><td><b>94.0%</b></td><td>4.12 L/m</td><td><b style='color:#3fb950;'>3.66 L/m</b></td><td><b style='color:#a371f7;'>±9.9 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (EDGE AI YOLOv8-FDA)</span></td></tr><tr><td>2026-10-13 01:17:11 UTC</td><td><code style='color:#d29922;'>nan</code></td><td><b>Cañaveral_D_L95</b></td><td><code style='color:#79c0ff;'>19.4050, -96.3400</code></td><td><code style='color:#a5d6ff;'>#nan</code></td><td>Caña L 95-096 (Plantilla)</td><td><b>94.0%</b></td><td>3.56 L/m</td><td><b style='color:#3fb950;'>3.48 L/m</b></td><td><b style='color:#a371f7;'>±11.2 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (EDGE AI YOLOv8-FDA)</span></td></tr><tr><td>2026-10-13 01:17:11 UTC</td><td><code style='color:#d29922;'>nan</code></td><td><b>Cañaveral_C_ITV92</b></td><td><code style='color:#79c0ff;'>19.3950, -96.3480</code></td><td><code style='color:#a5d6ff;'>#nan</code></td><td>Caña ITV 92-1424 (Precoz)</td><td><b>94.0%</b></td><td>3.71 L/m</td><td><b style='color:#3fb950;'>3.45 L/m</b></td><td><b style='color:#a371f7;'>±11.6 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (EDGE AI YOLOv8-FDA)</span></td></tr><tr><td>2026-10-13 01:17:11 UTC</td><td><code style='color:#d29922;'>nan</code></td><td><b>Cañaveral_A_CP72</b></td><td><code style='color:#79c0ff;'>19.4008, -96.3533</code></td><td><code style='color:#a5d6ff;'>#nan</code></td><td>Caña CP 72-2086 (Predominante)</td><td><b>94.0%</b></td><td>4.02 L/m</td><td><b style='color:#3fb950;'>3.22 L/m</b></td><td><b style='color:#a371f7;'>±9.5 mm</b></td><td><span style='background-color:#238636; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>🟢 ÓPTIMO (EDGE AI YOLOv8-FDA)</span></td></tr></tbody>
+                <tbody>
+                    <tr><td>Cañaveral A (CP 72-2086)</td><td>14.5</td><td>20.34</td><td>294.9 L</td><td>30 cargas</td></tr>
+                    <tr><td>Cañaveral C (ITV 92-1424)</td><td>12.0</td><td>23.58</td><td>283.0 L</td><td>28 cargas</td></tr>
+                    <tr><td>Cañaveral B (Mex 69-290)</td><td>10.5</td><td>12.92</td><td>135.7 L</td><td>14 cargas</td></tr>
+                    <tr><td>Cañaveral D (L 95-096)</td><td>8.0</td><td>8.00</td><td>64.0 L</td><td>7 cargas</td></tr>
+                    <tr><td>Parcela E (Limón Persa)</td><td>6.0</td><td>10.51</td><td>63.1 L</td><td>7 cargas</td></tr>
+                    <tr><td>Parcela F (Papaya Maradol)</td><td>5.0</td><td>15.22</td><td>76.1 L</td><td>8 cargas</td></tr>
+                </tbody>
             </table>
         </div>
+
+        <div class="card">
+            <h2>🌿 Manifiesto Fundacional y Visión Humana</h2>
+            <blockquote style="margin: 0; padding-left: 15px; border-left: 4px solid #ff5722; color: #cbd5e1;">
+                <em>"El propósito de este proyecto no es reemplazar al ser humano de ningún puesto de trabajo, sino elevar la calidad del trabajo, eliminar mermas y derrames, y honrar el legado familiar de cuatro generaciones dedicadas a cuidar y producir caña de azúcar en los campos de Veracruz."</em>
+            </blockquote>
+        </div>
+
+        <footer>
+            <p>© 2026 Electrónica Perlaco / PerlacoLabs — Úrsulo Galván, Veracruz, México.</p>
+        </footer>
     </div>
-
-    <!-- SECCIÓN DE RECONOCIMIENTOS -->
-    <div class="ack-section">
-        <h2 class="ack-title">📜 Gratitud, Reconocimiento y Homenaje al Saber</h2>
-        <p style="font-size: 13px; color: #c9d1d9;">La materialización técnica de esta obra es el resultado de un camino guiado por la fe, la perseverancia y la generosidad de almas e inteligencias que coincidieron en mi destino.</p>
-
-        <div class="ack-grid">
-            <div class="ack-item">
-                <h4>🏛️ A mis Cimientos e Inflexiones Morales</h4>
-                <p><b>Natanael Lara Perdomo:</b> Por transmitirme el valor del trabajo honesto, la entereza inquebrantable ante la adversidad y la rectitud.<br><br>
-                <b>Irene Colorado Hernández:</b> Por su ternura infinita, su fe serena e incondicional y por constituir el refugio donde siempre hallé paz.<br><br>
-                <b>A mi Hermana y Leales Amigos:</b> Por su comprensión absoluta ante el aislamiento que exige el estudio riguroso.</p>
-            </div>
-
-            <div class="ack-item">
-                <h4>🎓 A la Mentoría Generosa y la Humildad de la Ciencia</h4>
-                <p>A aquel estudiante y profesional de la ingeniería mecatrónica que, despojado de la vanidad académica y armado de una genuina nobleza, estrechó su mano para señalarme el camino. Aquellas palabras suyas no solo encauzaron mi rumbo, sino que cimentaron la determinación y la madurez técnica que hoy sostienen este desarrollo.</p>
-            </div>
-
-            <div class="ack-item">
-                <h4>🛠️ A la Indulgencia de la Praxis Empírica</h4>
-                <p>A aquellos espíritus nobles que confiaron sus dispositivos a mis manos en los albores de este viaje. Cada componente sacrificado en el taller fue el aula real donde aprendí a descifrar las leyes del electromagnetismo.</p>
-            </div>
-
-            <div class="ack-item">
-                <h4>🏛️ A los Observadores de Juicio Reservado y la Adversidad</h4>
-                <p>A quienes consideraron este empeño una quimera: su escepticismo representó el acero que templó mi disciplina. Gracias por enseñarme la ecuanimidad y la elegancia de responder únicamente con evidencia y trabajo constante.</p>
-            </div>
-        </div>
-
-        <div class="ack-item" style="margin-top: 15px;">
-            <h4>🌐 A la Comunidad Científica e Intelectual Global</h4>
-            <p>A los autores anónimos de cada publicación técnica y a los desarrolladores de la comunidad de código abierto: mantengo la firme y humilde aspiración de que este proyecto logre estar a la altura del legado que han compartido con la humanidad.</p>
-        </div>
-
-        <div class="quote-box">
-            "El conocimiento no pertenece a quien lo encierra en las aulas, sino a quien lo busca con devoción, lo trabaja con las manos y lo pone al servicio de la tierra."
-        </div>
-        
-        <p style="text-align: right; font-size: 11px; color: #8b949e; margin-top: 15px; font-weight: bold;">
-            Angel Imer Lara Colorado — PERLACOLABS<br>
-            <span style="font-weight: normal; font-style: italic;">Úrsulo Galván, Veracruz, México</span>
-        </p>
-    </div>
-
-    <script>
-        var trace1 = { 
-            x: ["A_CP72 (01:17)", "C_ITV92 (01:17)", "D_L95 (01:17)", "B_MEX69 (01:17)", "F_Papaya (01:17)", "E_Lim\u00f3n (01:17)", "D_L95 (01:29)", "E_Lim\u00f3n (01:29)", "A_CP72 (01:29)", "B_MEX69 (01:29)", "F_Papaya (01:29)", "C_ITV92 (01:29)"], 
-            y: [94.0, 94.0, 94.0, 94.0, 94.0, 94.0, 82.0, 94.0, 94.0, 82.0, 82.0, 94.0], 
-            name: 'Eficiencia (%)', 
-            type: 'bar', 
-            marker: {color: '#2ea043'} 
-        };
-        var layout1 = { 
-            title: { text: 'Eficiencia Coaxial Recuperada (%)', font: {color: '#58a6ff', size: 13} },
-            paper_bgcolor: '#161b22', 
-            plot_bgcolor: '#161b22', 
-            font: {color: '#8b949e', size: 10},
-            margin: { t: 30, b: 60, l: 35, r: 15 },
-            yaxis: { range: [0, 105], gridcolor: '#21262d' },
-            xaxis: { gridcolor: '#21262d', tickangle: -35 }
-        };
-        var config = { responsive: true, displayModeBar: false };
-        Plotly.newPlot('chart_eta', [trace1], layout1, config);
-
-        var trace2 = { 
-            x: ["A_CP72 (01:17)", "C_ITV92 (01:17)", "D_L95 (01:17)", "B_MEX69 (01:17)", "F_Papaya (01:17)", "E_Lim\u00f3n (01:17)", "D_L95 (01:29)", "E_Lim\u00f3n (01:29)", "A_CP72 (01:29)", "B_MEX69 (01:29)", "F_Papaya (01:29)", "C_ITV92 (01:29)"], 
-            y: [9.5, 11.6, 11.2, 9.9, 11.1, 10.9, 9.0, 10.5, 10.6, 10.9, 10.9, 8.5], 
-            name: 'Error RTK (mm)', 
-            type: 'scatter', 
-            mode: 'lines+markers', 
-            line: {color: '#a371f7', width: 2},
-            marker: {size: 6}
-        };
-        var layout2 = { 
-            title: { text: 'Navegación RTK Moving Baseline (mm RMS)', font: {color: '#58a6ff', size: 13} },
-            paper_bgcolor: '#161b22', 
-            plot_bgcolor: '#161b22', 
-            font: {color: '#8b949e', size: 10},
-            margin: { t: 30, b: 60, l: 35, r: 15 },
-            yaxis: { title: 'Error (mm)', gridcolor: '#21262d', range: [5, 15] },
-            xaxis: { gridcolor: '#21262d', tickangle: -35 }
-        };
-        Plotly.newPlot('chart_rtk', [trace2], layout2, config);
-    </script>
 </body>
 </html>
