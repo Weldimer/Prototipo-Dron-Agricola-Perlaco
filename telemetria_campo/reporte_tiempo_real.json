@@ -1,0 +1,71 @@
+{
+    "proyecto": "PERLACOLABS - Prototipo Dron Agr\u00edcola STR-002 H3",
+    "timestamp": "2026-10-13 11:28:57",
+    "meteorologia": {
+        "temperatura_c": 28.0,
+        "humedad_relativa_pct": 60.6,
+        "viento_ms": 5.5,
+        "precision_rtk_mm": 11.2
+    },
+    "propulsion_hv": {
+        "voltaje_v": 66.6,
+        "motores": [
+            {
+                "motor_id": 1,
+                "rpm": 6142,
+                "temperatura_c": 56.4,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 2,
+                "rpm": 5938,
+                "temperatura_c": 52.5,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 3,
+                "rpm": 6017,
+                "temperatura_c": 55.4,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 4,
+                "rpm": 6019,
+                "temperatura_c": 57.9,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 5,
+                "rpm": 5911,
+                "temperatura_c": 50.3,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 6,
+                "rpm": 5895,
+                "temperatura_c": 55.4,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 7,
+                "rpm": 5999,
+                "temperatura_c": 50.9,
+                "estado": "\u00d3PTIMO"
+            },
+            {
+                "motor_id": 8,
+                "rpm": 5913,
+                "temperatura_c": 55.4,
+                "estado": "\u00d3PTIMO"
+            }
+        ],
+        "redundancia_x8_segura": true
+    },
+    "estructura_mecanica": {
+        "factor_seguridad_fea": 4.17,
+        "esfuerzo_max_mpa": 125.4,
+        "limite_elastico_7075_mpa": 450.0,
+        "integridad_estructural": "APROBADO (Sin fatiga cr\u00edtica)"
+    },
+    "estado_general": "LISTO PARA INVERSI\u00d3N Y PRUEBAS DE CAMPO"
+}
