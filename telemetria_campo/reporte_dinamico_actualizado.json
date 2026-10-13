@@ -1,25 +1,25 @@
 {
-    "timestamp": "2026-10-13 11:55:19",
-    "parcela": "Parcela Norte - \u00darsulo Galv\u00e1n",
+    "timestamp": "2026-10-13 12:08:31",
+    "parcela": "Parcela Central - Veracruz",
     "cultivo": "Ca\u00f1a de Az\u00facar",
-    "variedad": "Mex 69-290",
-    "hectareas": 24.0,
-    "sopa_liquida": "Fungicida Sist\u00e9mico (Tebuconazole 25%)",
+    "variedad": "CP 72-2086",
+    "hectareas": 18.5,
+    "sopa_liquida": "Madurador Enzim\u00e1tico (Glifosato / Etef\u00f3n)",
     "clima": {
-        "temperatura_c": 22.0,
-        "humedad_pct": 96,
-        "viento_ms": 6.2,
+        "temperatura_c": 22.7,
+        "humedad_pct": 94,
+        "viento_ms": 8.6,
         "fuente": "Open-Meteo API en vivo"
     },
     "dosificacion": {
-        "volumen_base_l_ha": 40.0,
-        "tasa_vra_ajustada_l_ha": 42.56,
+        "volumen_base_l_ha": 35.0,
+        "tasa_vra_ajustada_l_ha": 38.92,
         "caudal_operativo_l_min": 16.0,
-        "volumen_total_mezcla_l": 1021.44
+        "volumen_total_mezcla_l": 720.02
     },
     "mecanica_dron": {
         "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
         "factor_seguridad_7075": 4.17,
-        "precision_rtk_mm": 11.3
+        "precision_rtk_mm": 9.2
     }
 }
