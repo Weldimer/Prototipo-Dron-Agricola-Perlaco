@@ -17,7 +17,7 @@
 * **Estudio de Visión Artificial (YOLOv8-FDA):** [Ver Edge AI](borde_ai/yolo_entrenamiento.md)
 * **Control VRA Adaptativo y Filtro Kalman 1D:** [Ver Firmware](firmware/vra_kalman.md)
 * **Protocolo Fail-Safe y Red FANET (915 MHz):** [Ver Fail-Safe](firmware/fail_safe_offgrid.md)
-* **Validación de Mallas Estancas (OpenSCAD / PyVista):** [Ver Mallas](simulacion/mallas_estancas.md)
+* **Validación de mallas estancas (OpenSCAD / PyVista):** [Ver Mallas](simulacion/mallas_estancas.md)
 
 ---
 *ELECTRÓNICA PERLACO / PERLACOLABS — Úrsulo Galván, Veracruz, México*
