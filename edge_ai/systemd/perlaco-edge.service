@@ -1,0 +1,15 @@
+[Unit]
+Description=STR-002 H3 Edge OS Daemon
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+User=dron
+WorkingDirectory=/home/dron/Prototipo-Dron-Agricola-Perlaco/edge_ai
+ExecStart=/usr/bin/python3 /home/dron/Prototipo-Dron-Agricola-Perlaco/edge_ai/src/core_scheduler.py
+OOMScoreAdjust=-500
+
+[Install]
+WantedBy=multi-user.target
