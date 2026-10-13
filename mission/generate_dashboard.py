@@ -1,5 +1,5 @@
 # ==============================================================================
-# PERLACOLABS - GENERADOR DE PORTAL WEB OPTIMIZADO
+# PERLACOLABS - DASHBOARD WEB CON MATRIZ GEORREFERENCIADA
 # ==============================================================================
 
 import pandas as pd
@@ -14,33 +14,42 @@ if not os.path.exists(log_file) or os.path.getsize(log_file) < 50:
 
 df = pd.read_csv(log_file)
 
-# Limpieza y conversión de tipos
+# Asegurar columnas de Latitud y Longitud
+if 'Latitud' not in df.columns or 'Longitud' not in df.columns:
+    coords_map = {
+        'Cañaveral_A_CP72': (19.4008, -96.3533),
+        'Cañaveral_B_MEX69': (19.4120, -96.3610),
+        'Cañaveral_C_ITV92': (19.3950, -96.3480),
+        'Cañaveral_D_L95': (19.4050, -96.3400),
+        'Parcela_E_Limón': (19.4080, -96.3700),
+        'Parcela_F_Papaya': (19.3900, -96.3600)
+    }
+    df['Latitud'] = df['Parcela'].map(lambda x: coords_map.get(x, (19.4000, -96.3500))[0])
+    df['Longitud'] = df['Parcela'].map(lambda x: coords_map.get(x, (19.4000, -96.3500))[1])
+
 df['Drones_Enjambre'] = pd.to_numeric(df['Drones_Enjambre'], errors='coerce').fillna(1).astype(int)
-df['Dosis_Real_L_ha'] = pd.to_numeric(df['Dosis_Real_L_ha'], errors='coerce').fillna(10.0)
 df['Precision_RTK_mm'] = pd.to_numeric(df['Precision_RTK_mm'], errors='coerce').fillna(10.0)
 df['Eficiencia_Coaxial_pct'] = pd.to_numeric(df['Eficiencia_Coaxial_pct'], errors='coerce').fillna(94.0)
 
-# Tomar los últimos 12 registros individuales
 ultimos = df.tail(12).copy()
 
-# Generar etiquetas X ÚNICAS por registro para evitar la suma acumulada de Plotly
 etiquetas_x = []
 for idx, r in ultimos.iterrows():
     p_corta = str(r['Parcela']).replace('Cañaveral_', '').replace('Parcela_', '')
     hora_str = str(r['Fecha_Hora_UTC']).split(' ')[1][:5] if ' ' in str(r['Fecha_Hora_UTC']) else ''
     etiquetas_x.append(f"{p_corta} ({hora_str})")
 
-# Generar filas HTML con formato numérico estricto
 filas_html = ""
 for _, r in ultimos.iloc[::-1].iterrows():
     st = str(r.get('Estado_Operativo', '🟢 ÓPTIMO'))
     c_badge = '#238636'
     f_utc = str(r['Fecha_Hora_UTC'])
     parc = str(r['Parcela'])
+    lat_val = f"{float(r['Latitud']):.4f}"
+    lon_val = f"{float(r['Longitud']):.4f}"
     var_str = str(r.get('Variedad', 'Cultivo Regional'))
     eta_str = f"<b>{r['Eficiencia_Coaxial_pct']}%</b>"
     
-    # Redondeo estricto de caudal crudo a 2 decimales
     c_crudo_num = float(r.get('Caudal_Crudo_Lmin', 3.8))
     c_crudo = f"{c_crudo_num:.2f} L/m"
     
@@ -49,7 +58,7 @@ for _, r in ultimos.iloc[::-1].iterrows():
     
     rtk_str = f"<b style='color:#a371f7;'>±{r['Precision_RTK_mm']} mm</b>"
     
-    filas_html += f"<tr><td>{f_utc}</td><td><b>{parc}</b></td><td>{var_str}</td><td>{eta_str}</td><td>{c_crudo}</td><td>{c_kalman}</td><td>{rtk_str}</td><td><span style='background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>{st}</span></td></tr>"
+    filas_html += f"<tr><td>{f_utc}</td><td><b>{parc}</b></td><td><code style='color:#79c0ff;'>{lat_val}, {lon_val}</code></td><td>{var_str}</td><td>{eta_str}</td><td>{c_crudo}</td><td>{c_kalman}</td><td>{rtk_str}</td><td><span style='background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>{st}</span></td></tr>"
 
 fechas_json = json.dumps(etiquetas_x)
 eta_json = json.dumps([round(float(x), 1) for x in list(ultimos['Eficiencia_Coaxial_pct'])])
@@ -79,7 +88,7 @@ html_template = """<!DOCTYPE html>
         .card h3 { color: #58a6ff; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-top: 0; font-size: 15px; }
         
         .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 650px; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 780px; }
         th { background-color: #21262d; color: #8b949e; padding: 8px; text-align: left; border-bottom: 2px solid #30363d; }
         td { padding: 8px; border-bottom: 1px solid #21262d; white-space: nowrap; }
         
@@ -107,11 +116,11 @@ html_template = """<!DOCTYPE html>
     </div>
     
     <div class="card">
-        <h3>📑 Registros de Telemetría Botánica y VRA Off-Grid</h3>
+        <h3>📑 Matriz Integrada: Telemetría, Coordenadas y VRA Off-Grid</h3>
         <div class="table-container">
             <table>
                 <thead>
-                    <tr><th>Fecha UTC</th><th>Parcela</th><th>Variedad</th><th>Eficiencia Coaxial</th><th>Caudal Crudo</th><th>Flujo Kalman</th><th>Precisión RTK</th><th>Estado</th></tr>
+                    <tr><th>Fecha UTC</th><th>Parcela</th><th>Coordenadas (Lat, Lon)</th><th>Variedad</th><th>Eficiencia</th><th>Caudal Crudo</th><th>Flujo Kalman</th><th>Precisión RTK</th><th>Estado</th></tr>
                 </thead>
                 <tbody>__FILAS_HTML__</tbody>
             </table>
@@ -214,4 +223,4 @@ with open('docs/index.html', 'w', encoding='utf-8') as f:
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("✅ Dashboard regenerado.")
+print("✅ Dashboard actualizado con columna de Coordenadas Geográficas (Latitud y Longitud).")

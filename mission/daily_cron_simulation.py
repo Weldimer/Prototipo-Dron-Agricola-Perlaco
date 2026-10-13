@@ -1,9 +1,7 @@
 # ==============================================================================
-# PERLACOLABS - MOTOR EDGE CON FILTRO DE KALMAN Y RESILIENCIA MULTIVARIABLE
-# Autor: Angel Imer Lara Colorado - ELECTRÓNICA PERLACO / STR-002 H3 v3.5
+# PERLACOLABS - MOTOR DE SIMULACIÓN Y TELEMETRÍA GEORREFERENCIADA
 # ==============================================================================
 
-import urllib.request
 import json
 from datetime import datetime, timezone
 import os
@@ -76,13 +74,15 @@ class MotorResiliente:
             'Fecha_Hora_UTC': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
             'ID_Parcela': p['id'],
             'Parcela': p['nombre'],
+            'Latitud': p['lat'],
+            'Longitud': p['lon'],
             'Variedad': p['variedad'],
             'Area_ha': p['area_ha'],
             'LAI_Follaje': lai_dinamico,
             'Drones_Enjambre': num_drones,
             'Eficiencia_Coaxial_pct': round(eta_coaxial * 100.0, 1),
             'Temp_PDB_HeavyCopper_C': temp_pdb_c,
-            'Caudal_Crudo_Lmin': caudal_crudo_lmin,
+            'Caudal_Crudo_Lmin': round(caudal_crudo_lmin, 2),
             'Caudal_Filtrado_Kalman_Lmin': caudal_filtrado_lmin,
             'Precision_RTK_mm': precision_rtk_mm,
             'Dosis_Teorica_L_ha': dosis_teorica,
@@ -119,7 +119,7 @@ def ejecutar_simulacion():
         df_tot = df_new
 
     df_tot.to_csv(log_file, index=False)
-    print("✅ Simulación diaria ejecutada con métricas de resiliencia.")
+    print("✅ Simulación ejecutada con coordenadas geográficas registradas.")
 
 if __name__ == '__main__':
     ejecutar_simulacion()
