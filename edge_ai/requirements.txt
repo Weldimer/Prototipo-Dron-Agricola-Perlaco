@@ -2,3 +2,7 @@ pymavlink==2.4.39
 opencv-python-headless==4.8.1.78
 numpy==1.26.0
 pandas==2.1.1
+cryptography>=41.0.0
+ultralytics>=8.0.0
+RPi.GPIO>=0.7.1
+pytest>=7.4.0

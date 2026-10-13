@@ -1,5 +1,5 @@
 [Unit]
-Description=STR-002 H3 Edge OS Daemon
+Description=STR-002 H3 Edge OS Daemon (PERLACOLABS)
 After=network.target
 
 [Service]
@@ -7,9 +7,37 @@ Type=simple
 Restart=always
 RestartSec=3
 User=dron
+Group=dron
+
 WorkingDirectory=/home/dron/Prototipo-Dron-Agricola-Perlaco/edge_ai
 ExecStart=/usr/bin/python3 /home/dron/Prototipo-Dron-Agricola-Perlaco/edge_ai/src/core_scheduler.py
-OOMScoreAdjust=-500
+
+# Logs estructurados para auditoría AFAC/Senasica
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=perlaco-edge
+
+# Protección de memoria — NO priorizar sobre flight controller
+OOMScoreAdjust=100
+
+# Watchdog — reiniciar si no señala vida en 30s
+WatchdogSec=30
+
+# Límites de recursos
+LimitNICE=5
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=10
+
+# Seguridad
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/dron/Prototipo-Dron-Agricola-Perlaco
+
+# Variables de entorno
+Environment=PERLACO_UART_PORT=/dev/ttyAMA0
+Environment=PERLACO_UART_BAUD=115200
+Environment=PERLACO_SERVO_CH=9
+Environment=PERLACO_FLOW_GPIO=17
 
 [Install]
 WantedBy=multi-user.target
