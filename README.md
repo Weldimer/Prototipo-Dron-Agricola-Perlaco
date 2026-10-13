@@ -9,6 +9,7 @@
 
 * **Resumen Ejecutivo de Aprendizaje Diario:** [Ver Expediente](documentos/resumen_ejecutivo.md)
 * **Lista Oficial de Materiales (BOM) Integral:** [Ver BOM](documentos/BOM.md)
+* **Justificación e Ingeniería Aplicada:** [Ver Justificación Técnica](documentos/justificacion_tecnica.md)
 * **Guía Oficial de Armado y Ensamble:** [Ver Guía de Armado](documentos/guia_armado.md)
 * **Guía de Mantenimiento Preventivo:** [Ver Guía de Mantenimiento](documentos/guia_mantenimiento.md)
 * **Investigación de Módulos, Antenas RTK y Control Off-Grid:** [Ver Investigación](documentos/investigacion_modulos.md)
