@@ -16,10 +16,10 @@ Expediente Digital de Ingeniería, Dosificación VRA Cañera de Sopa Líquida, P
 
 ## 🛰️ Modelo Cañero de Precisión VRA y Plataforma de Aprendizaje
 
-Toda la analítica de operación en campo, clasificación botánica real de variedades de Caña de Azúcar y cultivos regionales secundarios, cálculo de dosis de sopa líquida por etapa fenológica y esquemas de simulación se visualizan dinámicamente en el portal web:
+Toda la analítica de operación en campo, clasificación botánica real de variedades de Caña de Azúcar y cultivos regionales secundarios, cálculo de dosis de sopa líquida por etapa fenológica, georreferenciación (Latitud, Longitud) y área total en hectáreas se visualizan dinámicamente en el portal web:
 
 * 📊 [Acceder al Dashboard Cañero en GitHub Pages](https://weldimer.github.io/Prototipo-Dron-Agricola-Perlaco/) : Gráficos Plotly interactivos de dosificación VRA, error RTK milimétrico, tiempos de vuelo y telemetría RF a 915 MHz.
-* 📄 [Reporte Ejecutivo de Misiones Diarias](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/tree/main/documentos) : Tabla agronómica detallada con variedad de caña, altura, ancho de copa y volumen total aplicado.
+* 📄 [Reporte Ejecutivo de Misiones Diarias](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/tree/main/documentos) : Tabla agronómica detallada con coordenadas, variedad de caña, altura, ancho de copa y área total en hectáreas.
 
 ---
 
@@ -36,9 +36,14 @@ Toda la analítica de operación en campo, clasificación botánica real de vari
 
 * [Resumen Ejecutivo de Aprendizaje Diario](./documentos/resumen_ejecutivo.md)
 * [Aprendizaje y Justificación de Simulaciones Diarias](./simulacion/README.md)
-* [Lista Oficial de Materiales (BOM) y Datasheets](./documentos/BOM.md)
+* [Lista Oficial de Materiales (BOM) y Datasheets de Componentes](./documentos/BOM.md)
+* [Reporte Técnico de Simulación: Motores, Batería HV y Eficiencia Coaxial](./simulacion/eficiencia_propulsion.md)
 * [Análisis Estructural FEA: Brazos, Abrazaderas H3, Pernos, Tuercas y Rondanas](./simulacion/analisis_estructural_fea.md)
-* [Estudio de Visión Artificial YOLOv8-FDA y Control VRA](./firmware/vra_kalman.md)
+* [Estudio y Entrenamiento de Visión Artificial: Red Neuronal YOLOv8-FDA](./borde_ai/yolo_entrenamiento.md)
+* [Control VRA Adaptativo, Caudal y Filtro Kalman Off-Grid](./firmware/vra_kalman.md)
+* [Expediente de Calibración de Caudal y Sensores de Flujo Kalman](./documentos/calibracion_caudal.md)
+* [Análisis de Estructura y Mallas Estancas OpenSCAD / PyVista](./simulacion/mallas_estancas.md)
+* [Protocolo de Seguridad y Fail-Safe Off-Grid MAVLink](./firmware/fail_safe_offgrid.md)
 
 ---
 *ELECTRÓNICA PERLACO / PERLACOLABS — Úrsulo Galván, Veracruz, México*
