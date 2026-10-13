@@ -1,61 +1,61 @@
 {
     "proyecto": "PERLACOLABS - Prototipo Dron Agr\u00edcola STR-002 H3",
-    "timestamp": "2026-10-13 11:26:14",
+    "timestamp": "2026-10-13 11:32:04",
     "meteorologia": {
-        "temperatura_c": 30.3,
-        "humedad_relativa_pct": 65.0,
-        "viento_ms": 2.5,
-        "precision_rtk_mm": 10.3
+        "temperatura_c": 24.5,
+        "humedad_relativa_pct": 53.5,
+        "viento_ms": 4.7,
+        "precision_rtk_mm": 11.1
     },
     "propulsion_hv": {
         "voltaje_v": 66.6,
         "motores": [
             {
                 "motor_id": 1,
-                "rpm": 5849,
-                "temperatura_c": 45.3,
+                "rpm": 6150,
+                "temperatura_c": 55.2,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 2,
-                "rpm": 5974,
-                "temperatura_c": 49.3,
+                "rpm": 6157,
+                "temperatura_c": 47.5,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 3,
-                "rpm": 6076,
-                "temperatura_c": 54.8,
+                "rpm": 5865,
+                "temperatura_c": 56.1,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 4,
-                "rpm": 6070,
-                "temperatura_c": 50.4,
+                "rpm": 5987,
+                "temperatura_c": 47.9,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 5,
-                "rpm": 5863,
-                "temperatura_c": 52.1,
+                "rpm": 5803,
+                "temperatura_c": 46.6,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 6,
-                "rpm": 5963,
-                "temperatura_c": 51.2,
+                "rpm": 6186,
+                "temperatura_c": 50.2,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 7,
-                "rpm": 6069,
-                "temperatura_c": 53.1,
+                "rpm": 5976,
+                "temperatura_c": 42.4,
                 "estado": "\u00d3PTIMO"
             },
             {
                 "motor_id": 8,
-                "rpm": 6032,
-                "temperatura_c": 55.1,
+                "rpm": 6081,
+                "temperatura_c": 42.2,
                 "estado": "\u00d3PTIMO"
             }
         ],
