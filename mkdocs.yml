@@ -1,0 +1,8 @@
+site_name: STR-002 H3 v3.5 — Documentación Técnica
+site_description: Documentación oficial del dron agrícola autónomo Perlacolabs.
+site_author: Angel Imer Lara Colorado
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: light blue
