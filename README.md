@@ -1,3 +1,20 @@
+# ELECTRÓNICA PERLACO — STR-002 H3 v3.5
+
+**Plataforma Aérea Agrícola (MTOW 29.0 kg) - Octocóptero Coaxial X8 & MAVLink Swarm Off-Grid**  
+*Expediente Digital de Ingeniería, Dosificación VRA Cañera de Sopa Líquida, Precisión RTK Milimétrica (8-12 mm) y Operación Monodrón Prioritaria*  
+**Desarrollado por:** Angel Imer Lara Colorado / **PERLACOLABS** — *Úrsulo Galván, Veracruz, México*
+
+<p align="left">
+  <img src="https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/actions/workflows/ci.yml/badge.svg" alt="CI - Pruebas de Física y Estructura">
+  <img src="https://img.shields.io/badge/ArduPilot-Copter_4.3%2B-orange.svg" alt="ArduPilot">
+  <img src="https://img.shields.io/badge/RTK_Precision-8--12mm-blue.svg" alt="RTK">
+  <img src="https://img.shields.io/badge/VRA_Caña-Sopa_Líquida_CP72--2086-green.svg" alt="VRA">
+  <img src="https://img.shields.io/badge/Licencia-MIT-yellow.svg" alt="Licencia">
+</p>
+
+> *"Hasta la criatura más humilde sirve a la tierra. Lástima que la civilización solo sepa servirse de ella para pisarla."*  
+> — **PERLACOLABS**
+
 # ELECTRÓNICA PERLACO - STR-002 H3 v3.5
 
 **Plataforma Aérea Agrícola (MTOW 29.0 kg) - Octocóptero Coaxial X8 & MAVLink Swarm Off-Grid**  
