@@ -1,0 +1,36 @@
+name: Automatizacion Diaria Perlaco
+
+on:
+  schedule:
+    # Se ejecuta todos los días a las 08:00 UTC (02:00 AM hora de México)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente desde GitHub cuando quieras
+
+permissions:
+  contents: write
+
+jobs:
+  autonompia-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: pip install requests pandas
+
+      - name: Ejecutar script de actualización climática
+        run: python tools/auto_weather.py
+
+      - name: Commit y Push de cambios automáticos
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add data/clima_actual.json
+          git commit -m "🤖 Auto-update: Registro climático diario en Úrsulo Galván" || exit 0
+          git push
