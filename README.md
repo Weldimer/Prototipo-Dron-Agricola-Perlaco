@@ -16,10 +16,10 @@ Expediente Digital de Ingeniería, Dosificación VRA Cañera de Sopa Líquida, P
 
 ## 🛰️ Modelo Cañero de Precisión VRA y Plataforma de Aprendizaje
 
-Toda la analítica de operación en campo, clasificación botánica real de variedades de Caña de Azúcar y cultivos regionales secundarios, cálculo de dosis de sopa líquida por etapa fenológica y esquemas de simulación se visualizan dinámicamente en el portal web:
+Toda la analítica de operación en campo, clasificación botánica real de variedades de Caña de Azúcar y cultivos regionales secundarios, cálculo de dosis de sopa líquida por etapa fenológica, georreferenciación (Latitud, Longitud) y área total en hectáreas se visualizan dinámicamente en el portal web:
 
 * 📊 [Acceder al Dashboard Cañero en GitHub Pages](https://weldimer.github.io/Prototipo-Dron-Agricola-Perlaco/) : Gráficos Plotly interactivos de dosificación VRA, error RTK milimétrico, tiempos de vuelo y telemetría RF a 915 MHz.
-* 📄 [Reporte Ejecutivo de Misiones Diarias](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/tree/main/documentos) : Tabla agronómica detallada con variedad de caña, altura, ancho de copa y volumen total aplicado.
+* 📄 [Reporte Ejecutivo de Misiones Diarias](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/tree/principal/documentos) : Tabla agronómica detallada con coordenadas, variedad de caña, altura, ancho de copa y área total en hectáreas.
 
 ---
 
@@ -34,11 +34,16 @@ Toda la analítica de operación en campo, clasificación botánica real de vari
 
 ## 📚 Índice Documental Organizado
 
-* [Resumen Ejecutivo de Aprendizaje Diario](./documentos/resumen_ejecutivo.md)
-* [Aprendizaje y Justificación de Simulaciones Diarias](./simulacion/README.md)
-* [Lista Oficial de Materiales (BOM) y Datasheets](./documentos/BOM.md)
-* [Análisis Estructural FEA: Brazos, Abrazaderas H3, Pernos, Tuercas y Rondanas](./simulacion/analisis_estructural_fea.md)
-* [Estudio de Visión Artificial YOLOv8-FDA y Control VRA](./firmware/vra_kalman.md)
+* [Resumen Ejecutivo de Aprendizaje Diario](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/documentos/resumen_ejecutivo.md)
+* [Aprendizaje y Justificación de Simulaciones Diarias](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/simulacion/README.md)
+* [Lista Oficial de Materiales (BOM) y Datasheets de Componentes](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/documentos/BOM.md)
+* [Reporte Técnico de Simulación: Motores, Batería HV y Eficiencia Coaxial](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/simulacion/eficiencia_propulsion.md)
+* [Análisis Estructural FEA: Brazos, Abrazaderas H3, Pernos, Tuercas y Rondanas](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/simulacion/analisis_estructural_fea.md)
+* [Estudio y Entrenamiento de Visión Artificial: Red Neuronal YOLOv8-FDA](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/borde_ai/yolo_entrenamiento.md)
+* [Control VRA Adaptativo, Caudal y Filtro Kalman Off-Grid](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/firmware/vra_kalman.md)
+* [Expediente de Calibración de Caudal y Sensores de Flujo Kalman](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/documentos/calibracion_caudal.md)
+* [Análisis de Estructura y Mallas Estancas OpenSCAD / PyVista](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/simulacion/mallas_estancas.md)
+* [Protocolo de Seguridad y Fail-Safe Off-Grid MAVLink](https://github.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/blob/principal/firmware/fail_safe_offgrid.md)
 
 ---
 *ELECTRÓNICA PERLACO / PERLACOLABS — Úrsulo Galván, Veracruz, México*
