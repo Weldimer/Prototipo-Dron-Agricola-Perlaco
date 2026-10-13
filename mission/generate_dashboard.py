@@ -1,5 +1,5 @@
 # ==============================================================================
-# PERLACOLABS - DASHBOARD WEB CON MATRIZ GEORREFERENCIADA
+# PERLACOLABS - GENERADOR DASHBOARD SWARM FANET + BLOCKCHAIN PoA
 # ==============================================================================
 
 import pandas as pd
@@ -14,7 +14,6 @@ if not os.path.exists(log_file) or os.path.getsize(log_file) < 50:
 
 df = pd.read_csv(log_file)
 
-# Asegurar columnas de Latitud y Longitud
 if 'Latitud' not in df.columns or 'Longitud' not in df.columns:
     coords_map = {
         'Cañaveral_A_CP72': (19.4008, -96.3533),
@@ -26,6 +25,11 @@ if 'Latitud' not in df.columns or 'Longitud' not in df.columns:
     }
     df['Latitud'] = df['Parcela'].map(lambda x: coords_map.get(x, (19.4000, -96.3500))[0])
     df['Longitud'] = df['Parcela'].map(lambda x: coords_map.get(x, (19.4000, -96.3500))[1])
+
+if 'Nodo_Swarm' not in df.columns:
+    df['Nodo_Swarm'] = 'UAV-01'
+if 'PoA_Hash' not in df.columns:
+    df['PoA_Hash'] = '0x8f4a2b'
 
 df['Drones_Enjambre'] = pd.to_numeric(df['Drones_Enjambre'], errors='coerce').fillna(1).astype(int)
 df['Precision_RTK_mm'] = pd.to_numeric(df['Precision_RTK_mm'], errors='coerce').fillna(10.0)
@@ -42,23 +46,25 @@ for idx, r in ultimos.iterrows():
 filas_html = ""
 for _, r in ultimos.iloc[::-1].iterrows():
     st = str(r.get('Estado_Operativo', '🟢 ÓPTIMO'))
-    c_badge = '#238636'
+    c_badge = '#238636' if '🟢' in st else '#da3633'
     f_utc = str(r['Fecha_Hora_UTC'])
     parc = str(r['Parcela'])
+    nodo_s = str(r.get('Nodo_Swarm', 'UAV-01'))
+    hash_p = str(r.get('PoA_Hash', '0x8f4a2b'))
     lat_val = f"{float(r['Latitud']):.4f}"
     lon_val = f"{float(r['Longitud']):.4f}"
     var_str = str(r.get('Variedad', 'Cultivo Regional'))
     eta_str = f"<b>{r['Eficiencia_Coaxial_pct']}%</b>"
     
     c_crudo_num = float(r.get('Caudal_Crudo_Lmin', 3.8))
-    c_crudo = f"{c_crudo_num:.2f} L/m"
+    c_crudo = f"<span style='color:#f85149;'>{c_crudo_num:.2f} L/m</span>" if c_crudo_num > 10 else f"{c_crudo_num:.2f} L/m"
     
     c_kalman_num = float(r.get('Caudal_Filtrado_Kalman_Lmin', 3.85))
     c_kalman = f"<b style='color:#3fb950;'>{c_kalman_num:.2f} L/m</b>"
     
     rtk_str = f"<b style='color:#a371f7;'>±{r['Precision_RTK_mm']} mm</b>"
     
-    filas_html += f"<tr><td>{f_utc}</td><td><b>{parc}</b></td><td><code style='color:#79c0ff;'>{lat_val}, {lon_val}</code></td><td>{var_str}</td><td>{eta_str}</td><td>{c_crudo}</td><td>{c_kalman}</td><td>{rtk_str}</td><td><span style='background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>{st}</span></td></tr>"
+    filas_html += f"<tr><td>{f_utc}</td><td><code style='color:#d29922;'>{nodo_s}</code></td><td><b>{parc}</b></td><td><code style='color:#79c0ff;'>{lat_val}, {lon_val}</code></td><td><code style='color:#a5d6ff;'>#{hash_p}</code></td><td>{var_str}</td><td>{eta_str}</td><td>{c_crudo}</td><td>{c_kalman}</td><td>{rtk_str}</td><td><span style='background-color:{c_badge}; color:white; padding:3px 8px; border-radius:12px; font-size:11px;'>{st}</span></td></tr>"
 
 fechas_json = json.dumps(etiquetas_x)
 eta_json = json.dumps([round(float(x), 1) for x in list(ultimos['Eficiencia_Coaxial_pct'])])
@@ -88,7 +94,7 @@ html_template = """<!DOCTYPE html>
         .card h3 { color: #58a6ff; border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-top: 0; font-size: 15px; }
         
         .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 780px; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 880px; }
         th { background-color: #21262d; color: #8b949e; padding: 8px; text-align: left; border-bottom: 2px solid #30363d; }
         td { padding: 8px; border-bottom: 1px solid #21262d; white-space: nowrap; }
         
@@ -116,11 +122,11 @@ html_template = """<!DOCTYPE html>
     </div>
     
     <div class="card">
-        <h3>📑 Matriz Integrada: Telemetría, Coordenadas y VRA Off-Grid</h3>
+        <h3>🔗 Matriz Enjambre FANET: Validaciones Blockchain PoA & Telemetría Off-Grid</h3>
         <div class="table-container">
             <table>
                 <thead>
-                    <tr><th>Fecha UTC</th><th>Parcela</th><th>Coordenadas (Lat, Lon)</th><th>Variedad</th><th>Eficiencia</th><th>Caudal Crudo</th><th>Flujo Kalman</th><th>Precisión RTK</th><th>Estado</th></tr>
+                    <tr><th>Fecha UTC</th><th>Nodo</th><th>Parcela</th><th>Coordenadas (Lat, Lon)</th><th>PoA Hash</th><th>Variedad</th><th>Eficiencia</th><th>Caudal Crudo</th><th>Flujo Kalman</th><th>Precisión RTK</th><th>Estado Consenso</th></tr>
                 </thead>
                 <tbody>__FILAS_HTML__</tbody>
             </table>
@@ -223,4 +229,4 @@ with open('docs/index.html', 'w', encoding='utf-8') as f:
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("✅ Dashboard actualizado con columna de Coordenadas Geográficas (Latitud y Longitud).")
+print("✅ Dashboard web actualizado con matriz de consenso PoA y nodos Swarm FANET.")
