@@ -3,44 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELECTRÓNICA PERLACO — STR-002 H3 v3.5</title>
+    <title>Dashboard Ejecutivo de Misiones VRA | STR-002 H3 v3.5</title>
     <style>
-        body { background-color: #0b0f19; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; }
-        header { text-align: center; padding: 30px; border-bottom: 2px solid #1e293b; margin-bottom: 30px; }
-        h1 { color: #38bdf8; margin: 0; font-size: 2.2rem; }
-        p.subtitle { color: #94a3b8; font-size: 1.1rem; }
-        .card { background-color: #1e293b; border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        .weather-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .weather-item { background: #0f172a; padding: 15px; border-radius: 8px; text-align: center; border-left: 4px solid #38bdf8; }
-        .weather-item h3 { margin: 0 0 5px 0; color: #94a3b8; font-size: 0.9rem; }
-        .weather-item p { margin: 0; font-size: 1.3rem; font-weight: bold; color: #f8fafc; }
-        footer { text-align: center; padding: 20px; color: #64748b; font-size: 0.85rem; border-top: 1px solid #1e293b; margin-top: 40px; }
+        :root {
+            --primary: #0f172a;
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --bg-dark: #090d16;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); padding: 20px; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid var(--border); padding: 30px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h1 { font-size: 2.2rem; color: #34d399; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+        .subtitle { color: var(--text-muted); font-size: 1.05rem; }
+        .badge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+        .badge { background: var(--card-bg); border: 1px solid var(--border); padding: 15px; border-radius: 10px; text-align: center; }
+        .badge span { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .badge strong { font-size: 1.25rem; color: var(--text-main); margin-top: 5px; }
+        
+        .section-title { font-size: 1.5rem; margin: 30px 0 15px 0; border-left: 4px solid var(--accent); padding-left: 12px; color: #e2e8f0; }
+        
+        .table-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th, td { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+        th { background: #111827; color: #34d399; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+        
+        .tag-variety { background: rgba(52, 211, 153, 0.15); color: #34d399; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
+        .tag-chem { background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; }
+        
+        footer { margin-top: 40px; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 20px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🎓 ELECTRÓNICA PERLACO — STR-002 H3 v3.5</h1>
-        <p class="subtitle">Plataforma Aérea Agrícola Autónoma • Úrsulo Galván, Veracruz, México</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>🚁 STR-002 H3 v3.5 — Auditoría y Misiones VRA</h1>
+            <p class="subtitle">Plataforma Octocóptero Coaxial X8 | Estructura Aluminio 7075-T6 (FS = 4.17) | Telemetría Off-Grid 915 MHz</p>
+            
+            <div class="badge-grid">
+                <div class="badge"><span>Ubicación Operativa</span><strong>Úrsulo Galván, Ver.</strong></div>
+                <div class="badge"><span>Precisión RTK</span><strong>8-12 mm (NTRIP)</strong></div>
+                <div class="badge"><span>Eficiencia PWM</span><strong>98.4% de Cobertura</strong></div>
+                <div class="badge"><span>Seguridad Chasis</span><strong>FS = 4.17 (Aprobado)</strong></div>
+            </div>
+        </header>
 
-    <div class="card">
-        <h2>🌤️ Telemetría Ambiental y Meteorológica en Tiempo Real</h2>
-        <div class="weather-grid">
-            <div class="weather-item"><h3>TEMPERATURA</h3><p>23.9 °C</p></div>
-            <div class="weather-item"><h3>HUMEDAD RELATIVA</h3><p>92 %</p></div>
-            <div class="weather-item"><h3>VIENTO SOSTENIDO</h3><p>6.8 km/h</p></div>
-            <div class="weather-item"><h3>RACHAS (NORTES)</h3><p>12.2 km/h</p></div>
+        <h2 class="section-title">📊 Matriz Integral de Misiones: Agronomía, Clima y Dosificación VRA</h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Misión / Lote</th>
+                        <th>Coordenadas (Lat / Long)</th>
+                        <th>Variedad Caña</th>
+                        <th>Microclima / Viento</th>
+                        <th>Superficie (ha)</th>
+                        <th>Botánica / Follaje / Raíz</th>
+                        <th>Químico (Tipo y Contacto)</th>
+                        <th>Agua (L)</th>
+                        <th>Mezcla Total</th>
+                        <th>Eficiencia PWM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lote A1 (Norte)</strong></td>
+                        <td>19.3645° N<br>96.4821° W</td>
+                        <td><span class="tag-variety">CP 72-2086</span></td>
+                        <td>28.5°C | 68% HR<br>Viento: 3.2 m/s SE</td>
+                        <td>8.0 ha</td>
+                        <td>Tallos altos, cutícula cerosa, raíz profunda pivotante</td>
+                        <td><span class="tag-chem">Sopaflow Pro</span><br>Contacto Superficial</td>
+                        <td>345.8 L</td>
+                        <td><strong>364.0 L</strong> (45.5 L/ha)</td>
+                        <td>99.1% (PWM 40Hz)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lote B2 (Centro)</strong></td>
+                        <td>19.3670° N<br>96.4850° W</td>
+                        <td><span class="tag-variety">Mex 69-290</span></td>
+                        <td>30.1°C | 62% HR<br>Viento: 4.1 m/s ENE</td>
+                        <td>9.0 ha</td>
+                        <td>Alta densidad foliar, dosel cerrado, raíz fasciculada</td>
+                        <td><span class="tag-chem">VRA-Activator</span><br>Sistémico / Raíz</td>
+                        <td>444.6 L</td>
+                        <td><strong>468.0 L</strong> (52.0 L/ha)</td>
+                        <td>97.8% (PWM 45Hz)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lote C3 (Sur)</strong></td>
+                        <td>19.3612° N<br>96.4795° W</td>
+                        <td><span class="tag-variety">ITV 92-1424</span></td>
+                        <td>27.8°C | 74% HR<br>Viento: 2.1 m/s N</td>
+                        <td>7.0 ha</td>
+                        <td>Tallos semi-erectos, follaje medio, enraizamiento activo</td>
+                        <td><span class="tag-chem">Bio-Sopa Crecimiento</span><br>Foliar Directo</td>
+                        <td>266.0 L</td>
+                        <td><strong>280.0 L</strong> (40.0 L/ha)</td>
+                        <td>98.5% (PWM 38Hz)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
 
-    <div class="card">
-        <h2>📊 Gráficas de Vuelo, Eficiencia de Motores, Pilas y Tanque por Entornos de Campo</h2>
-        <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="13443b56-5d4d-425d-abf7-a468369c5aca" class="plotly-graph-div" style="height:1400px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("13443b56-5d4d-425d-abf7-a468369c5aca")) {                    Plotly.newPlot(                        "13443b56-5d4d-425d-abf7-a468369c5aca",                        [{"line":{"color":"#2ecc71","width":2},"mode":"lines","name":"Altitud","x":[0.0,2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0,102.0,104.0,106.0,108.0,110.0,112.0,114.0,116.0,118.0],"y":[3.0,3.149750124970242,3.298003996192592,3.4432803099920095,3.5841275134629758,3.7191383079063045,3.8469637100925533,3.966326530856537,4.076034136349284,4.174990364441225,4.262206477211844,4.336811040092153,4.39805862895084,4.445337278125789,4.47817459498269,4.496242479906082,4.499360404562258,4.487497215678703,4.460771446317293,4.419450131531121,4.3639461402385225,4.2948140499733105,4.212744605729386,4.11855781826508,4.0131947708267255,3.8977082161559347,3.773252057732196,3.6410698203507446,3.502482225233857,3.358873993820973,3.2116800120898006,3.0623709936499357,2.91243878485863,2.763381458785127,2.6166883469597524,2.47382515846557,2.3362193350577214,2.20524578863726,2.082213163585921,1.968350761224039,1.8647962570381078,1.7725843334033837,1.6926363413796177,1.6257510948758176,1.572596889165726,1.5337048235023545,1.509463494549803,1.5001151136538486,1.5057530867462392,1.5263210810635013,1.5616135880052924,1.6112779765084018,1.6748180164197704,1.7515988366641488,1.8408532686660193,1.9416895116444122,2.0531000431915185,2.1739716861035436,2.303096730879365,2.439185002754646],"type":"scatter","xaxis":"x","yaxis":"y"},{"line":{"color":"#f39c12","width":2},"mode":"lines","name":"Corriente","x":[0.0,2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0,102.0,104.0,106.0,108.0,110.0,112.0,114.0,116.0,118.0],"y":[49.269337054681664,44.94792362187954,38.18171828587793,45.253376289650866,44.930820462022076,41.93167422466077,47.45550190547472,47.828338001224786,42.35030012244269,46.405820039836584,41.35527331875364,46.92530628259287,44.85762023779883,42.1660014929629,42.91023085600015,51.09952265776347,43.773767591542345,45.22643308363711,44.225827574953996,44.91473255211638,47.3637832955812,50.44761928864,46.261602057047305,47.43574035619318,53.38535470291469,45.45768022309268,46.50817048806483,45.3018620840347,43.99713553945233,48.21417063616908,43.75004169029315,45.75328985560776,43.76564089927834,44.73291734302402,40.3178707704643,42.092439558695645,46.18300838967873,41.94444258354171,48.54644350595339,43.457238724165386,50.04371143157205,44.37003993266218,43.887467138107056,41.175322483277526,45.39757350351513,46.791826188601114,44.13381820219145,48.427861754347425,48.211233873826316,42.94727076886541,47.73586838001929,50.70105164032057,48.28302784596884,43.46584651130775,43.70423629048083,43.92904683912279,48.838963581413616,46.44743007497916,45.712350446076265,48.08928392958643],"type":"scatter","xaxis":"x2","yaxis":"y2"},{"line":{"color":"#9b59b6","width":2},"mode":"lines","name":"Batería %","x":[0.0,2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0,102.0,104.0,106.0,108.0,110.0,112.0,114.0,116.0,118.0],"y":[100.0,99.49152542372882,98.98305084745763,98.47457627118644,97.96610169491525,97.45762711864407,96.94915254237289,96.44067796610169,95.9322033898305,95.42372881355932,94.91525423728814,94.40677966101696,93.89830508474576,93.38983050847457,92.88135593220339,92.37288135593221,91.86440677966101,91.35593220338983,90.84745762711864,90.33898305084746,89.83050847457628,89.32203389830508,88.8135593220339,88.30508474576271,87.79661016949153,87.28813559322035,86.77966101694915,86.27118644067797,85.76271186440678,85.25423728813558,84.74576271186442,84.23728813559322,83.72881355932203,83.22033898305085,82.71186440677965,82.20338983050847,81.69491525423729,81.1864406779661,80.67796610169492,80.16949152542372,79.66101694915254,79.15254237288136,78.64406779661017,78.13559322033899,77.62711864406779,77.11864406779661,76.61016949152543,76.10169491525424,75.59322033898304,75.08474576271186,74.57627118644068,74.0677966101695,73.5593220338983,73.05084745762711,72.54237288135593,72.03389830508475,71.52542372881356,71.01694915254237,70.50847457627118,70.0],"type":"scatter","xaxis":"x3","yaxis":"y3"},{"line":{"color":"#1abc9c","width":2},"mode":"lines","name":"Insumo L","x":[0.0,2.0,4.0,6.0,8.0,10.0,12.0,14.0,16.0,18.0,20.0,22.0,24.0,26.0,28.0,30.0,32.0,34.0,36.0,38.0,40.0,42.0,44.0,46.0,48.0,50.0,52.0,54.0,56.0,58.0,60.0,62.0,64.0,66.0,68.0,70.0,72.0,74.0,76.0,78.0,80.0,82.0,84.0,86.0,88.0,90.0,92.0,94.0,96.0,98.0,100.0,102.0,104.0,106.0,108.0,110.0,112.0,114.0,116.0,118.0],"y":[7.56,7.432881355932203,7.305762711864406,7.1786440677966095,7.051525423728814,6.924406779661017,6.79728813559322,6.6701694915254235,6.543050847457627,6.41593220338983,6.288813559322033,6.161694915254237,6.03457627118644,5.907457627118644,5.7803389830508465,5.653220338983051,5.526101694915254,5.398983050847457,5.2718644067796605,5.144745762711864,5.017627118644068,4.89050847457627,4.7633898305084745,4.636271186440677,4.509152542372881,4.382033898305084,4.254915254237288,4.127796610169491,4.000677966101694,3.8735593220338975,3.7464406779661017,3.6193220338983045,3.4922033898305083,3.3650847457627115,3.237966101694915,3.110847457627118,2.9837288135593214,2.8566101694915247,2.729491525423729,2.602372881355932,2.4752542372881354,2.3481355932203387,2.221016949152542,2.093898305084746,1.9667796610169486,1.8396610169491527,1.7125423728813551,1.5854237288135593,1.4583050847457617,1.3311864406779659,1.2040677966101692,1.0769491525423724,0.9498305084745757,0.822711864406779,0.6955932203389823,0.5684745762711865,0.44135593220338887,0.31423728813559304,0.18711864406779544,0.05999999999999961],"type":"scatter","xaxis":"x4","yaxis":"y4"},{"marker":{"color":"#38bdf8"},"name":"Eficiencia g\u002fW","x":["Parcela_Caña_L95","Parcela_Limón","Parcela_Papaya","Caña_Mex69","Citrus_ITV92","Caña_CP72"],"y":[9.8,10.3,8.9,9.5,10.1,9.2],"type":"bar","xaxis":"x5","yaxis":"y5"},{"line":{"color":"#e74c3c","width":3},"mode":"lines+markers","name":"Voltaje Batería (V)","x":["Parcela_Caña_L95","Parcela_Limón","Parcela_Papaya","Caña_Mex69","Citrus_ITV92","Caña_CP72"],"y":[48.2,49.1,47.5,48.0,48.8,47.9],"type":"scatter","xaxis":"x6","yaxis":"y6"},{"marker":{"color":"#22c55e"},"name":"Caudal L\u002fmin","x":["Parcela_Caña_L95","Parcela_Limón","Parcela_Papaya","Caña_Mex69","Citrus_ITV92","Caña_CP72"],"y":[3.42,3.65,3.59,3.47,3.43,3.2],"type":"bar","xaxis":"x7","yaxis":"y7"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,0.46]},"yaxis":{"anchor":"x","domain":[0.81,1.0]},"xaxis2":{"anchor":"y2","domain":[0.54,1.0]},"yaxis2":{"anchor":"x2","domain":[0.81,1.0]},"xaxis3":{"anchor":"y3","domain":[0.0,0.46]},"yaxis3":{"anchor":"x3","domain":[0.54,0.73]},"xaxis4":{"anchor":"y4","domain":[0.54,1.0]},"yaxis4":{"anchor":"x4","domain":[0.54,0.73]},"xaxis5":{"anchor":"y5","domain":[0.0,0.46]},"yaxis5":{"anchor":"x5","domain":[0.27,0.46]},"xaxis6":{"anchor":"y6","domain":[0.54,1.0]},"yaxis6":{"anchor":"x6","domain":[0.27,0.46]},"xaxis7":{"anchor":"y7","domain":[0.0,0.46]},"yaxis7":{"anchor":"x7","domain":[0.0,0.19]},"xaxis8":{"anchor":"y8","domain":[0.54,1.0]},"yaxis8":{"anchor":"x8","domain":[0.0,0.19]},"annotations":[{"font":{"size":16},"showarrow":false,"text":"🛫 Altitud de Vuelo (m)","x":0.23,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"⚡ Corriente de Motores P80 III (A)","x":0.77,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"🪫 Descarga de Batería 12S (%)","x":0.23,"xanchor":"center","xref":"paper","y":0.73,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"💧 Vaciado de Tanque VRA (L)","x":0.77,"xanchor":"center","xref":"paper","y":0.73,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"⚙️ Eficiencia de Motores por Entorno (g\u002fW)","x":0.23,"xanchor":"center","xref":"paper","y":0.46,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"🔋 Voltaje y Autonomía de Pilas por Lote","x":0.77,"xanchor":"center","xref":"paper","y":0.46,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"🌿 Presión y Flujo del Tanque en Campo","x":0.23,"xanchor":"center","xref":"paper","y":0.19,"yanchor":"bottom","yref":"paper"}],"margin":{"t":50,"b":50,"l":50,"r":50},"title":{"text":"🚁 STR-002 H3 v3.5 — Telemetría Multi-Entorno | Clima Úrsulo Galván: 23.9°C, Viento 6.8 km\u002fh"},"height":1400,"showlegend":false},                        {"responsive": true}                    )                };                            </script>        </div>
+        <footer>
+            <p>&copy; 2026 PERLACOLABS — Úrsulo Galván, Veracruz, México. <em>"Hasta la criatura más humilde sirve a la tierra."</em></p>
+        </footer>
     </div>
-
-    <footer>
-        <p>Perlacolabs • Diseñado y Operado por Angel Imer Lara Colorado • Octubre 2026</p>
-    </footer>
 </body>
 </html>

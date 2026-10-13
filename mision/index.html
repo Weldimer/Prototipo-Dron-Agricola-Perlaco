@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Ejecutivo de Misiones VRA | STR-002 H3 v3.5</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --bg-dark: #090d16;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); padding: 20px; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid var(--border); padding: 30px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h1 { font-size: 2.2rem; color: #34d399; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+        .subtitle { color: var(--text-muted); font-size: 1.05rem; }
+        .badge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+        .badge { background: var(--card-bg); border: 1px solid var(--border); padding: 15px; border-radius: 10px; text-align: center; }
+        .badge span { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .badge strong { font-size: 1.25rem; color: var(--text-main); margin-top: 5px; }
+        
+        .section-title { font-size: 1.5rem; margin: 30px 0 15px 0; border-left: 4px solid var(--accent); padding-left: 12px; color: #e2e8f0; }
+        
+        .table-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th, td { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+        th { background: #111827; color: #34d399; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+        
+        .tag-variety { background: rgba(52, 211, 153, 0.15); color: #34d399; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
+        .tag-chem { background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; }
+        
+        footer { margin-top: 40px; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚁 STR-002 H3 v3.5 — Auditoría y Misiones VRA</h1>
+            <p class="subtitle">Plataforma Octocóptero Coaxial X8 | Estructura Aluminio 7075-T6 (FS = 4.17) | Telemetría Off-Grid 915 MHz</p>
+            
+            <div class="badge-grid">
+                <div class="badge"><span>Ubicación Operativa</span><strong>Úrsulo Galván, Ver.</strong></div>
+                <div class="badge"><span>Precisión RTK</span><strong>8-12 mm (NTRIP)</strong></div>
+                <div class="badge"><span>Eficiencia PWM</span><strong>98.4% de Cobertura</strong></div>
+                <div class="badge"><span>Seguridad Chasis</span><strong>FS = 4.17 (Aprobado)</strong></div>
+            </div>
+        </header>
+
+        <h2 class="section-title">📊 Matriz Integral de Misiones: Agronomía, Clima y Dosificación VRA</h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Misión / Lote</th>
+                        <th>Coordenadas (Lat / Long)</th>
+                        <th>Variedad Caña</th>
+                        <th>Microclima / Viento</th>
+                        <th>Superficie (ha)</th>
+                        <th>Botánica / Follaje / Raíz</th>
+                        <th>Químico (Tipo y Contacto)</th>
+                        <th>Agua (L)</th>
+                        <th>Mezcla Total</th>
+                        <th>Eficiencia PWM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lote A1 (Norte)</strong></td>
+                        <td>19.3645° N<br>96.4821° W</td>
+                        <td><span class="tag-variety">CP 72-2086</span></td>
+                        <td>28.5°C | 68% HR<br>Viento: 3.2 m/s SE</td>
+                        <td>8.0 ha</td>
+                        <td>Tallos altos, cutícula cerosa, raíz profunda pivotante</td>
+                        <td><span class="tag-chem">Sopaflow Pro</span><br>Contacto Superficial</td>
+                        <td>345.8 L</td>
+                        <td><strong>364.0 L</strong> (45.5 L/ha)</td>
+                        <td>99.1% (PWM 40Hz)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lote B2 (Centro)</strong></td>
+                        <td>19.3670° N<br>96.4850° W</td>
+                        <td><span class="tag-variety">Mex 69-290</span></td>
+                        <td>30.1°C | 62% HR<br>Viento: 4.1 m/s ENE</td>
+                        <td>9.0 ha</td>
+                        <td>Alta densidad foliar, dosel cerrado, raíz fasciculada</td>
+                        <td><span class="tag-chem">VRA-Activator</span><br>Sistémico / Raíz</td>
+                        <td>444.6 L</td>
+                        <td><strong>468.0 L</strong> (52.0 L/ha)</td>
+                        <td>97.8% (PWM 45Hz)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lote C3 (Sur)</strong></td>
+                        <td>19.3612° N<br>96.4795° W</td>
+                        <td><span class="tag-variety">ITV 92-1424</span></td>
+                        <td>27.8°C | 74% HR<br>Viento: 2.1 m/s N</td>
+                        <td>7.0 ha</td>
+                        <td>Tallos semi-erectos, follaje medio, enraizamiento activo</td>
+                        <td><span class="tag-chem">Bio-Sopa Crecimiento</span><br>Foliar Directo</td>
+                        <td>266.0 L</td>
+                        <td><strong>280.0 L</strong> (40.0 L/ha)</td>
+                        <td>98.5% (PWM 38Hz)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 PERLACOLABS — Úrsulo Galván, Veracruz, México. <em>"Hasta la criatura más humilde sirve a la tierra."</em></p>
+        </footer>
+    </div>
+</body>
+</html>
