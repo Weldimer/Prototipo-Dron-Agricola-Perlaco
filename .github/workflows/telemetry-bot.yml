@@ -1,0 +1,32 @@
+name: Bot de Telemetría y Auditoría Autónoma
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-telemetry-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+        
+      - name: Configurar entorno Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Ejecutar Bot de Monitoreo y Simulación
+        run: |
+          python bot_telemetria_str002.py
+          
+      - name: Commit y auto-actualización de reportes en el repositorio
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add telemetria_campo/reporte_tiempo_real.json
+          git commit -m "bot(telemetria): actualiza reporte en tiempo real de rendimiento del dron" || echo "Sin cambios en telemetría"
+          git push
