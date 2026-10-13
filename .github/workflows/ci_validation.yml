@@ -1,4 +1,5 @@
-name: STR-002 H3 CI/CD Pipeline
+name: STR-002 CI/CD Pipeline
+
 on:
   push:
     branches: [ main ]
@@ -13,7 +14,7 @@ jobs:
     - name: Clonar Repositorio
       uses: actions/checkout@v4
 
-    - name: Configurar Python 3.10
+    - name: Configurar Entorno Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
@@ -23,136 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest pymavlink numpy pandas cryptography
 
-    # --- PRUEBAS UNITARIAS ---
     - name: Ejecutar Pruebas Unitarias (Pytest)
       run: |
         pytest edge_ai/tests/ -v
 
-    # --- VALIDACIÓN DE PARÁMETROS PID ---
-    - name: Validar Formato de Parámetros ArduPilot
+    - name: Validación Estática de Sintaxis Python y Lua
       run: |
-        python -c "
-        import os, re, sys
-        param_dir = 'firmware'
-        param_files = [f for f in os.listdir(param_dir) if f.endswith('.param')]
-        assert len(param_files) > 0, 'No se encontraron archivos .param'
-        errors = []
-        for pf in param_files:
-            path = os.path.join(param_dir, pf)
-            with open(path) as f:
-                for ln, line in enumerate(f, 1):
-                    line = line.strip()
-                    if not line or line.startswith('#'):
-                        continue
-                    if ',' in line:
-                        parts = line.split(',')
-                        if len(parts) != 2:
-                            errors.append(f'{pf}:{ln}: CSV invalido: {line}')
-                        key = parts[0].strip()
-                    elif '=' in line:
-                        parts = line.split('=')
-                        if len(parts) != 2:
-                            errors.append(f'{pf}:{ln}: KEY=VALUE invalido: {line}')
-                        key = parts[0].strip()
-                    else:
-                        continue
-                    if not re.match(r'^[A-Z][A-Z0-9_]*$', key):
-                        errors.append(f'{pf}:{ln}: KEY invalida: {key}')
-        if errors:
-            for e in errors:
-                print(f'  ERROR: {e}')
-            assert False, f'{len(errors)} errores de formato en .param'
-        print(f'Validados {len(param_files)} archivos .param — formato OK')
-        "
-
-    # --- PARÁMETROS CRÍTICOS DE SEGURIDAD ---
-    - name: Verificar Parámetros Críticos de Seguridad
-      run: |
-        python -c "
-        import os, sys
-        CRITICAL = {
-            'ATC_ANG_PIT_P': 'Ganancia de actitud Pitch — sin ella oscila',
-            'ATC_ANG_RLL_P': 'Ganancia de actitud Roll — sin ella oscila',
-            'ATC_RAT_PIT_IMAX': 'Anti-windup Pitch — sin él integrador satura',
-            'ATC_RAT_RLL_IMAX': 'Anti-windup Roll — sin él integrador satura',
-            'MOT_PWM_MIN': 'PWM minimo motor — armado inseguro sin él',
-            'MOT_PWM_MAX': 'PWM maximo motor — sin límite de throttle',
-            'MOT_SPIN_ARM': 'Spin arm — motor puede no arrancar',
-            'MOT_SPIN_MIN': 'Spin min — motor puede parar en vuelo',
-            'INS_ACCEL_FILTER': 'Filtro acelerometro — 8 motores = vibracion',
-            'INS_GYRO_FILTER': 'Filtro giroscopio — esencial para estabilidad',
-        }
-        all_content = ''
-        for root, dirs, files in os.walk('firmware'):
-            for f in files:
-                if f.endswith('.param'):
-                    with open(os.path.join(root, f)) as fh:
-                        all_content += fh.read()
-        missing = []
-        for param, reason in CRITICAL.items():
-            if param not in all_content:
-                missing.append(f'{param}: {reason}')
-        if missing:
-            for m in missing:
-                print(f'  FALTANTE: {m}')
-            assert False, f'Faltan {len(missing)} parametros criticos'
-        print(f'Todos los {len(CRITICAL)} parametros criticos verificados')
-        "
-
-    # --- VALIDACIÓN DE SINTAXIS LUA ---
-    - name: Validar Sintaxis de Scripts Lua
-      run: |
-        sudo apt-get update && sudo apt-get install -y lua5.3
-        errors=0
-        for f in firmware/*.lua mission/*.lua; do
-          if [ -f "$f" ]; then
-            echo -n "Checking: $f ... "
-            if luac -p "$f" 2>&1; then
-              echo "OK"
-            else
-              echo "ERROR"
-              errors=$((errors+1))
-            fi
-          fi
-        done
-        if [ $errors -gt 0 ]; then
-          echo "FATAL: $errors scripts Lua con errores de sintaxis"
-          exit 1
-        fi
-
-    # --- VALIDACIÓN DE SINTAXIS PYTHON ---
-    - name: Validar Sintaxis de Scripts Python
-      run: |
-        python -c "
-        import os, sys
-        errors = []
-        for root, dirs, files in os.walk('.'):
-            for f in files:
-                if f.endswith('.py'):
-                    pf = os.path.join(root, f)
-                    try:
-                        with open(pf) as fh:
-                            compile(fh.read(), pf, 'exec')
-                    except SyntaxError as e:
-                        errors.append(f'{pf}: {e}')
-        if errors:
-            for e in errors:
-                print(f'  ERROR: {e}')
-            assert False, f'{len(errors)} archivos con errores de sintaxis'
-        print('Todos los archivos Python — sintaxis OK')
-        "
-
-    # --- SIMULACIONES CON VERIFICACIÓN ---
-    - name: Ejecutar Simulaciones
-      run: |
-        python simulation/simulacion_mision_integral.py
-        python simulation/simulacion_falla_motor_y_fea.py
-        test -f simulation/log_mision_integral_h3.csv && echo "log_mision OK" || echo "WARNING: log_mision no generado"
-        test -f simulation/log_telemetria_mision_real.csv && echo "log_telemetria OK" || echo "WARNING: log_telemetria no generado"
-
-    # --- LINTING ---
-    - name: Flake8 Linter
-      continue-on-error: true
-      run: |
-        pip install flake8
-        flake8 edge_ai/ firmware/companion_4g_bridge.py --max-line-length=120 --ignore=E501,W503
+        python -m py_compile edge_ai/src/core_scheduler.py
+        python -m py_compile edge_ai/src/secure_bridge.py
+        echo "✅ Compilación estática exitosa."

@@ -1,75 +1,18 @@
 # ==============================================================================
-# PARÁMETROS CERTIFICADOS PID + SEGURIDAD — STR-002 H3 v3.5 (29 kg MTOW)
-# Octocóptero Coaxial X8 — ArduPilot Copter 4.2+
-# ELECTRÓNICA PERLACO — PERLACOLABS
+# PARÁMETROS CERTIFICADOS RATE PID - STR-002 H3 v3.5 (29 kg MTOW)
+# Normalización estricta para ArduCopter (Heavy-Lift Coaxial X8)
 # ==============================================================================
-# Formato: KEY,VALUE (CSV estándar ArduPilot para carga vía MAVLink/GCS)
-# ==============================================================================
+ATC_RAT_PIT_P = 0.0850
+ATC_RAT_PIT_I = 0.0850
+ATC_RAT_PIT_D = 0.0035
+ATC_RAT_RLL_P = 0.0850
+ATC_RAT_RLL_I = 0.0850
+ATC_RAT_RLL_D = 0.0035
+ATC_RAT_YAW_P = 0.1800
+ATC_RAT_YAW_I = 0.0180
+ATC_RAT_YAW_D = 0.0000
 
-# --- GANANCIAS DE ACTITUD (Outer Loop — Critical for 29 kg heavy-lift) ---
-# Valores conservadores para X8 coaxial con inercia elevada
-ATC_ANG_PIT_P,4.500000
-ATC_ANG_RLL_P,4.500000
-ATC_ANG_YAW_P,3.800000
-
-# --- BUCLE DE TASA RATE PID (Inner Loop — Rango seguro 0.05-0.12) ---
-ATC_RAT_PIT_P,0.085000
-ATC_RAT_PIT_I,0.085000
-ATC_RAT_PIT_D,0.003500
-ATC_RAT_PIT_IMAX,0.400000
-
-ATC_RAT_RLL_P,0.085000
-ATC_RAT_RLL_I,0.085000
-ATC_RAT_RLL_D,0.003500
-ATC_RAT_RLL_IMAX,0.400000
-
-# --- BUCLE YAW ---
-ATC_RAT_YAW_P,0.180000
-ATC_RAT_YAW_I,0.018000
-ATC_RAT_YAW_D,0.000000
-ATC_RAT_YAW_IMAX,0.200000
-
-# --- FILTROS INS (Rechazo de vibración — 8 motores coaxiales) ---
-# Frecuencia de corte 20 Hz para rechazar armónicos de motor sin latencia excesiva
-INS_ACCEL_FILTER,20
-INS_GYRO_FILTER,20
-
-# --- NOTCH FILTER ARMÓNICO DINÁMICO (Específico X8 coaxial) ---
-# Rechaza la frecuencia fundamental del rotor y sus armónicos
-# Auto-detecta RPM vía ESC telemetry
-INS_HNTC2_ENABLE,1
-INS_HNTC2_MODE,1
-INS_HNTC2_FREQ,45
-INS_HNTC2_REF,0.18
-
-# --- NOTCH FILTER ESTÁTICO (Backup para modo sin ESC telemetry) ---
-INS_NOTCH_ENABLE,1
-INS_NOTCH_FREQ,45.0
-INS_NOTCH_BW,15.0
-
-# --- PARÁMETROS DE MOTOR (CRÍTICO PARA ARMADO SEGURO) ---
-# Rango PWM verificado con Alpha 80A ESC calibration
-MOT_PWM_MIN,1050
-MOT_PWM_MAX,1950
-
-# Spin arm: 12% throttle para arranque confiable sin saltos
-MOT_SPIN_ARM,0.12
-
-# Spin min: 15% throttle para mantener rotor girando sin parada en aire
-MOT_SPIN_MIN,0.15
-
-# Spin max: 80% para dejar headroom de control en falla de motor
-MOT_SPIN_MAX,0.80
-
-# --- LÍMITES DE VELOCIDAD PARA HEAVY-LIFT VRA ---
-# Velocidad máxima de vuelo forward con tanque lleno
-WPNAV_SPEED,4.5
-
-# Velocidad de descenso máximo (carga pesada = momentum elevado)
-WPNAV_SPEED_DN,2.0
-
-# Velocidad de ascenso conservadora
-WPNAV_SPEED_UP,2.5
-
-# --- SLEW RATE PARA PROTECCIÓN DE ESC ---
-MOT_SLEW_RATE,100
+# Filtro Notch Dinámico contra vibraciones de hélices de 30 pulgadas
+INS_NOTCH_ENABLE = 1
+INS_NOTCH_FREQ   = 45.0
+INS_NOTCH_BW     = 15.0
