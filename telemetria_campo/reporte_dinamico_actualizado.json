@@ -1,25 +1,25 @@
 {
-    "timestamp": "2026-10-14 13:18:25",
-    "parcela": "Parcela Central - Veracruz",
-    "cultivo": "Ca\u00f1a de Az\u00facar",
-    "variedad": "CP 72-2086",
-    "hectareas": 18.5,
-    "sopa_liquida": "Madurador Enzim\u00e1tico (Glifosato / Etef\u00f3n)",
+    "timestamp": "2026-10-14 16:36:37",
+    "parcela": "Parcela Experimental - Lim\u00f3n Persa",
+    "cultivo": "Citricos (Lim\u00f3n Persa)",
+    "variedad": "Persa Sin Semilla",
+    "hectareas": 12.0,
+    "sopa_liquida": "Foliar Nutricional NPK + Microquelatados",
     "clima": {
-        "temperatura_c": 22.7,
-        "humedad_pct": 94,
-        "viento_ms": 5.6,
+        "temperatura_c": 28.9,
+        "humedad_pct": 79,
+        "viento_ms": 7.3,
         "fuente": "Open-Meteo API en vivo"
     },
     "dosificacion": {
-        "volumen_base_l_ha": 35.0,
-        "tasa_vra_ajustada_l_ha": 36.82,
+        "volumen_base_l_ha": 50.0,
+        "tasa_vra_ajustada_l_ha": 54.3,
         "caudal_operativo_l_min": 16.0,
-        "volumen_total_mezcla_l": 681.17
+        "volumen_total_mezcla_l": 651.6
     },
     "mecanica_dron": {
         "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
         "factor_seguridad_7075": 4.17,
-        "precision_rtk_mm": 8.3
+        "precision_rtk_mm": 11.3
     }
 }
