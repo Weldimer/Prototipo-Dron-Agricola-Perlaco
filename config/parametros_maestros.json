@@ -1,10 +1,24 @@
 {
-    "proyecto": "STR-002 H3 v3.5",
+    "proyecto": "STR-002 H3 v3.5 (Auditoría Física Real)",
     "laboratorio": "Perlaco Labs",
-    "descripcion": "Registro maestro de parámetros, masas, arquitectura y propulsión para auditoría científica.",
+    "descripcion": "Registro maestro corregido con masas reales de componentes comerciales (sin valores ficticios).",
+    "masas_componentes_kg": {
+        "chasis_y_herrajes": 6.8,
+        "propulsion_8x": 8.5,
+        "avionica_y_sensores": 1.2,
+        "sistema_aspersion_vacio": 3.5,
+        "bateria_12s_20ah": 5.5,
+        "peso_seco_base": 25.5
+    },
     "escenarios_evaluacion": {
-        "nominal_ligero_kg": 29.0,
-        "limite_pesado_kg": 60.0
+        "nominal_prueba_3.5L": {
+            "caldo_kg": 3.5,
+            "mtow_kg": 29.0
+        },
+        "nominal_maximo_10L": {
+            "caldo_kg": 10.0,
+            "mtow_kg": 35.5
+        }
     },
     "arquitectura": {
         "tipo": "Octocoptero Coaxial (X8)",
@@ -17,8 +31,7 @@
         "modelo_helice": "G30x10.5 CF",
         "tension_nominal_v": 44.4,
         "tension_pico_v": 50.4,
-        "empuje_max_nominal_por_motor_kg": 13.5,
-        "fuente_datos": "Especificación del fabricante / Auditoría analítica"
+        "empuje_max_nominal_por_motor_kg": 13.5
     },
     "bateria": {
         "configuracion": "12S LiPo",
