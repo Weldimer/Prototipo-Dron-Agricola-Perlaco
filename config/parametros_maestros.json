@@ -29,5 +29,11 @@
         "motores": 8,
         "eficiencia_coaxial_factor": 0.88,
         "empuje_neto_estimado_kgf_por_motor": 12.5
+    },
+    "constantes_ambientales_veracruz": {
+        "densidad_aire_kg_m3": 1.18,
+        "temperatura_operativa_media_c": 35.0,
+        "velocidad_viento_max_diseno_m_s": 8.0,
+        "altitud_operativa_msnm": 15.0
     }
 }
