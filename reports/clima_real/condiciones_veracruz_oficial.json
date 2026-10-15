@@ -1,0 +1,12 @@
+{
+    "fuente": "WebService CONAGUA/SMN (Filtrado Veracruz)",
+    "municipio": "Aquila",
+    "estado": "Veracruz de Ignacio de la Llave",
+    "clima": "Poco nuboso",
+    "temp_max": 22.4,
+    "temp_min": 8.3,
+    "viento_kmh": 9.8,
+    "rafaga_kmh": 15.6,
+    "probabilidad_precipitacion": 0.0,
+    "verificacion": "Dato real oficial - Sin ficción"
+}
