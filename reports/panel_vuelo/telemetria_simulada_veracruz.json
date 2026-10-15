@@ -1,0 +1,41 @@
+[
+    {
+        "Mision_ID":"FLIGHT-VER-2026-001",
+        "Parcela":"VER-CANA-01-CORDOBA",
+        "Región":"Centro (Córdoba - Orizaba)",
+        "Superficie (ha)":116.63,
+        "Altura Vuelo (m)":3.0,
+        "Velocidad (m\/s)":4.0,
+        "Líquido Requerido (L)":1749.42,
+        "Tiempo Vuelo (min)":443.2,
+        "Voltaje Final HV (V)":64.38,
+        "Corriente Prom (A)":61.0,
+        "Estado SITL":"Simulación Exitosa"
+    },
+    {
+        "Mision_ID":"FLIGHT-VER-2026-002",
+        "Parcela":"VER-CANA-02-TRESVALLES",
+        "Región":"Cuenca del Papaloapan",
+        "Superficie (ha)":117.06,
+        "Altura Vuelo (m)":3.0,
+        "Velocidad (m\/s)":4.0,
+        "Líquido Requerido (L)":1755.94,
+        "Tiempo Vuelo (min)":444.8,
+        "Voltaje Final HV (V)":64.4,
+        "Corriente Prom (A)":58.2,
+        "Estado SITL":"Simulación Exitosa"
+    },
+    {
+        "Mision_ID":"FLIGHT-VER-2026-003",
+        "Parcela":"VER-CANA-03-PANUCO",
+        "Región":"Norte (Pánuco)",
+        "Superficie (ha)":114.3,
+        "Altura Vuelo (m)":3.0,
+        "Velocidad (m\/s)":4.0,
+        "Líquido Requerido (L)":1714.49,
+        "Tiempo Vuelo (min)":434.3,
+        "Voltaje Final HV (V)":64.39,
+        "Corriente Prom (A)":47.9,
+        "Estado SITL":"Simulación Exitosa"
+    }
+]
