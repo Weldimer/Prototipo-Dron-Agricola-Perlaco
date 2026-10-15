@@ -1,0 +1,28 @@
+{
+    "proyecto": "STR-002 H3 v3.5",
+    "laboratorio": "Perlaco Labs",
+    "descripcion": "Registro maestro de parámetros, masas, arquitectura y propulsión para auditoría científica.",
+    "escenarios_evaluacion": {
+        "nominal_ligero_kg": 29.0,
+        "limite_pesado_kg": 60.0
+    },
+    "arquitectura": {
+        "tipo": "Octocoptero Coaxial (X8)",
+        "motores_totales": 8,
+        "brazos": 4,
+        "longitud_brazo_m": 0.55
+    },
+    "propulsion": {
+        "modelo_motor": "T-Motor P80 III KV120",
+        "modelo_helice": "G30x10.5 CF",
+        "tension_nominal_v": 44.4,
+        "tension_pico_v": 50.4,
+        "empuje_max_nominal_por_motor_kg": 13.5,
+        "fuente_datos": "Especificación del fabricante / Auditoría analítica"
+    },
+    "bateria": {
+        "configuracion": "12S LiPo",
+        "capacidad_ah": 20.0,
+        "energia_nominal_wh": 888.0
+    }
+}
