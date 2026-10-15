@@ -1,30 +1,44 @@
-# Justificación Técnica y Marco Operativo — STR-002 H3
+# Justificación Técnica y Marco de Ingeniería — PERLACO STR-002 H3
 
-## 1. Alcance y Propósito
-El presente documento establece los parámetros de diseño, análisis de propulsión y escenarios operacionales teóricos para el dron agrícola **STR-002 H3** (plataforma multirotor orientada a agricultura de precisión en caña de azúcar, Veracruz, México). 
+## 1. Alcance y Propósito Metodológico
+El presente documento establece las bases físico-matemáticas, los criterios de dimensionamiento y los escenarios operacionales teóricos para el dron agrícola **STR-002 H3** (plataforma multirotor orientada a la agricultura de precisión en cultivos de caña de azúcar en Veracruz, México). 
 
-*Estado de validación:* **Calculado / Simulado teóricamente** (pendiente de validación experimental en banco de pruebas y campo).
-
----
-
-## 2. Análisis Aerodinámico y Comportamiento ante Viento
-### 2.1. Aclaración sobre Condiciones Meteorológicas
-En versiones anteriores del documento conceptual se sugirió una correlación directa entre altas relaciones empuje-peso (TWR de 2.0:1 a 4.4:1) y la capacidad de operar bajo vientos de 127–130 km/h. **Esta afirmación queda formalmente retirada como capacidad demostrada.**
-
-* **Escenario de Referencia Meteorológica:** Los vientos sostenidos superiores a 40–50 km/h representan condiciones críticas que comprometen la estabilidad de actitud, el control de la deriva de aspersión y la integridad estructural de los actuadores de potencia en multirotores de la clase MTOW de 60 kg.
-* **Criterio de Diseño:** La plataforma se diseña bajo un margen de control de actitud robusto (TWR nominal >= 2.0:1), orientado a garantizar autoridad de control ante ráfagas laterales moderadas típicas de zonas agrícolas tropicales, mas no para operar bajo condiciones de tormenta severa o huracanada.
+*Estado de validación:* **Calculado teóricamente y simulado por software** (pendiente de validación experimental en banco de pruebas y campo). Ningún valor se presenta como medición física real.
 
 ---
 
-## 3. Arquitecturas de Propulsión Evaluadas
-El proyecto investiga de manera modular tres variantes estructurales independientes, cuyos cálculos de masa y consumo energético no deben cruzarse:
+## 2. Modelado Matemático del Sistema y Propulsión
 
-1. **Configuración Quadcopter (4 Motores):** Análisis conceptual de eficiencia para cargas reducidas.
-2. **Configuración Hexacopter (6 Motores):** Variante intermedia de redundancia y distribución de carga.
-3. **Configuración Coaxial X8 (8 Motores):** Arquitectura principal orientada al MTOW de 60 kg, evaluando la interacción aerodinámica entre rotores superiores e inferiores (pérdida de eficiencia coaxial estimada teóricamente entre 15% y 20%).
+### 2.1. Fuerza Gravitatoria y Masa Total al Despegue (MTOW)
+La fuerza gravitatoria o peso total de la aeronave en orden de vuelo se modela mediante la ecuación fundamental:
+$$\displaystyle F_g = m_{\text{total}} \cdot g$$
+Donde:
+* $m_{\text{total}}$: Masa total de la aeronave en kilogramos ($\text{kg}$), incluyendo chasis, aviónica, sistemas de aspersión, baterías y carga líquida útil.
+* $g$: Aceleración gravitatoria estándar ($\approx 9.81\text{ m/s}^2$).
+
+### 2.2. Relación Empuje-Peso ($R_{TW}$) y Autoridad de Control
+Para garantizar estabilidad de actitud, capacidad de maniobra y compensación ante perturbaciones atmosféricas moderadas, se adopta un coeficiente de relación empuje-peso ($R_{TW}$) de diseño:
+$$\displaystyle E_{\text{motor}} = \frac{R_{TW} \cdot F_g}{M}$$
+Donde:
+* $E_{\text{motor}}$: Empuje requerido por cada rotor.
+* $M$: Número total de motores de la arquitectura.
+* *Criterio de Diseño:* Se establece un $R_{TW} \ge 2.0:1$ como margen operativo nominal para aeronaves de aspersión pesada, evitando zonas de saturación en los controladores de velocidad (ESCs).
+
+### 2.3. Potencia y Balance Energético
+La potencia eléctrica instantánea del sistema de propulsión ($P_{\text{prop}}$) se calcula mediante la integración de la demanda de corriente y tensión de cada conjunto motor-hélice-ESC extraída de curvas paramétricas de banco:
+$$\displaystyle P_{\text{prop}}(t) = \sum_{i=1}^{M} P_{\text{el},i}(t)$$
+La energía total de misión ($E_{\text{misión}}$) se obtiene mediante la integral temporal de la potencia durante todas las fases operativas (despegue, tránsito, aspersión con masa variable y aterrizaje), aplicando un margen de seguridad reglamentario (profundidad de descarga DoD $\le 80\%$).
 
 ---
 
-## 4. Sistema Energético y Alimentación
-* **Configuración de Baterías:** Se especifica el uso de arreglos de celdas LiPo de alta capacidad. 
-* *Nota de Ingeniería:* La conexión en paralelo de paquetes de baterías (ej. configuración 12S en paralelo) mantiene el voltaje nominal duplicando la capacidad de corriente y autonomía teórica, mientras que una conexión en serie duplica el voltaje de operación. La selección final se documentará en la BOM específica de cada variante tras las pruebas de banco de resistencia térmica de los ESCs.
+## 3. Análisis Aerodinámico y Comportamiento ante Viento
+* **Retiro de Afirmaciones Previas:** Queda formalmente retirada cualquier correlación directa entre altas relaciones empuje-peso y supuestas capacidades de vuelo bajo vientos huracanados de $127\text{–}130\text{ km/h}$.
+* **Escenario Meteorológico de Referencia:** Los vientos sostenidos superiores a $40\text{–}50\text{ km/h}$ comprometen la seguridad aerodinámica, la deriva de aspersión y la integridad estructural de multirotores clase MTOW de $60\text{ kg}$. La plataforma se diseña exclusivamente para operar bajo condiciones de viento moderado, priorizando la estabilidad de actitud del controlador de vuelo (Pixhawk Cube Orange+).
+
+---
+
+## 4. Arquitecturas Modulares Independientes
+El proyecto analiza de forma aislada tres variantes para evitar cruces erróneos de masa y potencia:
+1. **Quadcopter (4 Motores):** Validación conceptual y de algoritmos de control base.
+2. **Hexacopter (6 Motores):** Configuración intermedia orientada a alta reparabilidad local con chasis de aluminio.
+3. **Coaxial X8 (8 Motores):** Arquitectura principal del STR-002 H3 (MTOW $60\text{ kg}$), considerando una pérdida de eficiencia coaxial teórica estimada entre $15\%$ y $20\%$ por interferencia aerodinámica de rotores superpuestos.
