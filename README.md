@@ -1,33 +1,23 @@
-# PERLACO — Investigación Abierta de Drones Agrícolas para México
+# Prototipo Dron Agrícola Perlaco (STR-002 H3 v4.0)
 
-**Área de aplicación:** Agricultura de precisión, con enfoque inicial en los cultivos de caña de azúcar de Veracruz, México.  
-**Modalidad:** Investigación independiente, diseño conceptual, desarrollo de software y validación computacional progresiva.  
-**Entorno de desarrollo:** Dispositivo móvil y Google Colab con recursos controlados.
-
----
-
-## 1. Objetivo del Proyecto
-Estudiar, calcular y documentar distintas arquitecturas de drones agrícolas multirrotor (configuraciones modulares de 4, 6 y 8 motores), evaluando sus requisitos de masa, propulsión, consumo energético y navegación autónoma sin incurrir en especulaciones comerciales o aeronáuticas.
-
-## 2. Metodología y Niveles de Evidencia
-Cada parámetro, cálculo o resultado dentro de este repositorio se clasifica estrictamente bajo la siguiente matriz de evidencia científica:
-
-| Estado | Significado |
-| :--- | :--- |
-| **Documentado** | Existe una fuente bibliográfica, ficha de fabricante o estándar identificable. |
-| **Calculado** | Se obtuvo mediante ecuaciones matemáticas y parámetros declarados. |
-| **Simulado** | Se evaluó mediante un modelo computacional o script de software. |
-| **Verificado por software** | Superó pruebas lógicas y de ejecución definidas y reproducibles. |
-| **Medido experimentalmente** | Se comprobó mediante una medición física real en taller o banco de pruebas. |
-| **Pendiente** | Falta evidencia empírica suficiente para concluir su viabilidad. |
-
-## 3. Arquitecturas Modulares Independientes
-* **`variants/quadcopter_4_motores/`** — Validación de algoritmos básicos de control.
-* **`variants/hexacopter_6_motores/`** — Hexacóptero plano de aluminio (MTOW 18-25 kg).
-* **`variants/coaxial_x8_8_motores/`** — Plataforma principal STR-002 H3 (MTOW 60.0 kg, bus 12S).
-
-## 4. Limitaciones y Descargo de Responsabilidad
-Este repositorio constituye un **expediente técnico de investigación abierta**. No se presenta como un producto comercial terminado ni como una aeronave certificada.
+**Estado del Proyecto:** Diseño Teórico, Modelado Paramétrico y Auditoría de Ingeniería en Proceso (No certificado para vuelo físico).  
+**Configuración Base Oficial Vigente:** Hexacóptero de Alta Capacidad, **MTOW = 60.0 kg** (Línea Base v4.0).  
+*(Nota: Las iteraciones históricas previas de 25 kg y 29.5 kg se conservan exclusivamente en la carpeta `/docs/historico_29kg/` para trazabilidad).*
 
 ---
-*Desarrollado desde Veracruz, México, bajo una filosofía de ingeniería abierta, transparente y auditable.*
+
+## 📋 Propósito del Repositorio
+Este repositorio contiene la memoria de cálculo, los scripts de simulación numérica, los modelos CAD y los parámetros de control para el dron agrícola **STR-002 H3**. El objetivo es proporcionar un expediente totalmente transparente, reproducible y auditable por ingenieros externos, separando estrictamente lo calculado, lo simulado y lo pendiente de validación experimental.
+
+## 🗂️ Estructura del Expediente
+- `docs/`: Memoria técnica maestra, matriz de trazabilidad y registros históricos de diseño.
+- `notebooks/`: Cuadernos interactivos en Google Colab para análisis paramétrico (flexión de CFRP, inercias, etc.).
+- `scripts/`: Código ejecutable en Python para auditorías numéricas y simulaciones de subsistemas.
+- `cad/`: Modelos geométricos (OpenSCAD/STL) sujetos estrictamente a validación de manufactura (CAD estanco), separados de los cálculos de resistencia mecánica.
+
+## ⚖️ Regla de Clasificación Técnica
+Cada afirmación en este repositorio se clasifica bajo los siguientes estados:
+1. **CALCULADO:** Ecuaciones analíticas cerradas y reproducibles.
+2. **SIMULADO:** Modelos computacionales con hipótesis y parámetros declarados.
+3. **DOCUMENTADO POR FABRICANTE:** Respaldado por fichas técnicas comerciales.
+4. **PENDIENTE:** Elementos que requieren pruebas físicas en banco o vuelo (aún no demostrados).
