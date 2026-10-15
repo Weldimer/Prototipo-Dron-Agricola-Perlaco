@@ -1,6 +1,6 @@
 # 📄 Resumen Ejecutivo y Bitácora Operativa — STR-002 H3 v3.5
 
-**Plataforma:** Octóptero Coaxial X8 Agrícola (MTOW 60.0 kg)  
+**Plataforma:** Octóptero Coaxial X8 Agrícola (MTOW 29.0 kg)  
 **Autor e Inventor:** Angel Imer Lara Colorado / PERLACOLABS (Úrsulo Galván, Veracruz, México)  
 
 ## 📊 Matriz de Parcelas, Coordenadas y Áreas Georreferenciadas

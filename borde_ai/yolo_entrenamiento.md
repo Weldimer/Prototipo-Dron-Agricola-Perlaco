@@ -1,6 +1,6 @@
 # 👁️ Estudio Técnico de Visión Artificial: Red Neuronal YOLOv8-FDA y Edge AI — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg) - Octóptero Coaxial X8**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg) - Octóptero Coaxial X8**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este documento detalla la arquitectura, optimización, métricas de precisión y compatibilidad de despliegue en hardware embebido (Edge AI) de la red neuronal **YOLOv8-FDA**, diseñada específicamente para la identificación en tiempo real de cepas de caña de azúcar, evaluación del follaje cuticular y cálculo del Índice de Área Foliar (LAI) durante las misiones de aspersión variable (VRA).

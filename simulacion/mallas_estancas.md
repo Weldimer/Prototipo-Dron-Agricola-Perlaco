@@ -1,6 +1,6 @@
 # Validación Geométrica y Topológica de Mallas Estancas (OpenSCAD / PyVista) — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg)**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg)**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este documento describe el protocolo metrológico de validación geométrica para asegurar que todos los modelos CAD orientados a la manufactura aditiva y mecanizado CNC cumplan estrictamente con la condición de estanqueidad (is_watertight == True).

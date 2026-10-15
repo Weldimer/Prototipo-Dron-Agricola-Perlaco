@@ -1,6 +1,6 @@
 # Informe Técnico: Control VRA Adaptativo y Filtro Kalman 1D para Caudal — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg) - Octóptero Coaxial X8**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg) - Octóptero Coaxial X8**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este documento detalla la implementación del algoritmo de estimación de estado estocástico (**Filtro Kalman 1D**) diseñado para suprimir el ruido electromagnético inducido por los variadores de velocidad (ESC) en los sensores de flujo de efecto Hall.

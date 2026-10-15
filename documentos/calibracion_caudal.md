@@ -1,6 +1,6 @@
 # 💧 Expediente Metrológico de Calibración de Caudal y Sensores — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg)**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg)**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este documento describe el procedimiento metrológico de calibración para los caudalímetros de efecto Hall y los conectores hidráulicos de recarga rápida empleados en el sistema de dosificación variable (VRA) de sopa líquida.

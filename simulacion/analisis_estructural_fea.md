@@ -1,6 +1,6 @@
 # ⚙️ Informe Técnico: Análisis Estructural FEA (Elementos Finitos) — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg) - Octóptero Coaxial X8**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg) - Octóptero Coaxial X8**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este documento detalla la evaluación mecánica de tensiones, deformaciones y factores de seguridad (FS) mediante simulaciones de análisis de elementos finitos (FEA) aplicadas a los componentes estructurales críticos del octóptero bajo condiciones severas de carga estática ($MTOW = 60.0\text{ kg}$) e inercias dinámicas por aceleración en vuelo agresivo a 3.5G.

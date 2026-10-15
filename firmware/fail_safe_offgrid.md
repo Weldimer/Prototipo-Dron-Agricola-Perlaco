@@ -1,6 +1,6 @@
 # 🛡️ Protocolo Fail-Safe MAVLink, Red FANET (915 MHz) y Consenso PoA — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg)**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg)**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este documento detalla los mecanismos de seguridad pasiva y activa, redundancia de comunicaciones off-grid y el aislamiento de fallas en nodos del enjambre.
