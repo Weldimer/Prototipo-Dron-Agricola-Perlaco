@@ -10,7 +10,7 @@ from energia_autonomia import auditar_energia
 from estructura import auditar_estructura
 
 class TestModelosBaselineV41(unittest.TestCase):
-    
+
     def test_propulsion_v41(self):
         res = auditar_propulsion("config/parametros_maestros.json")
         self.assertEqual(res["mtow_kg"], 29.0)
@@ -25,8 +25,8 @@ class TestModelosBaselineV41(unittest.TestCase):
     def test_estructura_v41(self):
         res = auditar_estructura("config/parametros_maestros.json")
         self.assertEqual(res["mtow_kg"], 29.0)
-        self.assertGreater(res["margen_seguridad"], 0.0)
-        
+        self.assertIsNone(res["margen_seguridad"], "El margen de seguridad debe ser None hasta contar con validación FEA 3D")
+
     def test_aspersion_rigurosa(self):
         # Validación matemática exacta de tasa de aplicación con v en m/s
         q = 2.4

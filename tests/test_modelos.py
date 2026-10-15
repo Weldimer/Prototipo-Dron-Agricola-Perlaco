@@ -1,4 +1,4 @@
-# Pruebas Unitarias Automatizadas para Modelos Científicos (STR-002 H3 v3.5)
+# Pruebas Unitarias Automatizadas Compatibles (Baseline v4.1)
 import unittest
 import sys
 import os
@@ -14,19 +14,18 @@ class TestModelosCientificos(unittest.TestCase):
     
     def test_propulsion(self):
         res = auditar_propulsion("config/parametros_maestros.json")
-        self.assertIn("nominal_ligero_kg", res)
-        self.assertIn("limite_pesado_kg", res)
-        self.assertGreaterEqual(res["nominal_ligero_kg"]["twr"], 2.0)
+        self.assertEqual(res["mtow_kg"], 29.0)
+        self.assertGreaterEqual(res["twr"], 2.0)
 
     def test_energia(self):
         res = auditar_energia("config/parametros_maestros.json")
-        self.assertIn("nominal_ligero_kg", res)
-        self.assertGreater(res["nominal_ligero_kg"]["autonomia_util_min"], 0.0)
+        self.assertEqual(res["mtow_kg"], 29.0)
+        self.assertGreater(res["autonomia_util_min"], 0.0)
 
     def test_estructura(self):
         res = auditar_estructura("config/parametros_maestros.json")
-        self.assertIn("nominal_ligero_kg", res)
-        self.assertIn("momento_raiz_nm", res["nominal_ligero_kg"])
+        self.assertEqual(res["mtow_kg"], 29.0)
+        self.assertIn("momento_raiz_nm", res)
 
     def test_mision(self):
         res = auditar_mision("config/parametros_maestros.json")

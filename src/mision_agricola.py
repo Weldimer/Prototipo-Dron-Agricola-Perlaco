@@ -1,37 +1,38 @@
-# Motor de Cálculo Científico: Misión Agrícola y Productividad (STR-002 H3 v3.5)
+# Motor de Cálculo Científico: Misión Agrícola y Productividad (Baseline v4.1)
+# Estado: Escenarios operativos diferenciados (Misión Base vs. Calibración VRA)
 import json
 
 def auditar_mision(path_config="config/parametros_maestros.json"):
     with open(path_config, "r", encoding="utf-8") as f:
         data = json.load(f)
-        
-    escenarios = data["escenarios_evaluacion"]
-    
-    # Parámetros operativos agrícolas estándar
-    capacidad_tanque_litros = 10.0
-    tasa_aplicacion_l_ha = 20.0 # Litros por hectárea típicos para aspersión de precisión
-    velocidad_operativa_ms = 5.0 # m/s (velocidad de avance en labor)
-    ancho_franja_m = 5.0 # metros de cobertura efectiva por pasada
-    
-    resultados_mision = {}
-    
-    for nombre, mtow in escenarios.items():
-        # Superficie máxima por tanque (ha) = Capacidad / Tasa de aplicación
-        superficie_por_tanque_ha = capacidad_tanque_litros / tasa_aplicacion_l_ha
-        
-        # Capacidad de carga útil nominal según escenario
-        # Para 29 kg el tanque de 10L es nativo; para 60 kg evaluamos escalabilidad
-        carga_util_permitida_kg = 10.0 if mtow <= 30.0 else 30.0
-        
-        resultados_mision[nombre] = {
-            "mtow_kg": mtow,
-            "capacidad_caldo_l": capacidad_tanque_litros,
-            "superficie_util_por_carga_ha": superficie_por_tanque_ha,
-            "ancho_franja_m": ancho_franja_m,
-            "velocidad_ms": velocidad_operativa_ms,
-            "estado": "Operación viable" if mtow <= 30.0 else "Requiere rediseño de tanque para carga pesada"
-        }
-        
+
+    mtow = data["presupuesto_masa_kg"]["mtow_total"]
+    capacidad_tanque_litros = data["presupuesto_masa_kg"].get("capacidad_volumetrica_tanque_l", 10.0)
+
+    mision_base = {
+        "mtow_kg": mtow,
+        "capacidad_caldo_l": capacidad_tanque_litros,
+        "tasa_aplicacion_l_ha": 20.0,
+        "velocidad_ms": 5.0,
+        "ancho_franja_m": 5.0,
+        "superficie_util_por_carga_ha": capacidad_tanque_litros / 20.0,
+        "descripcion": "Escenario operativo estándar de referencia"
+    }
+
+    vra_escenario = {
+        "mtow_kg": mtow,
+        "capacidad_caldo_l": capacidad_tanque_litros,
+        "tasa_aplicacion_l_ha": 11.11,
+        "velocidad_ms": 6.0,
+        "ancho_franja_m": 6.0,
+        "caudal_l_min": 2.4,
+        "descripcion": "Escenario operativo de aspersión de precisión VRA"
+    }
+
+    resultados_mision = {
+        "nominal_ligero_kg": mision_base,
+        "escenario_vra": vra_escenario
+    }
     return resultados_mision
 
 if __name__ == "__main__":
