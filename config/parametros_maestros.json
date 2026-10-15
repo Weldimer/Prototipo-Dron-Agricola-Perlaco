@@ -23,6 +23,7 @@
     "bateria": {
         "configuracion": "12S LiPo",
         "capacidad_ah": 20.0,
-        "energia_nominal_wh": 888.0
+        "energia_nominal_wh": 888.0,
+        "tension_nominal_v": 44.4
     }
 }
