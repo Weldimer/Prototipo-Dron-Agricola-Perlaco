@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-10-15 17:19:02",
+    "timestamp": "2026-10-15 17:20:47",
     "parcela": "Parcela Central - Veracruz",
     "cultivo": "Ca\u00f1a de Az\u00facar",
     "variedad": "CP 72-2086",
@@ -20,6 +20,6 @@
     "mecanica_dron": {
         "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
         "factor_seguridad_7075": 649.07,
-        "precision_rtk_mm": 9.2
+        "precision_rtk_mm": 9.6
     }
 }
