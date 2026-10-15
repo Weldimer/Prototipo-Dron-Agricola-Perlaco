@@ -1,37 +1,25 @@
 {
-<<<<<<< HEAD
-    "timestamp": "2026-10-15 07:28:17",
-    "parcela": "Parcela Norte - Úrsulo Galván",
-    "cultivo": "Caña de Azúcar",
-=======
-    "timestamp": "2026-10-15 08:20:57",
-    "parcela": "Parcela Norte - \u00darsulo Galv\u00e1n",
-    "cultivo": "Ca\u00f1a de Az\u00facar",
->>>>>>> 233f6160a0f60e7830e90746ec2e78a6a4e52a05
-    "variedad": "Mex 69-290",
-    "hectareas": 24.0,
-    "sopa_liquida": "Fungicida Sistémico (Tebuconazole 25%)",
+    "timestamp": "2026-10-15 08:31:32",
+    "parcela": "Parcela Experimental - Lim\u00f3n Persa",
+    "cultivo": "Citricos (Lim\u00f3n Persa)",
+    "variedad": "Persa Sin Semilla",
+    "hectareas": 12.0,
+    "sopa_liquida": "Foliar Nutricional NPK + Microquelatados",
     "clima": {
-        "temperatura_c": 23.6,
+        "temperatura_c": 23.2,
         "humedad_pct": 96,
-        "viento_ms": 5.8,
+        "viento_ms": 6.6,
         "fuente": "Open-Meteo API en vivo"
     },
     "dosificacion": {
-        "volumen_base_l_ha": 40.0,
-        "tasa_vra_ajustada_l_ha": 42.24,
+        "volumen_base_l_ha": 50.0,
+        "tasa_vra_ajustada_l_ha": 53.6,
         "caudal_operativo_l_min": 16.0,
-        "volumen_total_mezcla_l": 1013.76
+        "volumen_total_mezcla_l": 643.2
     },
     "mecanica_dron": {
-        "modelo": "STR-002 H3 v3.5 (Octocóptero Coaxial X8)",
-        "factor_seguridad_7075": 4.17,
-<<<<<<< HEAD
-        "precision_rtk_mm": 10.1
-    },
-    "_aviso_sistema": "DATOS SIMULADOS por gemelo digital - No son mediciones directas en vuelo real de campo"
-=======
-        "precision_rtk_mm": 11.1
+        "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
+        "factor_seguridad_7075": 649.07,
+        "precision_rtk_mm": 8.1
     }
->>>>>>> 233f6160a0f60e7830e90746ec2e78a6a4e52a05
 }
