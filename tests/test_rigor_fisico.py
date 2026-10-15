@@ -24,3 +24,12 @@ def test_precision_sistema_rtk():
     limite_tolerancia_cm = 5.0
     
     assert error_horizontal_cm <= limite_tolerancia_cm, f"Error RTK excesivo: {error_horizontal_cm}cm"
+
+def test_red_neuronal_compensacion():
+    """Valida que el modelo neuronal mantenga los factores de corrección 
+    de empuje dentro de los márgenes seguros de control (0.85 - 1.15)."""
+    from src.red_neural_aeronautica import ControlNeuralAeronauticoSTR002
+    
+    ia = ControlNeuralAeronauticoSTR002()
+    factor = ia.predecir_compensacion(velocidad_viento_ms=14.0, nivel_liquido_litros=6.0, angulo_inclinacion_deg=25.0)
+    assert 0.85 <= factor <= 1.15, f"Factor de compensación fuera de límites seguros: {factor}"
