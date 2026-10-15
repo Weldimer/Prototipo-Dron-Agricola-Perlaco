@@ -1,35 +1,29 @@
 {
-    "proyecto": "STR-002 H3 v4.1 (Baseline Oficial Rigurosa)",
-    "arquitectura": {
-        "tipo": "Octocoptero Coplanar de 8 Brazos",
-        "motores_totales": 8,
-        "brazos": 8,
-        "longitud_brazo_m": 0.65
-    },
+    "proyecto": "STR-002 H3",
+    "version": "4.2-Coaxial-X8",
+    "arquitectura_mecanica": "Octocoptero Coaxial X8 (4 brazos, 8 motores en doble plano vertical)",
     "presupuesto_masa_kg": {
-        "chasis_y_herrajes_cf": 4.2,
-        "subsistema_propulsion_8x": 8.5,
-        "avionica_y_sensores": 1.2,
-        "sistema_aspersion_vacio": 3.5,
-        "bateria_12s_20ah": 4.4,
         "peso_seco_base": 21.8,
+        "carga_liquida_diseno_l": 7.2,
+        "mtow_total": 29.0,
         "carga_util_caldo_diseno": 7.2,
-        "capacidad_volumetrica_tanque_l": 10.0,
-        "mtow_total": 29.0
-    },
-    "propulsion": {
-        "modelo_motor": "T-Motor P80 III KV120",
-        "modelo_helice": "G30x10.5 CF",
-        "tension_nominal_v": 44.4,
-        "empuje_max_nominal_por_motor_kg": 13.5,
-        "twr_nominal_calculado": 3.72
+        "chasis_y_herrajes_cf": 7.0,
+        "subsistema_propulsion_8x": 6.0,
+        "avionica_y_sensores": 1.3,
+        "sistema_aspersion_vacio": 1.0,
+        "bateria_12s_20ah": 6.5
     },
     "bateria": {
-        "configuracion": "12S LiPo",
-        "capacidad_ah": 20.0,
-        "tension_nominal_v": 44.4,
-        "energia_nominal_wh": 888.0,
-        "dod_maximo": 0.8,
-        "energia_util_wh": 710.4
+        "tipo": "LiPo HV 18S",
+        "voltaje_nominal_v": 66.6,
+        "capacidad_ah": 30.0,
+        "energia_nominal_wh": 1998.0,
+        "masa_bateria_kg": 6.5
+    },
+    "propulsion": {
+        "configuracion": "Coaxial X8",
+        "motores": 8,
+        "eficiencia_coaxial_factor": 0.88,
+        "empuje_neto_estimado_kgf_por_motor": 12.5
     }
 }
