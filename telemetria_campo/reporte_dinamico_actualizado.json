@@ -1,25 +1,25 @@
 {
-    "timestamp": "2026-10-15 13:03:44",
+    "timestamp": "2026-10-15 14:36:04",
     "parcela": "Parcela Experimental - Lim\u00f3n Persa",
     "cultivo": "Citricos (Lim\u00f3n Persa)",
     "variedad": "Persa Sin Semilla",
     "hectareas": 12.0,
     "sopa_liquida": "Foliar Nutricional NPK + Microquelatados",
     "clima": {
-        "temperatura_c": 23.1,
-        "humedad_pct": 93,
-        "viento_ms": 3.5,
+        "temperatura_c": 24.9,
+        "humedad_pct": 87,
+        "viento_ms": 1.8,
         "fuente": "Open-Meteo API en vivo"
     },
     "dosificacion": {
         "volumen_base_l_ha": 50.0,
-        "tasa_vra_ajustada_l_ha": 50.5,
+        "tasa_vra_ajustada_l_ha": 48.8,
         "caudal_operativo_l_min": 16.0,
-        "volumen_total_mezcla_l": 606.0
+        "volumen_total_mezcla_l": 585.6
     },
     "mecanica_dron": {
         "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
         "factor_seguridad_7075": 649.07,
-        "precision_rtk_mm": 11.1
+        "precision_rtk_mm": 11.2
     }
 }
