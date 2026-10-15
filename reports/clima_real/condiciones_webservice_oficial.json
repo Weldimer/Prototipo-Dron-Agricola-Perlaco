@@ -1,0 +1,22 @@
+{
+    "fuente_oficial": "WebService institucional (method=1)",
+    "municipio": "Magdalena Zahuatlán",
+    "estado": "Oaxaca",
+    "coordenadas": {
+        "lat": "17.3884",
+        "lon": "-97.229"
+    },
+    "condiciones_actuales": {
+        "cielo": "Cielo nublado",
+        "cobertura_nubosa_cc": "78.96",
+        "temp_max_c": "22.9",
+        "temp_min_c": "9.8",
+        "velocidad_viento_kmh": "8.2",
+        "rafaga_kmh": "19.8",
+        "direccion_viento": "Noreste",
+        "direccion_grados": "45.0",
+        "precipitacion_mm": "3.0",
+        "probabilidad_precipitacion_pct": "0"
+    },
+    "verificacion": "Dato real de API oficial - Cero simulación"
+}

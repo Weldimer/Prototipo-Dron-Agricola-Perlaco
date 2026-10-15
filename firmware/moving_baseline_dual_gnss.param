@@ -1,0 +1,16 @@
+# PERLACOLABS - CONFIGURACIÓN DUAL ZED-F9P MOVING BASELINE RTK (STR-002 H3 v3.0)
+# Inmunidad electromagnética total (EMI > 300A): Rumbo directo por fase de portadora GNSS
+EK3_SRC1_YAW,2        # Usar GPS Dual / Moving Baseline para Yaw (Inhabilita Magnetómetro)
+GPS_TYPE,17           # GPS 1: u-blox Moving Baseline Base (ZED-F9P)
+GPS_TYPE2,18          # GPS 2: u-blox Moving Baseline Rover (ZED-F9P)
+GPS_AUTO_CONFIG,1     # Configuración automática de registros u-blox en arranque
+GPS_POS1_X,0.30       # Antena Base: +30 cm en eje longitudinal X
+GPS_POS1_Y,0.00       # Antena Base: 0 cm eje Y
+GPS_POS1_Z,-0.25      # Antena Base: -25 cm eje Z
+GPS_POS2_X,-0.30      # Antena Rover: -30 cm en eje longitudinal X (Distancia Vectorial = 60 cm)
+GPS_POS2_Y,0.00       # Antena Rover: 0 cm eje Y
+GPS_POS2_Z,-0.25      # Antena Rover: -25 cm eje Z
+GPS_DRTK_DISABLE,0    # Habilita el cálculo del vector dinámico de rumbo en tiempo real
+COMPASS_USE,0         # Desactiva brújula magnética en vuelo para prevenir deriva por corrientes 12S
+COMPASS_USE2,0        # Desactiva brújula secundaria
+COMPASS_USE3,0        # Desactiva brújula terciaria

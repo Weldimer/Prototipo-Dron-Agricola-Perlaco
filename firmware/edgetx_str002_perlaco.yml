@@ -1,0 +1,19 @@
+# PERFIL EDGETX / OPENTX - ELECTRÓNICA PERLACO STR-002 H3 v3.0
+header:
+  version: 2.8.0
+  name: "STR002_PERLACO"
+  bitmap: "dron.png"
+channels:
+  CH1: Ail (Alerón - Alabeo)
+  CH2: Ele (Elevación - Cabeceo)
+  CH3: Thr (Acelerador)
+  CH4: Rud (Timón - Guiñada)
+  CH5:
+    name: "FLT_MODE"
+    switch: "SA" # PosHold, Auto, RTL
+  CH7:
+    name: "KILL_PUMP"
+    switch: "SF" # Corte de Emergencia Hidráulica
+  CH8:
+    name: "VRA_OVERRIDE"
+    switch: "RS" # Potenciómetro Dosificación Manual

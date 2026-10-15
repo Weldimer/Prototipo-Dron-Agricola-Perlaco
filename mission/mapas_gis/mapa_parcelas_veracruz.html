@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_08433676f30e70ec537ea145f47b5296 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_08433676f30e70ec537ea145f47b5296" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_08433676f30e70ec537ea145f47b5296 = L.map(
+                "map_08433676f30e70ec537ea145f47b5296",
+                {
+                    center: [19.375, -96.502],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f9cc677a3090cbcface4dd6a0f3b4198 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f9cc677a3090cbcface4dd6a0f3b4198.addTo(map_08433676f30e70ec537ea145f47b5296);
+        
+    
+            var tile_layer_08c2028588ec06631e596b0bb636f5e3 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri \u0026 \u2014 Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_08c2028588ec06631e596b0bb636f5e3.addTo(map_08433676f30e70ec537ea145f47b5296);
+        
+    
+            var polygon_0cba1a8339628dc3192ee2edbdf9eb7e = L.polygon(
+                [[19.38, -96.51], [19.38, -96.495], [19.365, -96.495], [19.365, -96.51]],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.35, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_08433676f30e70ec537ea145f47b5296);
+        
+    
+        var popup_82c32cf150973dce2a2f0a0b4bf7da1c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b63797c54f210099b9d878a872a8f5f0 = $(`<div id="html_b63797c54f210099b9d878a872a8f5f0" style="width: 100.0%; height: 100.0%;"><b>Parcela Cañera Veracruz</b><br>Superficie estimada: 45.2 ha<br>Variedad: Mex 69-290</div>`)[0];
+                popup_82c32cf150973dce2a2f0a0b4bf7da1c.setContent(html_b63797c54f210099b9d878a872a8f5f0);
+            
+        
+
+        polygon_0cba1a8339628dc3192ee2edbdf9eb7e.bindPopup(popup_82c32cf150973dce2a2f0a0b4bf7da1c)
+        ;
+
+        
+    
+    
+            var marker_51cd98e2276a23f0233a3919b8909b92 = L.marker(
+                [19.375, -96.502],
+                {
+}
+            ).addTo(map_08433676f30e70ec537ea145f47b5296);
+        
+    
+            var icon_2e3a79d66dd7614b1636c8b4e3ffad1d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_314b59765dec6371e1dfa1b0d61e7db4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c1214135739e4d588fb3a912136d664 = $(`<div id="html_6c1214135739e4d588fb3a912136d664" style="width: 100.0%; height: 100.0%;"><b>Base Operativa PERLACOLABS</b><br>STR-002 H3 v3.5</div>`)[0];
+                popup_314b59765dec6371e1dfa1b0d61e7db4.setContent(html_6c1214135739e4d588fb3a912136d664);
+            
+        
+
+        marker_51cd98e2276a23f0233a3919b8909b92.bindPopup(popup_314b59765dec6371e1dfa1b0d61e7db4)
+        ;
+
+        
+    
+    
+                marker_51cd98e2276a23f0233a3919b8909b92.setIcon(icon_2e3a79d66dd7614b1636c8b4e3ffad1d);
+            
+    
+            var layer_control_a4af532858baecf5e25f32e554075e3c_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f9cc677a3090cbcface4dd6a0f3b4198,
+                    "Sat\u00e9lite Esri (Gratuito)" : tile_layer_08c2028588ec06631e596b0bb636f5e3,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_a4af532858baecf5e25f32e554075e3c = L.control.layers(
+                layer_control_a4af532858baecf5e25f32e554075e3c_layers.base_layers,
+                layer_control_a4af532858baecf5e25f32e554075e3c_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_08433676f30e70ec537ea145f47b5296);
+
+        
+</script>
+</html>

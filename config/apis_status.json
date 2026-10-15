@@ -1,0 +1,36 @@
+{
+    "proyecto": "STR-002 H3 v3.5",
+    "ubicacion": "Ursulo Galvan, Veracruz",
+    "apis_configuradas": [
+        {
+            "api": "Open-Meteo",
+            "tipo": "Clima Historico/Forecast",
+            "estado": "Activa (Sin API Key)"
+        },
+        {
+            "api": "OpenWeatherMap",
+            "tipo": "Clima Tiempo Real",
+            "estado": "Configurada via GitHub Secret"
+        },
+        {
+            "api": "Google Earth Engine",
+            "tipo": "NDVI Satelital",
+            "estado": "Pendiente de Autenticacion"
+        },
+        {
+            "api": "Copernicus ERA5",
+            "tipo": "Reanalisis Clima",
+            "estado": "Configurada via GitHub Secret"
+        },
+        {
+            "api": "Sentinel Hub",
+            "tipo": "Procesamiento NDVI REST",
+            "estado": "Configurada via GitHub Secret"
+        },
+        {
+            "api": "JSBSim / SIMNET",
+            "tipo": "Simulacion de Vuelo",
+            "estado": "Activa / En la Nube"
+        }
+    ]
+}
