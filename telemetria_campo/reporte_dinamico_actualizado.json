@@ -1,25 +1,25 @@
 {
-    "timestamp": "2026-10-15 07:28:17",
+    "timestamp": "2026-10-15 08:20:57",
     "parcela": "Parcela Norte - \u00darsulo Galv\u00e1n",
     "cultivo": "Ca\u00f1a de Az\u00facar",
     "variedad": "Mex 69-290",
     "hectareas": 24.0,
     "sopa_liquida": "Fungicida Sist\u00e9mico (Tebuconazole 25%)",
     "clima": {
-        "temperatura_c": 23.2,
-        "humedad_pct": 94,
-        "viento_ms": 2.8,
+        "temperatura_c": 23.6,
+        "humedad_pct": 96,
+        "viento_ms": 5.8,
         "fuente": "Open-Meteo API en vivo"
     },
     "dosificacion": {
         "volumen_base_l_ha": 40.0,
-        "tasa_vra_ajustada_l_ha": 39.84,
+        "tasa_vra_ajustada_l_ha": 42.24,
         "caudal_operativo_l_min": 16.0,
-        "volumen_total_mezcla_l": 956.16
+        "volumen_total_mezcla_l": 1013.76
     },
     "mecanica_dron": {
         "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
         "factor_seguridad_7075": 4.17,
-        "precision_rtk_mm": 10.1
+        "precision_rtk_mm": 11.1
     }
 }
