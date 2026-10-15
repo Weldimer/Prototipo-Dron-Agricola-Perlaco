@@ -12,8 +12,8 @@ Evaluación del consumo de corriente, empuje unitario y eficiencia del arreglo c
 
 | Configuración | Voltaje Nominal | Corriente Promedio | Empuje Total | Eficiencia Coaxial ($\eta$) | Temperatura PDB |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Monodrón (1 UAV)** | 66.6V (HV 12S) | 48.5 A | 29.0 kg | **94.0%** | 41.5 °C |
-| **Enjambre (3 UAVs)** | 66.6V (HV 12S) | 56.2 A | 29.0 kg | **82.0%** | 48.2 °C |
+| **Monodrón (1 UAV)** | 44.4V (HV 12S) | 48.5 A | 29.0 kg | **94.0%** | 41.5 °C |
+| **Enjambre (3 UAVs)** | 44.4V (HV 12S) | 56.2 A | 29.0 kg | **82.0%** | 48.2 °C |
 
 ---
 

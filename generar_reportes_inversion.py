@@ -36,7 +36,7 @@ def generar_grafica_y_reporte_inversores():
     resumen_inversor = {
         "proyecto": "Prototipo Dron Agrícola STR-002 H3 v3.5 (PERLACOLABS)",
         "mtow_kg": 29.0,
-        "arquitectura": "Octocóptero Coaxial X8 con Sistema HV 18S (66.6V)",
+        "arquitectura": "Octocóptero Coaxial X8 con Sistema HV 18S (44.4V)",
         "indicadores_clave_inversion": {
             "factor_seguridad_estructural": "FS = 4.17 (Aluminio 7075-T6 optimizado por FEA)",
             "precision_navegacion": "RTK Moving Baseline (Error RMS 8-12 mm)",
