@@ -1,25 +1,25 @@
 {
-    "timestamp": "2026-10-15 09:38:01",
-    "parcela": "Parcela Experimental - Lim\u00f3n Persa",
-    "cultivo": "Citricos (Lim\u00f3n Persa)",
-    "variedad": "Persa Sin Semilla",
-    "hectareas": 12.0,
-    "sopa_liquida": "Foliar Nutricional NPK + Microquelatados",
+    "timestamp": "2026-10-15 10:58:56",
+    "parcela": "Parcela Central - Veracruz",
+    "cultivo": "Ca\u00f1a de Az\u00facar",
+    "variedad": "CP 72-2086",
+    "hectareas": 18.5,
+    "sopa_liquida": "Madurador Enzim\u00e1tico (Glifosato / Etef\u00f3n)",
     "clima": {
-        "temperatura_c": 23.0,
-        "humedad_pct": 96,
-        "viento_ms": 4.7,
+        "temperatura_c": 23.1,
+        "humedad_pct": 98,
+        "viento_ms": 2.2,
         "fuente": "Open-Meteo API en vivo"
     },
     "dosificacion": {
-        "volumen_base_l_ha": 50.0,
-        "tasa_vra_ajustada_l_ha": 51.7,
+        "volumen_base_l_ha": 35.0,
+        "tasa_vra_ajustada_l_ha": 34.44,
         "caudal_operativo_l_min": 16.0,
-        "volumen_total_mezcla_l": 620.4
+        "volumen_total_mezcla_l": 637.14
     },
     "mecanica_dron": {
         "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
         "factor_seguridad_7075": 649.07,
-        "precision_rtk_mm": 10.1
+        "precision_rtk_mm": 8.4
     }
 }
