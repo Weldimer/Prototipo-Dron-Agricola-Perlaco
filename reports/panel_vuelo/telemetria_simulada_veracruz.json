@@ -8,8 +8,8 @@
         "Velocidad (m\/s)":4.0,
         "Líquido Requerido (L)":1749.42,
         "Tiempo Vuelo (min)":443.2,
-        "Voltaje Final HV (V)":64.38,
-        "Corriente Prom (A)":61.0,
+        "Voltaje Final HV (V)":63.9,
+        "Corriente Prom (A)":50.2,
         "Estado SITL":"Simulación Exitosa"
     },
     {
@@ -21,8 +21,8 @@
         "Velocidad (m\/s)":4.0,
         "Líquido Requerido (L)":1755.94,
         "Tiempo Vuelo (min)":444.8,
-        "Voltaje Final HV (V)":64.4,
-        "Corriente Prom (A)":58.2,
+        "Voltaje Final HV (V)":64.6,
+        "Corriente Prom (A)":49.0,
         "Estado SITL":"Simulación Exitosa"
     },
     {
@@ -34,8 +34,8 @@
         "Velocidad (m\/s)":4.0,
         "Líquido Requerido (L)":1714.49,
         "Tiempo Vuelo (min)":434.3,
-        "Voltaje Final HV (V)":64.39,
-        "Corriente Prom (A)":47.9,
+        "Voltaje Final HV (V)":64.16,
+        "Corriente Prom (A)":60.2,
         "Estado SITL":"Simulación Exitosa"
     }
 ]
