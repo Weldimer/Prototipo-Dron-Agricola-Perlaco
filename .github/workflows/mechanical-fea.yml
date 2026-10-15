@@ -1,20 +1,18 @@
-name: Validación Mecánica - Motores y Abrazaderas
+name: Mechanical FEA Audit
+
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    branches: [ main ]
 
 jobs:
-  mechanical:
+  audit-structure:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Ejecutar auditoría mecánica Aluminio 7075-T6
-        run: python -c "print('FS = 4.17 en abrazaderas H3: APROBADO')"
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Run Structural Audit Script
+      run: |
+        python3 src/estructura.py
