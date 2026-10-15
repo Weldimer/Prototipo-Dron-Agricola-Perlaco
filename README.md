@@ -1,24 +1,18 @@
-# Prototipo Dron Agrícola — STR-002 H3 v3.5 (MTOW 29.0 kg)
+# PERLACO — Investigación Abierta de Drones Agrícolas para México
 
-**Plataforma Aérea Agrícola Autónoma (Octóptero Coaxial X8)**  
-*Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
-
----
-
-## 📚 Índice Documental Organizado
-
-* **Resumen Ejecutivo de Aprendizaje Diario:** [Ver Expediente](documentos/resumen_ejecutivo.md)
-* **Lista Oficial de Materiales (BOM) Integral, Medidas y Datasheets:** [Ver BOM Completa](documentos/BOM.md)
-* **Informe Técnico de Justificación e Ingeniería Aplicada:** [Ver Justificación](documentos/justificacion_tecnica.md)
-* **Guía Oficial de Armado y Ensamble:** [Ver Guía de Armado](documentos/guia_armado.md)
-* **Guía de Mantenimiento Preventivo:** [Ver Guía de Mantenimiento](documentos/guia_mantenimiento.md)
-* **Investigación de Módulos, Antenas RTK y Control Off-Grid:** [Ver Investigación](documentos/investigacion_modulos.md)
-* **Informe Técnico de Simulación y Batería HV 12S:** [Ver Simulación](simulacion/README.md)
-* **Análisis Estructural FEA (Elementos Finitos):** [Ver FEA](simulacion/analisis_estructural_fea.md)
-* **Estudio de Visión Artificial (YOLOv8-FDA):** [Ver Edge AI](borde_ai/yolo_entrenamiento.md)
-* **Control VRA Adaptativo y Filtro Kalman 1D:** [Ver Firmware](firmware/vra_kalman.md)
-* **Protocolo Fail-Safe y Red FANET (915 MHz):** [Ver Fail-Safe](firmware/fail_safe_offgrid.md)
-* **Validación de Mallas Estancas (OpenSCAD / PyVista):** [Ver Mallas](simulacion/mallas_estancas.md)
+Repositorio oficial de ingeniería, modelado y especificaciones técnicas para el desarrollo de plataformas multirotor aplicadas al agro.
 
 ---
-*ELECTRÓNICA PERLACO / PERLACOLABS — Úrsulo Galván, Veracruz, México*
+
+## 🛠️ Especificaciones del Proyecto
+- **Modelo Base:** STR-002 H3 v2.5 / v3.0
+- **MTOW (Peso Máximo al Despegue):** 60 kg
+- **Aplicación:** Agricultura de precisión y aspersión autónoma
+
+## 📂 Estructura del Repositorio
+- `cad/`: Planos de corte vectorial (DXF) y modelos 3D.
+- `assets/` o `activos/`: Recursos gráficos e imágenes del sistema.
+- `misiones/`: Archivos de configuración de vuelo autónomo (`.waypoints`).
+
+---
+*Generado automáticamente mediante el entorno de desarrollo y automatización de ingeniería.*
