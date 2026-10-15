@@ -13,7 +13,7 @@ Este documento establece el balance formal de masas, energía y autonomía del p
 | **Chasis y Brazos de Carbono** | Variable | Set | $4.50	ext{ kg}$ | 📐 **Diseño CAD** | Estimación preliminar por volumen de fibra (Pendiente de validación física). |
 | **Aviónica (Cube Orange+, GNSS RTK, Edge AI, PDB)** | Variable | Set | $1.20	ext{ kg}$ | 🧮 **Calculado** | Pesaje acumulado de componentes electrónicos y cableado de potencia. |
 | **Sistema Hidráulico (Bombas, mangueras, manifold, boquillas)** | Variable | Set | $0.73	ext{ kg}$ | 🧮 **Calculado** | Suma de componentes hidráulicos seleccionados. |
-| **Batería de Propulsión (18S)** | $6.50	ext{ kg}$ | $1$ | $6.50	ext{ kg}$ | 🟡 **Estimación** | Requerida para autonomía estimada de 10-12 min (Pendiente de selección de celdas). |
+| **Batería de Propulsión (12S)** | $6.50	ext{ kg}$ | $1$ | $6.50	ext{ kg}$ | 🟡 **Estimación** | Requerida para autonomía estimada de 10-12 min (Pendiente de selección de celdas). |
 | **Carga Útil Líquida (Tanque + 10 L de Caldo)** | $10.00	ext{ kg}$ | $1$ | $10.00	ext{ kg}$ | 📐 **Diseño** | 10 litros de caldo agrícola ($10	ext{ kg}$) + estructura plástica del depósito. |
 | **Masa Total Calculada al Despegue (MTOW)** | — | — | **$29.00	ext{ kg}$** | 🟡 **Cuadrado por Diseño** | **Coincide exactamente con el límite estructural proyectado.** |
 
@@ -33,4 +33,4 @@ Este documento establece el balance formal de masas, energía y autonomía del p
 
 1. **Eficiencia Coaxial Real ($\eta_{coax}$):** Las pérdidas aerodinámicas en el disco inferior del arreglo X8 deben verificarse en banco estático con dinamómetro para evitar sobrestimar el empuje real.
 2. **Curva Térmica del PDB:** Demostrar por simulación o cálculo térmico que las pistas de cobre de 6 oz resisten los transitorios de corriente sin superar la temperatura de transición vítrea del laminado FR4.
-3. **Consumo Dinámico de las Bombas Hidráulicas:** Integrar la corriente real de arranque y operación continua de las bombas en el balance eléctrico total de la batería de 18S.
+3. **Consumo Dinámico de las Bombas Hidráulicas:** Integrar la corriente real de arranque y operación continua de las bombas en el balance eléctrico total de la batería de 12S.

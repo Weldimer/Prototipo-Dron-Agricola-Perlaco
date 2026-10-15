@@ -7,7 +7,7 @@
 ## 1. Resumen Ejecutivo y Alcance del Prototipo
 El prototipo **ELECTRÓNICA PERLACO STR-002 H3** es una plataforma aérea no tripulada (UAV) de categoría pesada (*Heavy-Lift*) diseñada para la aplicación agroquímica de alta precisión mediante asperjado de Tasa Variable (VRA).
 
-* **Masa Máxima al Despegue (MTOW):** ~28.5 - 29.5 kg (Configuración v3.0 / escalable a 60 kg en v2.5-HV).
+* **Masa Máxima al Despegue (MTOW):** ~28.5 - 29.5 kg (Configuración v3.0 / escalable a 29 kg en v2.5-HV).
 * **Capacidad de Carga Útil:** Estanque HDPE de 10.0 L con rompeolas dinámico.
 * **Geometría Estructural:** Octocóptero Coaxial X8 con chasis central en Fibra de Carbono 3K (3.0 mm) y 8 brazos Ø50 mm con abrazaderas H3 en Aluminio 7075-T6.
 * **Ecosistema de Aviónica:** Cube Orange+ (STM32H7), RTK Dual u-Blox ZED-F9P, Radar FMCW 77 GHz de altimetría y evasión 3D.

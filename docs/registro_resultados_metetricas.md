@@ -6,7 +6,7 @@ Este documento establece el **Registro Oficial de Trazabilidad**, clasificando c
 
 | Parámetro / Métrica | Valor Publicado | Unidades | Categoría de Evidencia | Origen y Método de Cálculo / Obtención | Estado Actual / Observaciones |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **MTOW (Peso Máx. Despegue)** | $29.0$ | $\text{kg}$ | 🧮 **Calculado** | Suma de presupuesto de masas estructural, motores, baterías 18S y tanque de $10\text{ L}$. | Verificado por diseño CAD y lista de materiales (BOM). |
+| **MTOW (Peso Máx. Despegue)** | $29.0$ | $\text{kg}$ | 🧮 **Calculado** | Suma de presupuesto de masas estructural, motores, baterías 12S y tanque de $10\text{ L}$. | Verificado por diseño CAD y lista de materiales (BOM). |
 | **Relación Empuje/Peso ($T/W$)** | $1.92:1$ | Adim. | 🧮 **Calculado** | Cociente entre empuje máximo teórico de 8 motores P80 III y el MTOW. | Límite aceptable; pendiente de confirmación en banco estático. |
 | **Precisión RTK (Moving Baseline)** | $\pm 8 \text{ a } 12$ | $\text{mm}$ | 💻 **Simulado** | Covarianza cinemática teórica derivada del receptor u-blox ZED-F9P en simulación SITL. | **No es precisión de vuelo real.** Pendiente de validación bajo cielo abierto. |
 | **Inferencia YOLOv8-FDA** | $19.2$ | $\text{FPS}$ | 💻 **Simulado / Software** | Benchmark ejecutado en host de desarrollo con modelo cuantizado ONNX. | Pendiente de despliegue y medición de latencia real en NPU. |

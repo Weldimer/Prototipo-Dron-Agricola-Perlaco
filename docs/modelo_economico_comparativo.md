@@ -20,7 +20,7 @@ Este documento establece la base financiera y de costos operativos comparativos 
 * **Volumen Hídrico (VRA):** 30 L/ha (Dosis nominal parametrizada).
 * **Cargas por Hectárea:** Exactamente **3 tanques** de 10 litros.
 * **Productividad Efectiva:** 8.91 ha/h (considerando tiempos de recarga y giros Boustrophedon).
-* **Ventaja Financiera:** Al requerir solo una fracción del tiempo operativo y eliminar la necesidad de cuadrillas extensas de jornaleros, el costo por hectárea en amortización, energía (baterías 18S) y supervisión se reduce notablemente frente al coste acumulado de los jornales manuales.
+* **Ventaja Financiera:** Al requerir solo una fracción del tiempo operativo y eliminar la necesidad de cuadrillas extensas de jornaleros, el costo por hectárea en amortización, energía (baterías 12S) y supervisión se reduce notablemente frente al coste acumulado de los jornales manuales.
 
 ---
 

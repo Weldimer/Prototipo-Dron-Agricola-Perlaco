@@ -14,7 +14,7 @@ Donde:
 $$C_{teo} = \frac{6.0 \cdot 5.5 \cdot 3600}{10000} = 11.88\text{ ha/h}$$
 
 ### Coeficiente de Eficiencia Operativa ($\eta_{op}$)
-Dado que la operación en cañerales incluye tiempos improductivos (giros en cabecera Boustrophedon, recarga de solución líquida de $10\text{ L}$, intercambio de baterías 18S y telemetría de control), se aplica un factor de eficiencia de campo conservador $\eta_{op} = 0.75$:
+Dado que la operación en cañerales incluye tiempos improductivos (giros en cabecera Boustrophedon, recarga de solución líquida de $10\text{ L}$, intercambio de baterías 12S y telemetría de control), se aplica un factor de eficiencia de campo conservador $\eta_{op} = 0.75$:
 
 $$C_{efec} = 11.88 \times 0.75 = \mathbf{8.91\text{ ha/h}}$$
 

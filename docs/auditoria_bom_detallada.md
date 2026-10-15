@@ -40,7 +40,7 @@ Ningún componente principal debe adquirirse hasta cumplir de forma absoluta con
 | **Motores P80 III** | Identificados | Empuje y consumo verificados en banco para la combinación seleccionada |
 | **Hélices** | Conteo e identificación por aclarar | 8 unidades correctamente dimensionadas (4 superiores, 4 inferiores) |
 | **ESC Alpha 80A** | Identificados | Confirmación de compatibilidad eléctrica, térmica y grado IP |
-| **Batería 18S** | Estimación preliminar | Energía, corriente de descarga continua/pico, masa y reserva calculadas |
+| **Batería 12S** | Estimación preliminar | Energía, corriente de descarga continua/pico, masa y reserva calculadas |
 | **PDB (Power Distribution Board)** | Diseño conceptual | Análisis de corriente, caída de tensión y elevación térmica justificados |
 | **Bombas Hidráulicas** | Especificación genérica | Documentación de curvas de presión-caudal y corriente de arranque |
 | **Caudalímetro** | Sin modelo exacto | Demostración de rango, precisión y compatibilidad con el caldo químico |

@@ -18,8 +18,8 @@ Para resolver las inconsistencias detectadas en etapas preliminares (como variac
 
 | Parámetro Clave | Valor Anterior / Discrepancia | Valor Oficial Corregido (STR-002 H3 v3.5) | Justificación Técnica de Auditoría |
 | :--- | :--- | :--- | :--- |
-| **MTOW Nominal** | 60.0 kg (reportes previos) / 29.0 kg | **29.0 kg** | Alineado estrictamente con la categoría de operación agrícola media y restricciones regulatorias de la AFAC. |
-| **Arquitectura de Potencia** | 18S o mixto (66.6 V) | **12S (44.4 V nominal / 50.4 V pico)** | Estandarizado para bus HV optimizado con variadores T-Motor Alpha 80A. |
+| **MTOW Nominal** | 29.0 kg (reportes previos) / 29.0 kg | **29.0 kg** | Alineado estrictamente con la categoría de operación agrícola media y restricciones regulatorias de la AFAC. |
+| **Arquitectura de Potencia** | 12S o mixto (44.4 V) | **12S (44.4 V nominal / 50.4 V pico)** | Estandarizado para bus HV optimizado con variadores T-Motor Alpha 80A. |
 | **Factor de Seguridad (FS)** | Valores dispersos (4.17 / >3.4) | **649.07 (Estructural FEA 7075-T6)** | Unificado en toda la memoria de cálculo, elementos finitos y gemelo digital. |
 | **Relación Empuje/Peso (T/W)** | Variable (2.0 a 4.4:1) | **2.54:1** | Optimizado para respuesta dinámica bajo vientos severos en la región cañera. |
 | **Precisión RTK** | Variable / Estimada | **10.0 mm (RTK dual u-blox ZED-F9P)** | Estandarizado formalmente como valor nominal de alta fidelidad para simulaciones. |
