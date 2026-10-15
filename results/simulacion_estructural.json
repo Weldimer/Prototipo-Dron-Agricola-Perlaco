@@ -1,0 +1,14 @@
+{
+    "condicion_carga_g": 4.5,
+    "fuerza_total_n": 1280.2,
+    "fuerza_por_brazo_n": 320.05,
+    "momento_flector_nm": 176.03,
+    "geometria_tubo_carbono": {
+        "diametro_mm": 40.0,
+        "espesor_mm": 2.0
+    },
+    "esfuerzo_maximo_mpa": 81.46,
+    "resistencia_material_mpa": 600.0,
+    "coeficiente_seguridad_sf": 7.37,
+    "estado_evaluacion": "APROBADO - Margen de seguridad estructural superior a 2.0"
+}
