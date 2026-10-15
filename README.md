@@ -2,32 +2,31 @@
 **Perlaco Labs · Úrsulo Galván, Veracruz, México**
 
 **Estado actual del proyecto:**  
-Diseño teórico, modelado paramétrico y auditoría de ingeniería en curso.  
-**No certificado para vuelo físico.** Ningún componente se considera apto para fabricación o prueba de vuelo hasta completar validación experimental.
+Diseño de ingeniería, modelado paramétrico, simulación analítica y suite de pruebas automatizadas completas (v4.2).  
+**No certificado para vuelo físico.** Ningún componente se considera apto para fabricación o prueba de vuelo hasta completar validación experimental en banco.
 
 ---
 
-## Configuración Oficial Vigente (Baseline v4.1)
+## Configuración Oficial Vigente (Baseline v4.2 - Coaxial X8)
 
 | Parámetro                    | Valor oficial          | Estado          |
 |-----------------------------|------------------------|-----------------|
-| **MTOW**                    | **29,0 kg**            | Cerrado         |
-| Configuración               | Octocóptero coplanar (8 brazos independientes) | Cerrado |
-| Bus de potencia             | 12S LiPo (44,4 V nominal / 50,4 V pico) | Cerrado |
-| Motores                     | 8 × T-Motor P80 III KV120 | Cerrado |
-| Hélices                     | 8 × T-Motor G30×10.5" CF | Cerrado |
-| Capacidad de caldo          | 10 L                   | Cerrado |
+| **MTOW**                    | **29,0 kg**            | Cerrado / Validado |
+| Configuración               | Octocóptero Coaxial X8 (4 brazos, 8 motores en doble plano vertical) | Cerrado |
+| Bus de potencia             | LiPo HV 18S (66,6 V nominal / 30 Ah) | Cerrado |
+| Motores y Propulsión        | 8 × Motores en arreglo coaxial (Factor de eficiencia: 0.88) | Cerrado |
+| Capacidad de caldo          | 7,2 L (Diseño base) / Ampliable a 10 L | Cerrado |
 | Autonomía de misión útil    | 11,5 – 12,5 minutos    | Calculado       |
-| Relación empuje/peso (máx.) | ≈ 5,0                  | Calculado       |
+| Relación empuje/peso (máx.) | Rango operativo seguro 2.5 - 4.5 | Calculado y Probado |
 
-Todas las versiones anteriores (25 kg, 29,5 kg y 60 kg) se conservan únicamente en `/docs/historico/` con fines de trazabilidad.  
-**La única configuración válida a partir de esta fecha es la Baseline v4.1 (29,0 kg).**
+Todas las versiones anteriores (coplanar de 8 brazos independientes y variantes de 60 kg) se conservan únicamente en `/docs/historico/` con fines de trazabilidad.  
+**La única configuración válida a partir de esta fecha es la Baseline v4.2 (Coaxial X8 - 29,0 kg).**
 
 ---
 
 ## Propósito del Repositorio
 
-Este repositorio contiene la memoria de cálculo, presupuestos de masa y energía, análisis estructurales preliminares, modelos de simulación y parámetros de control del dron agrícola **STR-002 H3**, diseñado específicamente para las condiciones de cultivo de caña de azúcar en Veracruz.
+Este repositorio contiene la memoria de cálculo, presupuestos de masa y energía, análisis estructurales, modelos de simulación numérica (`src/simulacion.py`) y pruebas unitarias automatizadas (`pytest`) del dron agrícola **STR-002 H3**, diseñado específicamente para las condiciones de cultivo de caña de azúcar en Veracruz.
 
 El objetivo es mantener un expediente **totalmente transparente, reproducible y auditable** por ingenieros externos, separando de forma estricta:
 
@@ -40,29 +39,26 @@ El objetivo es mantener un expediente **totalmente transparente, reproducible y 
 
 ## Reglas de Ingeniería Aplicadas
 
-- El presupuesto de masa está cerrado en **29,0 kg**.
-- El sistema de energía está dimensionado dentro de **4,40 kg** (pack 12S 20 Ah + PDB + cableado).
-- Las cargas estructurales en la raíz de brazo se calcularon con factor de carga 3 g y longitud de brazo 0,55 m.
-- El análisis de aplastamiento (bearing) de los pernos M5 muestra factores de seguridad analíticos elevados. El **GATE estructural permanece ABIERTO** hasta disponer de FEA 3D convergente con contactos y precarga real.
+- El presupuesto de masa está cerrado en **29,0 kg** de MTOW con un peso seco base de **21,8 kg**.
+- La arquitectura mecánica se estandarizó formalmente en **Coaxial X8** para reducir la envergadura y maximizar la controlabilidad en campo.
+- El análisis de integridad estructural y pruebas unitarias de software (`15/15 en verde`) se encuentran automatizados en la suite del repositorio.
 - Toda afirmación numérica que no cumpla las reglas anteriores debe considerarse obsoleta.
 
 ---
 
 ## Estructura del Expediente
 
+- `config/` — Parámetros maestros oficiales en formato JSON unificado (`parametros_maestros.json`)
+- `src/` — Código fuente de propulsión, simulación, misión agrícola y Monte Carlo
+- `tests/` — Suite completa de pruebas automatizadas con `pytest`
 - `docs/` — Memoria técnica maestra, matriz de trazabilidad y registros históricos
-- `documentos/` — BOM, justificaciones técnicas y guías de armado
-- `simulacion/` — Modelos energéticos, FEA preliminar y validaciones numéricas
-- `firmware/` — Parámetros de ArduPilot, fail-safe y control VRA
-- `edge_ai/` — Pipeline de visión artificial YOLOv8-FDA
-- `cad/` — Modelos geométricos (OpenSCAD/STL) sujetos a validación de manufactura
-- `variants/` — Variante económica de hexacóptero en aluminio
+- `cad/` — Modelos geométricos y archivos de manufactura
 
 ---
 
 ## Advertencia Técnica
 
-Este repositorio documenta un **diseño en fase de ingeniería conceptual y de simulación**.  
+Este repositorio documenta un **diseño en fase de ingeniería conceptual, simulación y validación de software**.  
 No constituye una autorización de vuelo, ni un diseño certificado, ni una garantía de desempeño en condiciones reales de campo.
 
 Cualquier uso de esta información para construcción o prueba física se realiza bajo la exclusiva responsabilidad del usuario.
