@@ -15,10 +15,14 @@
     },
     "bateria": {
         "tipo": "LiPo HV 18S",
+        "celdas_serie": 18,
         "voltaje_nominal_v": 66.6,
+        "voltaje_maximo_pico_v": 78.3,
         "capacidad_ah": 30.0,
         "energia_nominal_wh": 1998.0,
-        "masa_bateria_kg": 6.5
+        "masa_bateria_kg": 6.5,
+        "tasa_descarga_continua_c": 25,
+        "corriente_maxima_continua_a": 750.0
     },
     "propulsion": {
         "configuracion": "Coaxial X8",
