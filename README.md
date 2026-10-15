@@ -13,7 +13,7 @@
 * **Guía Oficial de Armado y Ensamble:** [Ver Guía de Armado](documentos/guia_armado.md)
 * **Guía de Mantenimiento Preventivo:** [Ver Guía de Mantenimiento](documentos/guia_mantenimiento.md)
 * **Investigación de Módulos, Antenas RTK y Control Off-Grid:** [Ver Investigación](documentos/investigacion_modulos.md)
-* **Informe Técnico de Simulación y Batería HV 18S:** [Ver Simulación](simulacion/README.md)
+* **Informe Técnico de Simulación y Batería HV 12S:** [Ver Simulación](simulacion/README.md)
 * **Análisis Estructural FEA (Elementos Finitos):** [Ver FEA](simulacion/analisis_estructural_fea.md)
 * **Estudio de Visión Artificial (YOLOv8-FDA):** [Ver Edge AI](borde_ai/yolo_entrenamiento.md)
 * **Control VRA Adaptativo y Filtro Kalman 1D:** [Ver Firmware](firmware/vra_kalman.md)

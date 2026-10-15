@@ -21,6 +21,6 @@
 - **Precisión RTK Milimétrica:** 8-12 mm de deriva lateral en patrón enlazado con corrección NTRIP.
 - **Sistema de Rociado:** Boquillas antideriva CP72-2086 con control PWM adaptativo en tiempo real.
 - **Enlace de Telemetría RF:** 915 MHz en frecuencia libre con redundancia MAVLink a estación terrestre.
-- **Autonomía y Motores:** Paquete de baterías HV 18S con supervisión térmica continua en variadores de velocidad.
+- **Autonomía y Motores:** Paquete de baterías HV 12S con supervisión térmica continua en variadores de velocidad.
 
 > *"Hasta la criatura más humilde sirve a la tierra. Lástima que la civilización solo sepa servirse de ella para pisarla."* — **PERLACOLABS**

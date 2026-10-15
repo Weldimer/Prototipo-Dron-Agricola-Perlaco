@@ -1,19 +1,19 @@
 # 🛰️ Módulo de Simulación, Eficiencia de Propulsión y Análisis FEA — STR-002 H3 v3.5
 
-**Plataforma Aérea Agrícola Autónoma (MTOW 60.0 kg)**  
+**Plataforma Aérea Agrícola Autónoma (MTOW 29.0 kg)**  
 *Desarrollado por: Angel Imer Lara Colorado / PERLACOLABS — Úrsulo Galván, Veracruz, México*
 
 Este directorio concentra los modelos analíticos de simulación multisectorial, curvas de eficiencia energética, comportamiento aerodinámico del arreglo coaxial X8 y los reportes de elementos finitos (FEA) de los componentes mecánicos críticos.
 
 ---
 
-## ⚡ 1. Tabla de Simulación: Eficiencia de Propulsión y Batería HV 18S
+## ⚡ 1. Tabla de Simulación: Eficiencia de Propulsión y Batería HV 12S
 Evaluación del consumo de corriente, empuje unitario y eficiencia del arreglo coaxial bajo carga nominal de campo ($MTOW = 60.0\text{ kg}$).
 
 | Configuración | Voltaje Nominal | Corriente Promedio | Empuje Total | Eficiencia Coaxial ($\eta$) | Temperatura PDB |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Monodrón (1 UAV)** | 66.6V (HV 18S) | 48.5 A | 60.0 kg | **94.0%** | 41.5 °C |
-| **Enjambre (3 UAVs)** | 66.6V (HV 18S) | 56.2 A | 60.0 kg | **82.0%** | 48.2 °C |
+| **Monodrón (1 UAV)** | 66.6V (HV 12S) | 48.5 A | 29.0 kg | **94.0%** | 41.5 °C |
+| **Enjambre (3 UAVs)** | 66.6V (HV 12S) | 56.2 A | 29.0 kg | **82.0%** | 48.2 °C |
 
 ---
 
