@@ -14,7 +14,7 @@ class TestModelosBaselineV41(unittest.TestCase):
     def test_propulsion_v41(self):
         res = auditar_propulsion("config/parametros_maestros.json")
         self.assertEqual(res["mtow_kg"], 29.0)
-        self.assertGreaterEqual(res["twr"], 2.0)
+        self.assertAlmostEqual(res["twr"], 3.72, places=2)
         self.assertLessEqual(res["porcentaje_empuje_hover"], 50.0)
 
     def test_energia_v41(self):
@@ -26,6 +26,14 @@ class TestModelosBaselineV41(unittest.TestCase):
         res = auditar_estructura("config/parametros_maestros.json")
         self.assertEqual(res["mtow_kg"], 29.0)
         self.assertGreater(res["margen_seguridad"], 0.0)
+        
+    def test_aspersion_rigurosa(self):
+        # Validación matemática exacta de tasa de aplicación con v en m/s
+        q = 2.4
+        v = 6.0
+        w = 6.0
+        tasa = (q * 166.6667) / (v * w)
+        self.assertAlmostEqual(tasa, 11.111, places=2)
 
 if __name__ == "__main__":
     unittest.main()

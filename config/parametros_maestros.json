@@ -13,30 +13,23 @@
         "sistema_aspersion_vacio": 3.5,
         "bateria_12s_20ah": 4.4,
         "peso_seco_base": 21.8,
-        "carga_util_caldo": 7.2,
+        "carga_util_caldo_diseno": 7.2,
+        "capacidad_volumetrica_tanque_l": 10.0,
         "mtow_total": 29.0
-    },
-    "escenarios_evaluacion": {
-        "nominal_prueba_3.5L": {
-            "caldo_kg": 3.5,
-            "mtow_kg": 25.3
-        },
-        "nominal_maximo_7.2L": {
-            "caldo_kg": 7.2,
-            "mtow_kg": 29.0
-        }
     },
     "propulsion": {
         "modelo_motor": "T-Motor P80 III KV120",
         "modelo_helice": "G30x10.5 CF",
         "tension_nominal_v": 44.4,
-        "empuje_max_nominal_por_motor_kg": 13.5
+        "empuje_max_nominal_por_motor_kg": 13.5,
+        "twr_nominal_calculado": 3.72
     },
     "bateria": {
         "configuracion": "12S LiPo",
         "capacidad_ah": 20.0,
         "tension_nominal_v": 44.4,
         "energia_nominal_wh": 888.0,
-        "dod_maximo": 0.8
+        "dod_maximo": 0.8,
+        "energia_util_wh": 710.4
     }
 }
