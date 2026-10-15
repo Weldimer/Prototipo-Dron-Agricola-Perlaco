@@ -1,10 +1,5 @@
-# FAILSAFE EXTENDIDO DE RADIOCONTROL Y ESTACIÓN DE TIERRA (GCS)
-# Vehículo: STR-002 H3 v3.0 — PERLACOLABS
-
-FS_GCS_ENABLE,1         # Habilita Failsafe por pérdida de telemetría GCS
-FS_GCS_TIMEOUT,5.0      # Tiempo límite sin paquetes MAVLink (5 segundos)
-FS_GCS_ACTION,1         # Acción: Ejecutar RTL automático
-
-FS_THR_ENABLE,1         # Habilita Failsafe por pérdida de señal RC
-FS_THR_VALUE,975        # Umbral PWM para detección de corte de señal
-FS_OPTIONS,19           # Opciones de reanudación y continuación en Auto
+# Failsafe GCS y RC - STR-002 H3 v3.5
+FS_GCS_ENABLE,1
+FS_OPTIONS,19
+FENCE_ALT_MAX,10
+RTL_ALT,15

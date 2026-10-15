@@ -1,18 +1,4 @@
-# ==============================================================================
-# PARÁMETROS CERTIFICADOS RATE PID - STR-002 H3 v3.5 (29 kg MTOW)
-# Normalización estricta para ArduCopter (Heavy-Lift Coaxial X8)
-# ==============================================================================
-ATC_RAT_PIT_P = 0.0850
-ATC_RAT_PIT_I = 0.0850
-ATC_RAT_PIT_D = 0.0035
-ATC_RAT_RLL_P = 0.0850
-ATC_RAT_RLL_I = 0.0850
-ATC_RAT_RLL_D = 0.0035
-ATC_RAT_YAW_P = 0.1800
-ATC_RAT_YAW_I = 0.0180
-ATC_RAT_YAW_D = 0.0000
-
-# Filtro Notch Dinámico contra vibraciones de hélices de 30 pulgadas
-INS_NOTCH_ENABLE = 1
-INS_NOTCH_FREQ   = 45.0
-INS_NOTCH_BW     = 15.0
+# PID Tuning y Notch - STR-002 H3 v3.5
+INS_HNTCH_ENABLE,1
+INS_HNTCH_FREQ,55.0
+INS_HNTCH_BW,25.0

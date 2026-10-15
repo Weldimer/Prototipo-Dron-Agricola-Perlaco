@@ -6,18 +6,17 @@
 ---
 
 ## 📐 1. Especificaciones Maestras y Masas Unificadas
-* **Masa Máxima de Despegue (MTOW):** $29.0\text{ kg}$ (Valor unificado y validado para operación con autonomía óptima).
-* **Bus de Potencia Principal:** Batería LiPo Smart HV **18S (66.6 V nominal, 75.6 V pico)**.
+* **Masa Máxima de Despegue (MTOW):** $29.0\text{ kg}$ (Valor unificado y validado).
+* **Bus de Potencia Principal:** Batería LiPo Smart **12S ($44.4\text{ V}$ nominal, $50.4\text{ V}$ pico a carga plena)**.
 * **Distancia Diagonal (Wheelbase):** $1,650\text{ mm}$ ($1.65\text{ m}$).
 
 ---
 
-## ⚡ 2. Electrónica de Potencia y Conectores (Compatibilidad HV 18S)
+## ⚡ 2. Electrónica de Potencia y Conectores (Compatibilidad 12S)
 | Ít. | Subsistema / Componente | Especificación Técnica Oficial | Cantidad | Función Principal |
 | :--- | :--- | :--- | :--- | :--- |
-| **2.1** | Batería Principal HV | LiPo Smart 18S ($66.6\text{ V}$, conectores QS8-S Anti-Spark) | 2 pzas | Alimentación principal de alta tensión sin picos inductivos destructivos. |
-| **2.2** | Variadores de Frecuencia (ESC) | **T-Motor Alpha 120A HV FOC** (Soporte nativo 12S-18S) | 8 pzas | Control vectorial de corriente para motores brushless T-Motor P80 III. |
-| **2.3** | Conectores de Potencia | QS8-S Anti-Spark y Conectores Bullet de $\varnothing 4.0\text{ mm}$ | Sistema | Interconexión segura de alta corriente y fases de motor. |
+| **2.1** | Batería Principal | LiPo Smart 12S ($44.4\text{ V}$ nominal, $50.4\text{ V}$ pico) | 2 pzas | Alimentación principal optimizada para variadores 12S. |
+| **2.2** | Variadores de Frecuencia (ESC) | **T-Motor Alpha 80A 12S FOC** (Rango real 6S-12S, PWM analógico) | 8 pzas | Control vectorial de corriente para motores brushless T-Motor P80 III. |
 
 ---
 *ELECTRÓNICA PERLACO / PERLACOLABS — Úrsulo Galván, Veracruz, México*
