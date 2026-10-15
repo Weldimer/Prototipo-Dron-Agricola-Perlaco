@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 # Parámetros Base del Dron
 MTOW = 29.0 # kg
 N_MOTORES = 8
-ENERGIA_WH = 1998.0 # Wh (Bateria 18S 30Ah)
+ENERGIA_WH = 1332.0 # Wh (Bateria 18S 30Ah)
 
 print("🚁 === PANEL DE SIMULACIÓN STR-002 H3 v3.5 ===")
 print(f"Peso Total (MTOW): {MTOW} kg")

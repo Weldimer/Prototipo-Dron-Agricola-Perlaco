@@ -1,10 +1,10 @@
 {
     "timestamp": "2026-10-15 07:28:17",
-    "parcela": "Parcela Norte - \u00darsulo Galv\u00e1n",
-    "cultivo": "Ca\u00f1a de Az\u00facar",
+    "parcela": "Parcela Norte - Úrsulo Galván",
+    "cultivo": "Caña de Azúcar",
     "variedad": "Mex 69-290",
     "hectareas": 24.0,
-    "sopa_liquida": "Fungicida Sist\u00e9mico (Tebuconazole 25%)",
+    "sopa_liquida": "Fungicida Sistémico (Tebuconazole 25%)",
     "clima": {
         "temperatura_c": 23.2,
         "humedad_pct": 94,
@@ -18,8 +18,9 @@
         "volumen_total_mezcla_l": 956.16
     },
     "mecanica_dron": {
-        "modelo": "STR-002 H3 v3.5 (Octoc\u00f3ptero Coaxial X8)",
+        "modelo": "STR-002 H3 v3.5 (Octocóptero Coaxial X8)",
         "factor_seguridad_7075": 4.17,
         "precision_rtk_mm": 10.1
-    }
+    },
+    "_aviso_sistema": "DATOS SIMULADOS por gemelo digital - No son mediciones directas en vuelo real de campo"
 }

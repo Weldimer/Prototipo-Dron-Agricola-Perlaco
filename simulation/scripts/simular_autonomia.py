@@ -5,7 +5,7 @@ import numpy as np
 
 bateria_mAh = 30000
 celdas = 12
-voltaje_nom = celdas * 3.7  # 44.4V (o equivalente a 18S según arquitectura)
+voltaje_nom = celdas * 3.7  # 44.4V (o equivalente a 12S según arquitectura)
 energia_Wh = bateria_mAh / 1000 * voltaje_nom
 
 thrust_kg = np.linspace(2, 18, 50)  # kg por motor

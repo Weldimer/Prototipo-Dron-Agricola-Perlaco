@@ -1,8 +1,8 @@
 {
-    "proyecto": "PERLACOLABS - Dron Agr\u00edcola STR-002 H3 v3.5",
+    "proyecto": "PERLACOLABS - Dron Agrícola STR-002 H3 v3.5",
     "timestamp": "2026-10-13 11:41:07",
     "cartografia_y_suelo": {
-        "parcela": "Parcela-Ca\u00f1a-Veracruz-01",
+        "parcela": "Parcela-Caña-Veracruz-01",
         "coordenadas": {
             "lat": 19.3456,
             "lon": -96.4521
@@ -12,13 +12,13 @@
             "fuente": "Open Elevation API"
         },
         "tipo_suelo": {
-            "tipo": "Feozem H\u00e1pico",
-            "retencion_humedad": "\u00d3ptima",
+            "tipo": "Feozem Hápico",
+            "retencion_humedad": "Óptima",
             "densidad_aparente_g_cm3": 1.3
         }
     },
     "fisiologia_y_follaje": {
-        "etapa_fenologica": "Maduraci\u00f3n / Acumulaci\u00f3n de Sacarosa",
+        "etapa_fenologica": "Maduración / Acumulación de Sacarosa",
         "altura_planta_m": 3.4,
         "ancho_copa_m": 0.8,
         "indice_area_foliar_lai": 4.2,
@@ -37,9 +37,10 @@
     },
     "rendimiento_mecanico_y_propulsion": {
         "mtow_kg": 29.0,
-        "arquitectura": "Octoc\u00f3ptero Coaxial X8 (Motores HV 18S / 66.6V)",
+        "arquitectura": "Octocóptero Coaxial X8 (Motores HV 18S / 66.6V)",
         "factor_seguridad_abrazaderas_7075": 4.17,
         "integridad_tubos_fibra_carbono_50mm": "APROBADO (Sin fatiga estructural)"
     },
-    "viabilidad_para_inversores": "Validado: Simulaci\u00f3n multisectorial con APIs en vivo y control aut\u00f3nomo operativo."
+    "viabilidad_para_inversores": "Validado: Simulación multisectorial con APIs en vivo y control autónomo operativo.",
+    "_aviso_sistema": "DATOS SIMULADOS por gemelo digital - No son mediciones directas en vuelo real de campo"
 }

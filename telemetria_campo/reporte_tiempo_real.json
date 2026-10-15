@@ -1,5 +1,5 @@
 {
-    "proyecto": "PERLACOLABS - Prototipo Dron Agr\u00edcola STR-002 H3",
+    "proyecto": "PERLACOLABS - Prototipo Dron Agrícola STR-002 H3",
     "timestamp": "2026-10-13 11:41:18",
     "meteorologia": {
         "temperatura_c": 29.6,
@@ -14,49 +14,49 @@
                 "motor_id": 1,
                 "rpm": 5855,
                 "temperatura_c": 48.2,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 2,
                 "rpm": 6074,
                 "temperatura_c": 53.2,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 3,
                 "rpm": 5875,
                 "temperatura_c": 43.3,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 4,
                 "rpm": 6123,
                 "temperatura_c": 50.0,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 5,
                 "rpm": 5942,
                 "temperatura_c": 46.7,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 6,
                 "rpm": 5907,
                 "temperatura_c": 48.6,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 7,
                 "rpm": 6165,
                 "temperatura_c": 43.4,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             },
             {
                 "motor_id": 8,
                 "rpm": 6109,
                 "temperatura_c": 54.4,
-                "estado": "\u00d3PTIMO"
+                "estado": "ÓPTIMO"
             }
         ],
         "redundancia_x8_segura": true
@@ -65,7 +65,8 @@
         "factor_seguridad_fea": 4.17,
         "esfuerzo_max_mpa": 125.4,
         "limite_elastico_7075_mpa": 450.0,
-        "integridad_estructural": "APROBADO (Sin fatiga cr\u00edtica)"
+        "integridad_estructural": "APROBADO (Sin fatiga crítica)"
     },
-    "estado_general": "LISTO PARA INVERSI\u00d3N Y PRUEBAS DE CAMPO"
+    "estado_general": "LISTO PARA INVERSIÓN Y PRUEBAS DE CAMPO",
+    "_aviso_sistema": "DATOS SIMULADOS por gemelo digital - No son mediciones directas en vuelo real de campo"
 }

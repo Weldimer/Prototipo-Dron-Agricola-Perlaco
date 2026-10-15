@@ -114,7 +114,7 @@ class SimuladorGraficoDinamico:
             },
             "mecanica_dron": {
                 "modelo": "STR-002 H3 v3.5 (Octocóptero Coaxial X8)",
-                "factor_seguridad_7075": 4.17,
+                "factor_seguridad_7075": 649.07,
                 "precision_rtk_mm": round(random.uniform(8.0, 11.5), 1)
             }
         }
