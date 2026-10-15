@@ -1,0 +1,18 @@
+# Parámetros Oficiales ArduPilot - STR-002 H3 v3.5 (Octocóptero Coaxial X8)
+# Corregido: FRAME_CLASS establecido en 4 (OctaQuad / X8) y eliminación de parámetros inválidos.
+
+FRAME_CLASS,4
+FRAME_TYPE,1
+MOT_PWM_TYPE,6
+INS_HNTCH_ENABLE,1
+INS_HNTCH_MODE,3
+INS_HNTCH_FREQ,55.0
+INS_HNTCH_BW,25.0
+INS_HNTCH_ATT,15.0
+INS_HNTCH_HMNCS,3
+INS_HNTC2_ENABLE,0
+GPS_TYPE,17
+GPS_TYPE2,18
+EK3_SRC1_YAW,2
+FENCE_ALT_MAX,1000
+RTL_ALT,900
