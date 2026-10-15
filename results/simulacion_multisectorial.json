@@ -1,0 +1,25 @@
+{
+    "aeronautica": {
+        "mtow_kg": 29.0,
+        "carga_disco_pa": 177.81,
+        "potencia_hover_kw": 12.5
+    },
+    "electrica_termica": {
+        "voltaje_nominal_v": 66.6,
+        "voltaje_operativo_real_v": 63.78,
+        "caida_tension_v": 2.82,
+        "corriente_total_a": 187.69,
+        "corriente_por_motor_a": 23.46,
+        "perdidas_joule_w": 176.13
+    },
+    "estructural_mecatronica": {
+        "fuerza_max_diseno_n": 1280.2,
+        "factor_carga_evaluado": 4.5,
+        "margen_seguridad": 2.0
+    },
+    "navegacion_vra": {
+        "velocidad_avance_m_s": 6.0,
+        "ancho_barrida_m": 6.0,
+        "caudal_bomba_ml_min": 9000.0
+    }
+}
