@@ -1,0 +1,5 @@
+item_id,componente,especificacion,cantidad,estado_evidencia
+MOT-H1,Motor Brushless,KV 180-200 (12S),6,Documentado
+ESC-H1,ESC FOC,80A OPTO,6,Documentado
+BAT-H1,Batería LiPo,12S 16000mAh,2,Documentado
+FC-H1,Controlador de Vuelo,Pixhawk Cube Orange+,1,Documentado
