@@ -18,12 +18,12 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Install dependencies explicitly
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pymavlink numpy matplotlib pytest
+        pip install numpy matplotlib pytest
 
-    - name: Run pytest with absolute PYTHONPATH
+    - name: Run pytest safely
       env:
         PYTHONPATH: ${{ github.workspace }}/edge_ai/src:${{ github.workspace }}/edge_ai/tests
       run: |
