@@ -16,7 +16,7 @@
 ## 🎥 Panel de Control y Telemetría en Tiempo Real (Gráfica Animada tipo Video)
 A continuación se observa la evolución dinámica de los subsistemas del dron en tiempo real:
 
-![Dashboard Animado en Tiempo Real](docs/gemelo_digital_operacion/dashboard_gemelo_digital_animado.gif)
+![Dashboard Animado en Tiempo Real](https://raw.githubusercontent.com/Weldimer/Prototipo-Dron-Agricola-Perlaco/main/docs/gemelo_digital_operacion/dashboard_gemelo_digital_animado.gif)
 
 ---
 
