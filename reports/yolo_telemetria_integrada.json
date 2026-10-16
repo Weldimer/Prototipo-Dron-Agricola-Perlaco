@@ -1,14 +1,6 @@
 {
-    "estado_rtk": "FIX_CENTIMETRICO",
-    "satelites_activos": 40,
-    "pdop": 0.8496954670889224,
-    "bateria_sistema": "18S (66.6V nominal, 30 Ah)",
-    "corriente_total_operativa_a": 190.5,
-    "autonomia_segura_con_ia_min": 8.03,
-    "yolo_vision_ai": {
-        "modelo": "YOLOv8-Nano (Optimizado Edge AI)",
-        "focos_maleza_detectados": 85,
-        "focos_plaga_detectados": 45,
-        "precision_promedio": 0.924
-    }
+    "estado": "Operativo",
+    "satelites": 41,
+    "pdop": 1.076449614463156,
+    "autonomia_min": 8.03
 }
