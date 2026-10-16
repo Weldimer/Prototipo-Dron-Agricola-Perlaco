@@ -1,14 +1,14 @@
 {
-    "rtk_status": "FIX_CENTIMETRICO",
-    "satellites": 42,
-    "pdop": 0.8721487011376398,
-    "yolo_analysis": {
-        "total_frames_analizados": 1250,
-        "plantas_sanas_detectadas": 1120,
-        "parches_maleza_detectados": 85,
+    "estado_rtk": "FIX_CENTIMETRICO",
+    "satelites_activos": 40,
+    "pdop": 0.8496954670889224,
+    "bateria_sistema": "18S (66.6V nominal, 30 Ah)",
+    "corriente_total_operativa_a": 190.5,
+    "autonomia_segura_con_ia_min": 8.03,
+    "yolo_vision_ai": {
+        "modelo": "YOLOv8-Nano (Optimizado Edge AI)",
+        "focos_maleza_detectados": 85,
         "focos_plaga_detectados": 45,
-        "confianza_promedio_yolo": 0.924
-    },
-    "bateria_bus": "18S (66.6V nominal)",
-    "mtow_operativo_kg": 60.0
+        "precision_promedio": 0.924
+    }
 }
