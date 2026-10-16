@@ -1,0 +1,40 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "estado": "Veracruz",
+                "municipio": "Úrsulo Galván",
+                "zona_cultivo": "Caña de Azúcar"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -96.35,
+                            19.38
+                        ],
+                        [
+                            -96.3,
+                            19.38
+                        ],
+                        [
+                            -96.3,
+                            19.43
+                        ],
+                        [
+                            -96.35,
+                            19.43
+                        ],
+                        [
+                            -96.35,
+                            19.38
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
