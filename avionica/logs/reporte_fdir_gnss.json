@@ -1,0 +1,20 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "sistema": "FDIR Quad-GNSS + SBAS",
+    "estado_salud": {
+        "GPS": true,
+        "Galileo": true,
+        "BeiDou": true,
+        "GLONASS": false
+    },
+    "pesos_fusion_finales": {
+        "GPS": 0.351,
+        "Galileo": 0.42900000000000005,
+        "BeiDou": 0.21999999999999997,
+        "GLONASS": 0.0
+    },
+    "logs_ejecucion": [
+        "[ALERTA FDIR] Constelación GLONASS AISLADA. Motivo: HDOP excesivo (3.5 > 2.0)"
+    ]
+}
