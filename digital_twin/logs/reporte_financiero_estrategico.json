@@ -1,0 +1,14 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "estado_api_keys": {
+        "google_cloud_observability": "Conectado vía OTLP (Token verificado)",
+        "github_automation": "Conectado vía PAT (Token activo)",
+        "rtk_gnss_cors": "Enlace NTRIP Activo"
+    },
+    "metricas_financieras": {
+        "ahorro_estimado_porcentaje": "48.5%",
+        "superficie_evaluada_ha": 500,
+        "estado_reporte": "Generado y sincronizado con éxito"
+    }
+}
