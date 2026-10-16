@@ -1,11 +1,16 @@
 {
     "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
     "mtow_kg": 60.0,
-    "estado_operativo": "Simulación multiárea completada con éxito",
-    "metricas_maximas": {
-        "max_viento_m_s": 13.358971381600224,
-        "max_esfuerzo_mpa": 164.11144283064496,
-        "max_deriva_gnss_cm": 0.6484974711391542,
-        "promedio_precision_yolo": 94.0611258080861
-    }
+    "despliegue_geoestrategico": {
+        "pais": "MÉXICO",
+        "region_operativa": "VERACRUZ",
+        "estado_red": "Conectado a Red Maestra RTK y Central de Enjambres"
+    },
+    "metricas_tiempo_real": {
+        "precision_yolo_promedio": 94.98888526320249,
+        "perdida_final_rl": 0.09809626817154746,
+        "max_esfuerzo_abrazaderas_mpa": 146.03729922763208,
+        "corriente_promedio_a": 182.6516479991947
+    },
+    "diagnostico_general": "Sistema operando en parámetros nominales óptimos bajo cargas extremas de viento y descarga de peso."
 }
