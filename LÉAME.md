@@ -3,7 +3,7 @@
 Plataforma de código abierto para aspersión agrícola de precisión, diseñada para las condiciones del campo mexicano (Veracruz).
 
 ## Parámetros Principales
-* **MTOW Nominal:** 29.0 kg
+* **MTOW Nominal:** 60 kg
 * **Configuración:** Octóptero Coaxial X8 / Variante Hexacopter de Aluminio (6S)
 * **Bus de Potencia:** 12S LiPo (44.4 V nominal / 50.4 V pico)
 * **Aviónica:** Pixhawk Cube Orange+, GPS RTK u-blox ZED-F9P
