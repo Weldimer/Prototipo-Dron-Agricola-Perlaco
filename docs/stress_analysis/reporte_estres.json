@@ -1,0 +1,8 @@
+{
+    "plataforma": "STR-002 H3 v3.0",
+    "modulos_nuevos": [
+        "Control Térmico ESC/Batería",
+        "Fatiga de Materiales (Miner-Palmgren)"
+    ],
+    "artefacto": "docs/stress_analysis/analisis_fatiga_termica.png"
+}

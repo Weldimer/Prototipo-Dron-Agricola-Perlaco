@@ -1,0 +1,13 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "estado_orquestacion": "Completada al 100% (Nivel Élite Industrial)",
+    "modulos_activos": [
+        "Control Adaptativo Neuronal PyTorch",
+        "Enjambres Cognitivos Descentralizados",
+        "YOLOv8 Edge AI con Autoaprendizaje Constante",
+        "Monitoreo Atmosférico, Terreno y Deriva CDA",
+        "Gestión Térmica HV 18S y Fatiga Estructural Miner-Palmgren"
+    ],
+    "artefacto_principal": "docs/ecosistema_elite/dashboard_orquestesta_total.png"
+}

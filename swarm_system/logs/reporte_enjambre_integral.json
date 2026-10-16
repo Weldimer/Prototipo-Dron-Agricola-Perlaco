@@ -1,0 +1,11 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "modo_operacion": "Enjambre Autónomo Multi-Dron (Líder + Seguidor)",
+    "inteligencia_artificial": "YOLOv8 Edge con Autoaprendizaje Constante",
+    "monitoreo_ambiental": "Activo (Viento, Humedad, Terreno Phased-Array)",
+    "artefactos": {
+        "panel_principal": "docs/enjambre_sim/monitoreo_total_enjambre.png",
+        "trayectoria_enjambre": "docs/enjambre_sim/coordinacion_enjambre.png"
+    }
+}

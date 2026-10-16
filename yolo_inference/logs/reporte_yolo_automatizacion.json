@@ -1,0 +1,12 @@
+{
+    "plataforma": "STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "vision_artificial": "YOLOv8 Edge Model",
+    "aprendizaje_continuo": "Habilitado via Telemetría y Logs OTLP",
+    "metricas_operativas": {
+        "precision_final_map": 94.62120050102672,
+        "fps_promedio": 44.89169831381913,
+        "ahorro_quimico_estimado_porcentaje": 32.5
+    },
+    "artefacto_visual": "docs/yolo_simulacion/rendimiento_yolo_gemelo.png"
+}
