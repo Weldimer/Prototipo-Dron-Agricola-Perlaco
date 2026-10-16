@@ -1,0 +1,34 @@
+{
+    "metadata": {
+        "platform": "ELECTRÓNICA PERLACO STR-002 H3",
+        "version": "v3.0",
+        "mtow_kg": 60.0,
+        "power_architecture": "18S HV (66.6V nominal)"
+    },
+    "propulsion_bus": {
+        "protocol": "DShot600 Bidirectional",
+        "channels": 8,
+        "immunity": "High EMI Resistance via Checksum"
+    },
+    "peripherals_bus": {
+        "protocol": "DroneCAN (UAVCAN v1.0)",
+        "topology": "Daisy Chain Differential Bus (CAN_H / CAN_L)",
+        "connected_nodes": [
+            "BMS Smart Battery 30Ah",
+            "Dual GNSS RTK Receivers",
+            "Radar Phased-Array 3D (77-81 GHz)",
+            "CDA Hydraulic Pump Manifold (24 L/min)"
+        ]
+    },
+    "swarm_and_mavlink_config": {
+        "telemetry_protocol": "MAVLink v2.0 over Mesh RF",
+        "ground_station_integration": "QGroundControl / Mission Planner Multi-Vehicle",
+        "fleet_parameters": {
+            "max_fleet_nodes": 8,
+            "node_id_allocation": "Dynamic DHCP-CAN / Static MAVLink SYSID (1 to 8)",
+            "leader_follower_sync": true,
+            "collision_avoidance": "Radar 3D + Vision 360"
+        }
+    },
+    "safety_status": "VALIDATED - FS: 4.17"
+}

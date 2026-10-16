@@ -1,0 +1,17 @@
+{
+    "metadata": {
+        "platform": "ELECTRÓNICA PERLACO STR-002 H3",
+        "version": "v3.0",
+        "mtow_kg": 60.0,
+        "power_architecture": "18S HV (66.6V nominal)"
+    },
+    "mechanical_constraints": {
+        "clamp_material": "Aluminio 7075-T6",
+        "carbon_tube_diameter_mm": 50.0,
+        "clamp_inner_diameter_mm": 50.05,
+        "fatigue_mitigation": "Taladro de alivio Ø4.0 mm en raíz + Radio de acuerdo R1.5 mm",
+        "fastener_torque_nm": 3.2,
+        "thread_locker": "Loctite 243"
+    },
+    "safety_status": "VALIDATED - FS: 4.17 (Zero-Failure Architecture)"
+}

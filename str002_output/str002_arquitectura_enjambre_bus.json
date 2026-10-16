@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "platform": "ELECTRÓNICA PERLACO STR-002 H3",
+        "version": "v3.0",
+        "mtow_kg": 60.0,
+        "power_architecture": "18S HV (66.6V nominal)"
+    },
+    "propulsion_and_control": {
+        "motor_controllers": "ESCs Industriales de Alta Corriente",
+        "control_protocol": "DShot600 Bidireccional",
+        "redundancy": "Verificación de errores por Checksum y telemetría de temperatura/corriente por ciclo",
+        "immunity": "Alta resistencia a EMI generada por cableado HV 12 AWG"
+    },
+    "avionics_bus": {
+        "network_standard": "DroneCAN (UAVCAN v1.0)",
+        "topology": "Bus diferencial en cadena (Daisy Chain: CAN_H / CAN_L)",
+        "nodes_integrated": [
+            "Controlador de Vuelo Principal (Pixhawk/ArduPilot Core)",
+            "BMS Inteligente (Batería 30 Ah con recarga ráfaga de 11 min)",
+            "Radar Phased-Array 3D (77-81 GHz)",
+            "Sensores GNSS RTK Duales",
+            "Manifold Hidráulico CDA (Bombas de caudal hasta 24.0 L/min)"
+        ]
+    },
+    "swarm_operations": {
+        "communication_link": "Radio Enlace Mesh de Largo Alcance (Enrutamiento Dinámico)",
+        "formation_control": "Modelo Líder-Seguidor (Leader-Follower) con IDs de nodo únicos",
+        "collision_avoidance": "Integración cruzada Radar 3D + Visión Estereoscópica 360°"
+    }
+}
