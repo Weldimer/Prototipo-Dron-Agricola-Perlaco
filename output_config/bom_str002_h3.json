@@ -1,0 +1,36 @@
+{
+    "platform": "STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "componentes_criticos": [
+        {
+            "item": 1,
+            "componente": "Chasis Hexagonal Fibra de Carbono 3.0mm",
+            "cantidad": 1,
+            "material": "Carbono Toray T700"
+        },
+        {
+            "item": 2,
+            "componente": "Abrazaderas de Motor H3",
+            "cantidad": 8,
+            "material": "Aluminio 7075-T6 (FS = 4.17)"
+        },
+        {
+            "item": 3,
+            "componente": "Motores Brushless P80 III + Hélices 30 pulgadas",
+            "cantidad": 8,
+            "especificacion": "HV 18S"
+        },
+        {
+            "item": 4,
+            "componente": "Controlador de Vuelo Cube Orange + GPS RTK ZED-F9P",
+            "cantidad": 1,
+            "software": "ArduCopter / Lua Script"
+        },
+        {
+            "item": 5,
+            "componente": "Sirena / Zumbador Piezoeléctrico IP67 de Alta Potencia",
+            "cantidad": 1,
+            "especificacion": "98 dB a 1m, 12V-24V (Marcha Turca y Avisos RTL)"
+        }
+    ]
+}
