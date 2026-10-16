@@ -4,9 +4,9 @@
     "estado_sistema": "Operativo con autoaprendizaje activo",
     "metricas_promedio": {
         "precision_yolo_promedio": 95.0,
-        "perdida_final_rl": 0.572644761337691,
-        "max_esfuerzo_registrado_mpa": 140.0,
+        "perdida_final_rl": 0.10423,
+        "max_esfuerzo_registrado_mpa": 136.5893,
         "margen_seguridad_estructural": "Conforme (Muy por debajo de 503 MPa)"
     },
-    "diagnostico_fallas": "Sin anomalías críticas. Formato de punto decimal estandarizado para compatibilidad total con GitHub."
+    "diagnostico_fallas": "Sin anomalías críticas. Formato de punto decimal estandarizado y libre de duplicados."
 }

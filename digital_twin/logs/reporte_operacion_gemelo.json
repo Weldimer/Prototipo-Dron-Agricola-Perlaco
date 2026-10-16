@@ -8,9 +8,9 @@
     },
     "metricas_tiempo_real": {
         "precision_yolo_promedio": 95.0,
-        "perdida_final_rl": 0.572644761337691,
-        "max_esfuerzo_abrazaderas_mpa": 140.0,
-        "corriente_promedio_a": 182.49999999999997
+        "perdida_final_rl": 0.10423,
+        "max_esfuerzo_abrazaderas_mpa": 136.5893,
+        "corriente_promedio_a": 182.6516
     },
-    "diagnostico_general": "Sistema operando en parámetros nominales óptimos. Formato JSON corregido con punto decimal estándar."
+    "diagnostico_general": "Sistema operando en parámetros nominales óptimos. JSON estructurado correctamente."
 }
