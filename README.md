@@ -1,77 +1,27 @@
-22# ELECTRÓNICA PERLACO — STR-002 H3 (v2.5 / v3.0)
-**Gemelo Digital y Simulación de Misión para Dron Agrícola (MTOW 55.0 kg - 60.0 kg)**
+# 🚁 STR-002 H3 v3.0 — Sistema de Dron Agrícola de Alta Potencia (60 kg MTOW)
 
-Repositorio oficial de ingeniería para el diseño, modelado físico, simulación dinámica y validación de aviónica del octocóptero agrícola STR-002 H3. Este proyecto prioriza la precisión técnica basada estrictamente en principios de aerodinámica, electromagnetismo y termodinámica, sin especulaciones.
-
----
-
-## 📋 1. Arquitectura y Especificaciones Físicas del Sistema
-* **Modelo:** ELECTRÓNICA PERLACO STR-002 H3
-* **Configuración:** Octocóptero (8 extrotores)
-* **Peso Seco (Chasis + Aviónica):** 30.0 kg
-* **Capacidad Máxima de Líquido:** 25.0 kg
-* **Peso Máximo al Despegue (MTOW Inicial):** 55.0 kg
-* **Sistema de Acumulación:** Batería inteligente configurada en 18S (66.6 V nominales, 30.0 Ah, resistencia interna $R_{int} = 18.0\text{ m}\Omega$).
-* **Propulsión e Hidráulica:** Hélices de 30 pulgadas, motores con constante $K_v = 120\text{ RPM/V}$ y sistema de aspersión CDA con demanda estimada de 350 W.
+> **Centro Regional de Operaciones:** Veracruz, México  
+> **Plataforma Tecnológica:** ELECTRÓNICA PERLACO  
+> **Estado del Repositorio:** Sincronizado, Operativo y Monitoreado mediante Gemelo Digital.
 
 ---
 
-## 📊 2. Resultados de Misión Optimizada (Simulación Dinámica)
-Evaluado bajo un margen estricto de seguridad del 85% de capacidad útil de descarga (25.50 Ah):
+## 📊 Panel de Control y Telemetría Multiárea en Tiempo Real
 
-| Parámetro de Ingeniería | Valor Validado |
-| :--- | :--- |
-| **Tiempo Máximo de Misión Seguro** | 8.20 minutos |
-| **Consumo Total de Batería** | 25.62 Ah |
-| **Corriente Promedio de Operación** | 186.04 A |
-| **Corriente Máxima (Despegue / Tanque Lleno)** | 187.64 A |
-| **Corriente Mínima (Aterrizaje / Tanque Vacío)** | 184.43 A |
-| **Voltaje Terminal Inicial (Bajo Carga)** | 63.36 V |
-| **Voltaje Terminal Final (Bajo Carga)** | 63.27 V |
-| **Caída de Tensión Máxima ($V_{drop}$)** | 3.38 V |
+A continuación se detallan los módulos críticos del gemelo digital, integrando visión artificial, redes neuronales y análisis estructural bajo condiciones reales de operación en **México y Veracruz**:
+
+| Subsistema Clave | Componente / Algoritmo | Estado Operativo | Parámetro Crítico / Límite | Evidencia / Gráfica en Repo |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Dinámica Atmosférica** | Simulación de Viento Racheado | Óptimo | 3.0 a 13.0 m/s | `docs/gemelo_digital_operacion/dashboard_gemelo_digital_master.png` |
+| **2. Estructura & Fatiga** | Abrazaderas de Aluminio 7075-T6 | Conforme | ~120 MPa (Límite: 503 MPa) | `docs/gemelo_digital_operacion/dashboard_gemelo_digital_master.png` |
+| **3. Aviónica & Posicionamiento**| Quad-GNSS + SBAS (Redundancia) | Seguro | Deriva < 0.75 cm (RTK < 2 cm) | `avionica/logs/reporte_fdir_gnss.json` |
+| **4. Inteligencia Artificial** | Inferencia YOLOv8 Edge AI | Activo | Precisión 91% - 97% | `docs/gemelo_digital_operacion/dashboard_gemelo_digital_master.png` |
+| **5. Aprendizaje por Refuerzo** | Q-Learning Optimizador de Rutas | Convergente | Minimización efectiva de solape | `ai/logs/reporte_rl_optimizacion.json` |
 
 ---
 
-## 🌡️ 3. Modelo Térmico y Gestión del Pack 18S
-* **Modelo Aplicado:** Disipación por efecto Joule ($P_{loss} = I^2 \cdot R_{int}$) frente al enfriamiento por convección forzada debida al flujo de aire descendente (*downwash*) de las 8 hélices principales.
-* **Coeficiente de Convección Optimizado:** Configurado a $28\text{ W/K}$ mediante la implementación de ductos de ventilación directa y aletas disipadoras en el chasis.
-* **Evolución Térmica de Celdas:**
-  * **Temperatura Inicial:** 28.53 °C
-  * **Temperatura Promedio:** 54.85 °C
-  * **Temperatura Máxima Final:** 49.66 °C *(Cumpliendo holgadamente con el umbral operativo seguro al mantenerse por debajo del límite crítico de 60 °C)*.
-
----
-
-## 📁 4. Estructura del Repositorio y Entregables
-* `docs/RESUMEN_TECNICO_STR002.md`: Documentación formal de ingeniería del gemelo digital.
-* `simulation/simulacion_mision_completa_str002.csv`: Conjunto de datos temporal sincronizado con registros de tiempo, peso, corriente total, voltaje terminal, RPM de rotores y temperatura de celdas.
-
----
-
-## 🚀 5. Pautas Operativas para el Piloto
-1. **Límite de Tiempo Estricto:** Retornar a base o iniciar descenso antes de los 8.20 minutos de vuelo.
-2. **Control de Despegue:** Accionar el acelerador de forma progresiva con el MTOW de 55.0 kg para mitigar picos transitorios de corriente.
-3. **Inspección Post-Vuelo:** Verificar el estado térmico del pack 18S; si se registran temperaturas superiores a 60 °C, suspender vuelos consecutivos hasta el enfriamiento natural.
-
----
-
-## 🖤 Dedicatoria y Agradecimientos
-
-Este proyecto de ingeniería y prototipo del dron agrícola ELECTRÓNICA PERLACO STR-002 H3 v3.0 representa dedicación, resiliencia y constante evolución técnica. No habría sido posible sin las personas que han marcado mi camino:
-
-* **A mi Padre:** Técnico, de quien heredé la pasión por desarmar el mundo, entender cómo funciona y volverlo a construir. Gracias por ser mi primera escuela de ingeniería.
-* **A mi Madre:** Por su firmeza inquebrantable. De ella aprendí el carácter, la disciplina y la fuerza para no rendirme jamás frente a la adversidad.
-* **A mi Hermana:** Por estar siempre a mi lado, brindándome su apoyo incondicional en cada etapa de este recorrido.
-* **A mis Amigos:** Por respaldarme, confiar en mis ideas y acompañarme en las jornadas de desarrollo.
-* **A quienes confiaron en mí sus aparatos (y que alguna vez descompuse):** Gracias por la paciencia y por brindarme el campo de pruebas real donde aprendí a reparar, innovar y perfeccionar mis conocimientos.
-* **A mis detractores y a quienes me desearon lo peor:** A aquellos que lo hicieron con educación y elegancia, les agradezco infinitamente. Sus dudas y críticas fueron el combustible perfecto para autoexigirme más, pulir cada detalle técnico y demostrar con hechos, ciencia y simulación de lo que soy capaz.
-* 🏡 A LOS DE LA CASITA xD
-​A mis medios hermanos, que ya saben perfectamente quiénes son. Gracias por estar siempre, por la compañía, las risas y por caminar juntos este tramo de la vida sin importar las circunstancias.
-​🙏 A mis hermanos de Fe en Cristo
-De corazón, muchas gracias por sus oraciones constantes, por estar pendientes, por su cariño genuino y por el sostén espiritual que siempre me brindan.
-​❤️ A toda mi familia
-El pilar fundamental de cada esfuerzo, logro y paso hacia adelante.
-
----
-Xquixhe pe’ guiraatu’ !!!!
-Ese no es el último XD, continuará....
+## 🇲🇽 Despliegue Geoestratégico y de Inversión
+* **País:** México
+* **Centro de Ensayos y Campo:** Estado de Veracruz
+* **Beneficio Operativo:** Ahorro estimado del **48.5%** en costos operativos comparado con la agricultura tradicional por tractor o mochila aspersora.
+* **Dashboard Gráfico Principal:** Disponible en la ruta [`docs/gemelo_digital_operacion/dashboard_gemelo_digital_master.png`](docs/gemelo_digital_operacion/dashboard_gemelo_digital_master.png).
