@@ -23,6 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run pytest
+    - name: Run pytest with PYTHONPATH
       run: |
+        export PYTHONPATH=$PYTHONPATH:$(pwd)/edge_ai/src:$(pwd)/edge_ai/tests
         pytest -v
