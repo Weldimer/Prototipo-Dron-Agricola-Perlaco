@@ -1,4 +1,4 @@
-# ELECTRÓNICA PERLACO — STR-002 H3 (v2.5 / v3.0)
+2# ELECTRÓNICA PERLACO — STR-002 H3 (v2.5 / v3.0)
 **Gemelo Digital y Simulación de Misión para Dron Agrícola (MTOW 55.0 kg - 60.0 kg)**
 
 Repositorio oficial de ingeniería para el diseño, modelado físico, simulación dinámica y validación de aviónica del octocóptero agrícola STR-002 H3. Este proyecto prioriza la precisión técnica basada estrictamente en principios de aerodinámica, electromagnetismo y termodinámica, sin especulaciones.
@@ -65,5 +65,11 @@ Este proyecto de ingeniería y prototipo del dron agrícola ELECTRÓNICA PERLACO
 * **A mis Amigos:** Por respaldarme, confiar en mis ideas y acompañarme en las jornadas de desarrollo.
 * **A quienes confiaron en mí sus aparatos (y que alguna vez descompuse):** Gracias por la paciencia y por brindarme el campo de pruebas real donde aprendí a reparar, innovar y perfeccionar mis conocimientos.
 * **A mis detractores y a quienes me desearon lo peor:** A aquellos que lo hicieron con educación y elegancia, les agradezco infinitamente. Sus dudas y críticas fueron el combustible perfecto para autoexigirme más, pulir cada detalle técnico y demostrar con hechos, ciencia y simulación de lo que soy capaz.
+* 🏡 A LOS DE LA CASITA xD
+​A mis medios hermanos, que ya saben perfectamente quiénes son. Gracias por estar siempre, por la compañía, las risas y por caminar juntos este tramo de la vida sin importar las circunstancias.
+​🙏 A mis hermanos de Fe en Cristo
+De corazón, muchas gracias por sus oraciones constantes, por estar pendientes, por su cariño genuino y por el sostén espiritual que siempre me brindan.
+​❤️ A toda mi familia
+El pilar fundamental de cada esfuerzo, logro y paso hacia adelante.
 
 ---
