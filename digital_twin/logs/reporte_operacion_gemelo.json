@@ -7,10 +7,10 @@
         "estado_red": "Conectado a Red Maestra RTK y Central de Enjambres"
     },
     "metricas_tiempo_real": {
-        "precision_yolo_promedio": 94.98888526320249,
-        "perdida_final_rl": 0.09809626817154746,
-        "max_esfuerzo_abrazaderas_mpa": 146.03729922763208,
-        "corriente_promedio_a": 182.6516479991947
+        "precision_yolo_promedio": 95.0,
+        "perdida_final_rl": 0.572644761337691,
+        "max_esfuerzo_abrazaderas_mpa": 140.0,
+        "corriente_promedio_a": 182.49999999999997
     },
-    "diagnostico_general": "Sistema operando en parámetros nominales óptimos bajo cargas extremas de viento y descarga de peso."
+    "diagnostico_general": "Sistema operando en parámetros nominales óptimos. Formato JSON corregido con punto decimal estándar."
 }
