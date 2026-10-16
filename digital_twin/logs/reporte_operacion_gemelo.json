@@ -1,0 +1,11 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "estado_operativo": "Simulación multiárea completada con éxito",
+    "metricas_maximas": {
+        "max_viento_m_s": 13.358971381600224,
+        "max_esfuerzo_mpa": 164.11144283064496,
+        "max_deriva_gnss_cm": 0.6484974711391542,
+        "promedio_precision_yolo": 94.0611258080861
+    }
+}
