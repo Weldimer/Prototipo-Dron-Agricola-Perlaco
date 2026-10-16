@@ -57,12 +57,12 @@ Evaluado bajo un margen estricto de seguridad del 85% de capacidad útil de desc
 
 ## 🖤 Dedicatoria y Agradecimientos
 
-Este proyecto de ingeniería y prototipo del dron agrícola ELECTRÓNICA PERLACO STR-002 H3 v3.0 representa años de aprendizaje, resiliencia y constante evolución técnica. No habría sido posible sin las personas que han marcado mi camino:
+Este proyecto de ingeniería y prototipo del dron agrícola ELECTRÓNICA PERLACO STR-002 H3 v3.0 representa dedicación, resiliencia y constante evolución técnica. No habría sido posible sin las personas que han marcado mi camino:
 
-* **A mi Padre:** Técnico con años de experiencia, de quien heredé la pasión por desarmar el mundo, entender cómo funciona y volverlo a construir. Gracias por ser mi primera escuela de ingeniería.
+* **A mi Padre:** Técnico, de quien heredé la pasión por desarmar el mundo, entender cómo funciona y volverlo a construir. Gracias por ser mi primera escuela de ingeniería.
 * **A mi Madre:** Por su firmeza inquebrantable. De ella aprendí el carácter, la disciplina y la fuerza para no rendirme jamás frente a la adversidad.
 * **A mi Hermana:** Por estar siempre a mi lado, brindándome su apoyo incondicional en cada etapa de este recorrido.
-* **A mis Amigos:** Por respaldarme, confiar en mis ideas y acompañarme en las largas jornadas de desarrollo.
+* **A mis Amigos:** Por respaldarme, confiar en mis ideas y acompañarme en las jornadas de desarrollo.
 * **A quienes confiaron en mí sus aparatos (y que alguna vez descompuse):** Gracias por la paciencia y por brindarme el campo de pruebas real donde aprendí a reparar, innovar y perfeccionar mis conocimientos.
 * **A mis detractores y a quienes me desearon lo peor:** A aquellos que lo hicieron con educación y elegancia, les agradezco infinitamente. Sus dudas y críticas fueron el combustible perfecto para autoexigirme más, pulir cada detalle técnico y demostrar con hechos, ciencia y simulación de lo que soy capaz.
 
