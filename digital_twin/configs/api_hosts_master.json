@@ -1,0 +1,29 @@
+{
+    "system_metadata": {
+        "platform": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+        "mtow_kg": 60.0,
+        "architecture_hv": "18S (66.6V nominal)",
+        "telemetry_bus": "MAVLink over UDP / MAVProxy"
+    },
+    "network_hosts": {
+        "flight_controller_mavlink": "udp://192.168.4.1:14550",
+        "edge_vision_yolo_server": "http://192.168.4.10:8080/v1/inference",
+        "rtk_gnss_base_stream": "tcp://rtk-cors.perlacolabs.local:2101",
+        "cloud_observability_otlp": "https://otlp.cloud-observability.google.com/v1/metrics"
+    },
+    "api_keys_environment_references": {
+        "google_cloud_observability_token": "${GCP_OTLP_TOKEN}",
+        "github_automation_pat": "${GITHUB_PAT_TOKEN}",
+        "rtk_correction_service_key": "${RTK_CORRECTION_KEY}",
+        "ai_model_weights_registry": "${AI_REGISTRY_TOKEN}"
+    },
+    "neural_networks_config": {
+        "yolov8_edge_model": "yolov8n-seg-agri_v3.pt",
+        "confidence_threshold": 0.85,
+        "input_resolution": [
+            640,
+            640
+        ],
+        "pytorch_adaptive_controller": "models/pytorch_adaptive_flight_ctrl.pth"
+    }
+}
