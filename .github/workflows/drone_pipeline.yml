@@ -1,0 +1,28 @@
+name: STR-002 H3 Aero-Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Ejecutar Auditoría del Sistema Operativo
+        run: python3 scripts/auditoria_sistema_operativo.py
+
+      - name: Ejecutar Simulador de Telemetría y FDI
+        run: python3 scripts/master_telemetria_fdi.py
+
+      - name: Ejecutar Motor de Autoaprendizaje del Gemelo Digital
+        run: python3 scripts/autoaprendizaje_gemelo_digital.py
