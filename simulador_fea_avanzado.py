@@ -52,9 +52,9 @@ def ejecutar_auditoria_continua():
             timestamp = obtener_tiempo_local()
             aceleracion_g = round(random.uniform(1.2, 3.2), 2)
             esfuerzo, fs, fuerza = fea.calcular_esuerzo_von_mises_real(mtow, aceleracion_g)
-            
+
             print(f"[{timestamp}] Ciclo {ciclo} | Aceleración: {aceleracion_g} G | Fuerza: {fuerza:.1f} N")
-            
+
             if fs < 3.0:
                 print(f"   ⚠️ [ALERTA ESTRUCTURAL] Von Mises: {esfuerzo} MPa | Factor de Seguridad Crítico: FS = {fs} (< 3.0)")
             else:

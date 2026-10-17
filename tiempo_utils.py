@@ -6,6 +6,6 @@ def obtener_tiempo_local():
     return datetime.now(zona_local).strftime("%Y-%m-%d %H:%M:%S")
 
 def obtener_timestamp_s3():
-    """Retorna el timestamp formateado para nombres de archivo en S3."""
+    """Retorna la marca de tiempo formateada para nombres de archivo en S3."""
     zona_local = timezone(timedelta(hours=-6))
     return datetime.now(zona_local).strftime("%Y%m%d_%H%M%S")
