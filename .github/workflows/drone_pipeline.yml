@@ -26,3 +26,6 @@ jobs:
 
       - name: Ejecutar Motor de Autoaprendizaje del Gemelo Digital
         run: python3 scripts/autoaprendizaje_gemelo_digital.py
+
+      - name: Ejecutar Motor de Inferencia YOLO Edge y VRA
+        run: python3 scripts/edge_ai_inference_engine.py
