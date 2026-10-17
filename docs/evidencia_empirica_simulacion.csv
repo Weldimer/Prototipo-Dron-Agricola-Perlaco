@@ -1,0 +1,6 @@
+Parametro_Critico,Valor_Simulado,Margen_Seguridad,Estado_Validacion
+Bus_HV_18S_Temp,68.0 °C,Max 200 °C (Aislamiento),Aprobado
+Corriente_Pico,126.0 A,Conectores QS8-S Anti-Spark,Aprobado
+Factor_Seguridad_FEA,3.46,FS >= 3.0,Aprobado
+Autonomia_Util,13.5 min,Batería 30 Ah (CDA 24 L/min),Aprobado
+Frecuencia_Armonica,180.0 Hz,Desacoplado de resonancia,Aprobado
