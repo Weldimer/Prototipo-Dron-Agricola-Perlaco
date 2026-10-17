@@ -1,0 +1,19 @@
+{
+  "project": "STR-002 H3 Multisector Agricultural Drone",
+  "version": "3.0",
+  "mtow_kg": 60.0,
+  "apis": {
+    "weather_service": {
+      "endpoint": "https://api.weather-agriculture-grid.com/v1",
+      "key_env_var": "WEATHER_API_KEY"
+    },
+    "fleet_telemetry": {
+      "endpoint": "https://telemetry.perlaco-cloud.internal/v3/ingest",
+      "auth_token_env": "STR002_TELEMETRY_API_KEY"
+    }
+  },
+  "aws_cloud_observability": {
+    "otlp_endpoint": "https://otlp.us-east-1.amazonaws.com:4317",
+    "protocol": "gRPC"
+  }
+}
