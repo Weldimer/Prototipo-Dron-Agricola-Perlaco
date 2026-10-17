@@ -1,45 +1,73 @@
+import os
+import cv2
 import time
-import json
 import random
 import logging
+import numpy as np
 import sys
 
-# Configuración de logging para el motor de visión artificial Edge AI
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] [YOLO-EDGE-VRA]: %(message)s",
     handlers=[logging.StreamHandler(sys.stdout)]
 )
 
-class YOLOEdgeInferenceEngine:
-    def __init__(self, model_version="yolov8n-seg-agro.pt"):
-        self.model_version = model_version
-        self.confidence_threshold = 0.85
+class YOLOEdgeVideoProcessor:
+    def __init__(self, output_video="output_result.mp4"):
+        self.output_video = output_video
 
-    def simulate_realtime_inference(self, frames=5):
-        logging.info(f"Cargando modelo YOLO optimizado ({self.model_version}) en acelerador TensorRT (NVIDIA Jetson)...")
-        time.sleep(0.5)
-
-        for frame_id in range(1, frames + 1):
-            # Simulación de detección de densidad de maleza y estrés hídrico en cultivo
-            weed_density_pct = round(random.uniform(5.0, 45.0), 2)
-            confidence = round(random.uniform(0.88, 0.98), 4)
+    def process_video(self):
+        width, height = 1280, 720
+        fps = 30.0
+        
+        # Configurar el escritor de video de salida en formato MP4
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        out = cv2.VideoWriter(self.output_video, fourcc, fps, (width, height))
+        
+        logging.info(f"Generando video procesado con anotaciones YOLO VRA en: {self.output_video}")
+        
+        # Generar 90 fotogramas de prueba (equivalente a 3 segundos a 30 fps)
+        for frame_id in range(1, 91):
+            # Crear un frame base simulando un cultivo agrícola
+            frame = np.ones((height, width, 3), dtype=np.uint8) * 45
             
-            # Cálculo dinámico del caudal de aspersión variable (VRA) basado en YOLO
-            if weed_density_pct > 30.0:
-                vra_action = "HIGH_FLOW_SPRAY (24.0 L/min)"
-            elif weed_density_pct > 15.0:
-                vra_action = "MEDIUM_FLOW_SPRAY (14.0 L/min)"
+            # Encabezado del sistema a bordo del STR-002 H3
+            cv2.putText(frame, "STR-002 H3 - YOLO EDGE AI VRA MONITOR", (50, 50),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 255), 2)
+            
+            weed_density = round(random.uniform(5.0, 45.0), 2)
+            confidence = round(random.uniform(0.88, 0.99), 4)
+            
+            # Lógica de Aspersión Variable (VRA) y colores de alerta
+            if weed_density > 30.0:
+                vra_text = "VRA: HIGH_FLOW_SPRAY (24.0 L/min)"
+                color = (0, 0, 255) # Rojo (Alta densidad)
+                box_pt1, box_pt2 = (200, 200), (1080, 600)
+            elif weed_density > 15.0:
+                vra_text = "VRA: MEDIUM_FLOW_SPRAY (14.0 L/min)"
+                color = (0, 165, 255) # Naranja (Densidad moderada)
+                box_pt1, box_pt2 = (300, 250), (980, 550)
             else:
-                vra_action = "LOW_FLOW_MAINTENANCE (6.0 L/min)"
-
-            logging.info(f"Frame #{frame_id} | Confianza: {confidence} | Maleza Detectada: {weed_density_pct}% | VRA Activo: {vra_action}")
+                vra_text = "VRA: LOW_FLOW_MAINTENANCE (6.0 L/min)"
+                color = (0, 255, 0) # Verde (Mantenimiento)
+                box_pt1, box_pt2 = (400, 300), (880, 500)
+                
+            # Dibujar la caja delimitadora (Bounding Box) simulada de YOLO
+            cv2.rectangle(frame, box_pt1, box_pt2, color, 3)
             
-            # Simulación de latencia de inferencia en borde (< 15 ms)
-            time.sleep(0.8)
-
-        logging.info("Ciclo de inferencia en tiempo real completado con éxito. Procesos estancos y seguros.")
+            # Registrar métricas técnicas en pantalla
+            cv2.putText(frame, f"Frame: {frame_id} | Confianza: {confidence}", (50, 120),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+            cv2.putText(frame, f"Maleza Detectada: {weed_density}%", (50, 170),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+            cv2.putText(frame, vra_text, (50, 670),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 3)
+            
+            out.write(frame)
+            
+        out.release()
+        logging.info(f"¡Video de salida generado con éxito! Archivo guardado como '{self.output_video}'.")
 
 if __name__ == "__main__":
-    engine = YOLOEdgeInferenceEngine()
-    engine.simulate_realtime_inference()
+    processor = YOLOEdgeVideoProcessor()
+    processor.process_video()
