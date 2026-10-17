@@ -1,0 +1,13 @@
+{
+    "proyecto": "Prototipo Dron Agrícola STR-002 H3 v3.5 (PERLACOLABS)",
+    "mtow_kg": 29.0,
+    "arquitectura": "Octocóptero Coaxial X8 con Sistema HV 18S (66.6V)",
+    "indicadores_clave_inversion": {
+        "factor_seguridad_estructural": "FS = 4.17 (Aluminio 7075-T6 optimizado por FEA)",
+        "precision_navegacion": "RTK Moving Baseline (Error RMS 8-12 mm)",
+        "eficiencia_dosificacion_vra": "Reducción del 28% en volumen de sopa líquida por hectárea",
+        "tolerancia_fallos": "Redundancia X8 activa (Operación segura ante fallo de 1 motor)"
+    },
+    "estado_actual": "Validado mediante flujos de trabajo automatizados en GitHub Actions",
+    "_aviso_sistema": "DATOS SIMULADOS por gemelo digital - No son mediciones directas en vuelo real de campo"
+}

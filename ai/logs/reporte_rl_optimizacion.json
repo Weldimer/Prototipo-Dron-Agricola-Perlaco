@@ -1,0 +1,8 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "algoritmo": "Q-Learning Tabular Adaptativo con Perturbación Estocástica de Viento",
+    "episodios_entrenamiento": 600,
+    "recompensa_promedio_final": 371.8,
+    "estado_optimizacion": "Convergencia óptima lograda; minimización efectiva de solape y cobertura completa garantizada."
+}

@@ -1,0 +1,6 @@
+// Dependencias requeridas para la GCS Móvil - STR-002 H3 v3.5
+dependencies {
+    // KTX for the Maps SDK for Android library
+    implementation 'com.google.maps.android:maps-ktx:5.0.0'
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+}

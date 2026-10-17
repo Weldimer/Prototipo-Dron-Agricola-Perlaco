@@ -1,0 +1,5 @@
+item_id,componente,especificacion,cantidad,estado_evidencia
+MOT-Q1,Motor Brushless,KV 380-400 (6S),4,Documentado
+ESC-Q1,ESC FOC,40A-50A,4,Documentado
+BAT-Q1,Batería LiPo,6S 16000mAh,1,Documentado
+FC-Q1,Controlador de Vuelo,Pixhawk Cube Orange+,1,Documentado

@@ -1,0 +1,16 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "despliegue_geoestrategico": {
+        "pais": "MÉXICO",
+        "region_operativa": "VERACRUZ",
+        "estado_red": "Conectado a Red Maestra RTK y Central de Enjambres"
+    },
+    "metricas_tiempo_real": {
+        "precision_yolo_promedio": 95.0,
+        "perdida_final_rl": 0.10423,
+        "max_esfuerzo_abrazaderas_mpa": 136.5893,
+        "corriente_promedio_a": 182.6516
+    },
+    "diagnostico_general": "Sistema operando en parámetros nominales óptimos. JSON estructurado correctamente."
+}

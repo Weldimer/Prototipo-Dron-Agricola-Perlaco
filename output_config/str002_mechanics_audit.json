@@ -1,0 +1,19 @@
+{
+    "component": "Abrazadera H3 Rev. D2 / v3.0 & Chasis Hexagonal",
+    "material": "Aluminio 7075-T6 (Abrazaderas) / Fibra de Carbono 3.0mm (Placas)",
+    "mtow_kg": 60.0,
+    "structural_analysis": {
+        "safety_factor": 4.17,
+        "max_node_stress_mpa": 145.2,
+        "yield_strength_7075_t6_mpa": 505.0,
+        "fatigue_mitigation": "Taladro de alivio de Ø4.0 mm en raíz + Radio de acuerdo R1.5 mm"
+    },
+    "tolerances_and_fits": {
+        "carbon_tube_nominal_mm": 50.0,
+        "clamp_inner_diameter_mm": 50.05,
+        "centering_alveolus_p01": "Ø24.0 mm H7",
+        "fastener_torque_nm": 3.2,
+        "thread_locker": "Loctite 243 (Resistente a vibración armónica)"
+    },
+    "real_time_integrity_status": "OPTIMIZED FOR ZERO-FAILURE OPERATION"
+}

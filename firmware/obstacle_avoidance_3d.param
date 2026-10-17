@@ -1,0 +1,11 @@
+# CONFIGURACIÓN DE EVASIÓN DE OBSTÁCULOS 3D - ELECTRÓNICA PERLACO
+# Radar FMCW Frontal / 360 mmWave (Benewake/Boying/Radars)
+
+PRX1_TYPE,8
+PRX1_ORIENT,0
+PRX1_MIN_M,0.8
+PRX1_MAX_M,15.0
+
+AVOID_ENABLE,2          # Evasión activa en modos Auto y PosHold
+AVOID_MARGIN,3.0        # Margen de frenado seguro (3.0 metros)
+AVOID_BEHAVE,0          # Frenado e inmovilización frente al obstáculo

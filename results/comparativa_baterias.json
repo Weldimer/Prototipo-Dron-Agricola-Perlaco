@@ -1,0 +1,16 @@
+{
+    "Baseline_12S_20Ah": {
+        "energia_total_wh": 888.0,
+        "energia_util_wh": 710.4,
+        "autonomia_estimada_min": 3.41,
+        "corriente_total_a": 281.53,
+        "corriente_por_motor_a": 35.19
+    },
+    "Optima_Coaxial_18S_30Ah": {
+        "energia_total_wh": 1997.9999999999998,
+        "energia_util_wh": 1598.4,
+        "autonomia_estimada_min": 7.67,
+        "corriente_total_a": 187.69,
+        "corriente_por_motor_a": 23.46
+    }
+}

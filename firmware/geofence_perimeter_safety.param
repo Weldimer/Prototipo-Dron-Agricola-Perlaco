@@ -1,0 +1,12 @@
+# PARÁMETROS DE GEOFensa Y LÍMITES DE SEGURIDAD OPERACIONAL
+# Vehículo: STR-002 H3 v3.0
+
+FENCE_ENABLE,1
+FENCE_TYPE,7            # Altitud + Círculo + Polígono
+FENCE_ACTION,1          # Disparo de RTL al quebrantar la fensa
+FENCE_ALT_MAX,10.0      # Altura máxima de trabajo: 10.0 m AGL
+FENCE_RADIUS,500.0      # Radio máximo operativo: 500.0 m
+FENCE_MARGIN,2.0        # Margen de amortiguamiento: 2.0 m
+
+RTL_ALT,1500            # Altitud de retorno seguro: 15.0 m (1500 cm)
+RTL_CLIMB_MIN,0

@@ -1,0 +1,15 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "nivel_robustez": "Máxima (Enjambres + YOLO Autoaprendizaje + Atmosfera + Terreno)",
+    "modulos_activos": [
+        "Coordinación de Enjambres Multi-Dron (Líder/Seguidor)",
+        "YOLOv8 con Autoaprendizaje Constante en Borde",
+        "Integración de APIs Climáticas y Compensación de Deriva CDA",
+        "Monitoreo Total de Terreno (Phased-Array) y Telemetría HV 18S"
+    ],
+    "artefactos": {
+        "dashboard_principal": "docs/ecosistema_extremo/dashboard_maxima_robustez.png",
+        "trayectoria_enjambre": "docs/ecosistema_extremo/trayectoria_enjambre.png"
+    }
+}

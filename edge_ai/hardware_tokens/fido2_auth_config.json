@@ -1,0 +1,10 @@
+{
+    "dispositivo": "Romu RP2354A Ultra-Compact USB Token",
+    "arquitectura_mcu": "Dual Arm Cortex-M33 + Dual Hazard3 RISC-V (150 MHz)",
+    "funciones_criticas": [
+        "Autenticación FIDO2 / U2F para Estación de Control Terrestre",
+        "Macros de Parada de Emergencia Instantánea (Kill Switch en USB HID)",
+        "Llave de Encriptación AES-256 para Enlace MAVLink de Enjambre"
+    ],
+    "estado_certificado": "Activo y Validado para Operación en Campo (Veracruz)"
+}

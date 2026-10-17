@@ -1,0 +1,40 @@
+{
+    "region": "Cardel / Veracruz, México",
+    "coordenadas_referencia": {
+        "latitud": 19.1738,
+        "longitud": -96.1342,
+        "altitud_msnm": 15.0
+    },
+    "cultivo": "Saccharum officinarum (Caña de Azúcar)",
+    "etapas_fenologicas": {
+        "temprana_chica": {
+            "dias_despues_siembra": [
+                30,
+                90
+            ],
+            "indice_vegetacion_objetivo": 0.45,
+            "dosis_pwm_recomendada": 1500,
+            "caudal_ml_planta": 120
+        },
+        "madura_grande": {
+            "dias_despues_siembra": [
+                200,
+                360
+            ],
+            "indice_vegetacion_objetivo": 0.82,
+            "dosis_pwm_recomendada": 1850,
+            "caudal_ml_planta": 350
+        }
+    },
+    "aviónica_y_gnss": {
+        "constelaciones_soportadas": [
+            "GPS",
+            "GLONASS",
+            "Galileo",
+            "BeiDou"
+        ],
+        "correccion_diferencial": "RTK + SBAS",
+        "precision_h_cm": 1.0,
+        "precision_v_cm": 1.5
+    }
+}

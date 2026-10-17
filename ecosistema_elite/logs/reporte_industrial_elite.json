@@ -1,0 +1,12 @@
+{
+    "plataforma": "ELECTRÓNICA PERLACO STR-002 H3 v3.0",
+    "mtow_kg": 60.0,
+    "categoria": "Sistema Autónomo de Élite (Competencia Industrial)",
+    "modulos_integrados": [
+        "Enjambres Cognitivos Descentralizados (ROS2 / MAVLink)",
+        "YOLOv8 Edge AI con Autoaprendizaje Continuo",
+        "Integración de APIs Climáticas y Compensación Dinámica CDA",
+        "Monitoreo Estructural y Térmico (SHM + Miner-Palmgren)"
+    ],
+    "artefacto_visual": "docs/ecosistema_elite/dashboard_industrial_elite.png"
+}

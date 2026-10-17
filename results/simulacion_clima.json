@@ -1,0 +1,20 @@
+{
+    "coordenadas": {
+        "lat": 19.36,
+        "lon": -96.53
+    },
+    "clima_actual": {
+        "temperatura_c": 29.5,
+        "humedad_relativa_pct": 71,
+        "viento_ms": 2.2,
+        "densidad_aire_kg_m3": 1.166
+    },
+    "evaluacion_operativa": {
+        "vuelo_autorizado": true,
+        "motivo_estado": "Viento dentro de los márgenes operativos seguros."
+    },
+    "rendimiento_ajustado": {
+        "potencia_hover_real_kw": 12.57,
+        "autonomia_estimada_min": 7.63
+    }
+}

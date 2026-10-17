@@ -1,0 +1,4 @@
+Mision_ID,Parcela,Región,Superficie (ha),Altura Vuelo (m),Velocidad (m/s),Líquido Requerido (L),Tiempo Vuelo (min),Voltaje Final HV (V),Corriente Prom (A),Estado SITL
+FLIGHT-VER-2026-001,VER-CANA-01-CORDOBA,Centro (Córdoba - Orizaba),116.63,3.0,4.0,1749.42,443.2,63.9,50.2,Simulación Exitosa
+FLIGHT-VER-2026-002,VER-CANA-02-TRESVALLES,Cuenca del Papaloapan,117.06,3.0,4.0,1755.94,444.8,64.6,49.0,Simulación Exitosa
+FLIGHT-VER-2026-003,VER-CANA-03-PANUCO,Norte (Pánuco),114.3,3.0,4.0,1714.49,434.3,64.16,60.2,Simulación Exitosa

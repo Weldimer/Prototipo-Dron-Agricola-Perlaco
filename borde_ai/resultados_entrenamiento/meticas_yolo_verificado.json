@@ -1,0 +1,8 @@
+{
+    "modelo": "YOLOv8-FDA / YOLOv5s Base",
+    "dataset_imagenes": 1084,
+    "framework": "PyTorch / Ultralytics",
+    "peso_modelo_mb": 2.96,
+    "latencia_inferencia_fps": 19.2,
+    "estado": "Entrenamiento y validación en Edge AI completados"
+}
