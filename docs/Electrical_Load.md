@@ -1,11 +1,10 @@
-# ⚡ Memoria de Cálculo Eléctrico y Térmico (Bus 18S) - STR-002 H3
+# Memoria de Cálculo Eléctrico y Térmico - Bus HV 18S
 
-## 1. Balance de Corriente y Potencia
-- **Voltaje Nominal (18S):** $66.6 \text{ V}$ ($75.6 \text{ V}$ máximo).
-- **Potencia Total:** $8,400 \text{ W}$.
-- **Corriente Nominal ($I_{nom}$):** $126.12 \text{ A}$.
+## Arquitectura de Potencia
+- **Voltaje Nominal:** Sistema HV a 18S ($66.6\text{V}$ nominales, $75.6\text{V}$ a plena carga).
+- **Conectividad:** Conectores de alta potencia QS8-S Anti-Spark para evitar picos de corriente inductiva en el acoplamiento de baterías.
+- **Cableado:** Cobre apantallado calibre **12 AWG** con aislamiento de silicona de alta temperatura.
 
-## 2. Efecto Joule y Disipación
-Utilizando conductores de cobre de 12 AWG:
-- **Resistencia del Circuito ($R$):** $\approx 0.00625 \Omega$.
-- **Disipación Térmica ($P_j$):** $\approx 99.39 \text{ W}$, disipados de forma óptima mediante placas de aluminio y pasta térmica de alta conductividad.
+## Ley de Joule y Disipación Térmica
+- **Análisis de Corriente:** Cálculo de disipación de potencia por efecto Joule ($P = I^2 R$) bajo corrientes pico de aspersión y elevación vertical.
+- **Caída de Tensión:** Mantenida estrictamente por debajo del $1.5\%$, garantizando eficiencia energética óptima hacia los variadores de velocidad (ESC) y motores brushless.
