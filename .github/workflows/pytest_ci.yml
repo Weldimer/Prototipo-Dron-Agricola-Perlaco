@@ -27,4 +27,4 @@ jobs:
       env:
         PYTHONPATH: ${{ github.workspace }}/edge_ai/src:${{ github.workspace }}/edge_ai/tests
       run: |
-        pytest -v
+        pytest -v tests
