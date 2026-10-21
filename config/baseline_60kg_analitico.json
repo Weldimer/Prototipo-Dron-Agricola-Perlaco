@@ -1,0 +1,38 @@
+{
+  "baseline_id": "STR-002-H3-X8-60KG-ANALYTICAL-REV0",
+  "project": "STR-002 H3",
+  "status": "PRELIMINAR_NO_VALIDADO",
+  "mtow_kg": 60.0,
+  "architecture": {
+    "type": "X8 coaxial",
+    "main_arms": 4,
+    "motors": 8
+  },
+  "load_case": {
+    "load_factor_g": 3.0,
+    "gravity_m_s2": 9.81,
+    "distribution_model": "Carga vertical total distribuida por igual entre cuatro brazos principales",
+    "distribution_verified": false
+  },
+  "arm_geometry": {
+    "outer_diameter_m": 0.05,
+    "wall_thickness_m": 0.002,
+    "effective_length_m": 0.55,
+    "geometry_verified_against_final_cad": false,
+    "provenance": "Documentación del repositorio; pendiente reconciliación con CAD definitivo"
+  },
+  "material": {
+    "type": "CFRP",
+    "laminate_definition": null,
+    "longitudinal_modulus_pa": null,
+    "allowable_bending_stress_pa": null,
+    "source_datasheet": null
+  },
+  "limitations": [
+    "Modelo analítico simplificado de flexión nominal",
+    "No es un análisis por elementos finitos",
+    "No calcula factor de seguridad sin propiedades admisibles verificadas",
+    "No evalúa laminado anisótropo, uniones, abrazaderas, fatiga, pandeo ni vibraciones",
+    "No constituye certificación ni autorización de vuelo"
+  ]
+}

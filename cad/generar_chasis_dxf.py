@@ -13,11 +13,11 @@ def generar_dxf_chasis():
     puntos = [
         (r * 0.92, r * 0.38), (r * 0.38, r * 0.92),
         (-r * 0.38, r * 0.92), (-r * 0.92, r * 0.38),
-        (-r * 0.92, -r * 0.38), (-r * 0.38, -r * -0.92),
+        (-r * 0.92, -r * 0.38), (-r * 0.38, -r * 0.92),
         (r * 0.38, -r * 0.92), (r * 0.92, -r * 0.38),
         (r * 0.92, r * 0.38) # Cierre
     ]
-    msp.add_lwpolyline(puntos)
+    msp.add_lwpolyline(puntos, close=True)
 
     # Perforaciones para Abrazaderas de Brazos H3 (8 brazos Coaxiales)
     angulos = [0, 45, 90, 135, 180, 225, 270, 315]
@@ -30,7 +30,7 @@ def generar_dxf_chasis():
 
     # Ventana central de disipación para Cube Orange+ (80x80 mm)
     ventana_puntos = [(-40.0, -40.0), (40.0, -40.0), (40.0, 40.0), (-40.0, 40.0), (-40.0, -40.0)]
-    msp.add_lwpolyline(ventana_puntos)
+    msp.add_lwpolyline(ventana_puntos, close=True)
 
     doc.saveas("cad/chasis_central_cfrp_3mm_str002_h3.dxf")
     print("✅ Archivo cad/chasis_central_cfrp_3mm_str002_h3.dxf generado con éxito.")
