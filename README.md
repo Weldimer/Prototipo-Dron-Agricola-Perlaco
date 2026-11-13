@@ -81,3 +81,5 @@ Estado del Repositorio: Sincronizado, Operativo y Monitoreado mediante Gemelo Di
 1. **Límite de Tiempo Estricto:** Retornar a base o iniciar descenso antes de los 8.20 minutos de vuelo.
 2. **Control de Despegue:** Accionar el acelerador de forma progresiva con el MTOW de 60.0 kg para mitigar picos transitorios de corriente.
 3. **Inspección Post-Vuelo:** Verificar el estado térmico del pack 18S; si se registran temperaturas superiores a $60\,^\circ\text{C}$, suspender vuelos consecutivos.
+
+TRABAJANDO !!
