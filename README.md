@@ -81,21 +81,3 @@ Estado del Repositorio: Sincronizado, Operativo y Monitoreado mediante Gemelo Di
 1. **Límite de Tiempo Estricto:** Retornar a base o iniciar descenso antes de los 8.20 minutos de vuelo.
 2. **Control de Despegue:** Accionar el acelerador de forma progresiva con el MTOW de 60.0 kg para mitigar picos transitorios de corriente.
 3. **Inspección Post-Vuelo:** Verificar el estado térmico del pack 18S; si se registran temperaturas superiores a $60\,^\circ\text{C}$, suspender vuelos consecutivos.
-
----
-
-## 🖤 Dedicatoria y Agradecimientos
-Este proyecto de ingeniería y prototipo del dron agrícola **ELECTRÓNICA PERLACO — STR-002 H3 v3.0** representa dedicación, resiliencia y constante evolución técnica. No habría sido posible sin las personas que han marcado mi camino:
-
-* **A mi Padre:** Técnico, de quien heredé la pasión por desarmar el mundo, entender cómo funciona y volverlo a construir. Gracias por ser mi primera escuela de ingeniería.
-* **A mi Madre:** Por su firmeza inquebrantable. De ella aprendí el carácter, la disciplina y la fuerza para no rendirme jamás frente a la adversidad.
-* **A mi Hermana:** Por estar siempre a mi lado, brindándome su apoyo incondicional en cada etapa de este recorrido.
-* **A mis Amigos:** Por respaldarme, confiar en mis ideas y acompañarme en las jornadas de desarrollo.
-* **A quienes confiaron en mí sus aparatos (y que alguna vez descompuse):** Gracias por la paciencia y por brindarme el campo de pruebas real donde aprendí a reparar, innovar y perfeccionar mis conocimientos.
-* **A mis detractores y a quienes me desearon lo peor:** Sus dudas y críticas fueron el combustible perfecto para autoexigirme más, pulir cada detalle técnico y demostrar con hechos, ciencia y simulación de lo que soy capaz.
-* **🏡 A los de la casita xD y mis medios hermanos:** Gracias por estar siempre, por la compañía y las risas.
-* **🙏 A mis hermanos de Fe en Cristo:** De corazón, muchas gracias por sus oraciones constantes y su cariño genuino.
-* **❤️ A toda mi familia:** El pilar fundamental de cada esfuerzo y paso hacia adelante.
-
-> **Xquixhe pe’ guiraatu’ !!!!**  
-> *Ese no es el último XD, continuará...*
