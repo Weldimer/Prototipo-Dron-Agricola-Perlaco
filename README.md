@@ -16,6 +16,7 @@ Estado del Repositorio: Sincronizado, Operativo y Monitoreado mediante Gemelo Di
 
 ---
 
+
 ## 📊 Panel de Control y Subsistemas Clave
 | Subsistema Clave | Componente / Algoritmo | Estado Operativo | Parámetro Crítico / Límite |
 | :--- | :--- | :--- | :--- |
@@ -29,57 +30,4 @@ Estado del Repositorio: Sincronizado, Operativo y Monitoreado mediante Gemelo Di
 
 ## 📋 Arquitectura y Especificaciones Físicas del Sistema
 * **Modelo:** ELECTRÓNICA PERLACO STR-002 H3
-* **Configuración:** Octocóptero (8 motores coaxiales / extrotores)
-* **Peso Seco (Chasis + Aviónica):** 30.0 kg
-* **Capacidad Máxima de Líquido:** 25.0 kg
-* **Peso Máximo al Despegue (MTOW):** 60.0 kg
-* **Sistema de Acumulación:** Batería inteligente configurada en **18S (66.6 V nominales, 30.0 Ah)**.
-* **Propulsión e Hidráulica:** Hélices de 30 pulgadas, motores con constante $Kv = 120\text{ RPM/V}$ y sistema de aspersión CDA.
-
----
-
-## 🚀 Resultados de Misión Optimizada (Simulación Dinámica)
-*(Evaluado bajo un margen estricto de seguridad del 85% de capacidad útil de descarga: 25.50 Ah)*
-
-| Parámetro de Ingeniería | Valor Validado |
-| :--- | :--- |
-| **Tiempo Máximo de Misión Seguro** | 8.20 minutos |
-| **Consumo Total de Batería** | 25.62 Ah |
-| **Corriente Promedio de Operación** | 186.04 A |
-| **Corriente Máxima (Despegue / Tanque Lleno)** | 187.64 A |
-| **Voltaje Terminal Inicial (Bajo Carga)** | 63.36 V |
-| **Voltaje Terminal Final (Bajo Carga)** | 63.27 V |
-
----
-
-## 🌡️ Modelo Térmico y Gestión del Pack 18S
-* **Modelo Aplicado:** Disipación por efecto Joule frente al enfriamiento por convección forzada debida al flujo de aire descendente (*downwash*) de las 8 hélices principales.
-* **Evolución Térmica de Celdas:**
-  * Temperatura Inicial: $28.53\,^\circ\text{C}$
-  * Temperatura Promedio: $54.85\,^\circ\text{C}$
-  * Temperatura Máxima Final: $49.66\,^\circ\text{C}$ (Cumpliendo con el umbral operativo seguro por debajo de $60\,^\circ\text{C}$).
-
----
-
-## ⚙️ Actualización Avanzada: Mecánica de Acoplamiento y Simulación en Tiempo Real
-* **Pernos de Bloqueo Cónico ($60^\circ$):** Geometría optimizada con tolerancia H7/g6 en aleación de Titanio Grado 5 y Aluminio 7075-T6, asegurando estanqueidad ($2970.84\text{ mm}^3$) y sistema *Fail-Safe* por resorte.
-* **Simulación en Tiempo Real (APIs en Vivo):** Conexión integrada con servicios meteorológicos (OpenWeather) y constelaciones GNSS/RTK centimétricas.
-* **Inteligencia Artificial (YOLO Edge):** Módulo de autoaprendizaje en el borde para mitigación de errores en el primer vuelo y control PID dinámico ante ráfagas de viento.
-
----
-
-## 📁 Estructura del Repositorio y Entregables
-* `docs/RESUMEN_TECNICO_STR002.md`: Documentación formal de ingeniería del gemelo digital.
-* `docs/BOM_ampliada_STR002.md`: Lista de materiales ampliada con opciones de alta gama.
-* `docs/estudio_ventajas_nuevos_elementos.md`: Estudio técnico de los nuevos elementos (Titanio, QS8-S, etc.).
-* `simulation/simulacion_mision_completa_str002.csv`: Conjunto de datos temporal sincronizado.
-* `cad/perno_bloqueo_conico_60deg.stl`: Modelo 3D estanco del perno cónico.
-
----
-
-## 🚀 Pautas Operativas para el Piloto
-1. **Límite de Tiempo Estricto:** Retornar a base o iniciar descenso antes de los 8.20 minutos de vuelo.
-2. **Control de Despegue:** Accionar el acelerador de forma progresiva con el MTOW de 60.0 kg para mitigar picos transitorios de corriente.
-3. **Inspección Post-Vuelo:** Verificar el estado térmico del pack 18S; si se registran temperaturas superiores a $60\,^\circ\text{C}$, suspender vuelos consecutivos.
-
-TRABAJANDO !!
+* *
